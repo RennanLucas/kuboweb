@@ -1,65 +1,79 @@
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroMockup from "@/assets/hero-mockup.jpg";
 
 const HeroSection = () => {
+  const scrollToPortfolio = () => {
+    document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 px-4">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/20 to-background" />
-      
-      {/* Subtle gold glow */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 left-1/4 w-72 h-72 bg-gold/3 rounded-full blur-3xl" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 px-4">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-subtle" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl" />
 
-      <div className="container mx-auto max-w-7xl relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
-          <div className="text-center lg:text-left space-y-8">
-            <div className="space-y-4 animate-fade-in">
-              <p className="text-gold font-medium tracking-wider uppercase text-sm">
-                Presença digital profissional
-              </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight text-foreground">
-                Sites Profissionais para Negócios que Querem{" "}
-                <span className="text-gradient-gold">Crescer</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
-                Eu monto sites profissionais modernos, rápidos e estratégicos para empresas e autônomos.
-              </p>
-            </div>
-
-            <div className="space-y-4 animate-fade-in-delay-1">
-              <Button
-                variant="whatsapp"
-                size="xl"
-                className="w-full sm:w-auto"
-                asChild
-              >
-                <a
-                  href="https://wa.me/5511932197334"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MessageCircle className="w-6 h-6" />
-                  Falar no WhatsApp
-                </a>
-              </Button>
-              <p className="text-muted-foreground text-sm">
-                Atendimento direto com Rennan Lucas.
-              </p>
-            </div>
+      <div className="container mx-auto max-w-5xl relative z-10">
+        <div className="text-center space-y-8">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium animate-fade-in">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            Web Design Profissional
           </div>
 
-          {/* Right content - Mockup */}
-          <div className="relative animate-fade-in-delay-2">
-            <div className="relative animate-float">
-              <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-transparent rounded-2xl blur-2xl" />
-              <img
-                src={heroMockup}
-                alt="Mockup de sites profissionais em computador, laptop, tablet e celular"
-                className="relative w-full rounded-2xl shadow-2xl border border-border/50"
-              />
+          {/* Headline */}
+          <div className="space-y-6 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold leading-[1.1] text-foreground">
+              Criação de sites profissionais que{" "}
+              <span className="text-gradient-primary">geram clientes</span>{" "}
+              pelo WhatsApp
+            </h1>
+            
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Sites modernos, rápidos e prontos para Google, feitos para empresas que querem vender mais online.
+            </p>
+          </div>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-delay-1">
+            <Button
+              variant="whatsapp"
+              size="xl"
+              asChild
+            >
+              <a
+                href="https://wa.me/5511932197334"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Falar no WhatsApp
+              </a>
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="xl"
+              onClick={scrollToPortfolio}
+            >
+              Ver Portfólio
+              <ArrowDown className="w-4 h-4" />
+            </Button>
+          </div>
+
+          {/* Trust indicators */}
+          <div className="flex flex-wrap items-center justify-center gap-6 pt-8 text-sm text-muted-foreground animate-fade-in-delay-2">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-success" />
+              Resposta rápida
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-success" />
+              Sem burocracia
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-success" />
+              Atendimento direto
             </div>
           </div>
         </div>

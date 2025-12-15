@@ -1,72 +1,67 @@
-import { MessageCircle, FileText, Code, Rocket } from "lucide-react";
+import { MessageSquare, Palette, Rocket } from "lucide-react";
 
 const steps = [
   {
-    icon: MessageCircle,
+    icon: MessageSquare,
     number: "01",
-    title: "Contato pelo WhatsApp",
-    description: "Você explica o que precisa e tira dúvidas.",
+    title: "Briefing",
+    description: "Entendo seu negócio, objetivos e o que você precisa no site.",
   },
   {
-    icon: FileText,
+    icon: Palette,
     number: "02",
-    title: "Planejamento do site",
-    description: "Definimos páginas, seções e estilo.",
-  },
-  {
-    icon: Code,
-    number: "03",
     title: "Criação",
-    description: "Desenvolvimento completo do site + ajustes.",
+    description: "Desenvolvo o site com design moderno e foco em resultados.",
   },
   {
     icon: Rocket,
-    number: "04",
-    title: "Entrega + suporte inicial",
-    description: "Colocamos no ar e você já pode divulgar.",
+    number: "03",
+    title: "Publicação",
+    description: "Site no ar, pronto para receber clientes e gerar vendas.",
   },
 ];
 
 const ProcessSection = () => {
   return (
-    <section className="py-24 px-4 bg-background">
-      <div className="container mx-auto max-w-6xl">
+    <section className="py-24 px-4 bg-secondary/30">
+      <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16 space-y-4">
-          <p className="text-gold font-medium tracking-wider uppercase text-sm">
-            Simples e direto
+          <p className="text-primary font-medium text-sm uppercase tracking-wider">
+            Processo
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground">
-            Como funciona o <span className="text-gradient-gold">processo</span>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+            Como funciona
           </h2>
+          <p className="text-muted-foreground">
+            Simples, direto e sem burocracia.
+          </p>
         </div>
 
         <div className="relative">
-          {/* Timeline line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold/30 to-transparent -translate-y-1/2" />
+          {/* Connection line */}
+          <div className="hidden md:block absolute top-1/2 left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-border to-transparent -translate-y-1/2" />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {steps.map((step, index) => (
               <div
                 key={step.title}
-                className="relative group"
+                className="relative text-center"
               >
-                <div className="p-8 rounded-2xl bg-card border border-border/50 hover:border-gold/50 transition-all duration-300 hover:shadow-gold text-center">
-                  {/* Number badge */}
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center text-accent-foreground font-bold text-sm shadow-gold">
-                    {step.number}
-                  </div>
+                {/* Number circle */}
+                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/25 relative z-10">
+                  <step.icon className="w-7 h-7 text-primary-foreground" />
+                </div>
 
-                  <div className="pt-4">
-                    <div className="w-16 h-16 rounded-2xl bg-gold/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/20 transition-colors duration-300">
-                      <step.icon className="w-8 h-8 text-gold" />
-                    </div>
-                    <h3 className="text-xl font-serif font-semibold mb-3 text-foreground">
-                      {step.title}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {step.description}
-                    </p>
-                  </div>
+                <div className="space-y-3">
+                  <span className="text-xs font-bold text-primary uppercase tracking-widest">
+                    Passo {step.number}
+                  </span>
+                  <h3 className="text-xl font-heading font-semibold text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
               </div>
             ))}

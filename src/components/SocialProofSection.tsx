@@ -23,14 +23,34 @@ const projects = [
 
 const testimonials = [
   {
-    text: "Entrega rápida e visual profissional. Exatamente o que eu precisava.",
+    text: "Entrega rápida e visual profissional. Exatamente o que eu precisava para minha clínica.",
     author: "Ana C.",
     role: "Psicóloga",
   },
   {
-    text: "O site ficou moderno e fácil de usar. Já recebi contatos pelo WhatsApp.",
+    text: "O site ficou moderno e fácil de usar. Já recebi vários contatos pelo WhatsApp.",
     author: "Marcos R.",
     role: "Lojista",
+  },
+  {
+    text: "Atendimento excelente, explicou tudo com paciência. Super recomendo!",
+    author: "Eduardo S.",
+    role: "Consultor Financeiro",
+  },
+  {
+    text: "Finalmente tenho um site que representa meu trabalho. Profissional demais!",
+    author: "Juliana M.",
+    role: "Arquiteta",
+  },
+  {
+    text: "Processo simples e sem enrolação. O resultado superou minhas expectativas.",
+    author: "Roberto L.",
+    role: "Advogado",
+  },
+  {
+    text: "Meus clientes elogiam o site toda hora. Valeu muito o investimento.",
+    author: "Camila P.",
+    role: "Dentista",
   },
 ];
 
@@ -81,7 +101,7 @@ const SocialProofSection = () => {
         </div>
 
         {/* Testimonials */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}

@@ -1,36 +1,32 @@
 import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
-import DifferentialsSection from "@/components/DifferentialsSection";
-import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
-import PortfolioSection from "@/components/PortfolioSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import AudienceSection from "@/components/AudienceSection";
-import FAQSection from "@/components/FAQSection";
+import SocialProofSection from "@/components/SocialProofSection";
 import CTASection from "@/components/CTASection";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const Index = () => {
   return (
     <main className="min-h-screen bg-background">
       <HeroSection />
       <BenefitsSection />
-      <DifferentialsSection />
-      <AboutSection />
+      <ServicesSection />
       <ProcessSection />
-      <PortfolioSection />
-      <TestimonialsSection />
-      <AudienceSection />
-      <FAQSection />
+      <SocialProofSection />
       <CTASection />
       
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-border/50">
-        <div className="container mx-auto max-w-6xl text-center">
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Rennan Lucas. Todos os direitos reservados.
-          </p>
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+            <p>© {new Date().getFullYear()} Rennan Lucas Web Design</p>
+            <p>WhatsApp: +55 11 93219-7334</p>
+          </div>
         </div>
       </footer>
+
+      <FloatingWhatsApp />
     </main>
   );
 };

@@ -1,0 +1,90 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const faqs = [
+  {
+    question: "Quanto custa criar um site profissional?",
+    answer:
+      "O valor varia conforme a complexidade do projeto. Landing pages simples custam a partir de R$497, e sites institucionais completos a partir de R$997. Envie uma mensagem no WhatsApp para um orçamento personalizado.",
+  },
+  {
+    question: "Em quanto tempo o site fica pronto?",
+    answer:
+      "A maioria dos projetos é entregue entre 3 a 7 dias úteis. Landing pages simples podem ficar prontas em até 48 horas. O prazo exato depende da complexidade e dos materiais fornecidos.",
+  },
+  {
+    question: "O site fica otimizado para celular?",
+    answer:
+      "Sim! Todos os sites são desenvolvidos com abordagem mobile-first, garantindo uma experiência perfeita em smartphones, tablets e desktops.",
+  },
+  {
+    question: "O site aparece no Google?",
+    answer:
+      "Sim. Todos os projetos incluem SEO básico (títulos, meta descriptions, estrutura semântica, velocidade otimizada). Para resultados mais avançados, oferecemos consultoria de SEO como serviço adicional.",
+  },
+  {
+    question: "Preciso fornecer conteúdo e imagens?",
+    answer:
+      "Idealmente sim, pois o conteúdo que melhor representa seu negócio é o seu. Mas posso ajudar na produção de textos e na seleção de imagens profissionais para complementar o projeto.",
+  },
+  {
+    question: "O que está incluso no valor?",
+    answer:
+      "Design personalizado, desenvolvimento responsivo, otimização SEO, integração com WhatsApp, hospedagem e domínio orientados, e suporte pós-lançamento por 30 dias.",
+  },
+];
+
+const FAQSection = () => {
+  return (
+    <section id="faq" className="py-24 px-4 bg-secondary/30">
+      <div className="container mx-auto max-w-3xl">
+        <div className="text-center mb-16 space-y-4">
+          <p className="text-primary font-medium text-sm uppercase tracking-wider">
+            Dúvidas
+          </p>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+            Perguntas frequentes
+          </h2>
+          <p className="text-muted-foreground">
+            Tudo o que você precisa saber antes de contratar.
+          </p>
+        </div>
+
+        <Accordion type="single" collapsible className="space-y-3">
+          {faqs.map((faq, index) => (
+            <AccordionItem
+              key={index}
+              value={`item-${index}`}
+              className="card-premium border border-border/50 rounded-2xl px-6 data-[state=open]:border-primary/30 data-[state=open]:shadow-glow-sm transition-all"
+            >
+              <AccordionTrigger className="text-left font-heading font-semibold text-foreground hover:text-primary transition-colors py-5 hover:no-underline">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+
+        <div className="text-center mt-12">
+          <p className="text-muted-foreground mb-4">Ainda tem dúvidas?</p>
+          <Button variant="whatsapp" size="lg" asChild>
+            <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="w-5 h-5" />
+              Pergunte no WhatsApp
+            </a>
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FAQSection;

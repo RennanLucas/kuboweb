@@ -20,7 +20,7 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section className="py-24 px-4 bg-secondary/30">
+    <section id="beneficios" className="py-24 px-4 bg-secondary/30">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 space-y-4">
           <p className="text-primary font-medium text-sm uppercase tracking-wider">

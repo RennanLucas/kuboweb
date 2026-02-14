@@ -31,7 +31,7 @@ const CTASection = () => {
               rel="noopener noreferrer"
             >
               <MessageCircle className="w-6 h-6" />
-              Falar com Rennan no WhatsApp
+              Falar no WhatsApp
             </a>
           </Button>
 

@@ -51,7 +51,7 @@ const Index = () => {
                 {[
                   { label: "Benefícios", href: "#beneficios" },
                   { label: "Serviços", href: "#servicos" },
-                  { label: "Portfólio", href: "#portfolio" },
+                  { label: "Depoimentos", href: "#depoimentos" },
                   { label: "FAQ", href: "#faq" },
                 ].map((link) => (
                   <a

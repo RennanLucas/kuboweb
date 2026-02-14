@@ -1,25 +1,4 @@
-import { Building2, Dumbbell, Stethoscope, Star, Quote } from "lucide-react";
-
-const projects = [
-  {
-    title: "ImobiPrime",
-    category: "Imobiliária",
-    icon: Building2,
-    description: "Landing page focada em captação de leads para imobiliária moderna.",
-  },
-  {
-    title: "FitPro Studio",
-    category: "Personal Trainer",
-    icon: Dumbbell,
-    description: "Site institucional para personal trainer com foco em conversão.",
-  },
-  {
-    title: "Odonto Sorriso",
-    category: "Clínica Odontológica",
-    icon: Stethoscope,
-    description: "Site completo para consultório com agendamento via WhatsApp.",
-  },
-];
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -56,48 +35,16 @@ const testimonials = [
 
 const SocialProofSection = () => {
   return (
-    <section id="portfolio" className="py-24 px-4 bg-background">
+    <section id="depoimentos" className="py-24 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
         <div className="text-center mb-16 space-y-4">
           <p className="text-primary font-medium text-sm uppercase tracking-wider">
-            Prova Social
+            Depoimentos
           </p>
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
-            Projetos e resultados
+            O que nossos clientes dizem
           </h2>
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          {projects.map((project) => (
-            <div
-              key={project.title}
-              className="card-premium group"
-            >
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                  <project.icon className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-heading font-semibold text-foreground">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-primary">
-                    {project.category}
-                  </p>
-                </div>
-              </div>
-              <p className="text-muted-foreground text-sm">
-                {project.description}
-              </p>
-              <div className="mt-4 pt-4 border-t border-border">
-                <span className="text-xs text-muted-foreground bg-secondary px-3 py-1 rounded-full">
-                  Projeto demonstrativo
-                </span>
-              </div>
-            </div>
-          ))}
         </div>
 
         {/* Testimonials */}

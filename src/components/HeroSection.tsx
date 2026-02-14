@@ -2,8 +2,8 @@ import { MessageCircle, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
-  const scrollToPortfolio = () => {
-    document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToServicos = () => {
+    document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -54,9 +54,9 @@ const HeroSection = () => {
             <Button
               variant="outline"
               size="xl"
-              onClick={scrollToPortfolio}
+              onClick={scrollToServicos}
             >
-              Ver Portfólio
+              Ver Serviços
               <ArrowDown className="w-4 h-4" />
             </Button>
           </div>

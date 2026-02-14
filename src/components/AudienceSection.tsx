@@ -29,12 +29,12 @@ const AudienceSection = () => {
           {audiences.map((item) => (
             <div
               key={item.label}
-              className="card-premium flex items-center gap-4 group"
+              className="card-premium flex flex-col items-center text-center gap-3 p-5 group"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
                 <item.icon className="w-6 h-6 text-primary" />
               </div>
-              <span className="font-medium text-foreground text-sm md:text-base">
+              <span className="font-medium text-foreground text-sm">
                 {item.label}
               </span>
             </div>

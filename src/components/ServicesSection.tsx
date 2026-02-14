@@ -1,4 +1,4 @@
-import { FileText, Building2, MessageCircle } from "lucide-react";
+import { FileText, Building2, ShoppingCart, Megaphone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
@@ -13,6 +13,18 @@ const services = [
     title: "Sites Institucionais",
     description: "Presença digital completa para sua empresa. Múltiplas páginas com informações sobre seu negócio.",
     features: ["Várias páginas", "SEO otimizado", "Gestão de conteúdo"],
+  },
+  {
+    icon: ShoppingCart,
+    title: "Loja Virtual",
+    description: "Venda seus produtos online com uma loja profissional, segura e fácil de gerenciar.",
+    features: ["Catálogo de produtos", "Pagamento integrado", "Painel de gestão"],
+  },
+  {
+    icon: Megaphone,
+    title: "Anúncios",
+    description: "Campanhas de tráfego pago no Google e redes sociais para atrair clientes qualificados.",
+    features: ["Google Ads", "Meta Ads", "Relatórios de performance"],
   },
 ];
 
@@ -32,7 +44,7 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
           {services.map((service, index) => (
             <div
               key={service.title}

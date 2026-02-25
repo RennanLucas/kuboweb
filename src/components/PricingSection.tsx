@@ -1,5 +1,6 @@
 import { PricingCard } from "@/components/ui/dark-gradient-pricing";
 import { motion } from "framer-motion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const PricingSection = () => {
   return (
@@ -34,65 +35,78 @@ const PricingSection = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <PricingCard
-            tier="Anúncios"
-            price="R$ 280"
-            bestFor="Ideal para quem quer tráfego rápido"
-            CTA="Solicitar Orçamento"
-            benefits={[
-              { text: "Campanha Google Ads", checked: true },
-              { text: "Configuração completa", checked: true },
-              { text: "Segmentação de público", checked: true },
-              { text: "Relatório de resultados", checked: true },
-              { text: "Otimização mensal", checked: false },
-              { text: "Gestão contínua", checked: false },
-            ]}
-          />
-          <PricingCard
-            tier="Site & Landing Page"
-            price="R$ 760"
-            bestFor="Perfeito para presença online profissional"
-            CTA="Quero Meu Site"
-            popular
-            benefits={[
-              { text: "Design profissional", checked: true },
-              { text: "Responsivo (mobile)", checked: true },
-              { text: "Otimizado para Google (SEO)", checked: true },
-              { text: "Botão WhatsApp integrado", checked: true },
-              { text: "Domínio personalizado", checked: true },
-              { text: "Suporte pós-entrega", checked: true },
-            ]}
-          />
-          <PricingCard
-            tier="Loja Virtual"
-            price="R$ 1.200"
-            bestFor="Para quem quer vender produtos online"
-            CTA="Criar Minha Loja"
-            benefits={[
-              { text: "Tudo do plano Site", checked: true },
-              { text: "Catálogo de produtos", checked: true },
-              { text: "Carrinho de compras", checked: true },
-              { text: "Integração de pagamento", checked: true },
-              { text: "Painel administrativo", checked: true },
-              { text: "Gestão de estoque", checked: true },
-            ]}
-          />
-          <PricingCard
-            tier="Manutenção Mensal"
-            price="R$ 70/mês"
-            bestFor="Mantenha seu site sempre atualizado"
-            CTA="Contratar Manutenção"
-            benefits={[
-              { text: "Atualizações de conteúdo", checked: true },
-              { text: "Correções e ajustes", checked: true },
-              { text: "Backup mensal", checked: true },
-              { text: "Suporte prioritário", checked: true },
-              { text: "Monitoramento de uptime", checked: true },
-              { text: "Relatório mensal", checked: true },
-            ]}
-          />
-        </div>
+        <Tabs defaultValue="servicos" className="w-full">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-10">
+            <TabsTrigger value="servicos">Serviços</TabsTrigger>
+            <TabsTrigger value="manutencao">Manutenção</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="servicos">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <PricingCard
+                tier="Anúncios"
+                price="R$ 280"
+                bestFor="Ideal para quem quer tráfego rápido"
+                CTA="Solicitar Orçamento"
+                benefits={[
+                  { text: "Campanha Google Ads", checked: true },
+                  { text: "Configuração completa", checked: true },
+                  { text: "Segmentação de público", checked: true },
+                  { text: "Relatório de resultados", checked: true },
+                  { text: "Otimização mensal", checked: false },
+                  { text: "Gestão contínua", checked: false },
+                ]}
+              />
+              <PricingCard
+                tier="Site & Landing Page"
+                price="R$ 760"
+                bestFor="Perfeito para presença online profissional"
+                CTA="Quero Meu Site"
+                popular
+                benefits={[
+                  { text: "Design profissional", checked: true },
+                  { text: "Responsivo (mobile)", checked: true },
+                  { text: "Otimizado para Google (SEO)", checked: true },
+                  { text: "Botão WhatsApp integrado", checked: true },
+                  { text: "Domínio personalizado", checked: true },
+                  { text: "Suporte pós-entrega", checked: true },
+                ]}
+              />
+              <PricingCard
+                tier="Loja Virtual"
+                price="R$ 1.200"
+                bestFor="Para quem quer vender produtos online"
+                CTA="Criar Minha Loja"
+                benefits={[
+                  { text: "Tudo do plano Site", checked: true },
+                  { text: "Catálogo de produtos", checked: true },
+                  { text: "Carrinho de compras", checked: true },
+                  { text: "Integração de pagamento", checked: true },
+                  { text: "Painel administrativo", checked: true },
+                  { text: "Gestão de estoque", checked: true },
+                ]}
+              />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="manutencao">
+            <div className="max-w-md mx-auto">
+              <PricingCard
+                tier="Manutenção Mensal"
+                price="R$ 70/mês"
+                bestFor="Mantenha seu site sempre atualizado"
+                CTA="Contratar Manutenção"
+                benefits={[
+                  { text: "Atualizações de conteúdo", checked: true },
+                  { text: "Correções e ajustes", checked: true },
+                  { text: "Backup mensal", checked: true },
+                  { text: "Suporte prioritário", checked: true },
+                  { text: "Monitoramento de uptime", checked: true },
+                ]}
+              />
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   );

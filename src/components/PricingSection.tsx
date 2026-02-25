@@ -1,51 +1,6 @@
+import { PricingCard } from "@/components/ui/dark-gradient-pricing";
 import { motion } from "framer-motion";
-import { Check, X, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { cn } from "@/lib/utils";
-
-const features = [
-  "Design profissional",
-  "Responsivo (mobile)",
-  "Otimizado para Google (SEO)",
-  "Botão WhatsApp integrado",
-  "Domínio personalizado",
-  "Suporte pós-entrega",
-  "Catálogo de produtos",
-  "Carrinho de compras",
-  "Integração de pagamento",
-  "Painel administrativo",
-];
-
-const plans = [
-  {
-    name: "Anúncios",
-    price: "R$ 280",
-    popular: false,
-    features: [true, false, true, true, false, false, false, false, false, false],
-  },
-  {
-    name: "Site & Landing Page",
-    price: "R$ 560",
-    popular: true,
-    features: [true, true, true, true, true, true, false, false, false, false],
-  },
-  {
-    name: "Loja Virtual",
-    price: "R$ 1.200",
-    popular: false,
-    features: [true, true, true, true, true, true, true, true, true, true],
-  },
-];
-
-const maintenanceFeatures = [
-  "Atualizações de conteúdo",
-  "Correções e ajustes",
-  "Backup mensal",
-  "Suporte prioritário",
-  "Monitoramento de uptime",
-];
 
 const PricingSection = () => {
   return (
@@ -87,133 +42,69 @@ const PricingSection = () => {
           </TabsList>
 
           <TabsContent value="servicos">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <Card className="overflow-hidden border-border/50 bg-card">
-                {/* Header com planos */}
-                <div className="grid grid-cols-4 border-b border-border/50">
-                  <div className="p-4 md:p-6 flex items-end">
-                    <p className="text-sm text-muted-foreground">Recursos</p>
-                  </div>
-                  {plans.map((plan) => (
-                    <div
-                      key={plan.name}
-                      className={cn(
-                        "p-4 md:p-6 text-center border-l border-border/50",
-                        plan.popular && "bg-primary/5"
-                      )}
-                    >
-                      {plan.popular && (
-                        <span className="text-[10px] uppercase tracking-wider font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">
-                          Popular
-                        </span>
-                      )}
-                      <p className="font-heading font-bold text-foreground text-sm md:text-base mt-1">
-                        {plan.name}
-                      </p>
-                      <p className="text-xl md:text-2xl font-bold text-foreground mt-1">
-                        {plan.price}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Linhas de features */}
-                {features.map((feature, i) => (
-                  <div
-                    key={feature}
-                    className={cn(
-                      "grid grid-cols-4 border-b border-border/30",
-                      i % 2 === 0 && "bg-secondary/20"
-                    )}
-                  >
-                    <div className="p-3 md:p-4 flex items-center">
-                      <span className="text-sm text-foreground">{feature}</span>
-                    </div>
-                    {plans.map((plan) => (
-                      <div
-                        key={plan.name}
-                        className={cn(
-                          "p-3 md:p-4 flex items-center justify-center border-l border-border/30",
-                          plan.popular && "bg-primary/5"
-                        )}
-                      >
-                        {plan.features[i] ? (
-                          <Check className="w-4 h-4 text-primary" />
-                        ) : (
-                          <X className="w-4 h-4 text-muted-foreground/40" />
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-
-                {/* CTAs */}
-                <div className="grid grid-cols-4">
-                  <div className="p-4 md:p-6" />
-                  {plans.map((plan) => (
-                    <div
-                      key={plan.name}
-                      className={cn(
-                        "p-4 md:p-6 border-l border-border/50",
-                        plan.popular && "bg-primary/5"
-                      )}
-                    >
-                      <Button
-                        variant={plan.popular ? "default" : "outline"}
-                        size="sm"
-                        className="w-full text-xs"
-                        asChild
-                      >
-                        <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
-                          <MessageCircle className="w-3 h-3 mr-1" />
-                          Contratar
-                        </a>
-                      </Button>
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <PricingCard
+                tier="Anúncios"
+                price="R$ 280"
+                bestFor="Ideal para quem quer tráfego rápido"
+                CTA="Solicitar Orçamento"
+                benefits={[
+                  { text: "Campanha Google Ads", checked: true },
+                  { text: "Configuração completa", checked: true },
+                  { text: "Segmentação de público", checked: true },
+                  { text: "Relatório de resultados", checked: true },
+                  { text: "Otimização mensal", checked: false },
+                  { text: "Gestão contínua", checked: false },
+                ]}
+              />
+              <PricingCard
+                tier="Site & Landing Page"
+                price="R$ 760"
+                bestFor="Perfeito para presença online profissional"
+                CTA="Quero Meu Site"
+                popular
+                benefits={[
+                  { text: "Design profissional", checked: true },
+                  { text: "Responsivo (mobile)", checked: true },
+                  { text: "Otimizado para Google (SEO)", checked: true },
+                  { text: "Botão WhatsApp integrado", checked: true },
+                  { text: "Domínio personalizado", checked: true },
+                  { text: "Suporte pós-entrega", checked: true },
+                ]}
+              />
+              <PricingCard
+                tier="Loja Virtual"
+                price="R$ 1.200"
+                bestFor="Para quem quer vender produtos online"
+                CTA="Criar Minha Loja"
+                benefits={[
+                  { text: "Tudo do plano Site", checked: true },
+                  { text: "Catálogo de produtos", checked: true },
+                  { text: "Carrinho de compras", checked: true },
+                  { text: "Integração de pagamento", checked: true },
+                  { text: "Painel administrativo", checked: true },
+                  { text: "Gestão de estoque", checked: true },
+                ]}
+              />
+            </div>
           </TabsContent>
 
           <TabsContent value="manutencao">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <Card className="overflow-hidden border-border/50 bg-card max-w-lg mx-auto">
-                <div className="p-6 text-center border-b border-border/50">
-                  <p className="text-sm text-primary font-medium">Manutenção Mensal</p>
-                  <p className="text-3xl font-bold text-foreground mt-2">R$ 70<span className="text-base font-normal text-muted-foreground">/mês</span></p>
-                  <p className="text-sm text-muted-foreground mt-1">Mantenha seu site sempre atualizado</p>
-                </div>
-                {maintenanceFeatures.map((feature, i) => (
-                  <div
-                    key={feature}
-                    className={cn(
-                      "flex items-center gap-3 px-6 py-3 border-b border-border/30",
-                      i % 2 === 0 && "bg-secondary/20"
-                    )}
-                  >
-                    <Check className="w-4 h-4 text-primary shrink-0" />
-                    <span className="text-sm text-foreground">{feature}</span>
-                  </div>
-                ))}
-                <div className="p-6">
-                  <Button className="w-full" asChild>
-                    <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      Contratar Manutenção
-                    </a>
-                  </Button>
-                </div>
-              </Card>
-            </motion.div>
+            <div className="max-w-md mx-auto">
+              <PricingCard
+                tier="Manutenção Mensal"
+                price="R$ 70/mês"
+                bestFor="Mantenha seu site sempre atualizado"
+                CTA="Contratar Manutenção"
+                benefits={[
+                  { text: "Atualizações de conteúdo", checked: true },
+                  { text: "Correções e ajustes", checked: true },
+                  { text: "Backup mensal", checked: true },
+                  { text: "Suporte prioritário", checked: true },
+                  { text: "Monitoramento de uptime", checked: true },
+                ]}
+              />
+            </div>
           </TabsContent>
         </Tabs>
       </div>

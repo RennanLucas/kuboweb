@@ -59,7 +59,7 @@ const PricingSection = () => {
               />
               <PricingCard
                 tier="Site & Landing Page"
-                price="R$ 760"
+                price="R$ 560"
                 bestFor="Perfeito para presença online profissional"
                 CTA="Quero Meu Site"
                 popular

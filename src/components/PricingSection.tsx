@@ -1,0 +1,87 @@
+import { PricingCard } from "@/components/ui/dark-gradient-pricing";
+import { motion } from "framer-motion";
+
+const PricingSection = () => {
+  return (
+    <section id="precos" className="py-24 px-4 bg-background">
+      <div className="container mx-auto max-w-6xl">
+        <div className="text-center mb-16 space-y-4">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-primary font-medium text-sm uppercase tracking-wider"
+          >
+            Preços
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl font-heading font-bold text-foreground"
+          >
+            Planos que cabem no seu bolso
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-muted-foreground max-w-lg mx-auto"
+          >
+            Escolha o serviço ideal para o seu negócio e comece a vender mais online.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <PricingCard
+            tier="Anúncios"
+            price="R$ 280"
+            bestFor="Ideal para quem quer tráfego rápido"
+            CTA="Solicitar Orçamento"
+            benefits={[
+              { text: "Campanha Google Ads", checked: true },
+              { text: "Configuração completa", checked: true },
+              { text: "Segmentação de público", checked: true },
+              { text: "Relatório de resultados", checked: true },
+              { text: "Otimização mensal", checked: false },
+              { text: "Gestão contínua", checked: false },
+            ]}
+          />
+          <PricingCard
+            tier="Site & Landing Page"
+            price="R$ 760"
+            bestFor="Perfeito para presença online profissional"
+            CTA="Quero Meu Site"
+            popular
+            benefits={[
+              { text: "Design profissional", checked: true },
+              { text: "Responsivo (mobile)", checked: true },
+              { text: "Otimizado para Google (SEO)", checked: true },
+              { text: "Botão WhatsApp integrado", checked: true },
+              { text: "Domínio personalizado", checked: true },
+              { text: "Suporte pós-entrega", checked: true },
+            ]}
+          />
+          <PricingCard
+            tier="Loja Virtual"
+            price="R$ 1.200"
+            bestFor="Para quem quer vender produtos online"
+            CTA="Criar Minha Loja"
+            benefits={[
+              { text: "Tudo do plano Site", checked: true },
+              { text: "Catálogo de produtos", checked: true },
+              { text: "Carrinho de compras", checked: true },
+              { text: "Integração de pagamento", checked: true },
+              { text: "Painel administrativo", checked: true },
+              { text: "Gestão de estoque", checked: true },
+            ]}
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PricingSection;

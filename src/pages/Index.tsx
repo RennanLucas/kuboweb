@@ -6,6 +6,7 @@ import AudienceSection from "@/components/AudienceSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
 import SocialProofSection from "@/components/SocialProofSection";
+import PricingSection from "@/components/PricingSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -22,6 +23,7 @@ const Index = () => {
       <ServicesSection />
       <ProcessSection />
       <SocialProofSection />
+      <PricingSection />
       <FAQSection />
       <CTASection />
 

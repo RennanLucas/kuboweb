@@ -78,6 +78,20 @@ const PricingSection = () => {
               { text: "Gestão de estoque", checked: true },
             ]}
           />
+          <PricingCard
+            tier="Manutenção Mensal"
+            price="R$ 70/mês"
+            bestFor="Mantenha seu site sempre atualizado"
+            CTA="Contratar Manutenção"
+            benefits={[
+              { text: "Atualizações de conteúdo", checked: true },
+              { text: "Correções e ajustes", checked: true },
+              { text: "Backup mensal", checked: true },
+              { text: "Suporte prioritário", checked: true },
+              { text: "Monitoramento de uptime", checked: true },
+              { text: "Relatório mensal", checked: true },
+            ]}
+          />
         </div>
       </div>
     </section>

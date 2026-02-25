@@ -42,7 +42,7 @@ const PricingSection = () => {
           </TabsList>
 
           <TabsContent value="servicos">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <PricingCard
                 tier="Anúncios"
                 price="R$ 280"
@@ -58,17 +58,31 @@ const PricingSection = () => {
                 ]}
               />
               <PricingCard
-                tier="Site & Landing Page"
-                price="R$ 760"
-                bestFor="Perfeito para presença online profissional"
-                CTA="Quero Meu Site"
-                popular
+                tier="Landing Page"
+                price="R$ 560"
+                bestFor="Página única focada em conversão"
+                CTA="Quero Minha Landing Page"
                 benefits={[
                   { text: "Design profissional", checked: true },
                   { text: "Responsivo (mobile)", checked: true },
                   { text: "Otimizado para Google (SEO)", checked: true },
                   { text: "Botão WhatsApp integrado", checked: true },
+                  { text: "Formulário de contato", checked: true },
+                  { text: "Entrega rápida", checked: true },
+                ]}
+              />
+              <PricingCard
+                tier="Site Profissional"
+                price="R$ 760"
+                bestFor="Presença online completa para seu negócio"
+                CTA="Quero Meu Site"
+                popular
+                benefits={[
+                  { text: "Tudo da Landing Page", checked: true },
+                  { text: "Múltiplas páginas", checked: true },
                   { text: "Domínio personalizado", checked: true },
+                  { text: "Blog integrado", checked: true },
+                  { text: "Painel administrativo", checked: true },
                   { text: "Suporte pós-entrega", checked: true },
                 ]}
               />

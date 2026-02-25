@@ -77,11 +77,13 @@ const HeroSection = () => {
             </div>
 
             {/* Right - 3D Scene */}
-            <div className="flex-1 relative min-h-[350px] lg:min-h-[500px]">
-              <SplineScene 
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full"
-              />
+            <div className="flex-1 relative min-h-[350px] lg:min-h-[500px] overflow-visible">
+              <div className="absolute inset-0 lg:-inset-8">
+                <SplineScene 
+                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                  className="w-full h-full"
+                />
+              </div>
             </div>
           </div>
         </Card>

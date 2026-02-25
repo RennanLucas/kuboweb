@@ -206,3 +206,16 @@
 .animate-spotlight {
   animation: spotlight 2s ease 0.75s 1 forwards;
 }
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-scroll-up {
+  animation: scrollUp linear infinite;
+}

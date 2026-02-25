@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import { motion } from "motion/react";
+import React, { useMemo } from "react";
 
 interface Testimonial {
   text: string;
@@ -14,42 +13,43 @@ export const TestimonialsColumn = (props: {
   testimonials: Testimonial[];
   duration?: number;
 }) => {
+  const duration = props.duration || 10;
+
+  const items = useMemo(
+    () => [...props.testimonials, ...props.testimonials],
+    [props.testimonials]
+  );
+
   return (
     <div className={props.className}>
-      <motion.div
-        animate={{ translateY: "-50%" }}
-        transition={{
-          duration: props.duration || 10,
-          repeat: Infinity,
-          ease: "linear",
-          repeatType: "loop",
+      <div
+        className="flex flex-col gap-6 pb-6 animate-scroll-up"
+        style={{
+          animationDuration: `${duration}s`,
+          willChange: "transform",
         }}
-        className="flex flex-col gap-6 pb-6"
       >
-        {[...new Array(2)].map((_, index) => (
-          <React.Fragment key={index}>
-            {props.testimonials.map(({ text, image, name, role }, i) => (
-              <div
-                key={`${index}-${i}`}
-                className="card-premium p-6"
-              >
-                <p className="text-foreground leading-relaxed">{text}</p>
-                <div className="flex items-center gap-3 mt-4">
-                  <img
-                    src={image}
-                    alt={name}
-                    className="w-10 h-10 rounded-full object-cover border border-border"
-                  />
-                  <div>
-                    <p className="font-medium text-foreground text-sm">{name}</p>
-                    <p className="text-muted-foreground text-xs">{role}</p>
-                  </div>
-                </div>
+        {items.map(({ text, image, name, role }, i) => (
+          <div
+            key={i}
+            className="card-premium p-6"
+          >
+            <p className="text-foreground leading-relaxed">{text}</p>
+            <div className="flex items-center gap-3 mt-4">
+              <img
+                src={image}
+                alt={name}
+                loading="lazy"
+                className="w-10 h-10 rounded-full object-cover border border-border"
+              />
+              <div>
+                <p className="font-medium text-foreground text-sm">{name}</p>
+                <p className="text-muted-foreground text-xs">{role}</p>
               </div>
-            ))}
-          </React.Fragment>
+            </div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };

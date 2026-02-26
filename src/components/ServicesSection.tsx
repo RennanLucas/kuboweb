@@ -35,27 +35,28 @@ const ServicesSection = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 space-y-4">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
             className="text-primary font-medium text-sm uppercase tracking-wider"
           >
             Serviços
           </motion.p>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 0.4 }}
             className="text-3xl md:text-4xl font-heading font-bold text-foreground"
           >
             Soluções para cada necessidade
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.15, duration: 0.4 }}
             className="text-muted-foreground max-w-xl mx-auto"
           >
             Do simples ao completo, criamos a solução ideal para o seu negócio crescer online.
@@ -66,22 +67,15 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ y: -6, transition: { duration: 0.3 } }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
               className="card-premium flex flex-col"
             >
-              <motion.div
-                initial={{ rotate: -20, opacity: 0 }}
-                whileInView={{ rotate: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 + 0.2, type: "spring" }}
-                className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5"
-              >
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
                 <service.icon className="w-6 h-6 text-primary" />
-              </motion.div>
+              </div>
               
               <h3 className="text-xl font-heading font-semibold mb-3 text-foreground">
                 {service.title}
@@ -104,9 +98,10 @@ const ServicesSection = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
           className="text-center"
         >
           <Button variant="whatsapp" size="lg" asChild>

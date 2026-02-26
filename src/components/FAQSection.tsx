@@ -47,27 +47,28 @@ const FAQSection = () => {
       <div className="container mx-auto max-w-3xl">
         <div className="text-center mb-16 space-y-4">
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
             className="text-primary font-medium text-sm uppercase tracking-wider"
           >
             Dúvidas
           </motion.p>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 0.4 }}
             className="text-3xl md:text-4xl font-heading font-bold text-foreground"
           >
             Perguntas frequentes
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.15, duration: 0.4 }}
             className="text-muted-foreground"
           >
             Tudo o que você precisa saber antes de contratar.
@@ -78,10 +79,10 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
+              transition={{ delay: index * 0.08, duration: 0.4 }}
             >
               <AccordionItem
                 value={`item-${index}`}
@@ -99,10 +100,10 @@ const FAQSection = () => {
         </Accordion>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.3, duration: 0.4 }}
           className="text-center mt-12"
         >
           <p className="text-muted-foreground mb-4">Ainda tem dúvidas?</p>

@@ -7,17 +7,18 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const servicePlans = [
   {
-    tier: "Anúncios",
-    price: "R$ 280",
-    bestFor: "Ideal para quem quer tráfego rápido",
-    CTA: "Solicitar Orçamento",
+    tier: "Site Profissional",
+    price: "R$ 760",
+    bestFor: "Presença online completa para seu negócio",
+    CTA: "Quero Meu Site",
+    popular: true,
     benefits: [
-      { text: "Campanha Google Ads", checked: true },
-      { text: "Configuração completa", checked: true },
-      { text: "Segmentação de público", checked: true },
-      { text: "Relatório de resultados", checked: true },
-      { text: "Otimização mensal", checked: false },
-      { text: "Gestão contínua", checked: false },
+      { text: "Tudo da Landing Page", checked: true },
+      { text: "Múltiplas páginas", checked: true },
+      { text: "Domínio personalizado", checked: true },
+      { text: "Blog integrado", checked: true },
+      { text: "Painel administrativo", checked: true },
+      { text: "Suporte pós-entrega", checked: true },
     ],
   },
   {
@@ -35,21 +36,6 @@ const servicePlans = [
     ],
   },
   {
-    tier: "Site Profissional",
-    price: "R$ 760",
-    bestFor: "Presença online completa para seu negócio",
-    CTA: "Quero Meu Site",
-    popular: true,
-    benefits: [
-      { text: "Tudo da Landing Page", checked: true },
-      { text: "Múltiplas páginas", checked: true },
-      { text: "Domínio personalizado", checked: true },
-      { text: "Blog integrado", checked: true },
-      { text: "Painel administrativo", checked: true },
-      { text: "Suporte pós-entrega", checked: true },
-    ],
-  },
-  {
     tier: "Loja Virtual",
     price: "R$ 1.200",
     bestFor: "Para quem quer vender produtos online",
@@ -61,6 +47,20 @@ const servicePlans = [
       { text: "Integração de pagamento", checked: true },
       { text: "Painel administrativo", checked: true },
       { text: "Gestão de estoque", checked: true },
+    ],
+  },
+  {
+    tier: "Anúncios",
+    price: "R$ 280",
+    bestFor: "Ideal para quem quer tráfego rápido",
+    CTA: "Solicitar Orçamento",
+    benefits: [
+      { text: "Campanha Google Ads", checked: true },
+      { text: "Configuração completa", checked: true },
+      { text: "Segmentação de público", checked: true },
+      { text: "Relatório de resultados", checked: true },
+      { text: "Otimização mensal", checked: false },
+      { text: "Gestão contínua", checked: false },
     ],
   },
 ];

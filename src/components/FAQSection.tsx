@@ -16,7 +16,7 @@ const faqs = [
   {
     question: "Em quanto tempo o site fica pronto?",
     answer:
-      "A maioria dos projetos é entregue entre 3 a 7 dias úteis. Landing pages simples podem ficar prontas em até 48 horas. O prazo exato depende da complexidade e dos materiais fornecidos.",
+      "Sites e landing pages são entregues em até 7 dias úteis. Lojas virtuais têm prazo de até 14 dias úteis. O prazo exato depende da complexidade e dos materiais fornecidos.",
   },
   {
     question: "O site fica otimizado para celular?",

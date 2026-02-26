@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -45,35 +46,65 @@ const FAQSection = () => {
     <section id="faq" className="py-24 px-4 bg-secondary/30">
       <div className="container mx-auto max-w-3xl">
         <div className="text-center mb-16 space-y-4">
-          <p className="text-primary font-medium text-sm uppercase tracking-wider">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-primary font-medium text-sm uppercase tracking-wider"
+          >
             Dúvidas
-          </p>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl font-heading font-bold text-foreground"
+          >
             Perguntas frequentes
-          </h2>
-          <p className="text-muted-foreground">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-muted-foreground"
+          >
             Tudo o que você precisa saber antes de contratar.
-          </p>
+          </motion.p>
         </div>
 
         <Accordion type="single" collapsible className="space-y-3">
           {faqs.map((faq, index) => (
-            <AccordionItem
+            <motion.div
               key={index}
-              value={`item-${index}`}
-              className="card-premium border border-border/50 rounded-2xl px-6 data-[state=open]:border-primary/30 data-[state=open]:shadow-glow-sm transition-all"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
             >
-              <AccordionTrigger className="text-left font-heading font-semibold text-foreground hover:text-primary transition-colors py-5 hover:no-underline">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+              <AccordionItem
+                value={`item-${index}`}
+                className="card-premium border border-border/50 rounded-2xl px-6 data-[state=open]:border-primary/30 data-[state=open]:shadow-glow-sm transition-all"
+              >
+                <AccordionTrigger className="text-left font-heading font-semibold text-foreground hover:text-primary transition-colors py-5 hover:no-underline">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
           ))}
         </Accordion>
 
-        <div className="text-center mt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="text-center mt-12"
+        >
           <p className="text-muted-foreground mb-4">Ainda tem dúvidas?</p>
           <Button variant="whatsapp" size="lg" asChild>
             <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
@@ -81,7 +112,7 @@ const FAQSection = () => {
               Pergunte no WhatsApp
             </a>
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const stats = [
   { value: 30, suffix: "+", label: "Projetos entregues" },
@@ -51,11 +52,18 @@ const StatsSection = () => {
     <section className="py-16 px-4 border-y border-border/30">
       <div className="container mx-auto max-w-5xl">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center space-y-2">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              className="text-center space-y-2"
+            >
               <AnimatedNumber target={stat.value} suffix={stat.suffix} />
               <p className="text-sm text-muted-foreground">{stat.label}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

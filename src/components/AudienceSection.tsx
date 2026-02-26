@@ -2,12 +2,12 @@ import { Briefcase, Heart, Scale, Scissors, ShoppingBag, Stethoscope } from "luc
 import { motion } from "framer-motion";
 
 const audiences = [
-  { icon: Stethoscope, label: "Clínicas e Consultórios" },
-  { icon: Scale, label: "Advogados" },
-  { icon: Heart, label: "Psicólogos" },
-  { icon: Scissors, label: "Salões e Estúdios" },
-  { icon: ShoppingBag, label: "Lojas e Comércios" },
-  { icon: Briefcase, label: "Consultores e Coaches" },
+  { icon: Stethoscope, label: "Clínicas e Consultórios", desc: "Sites que transmitem confiança e atraem pacientes" },
+  { icon: Scale, label: "Advogados", desc: "Presença digital sólida para escritórios de advocacia" },
+  { icon: Heart, label: "Psicólogos", desc: "Páginas acolhedoras que conectam com seus pacientes" },
+  { icon: Scissors, label: "Salões e Estúdios", desc: "Vitrines online para mostrar seu trabalho" },
+  { icon: ShoppingBag, label: "Lojas e Comércios", desc: "Venda mais com uma presença digital forte" },
+  { icon: Briefcase, label: "Consultores e Coaches", desc: "Autoridade online para atrair clientes qualificados" },
 ];
 
 const AudienceSection = () => {
@@ -44,7 +44,7 @@ const AudienceSection = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {audiences.map((item, index) => (
             <motion.div
               key={item.label}
@@ -52,14 +52,21 @@ const AudienceSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08, duration: 0.4 }}
-              className="card-premium flex flex-col items-center text-center gap-3 p-5 group"
+              className="group relative rounded-2xl border border-border/40 bg-card/50 p-6 hover:border-primary/30 hover:bg-card/80 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                <item.icon className="w-6 h-6 text-primary" />
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/15 group-hover:border-primary/30 transition-all duration-300">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-heading font-semibold text-foreground text-sm">
+                    {item.label}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
-              <span className="font-medium text-foreground text-sm">
-                {item.label}
-              </span>
             </motion.div>
           ))}
         </div>

@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "Quanto custa criar um site profissional?",
     answer:
-      "O valor varia conforme a complexidade do projeto. Landing pages simples custam a partir de R$497, e sites institucionais completos a partir de R$997. Envie uma mensagem no WhatsApp para um orçamento personalizado.",
+      "Anúncios a partir de R$280, Landing Pages a partir de R$560, Sites Profissionais a partir de R$760 e Lojas Virtuais a partir de R$1.200. Envie uma mensagem no WhatsApp para um orçamento personalizado.",
   },
   {
     question: "Em quanto tempo o site fica pronto?",

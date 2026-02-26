@@ -33,37 +33,14 @@ export function SplineScene({ scene, className, delayMs = 0 }: SplineSceneProps)
   useEffect(() => {
     if (!isVisible) return
 
-    const waitTime = isMobile ? Math.max(delayMs, 2200) : delayMs
+    const waitTime = isMobile ? Math.max(delayMs, 2200) : Math.max(delayMs, 800)
 
-    const startLoad = () => {
-      if (waitTime > 0) {
-        const timeout = window.setTimeout(() => setShouldLoad(true), waitTime)
-        return () => window.clearTimeout(timeout)
-      }
-      setShouldLoad(true)
-      return undefined
-    }
-
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      const idleId = (window as Window & { requestIdleCallback: (cb: IdleRequestCallback, opts?: { timeout: number }) => number }).requestIdleCallback(
-        () => {
-          startLoad()
-        },
-        { timeout: 2500 }
-      )
-
-      return () => {
-        if ('cancelIdleCallback' in window) {
-          (window as Window & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId)
-        }
-      }
-    }
-
-    return startLoad()
+    const timeout = window.setTimeout(() => setShouldLoad(true), waitTime)
+    return () => window.clearTimeout(timeout)
   }, [isVisible, isMobile, delayMs])
 
   return (
-    <div ref={ref} className={className} style={{ width: '100%', height: '100%' }}>
+    <div ref={ref} className={className} style={{ width: '100%', height: '100%', willChange: 'transform', contain: 'strict' }}>
       {shouldLoad ? (
         <Suspense
           fallback={

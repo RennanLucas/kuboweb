@@ -1,16 +1,20 @@
 'use client'
 
 import { Suspense, lazy, useState, useEffect, useRef } from 'react'
+import { useIsMobile } from '@/hooks/use-mobile'
 const Spline = lazy(() => import('@splinetool/react-spline'))
 
 interface SplineSceneProps {
   scene: string
   className?: string
+  delayMs?: number
 }
 
-export function SplineScene({ scene, className }: SplineSceneProps) {
+export function SplineScene({ scene, className, delayMs = 0 }: SplineSceneProps) {
   const [isVisible, setIsVisible] = useState(false)
+  const [shouldLoad, setShouldLoad] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
+  const isMobile = useIsMobile()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,9 +30,20 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    if (!isVisible) return
+
+    if (isMobile && delayMs > 0) {
+      const timeout = window.setTimeout(() => setShouldLoad(true), delayMs)
+      return () => window.clearTimeout(timeout)
+    }
+
+    setShouldLoad(true)
+  }, [isVisible, isMobile, delayMs])
+
   return (
     <div ref={ref} className={className} style={{ width: '100%', height: '100%' }}>
-      {isVisible ? (
+      {shouldLoad ? (
         <Suspense
           fallback={
             <div className="w-full h-full flex items-center justify-center">

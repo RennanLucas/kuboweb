@@ -219,3 +219,25 @@
 .animate-scroll-up {
   animation: scrollUp linear infinite;
 }
+
+@media (max-width: 767px) {
+  .animate-fade-in,
+  .animate-fade-in-up,
+  .animate-fade-in-delay-1,
+  .animate-fade-in-delay-2,
+  .animate-fade-in-delay-3,
+  .animate-float,
+  .animate-pulse-slow,
+  .animate-spotlight,
+  .animate-scroll-up {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .card-premium,
+  .card-premium:hover {
+    transition: none;
+    box-shadow: none;
+  }
+}

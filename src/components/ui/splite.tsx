@@ -33,12 +33,33 @@ export function SplineScene({ scene, className, delayMs = 0 }: SplineSceneProps)
   useEffect(() => {
     if (!isVisible) return
 
-    if (isMobile && delayMs > 0) {
-      const timeout = window.setTimeout(() => setShouldLoad(true), delayMs)
-      return () => window.clearTimeout(timeout)
+    const waitTime = isMobile ? Math.max(delayMs, 2200) : delayMs
+
+    const startLoad = () => {
+      if (waitTime > 0) {
+        const timeout = window.setTimeout(() => setShouldLoad(true), waitTime)
+        return () => window.clearTimeout(timeout)
+      }
+      setShouldLoad(true)
+      return undefined
     }
 
-    setShouldLoad(true)
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const idleId = (window as Window & { requestIdleCallback: (cb: IdleRequestCallback, opts?: { timeout: number }) => number }).requestIdleCallback(
+        () => {
+          startLoad()
+        },
+        { timeout: 2500 }
+      )
+
+      return () => {
+        if ('cancelIdleCallback' in window) {
+          (window as Window & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId)
+        }
+      }
+    }
+
+    return startLoad()
   }, [isVisible, isMobile, delayMs])
 
   return (

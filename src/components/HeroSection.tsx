@@ -82,7 +82,7 @@ const HeroSection = () => {
                 <SplineScene
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full"
-                  delayMs={1200}
+                  delayMs={2400}
                 />
               </div>
             </div>

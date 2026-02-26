@@ -28,31 +28,31 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-background/20"
+          ? "bg-background/90 backdrop-blur-2xl border-b border-border/30 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-primary flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-shadow">
+          <a href="#" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 rounded-xl bg-gradient-primary flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/35 transition-all duration-300">
               <span className="text-primary-foreground font-heading font-bold text-sm">K</span>
             </div>
-            <span className="font-heading font-bold text-lg text-foreground">
+            <span className="font-heading font-bold text-lg text-foreground tracking-tight">
               Kubo<span className="text-primary">Web</span>
             </span>
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNav(link.href)}
-                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
+                className="px-3.5 py-2 text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/60"
               >
                 {link.label}
               </button>
@@ -72,28 +72,28 @@ const Header = () => {
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
             aria-label="Menu"
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/50 animate-fade-in">
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
+        <div className="md:hidden bg-background/98 backdrop-blur-2xl border-t border-border/30">
+          <nav className="container mx-auto px-4 py-3 flex flex-col gap-0.5">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNav(link.href)}
-                className="px-4 py-3 text-left text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
+                className="px-4 py-3 text-left text-[15px] text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-xl transition-colors"
               >
                 {link.label}
               </button>
             ))}
-            <div className="pt-3 mt-2 border-t border-border/50">
+            <div className="pt-3 mt-2 border-t border-border/30">
               <Button variant="whatsapp" size="lg" className="w-full" asChild>
                 <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />

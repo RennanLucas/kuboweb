@@ -1,4 +1,4 @@
-import { MessageCircle, Mail, MapPin } from "lucide-react";
+import { MessageCircle, Mail, MapPin, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -62,6 +62,15 @@ const Footer = () => {
                 <MapPin className="w-4 h-4" />
                 São Paulo, SP
               </div>
+              <a
+                href="https://instagram.com/kuboweboficial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Instagram className="w-4 h-4" />
+                @kuboweboficial
+              </a>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
-import { MessageCircle, Mail, MapPin, Send } from "lucide-react";
+import { MessageCircle, Mail, MapPin, Send, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
@@ -91,6 +91,22 @@ const Contato = () => {
                     <p className="text-muted-foreground text-sm mt-1">Atendimento 100% online</p>
                   </div>
                 </div>
+
+                <a
+                  href="https://instagram.com/kuboweboficial"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-premium flex items-start gap-4 p-6 hover:border-primary/30 transition-all group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <Instagram className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading font-semibold text-foreground mb-1">Instagram</h3>
+                    <p className="text-muted-foreground text-sm">@kuboweboficial</p>
+                    <p className="text-primary text-sm mt-2 group-hover:underline">Seguir no Instagram →</p>
+                  </div>
+                </a>
               </div>
             </motion.div>
 

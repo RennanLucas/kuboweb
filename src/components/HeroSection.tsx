@@ -1,5 +1,6 @@
 import { MessageCircle, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SplineScene } from "@/components/ui/splite";
 import { Card } from "@/components/ui/card";
 import { Spotlight } from "@/components/ui/spotlight";
 import heroMockup from "@/assets/hero-mockup.jpg";

@@ -81,11 +81,11 @@ const Index = () => {
                   +55 11 93219-7334
                 </a>
                 <a
-                  href="mailto:rennanlucas27oficial@gmail.com"
+                  href="mailto:kuboweb.contato@gmail.com"
                   className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Mail className="w-4 h-4" />
-                  rennanlucas27oficial@gmail.com
+                  kuboweb.contato@gmail.com
                 </a>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <MapPin className="w-4 h-4" />

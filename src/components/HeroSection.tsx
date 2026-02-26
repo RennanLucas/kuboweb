@@ -64,8 +64,8 @@ const HeroSection = () => {
           </div>
 
           {/* 3D Scene mobile */}
-          <div className="relative min-h-[200px] flex-1 overflow-visible">
-            <div className="absolute inset-0">
+          <div className="relative min-h-[300px] flex-1 overflow-visible">
+            <div className="absolute -inset-6">
               <SplineScene
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                 className="w-full h-full"

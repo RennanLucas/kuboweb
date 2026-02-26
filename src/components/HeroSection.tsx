@@ -3,10 +3,8 @@ import { Button } from "@/components/ui/button";
 import { SplineScene } from "@/components/ui/splite";
 import { Card } from "@/components/ui/card";
 import { Spotlight } from "@/components/ui/spotlight";
-import heroMockup from "@/assets/hero-mockup.jpg";
 
 const HeroSection = () => {
-
   const scrollToServicos = () => {
     document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -15,13 +13,13 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 px-4">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-subtle" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl hidden md:block" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl hidden md:block" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <Card className="w-full bg-card/50 border-border/50 relative overflow-hidden rounded-2xl">
           <Spotlight
-            className="-top-40 left-0 md:left-60 md:-top-20"
+            className="hidden md:block -top-40 left-0 md:left-60 md:-top-20"
             fill="hsl(217 91% 60%)"
           />
           <div className="flex flex-col lg:flex-row min-h-[500px] md:min-h-[600px]">
@@ -84,6 +82,7 @@ const HeroSection = () => {
                 <SplineScene
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full"
+                  delayMs={1200}
                 />
               </div>
             </div>

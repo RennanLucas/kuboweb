@@ -40,18 +40,18 @@ const AnimatedNumber = ({ target, suffix, decimal }: { target: number; suffix: s
   }, [target, decimal]);
 
   return (
-    <div ref={ref} className="text-4xl md:text-5xl font-heading font-bold text-foreground">
+    <div ref={ref} className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground tabular-nums">
       {decimal ? count.toFixed(1) : count}
-      <span className="text-primary">{suffix}</span>
+      <span className="text-primary ml-0.5">{suffix}</span>
     </div>
   );
 };
 
 const StatsSection = () => {
   return (
-    <section className="py-16 px-4 border-y border-border/30">
+    <section className="py-14 md:py-16 px-4 border-y border-border/20 bg-card/30">
       <div className="container mx-auto max-w-5xl">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -62,7 +62,7 @@ const StatsSection = () => {
               className="text-center space-y-2"
             >
               <AnimatedNumber target={stat.value} suffix={stat.suffix} decimal={(stat as any).decimal} />
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
+              <p className="text-xs md:text-sm text-muted-foreground font-medium tracking-wide">{stat.label}</p>
             </motion.div>
           ))}
         </div>

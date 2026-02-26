@@ -24,15 +24,15 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section id="processo" className="py-24 px-4 bg-secondary/30">
+    <section id="processo" className="py-24 md:py-32 px-4 bg-card/20">
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-14 md:mb-20 space-y-4">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="text-primary font-medium text-sm uppercase tracking-wider"
+            className="section-label justify-center"
           >
             Processo
           </motion.p>
@@ -41,7 +41,7 @@ const ProcessSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.4 }}
-            className="text-3xl md:text-4xl font-heading font-bold text-foreground"
+            className="section-title"
           >
             Como funciona
           </motion.h2>
@@ -50,7 +50,7 @@ const ProcessSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15, duration: 0.4 }}
-            className="text-muted-foreground"
+            className="section-subtitle"
           >
             Simples, direto e sem burocracia.
           </motion.p>
@@ -58,9 +58,9 @@ const ProcessSection = () => {
 
         <div className="relative">
           {/* Connection line */}
-          <div className="hidden md:block absolute top-1/2 left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-border to-transparent -translate-y-1/2" />
+          <div className="hidden md:block absolute top-8 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-10">
             {steps.map((step, index) => (
               <motion.div
                 key={step.title}
@@ -70,18 +70,18 @@ const ProcessSection = () => {
                 transition={{ delay: index * 0.15, duration: 0.4 }}
                 className="relative text-center"
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/25 relative z-10">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/20 relative z-10">
                   <step.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
 
-                <div className="space-y-3">
-                  <span className="text-xs font-bold text-primary uppercase tracking-widest">
+                <div className="space-y-2.5">
+                  <span className="text-[11px] font-bold text-primary/70 uppercase tracking-[0.25em]">
                     Passo {step.number}
                   </span>
                   <h3 className="text-xl font-heading font-semibold text-foreground">
                     {step.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed text-sm max-w-[250px] mx-auto">
                     {step.description}
                   </p>
                 </div>

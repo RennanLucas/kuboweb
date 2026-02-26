@@ -228,8 +228,7 @@
   .animate-fade-in-delay-3,
   .animate-float,
   .animate-pulse-slow,
-  .animate-spotlight,
-  .animate-scroll-up {
+  .animate-spotlight {
     animation: none !important;
     transform: none !important;
     opacity: 1 !important;

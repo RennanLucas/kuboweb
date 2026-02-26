@@ -1,5 +1,6 @@
 import { FileText, Building2, ShoppingCart, Megaphone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -33,27 +34,54 @@ const ServicesSection = () => {
     <section id="servicos" className="py-24 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 space-y-4">
-          <p className="text-primary font-medium text-sm uppercase tracking-wider">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-primary font-medium text-sm uppercase tracking-wider"
+          >
             Serviços
-          </p>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground">
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl font-heading font-bold text-foreground"
+          >
             Soluções para cada necessidade
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-muted-foreground max-w-xl mx-auto"
+          >
             Do simples ao completo, criamos a solução ideal para o seu negócio crescer online.
-          </p>
+          </motion.p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
           {services.map((service, index) => (
-            <div
+            <motion.div
               key={service.title}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              whileHover={{ y: -6, transition: { duration: 0.3 } }}
               className="card-premium flex flex-col"
-              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <motion.div
+                initial={{ rotate: -20, opacity: 0 }}
+                whileInView={{ rotate: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 + 0.2, type: "spring" }}
+                className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5"
+              >
                 <service.icon className="w-6 h-6 text-primary" />
-              </div>
+              </motion.div>
               
               <h3 className="text-xl font-heading font-semibold mb-3 text-foreground">
                 {service.title}
@@ -71,18 +99,23 @@ const ServicesSection = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
           <Button variant="whatsapp" size="lg" asChild>
             <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="w-5 h-5" />
               Solicitar orçamento
             </a>
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 const stats = [
   { value: 30, suffix: "+", label: "Projetos entregues" },
   { value: 100, suffix: "%", label: "Clientes satisfeitos" },
-  { value: 5, suffix: "★", label: "Avaliação média" },
-  { value: 48, suffix: "h", label: "Tempo médio de entrega" },
+  { value: 4.9, suffix: "★", label: "Avaliação média", decimal: true },
+  { value: 7, suffix: " dias", label: "Tempo médio de entrega" },
 ];
 
-const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) => {
+const AnimatedNumber = ({ target, suffix, decimal }: { target: number; suffix: string; decimal?: boolean }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const animated = useRef(false);
@@ -28,7 +28,7 @@ const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) 
               setCount(target);
               clearInterval(timer);
             } else {
-              setCount(Math.floor(current));
+              setCount(decimal ? parseFloat(current.toFixed(1)) : Math.floor(current));
             }
           }, duration / steps);
         }
@@ -37,11 +37,11 @@ const AnimatedNumber = ({ target, suffix }: { target: number; suffix: string }) 
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [target]);
+  }, [target, decimal]);
 
   return (
     <div ref={ref} className="text-4xl md:text-5xl font-heading font-bold text-foreground">
-      {count}
+      {decimal ? count.toFixed(1) : count}
       <span className="text-primary">{suffix}</span>
     </div>
   );
@@ -61,7 +61,7 @@ const StatsSection = () => {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="text-center space-y-2"
             >
-              <AnimatedNumber target={stat.value} suffix={stat.suffix} />
+              <AnimatedNumber target={stat.value} suffix={stat.suffix} decimal={(stat as any).decimal} />
               <p className="text-sm text-muted-foreground">{stat.label}</p>
             </motion.div>
           ))}

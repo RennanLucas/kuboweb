@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { label: "Benefícios", href: "#beneficios" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Processo", href: "#processo" },
-  { label: "Depoimentos", href: "#depoimentos" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", to: "/" },
+  { label: "Serviços", to: "/servicos" },
+  { label: "Preços", to: "/precos" },
+  { label: "FAQ", to: "/faq" },
+  { label: "Contato", to: "/contato" },
 ];
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -20,10 +22,10 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNav = (href: string) => {
+  useEffect(() => {
     setMobileOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  };
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <header
@@ -36,25 +38,29 @@ const Header = () => {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 rounded-xl bg-gradient-primary flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-shadow">
               <span className="text-primary-foreground font-heading font-bold text-sm">K</span>
             </div>
             <span className="font-heading font-bold text-lg text-foreground">
               Kubo<span className="text-primary">Web</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNav(link.href)}
-                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`px-4 py-2 text-sm transition-colors rounded-lg hover:bg-secondary/50 ${
+                  location.pathname === link.to
+                    ? "text-primary font-medium"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
           </nav>
 
@@ -84,13 +90,17 @@ const Header = () => {
         <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border/50 animate-fade-in">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNav(link.href)}
-                className="px-4 py-3 text-left text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`px-4 py-3 text-left hover:bg-secondary/50 rounded-lg transition-colors ${
+                  location.pathname === link.to
+                    ? "text-primary font-medium"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {link.label}
-              </button>
+              </Link>
             ))}
             <div className="pt-3 mt-2 border-t border-border/50">
               <Button variant="whatsapp" size="lg" className="w-full" asChild>

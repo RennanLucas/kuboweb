@@ -36,13 +36,19 @@ const Header = () => {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-xl bg-gradient-primary flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-shadow">
-              <span className="text-primary-foreground font-heading font-bold text-sm">K</span>
+          <a href="#" className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-all duration-300 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
+              <span className="text-primary-foreground font-heading font-extrabold text-base tracking-tight relative z-10">K</span>
             </div>
-            <span className="font-heading font-bold text-lg text-foreground">
-              Kubo<span className="text-primary">Web</span>
-            </span>
+            <div className="flex flex-col leading-none">
+              <span className="font-heading font-bold text-lg text-foreground tracking-tight">
+                Kubo<span className="text-primary">Web</span>
+              </span>
+              <span className="text-[10px] text-muted-foreground/60 font-medium tracking-widest uppercase">
+                Web Design
+              </span>
+            </div>
           </a>
 
           {/* Desktop Nav */}

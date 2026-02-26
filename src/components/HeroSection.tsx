@@ -3,8 +3,11 @@ import { Button } from "@/components/ui/button";
 import { SplineScene } from "@/components/ui/splite";
 import { Card } from "@/components/ui/card";
 import { Spotlight } from "@/components/ui/spotlight";
+import heroMockup from "@/assets/hero-mockup.jpg";
 
 const HeroSection = () => {
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
   const scrollToServicos = () => {
     document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -79,10 +82,20 @@ const HeroSection = () => {
             {/* Right - 3D Scene */}
             <div className="flex-1 relative min-h-[350px] lg:min-h-[500px] overflow-visible">
               <div className="absolute inset-0 lg:-inset-8">
-                <SplineScene 
-                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                  className="w-full h-full"
-                />
+                {isMobile ? (
+                  <img
+                    src={heroMockup}
+                    alt="Prévia de site profissional"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <SplineScene
+                    scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                    className="w-full h-full"
+                  />
+                )}
               </div>
             </div>
           </div>

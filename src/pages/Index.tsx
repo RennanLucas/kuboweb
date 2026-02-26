@@ -33,19 +33,13 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Brand */}
             <div className="space-y-4">
-              <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-lg shadow-primary/25 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
-                  <span className="text-primary-foreground font-heading font-extrabold text-base tracking-tight relative z-10">K</span>
+              <div className="flex items-center gap-2">
+                <div className="w-9 h-9 rounded-xl bg-gradient-primary flex items-center justify-center shadow-lg shadow-primary/25">
+                  <span className="text-primary-foreground font-heading font-bold text-sm">K</span>
                 </div>
-                <div className="flex flex-col leading-none">
-                  <span className="font-heading font-bold text-lg text-foreground tracking-tight">
-                    Kubo<span className="text-primary">Web</span>
-                  </span>
-                  <span className="text-[10px] text-muted-foreground/60 font-medium tracking-widest uppercase">
-                    Web Design
-                  </span>
-                </div>
+                <span className="font-heading font-bold text-lg text-foreground">
+                  Kubo<span className="text-primary">Web</span>
+                </span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Sites profissionais que geram resultados reais para o seu negócio.

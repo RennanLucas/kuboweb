@@ -24,7 +24,7 @@ const HeroSection = () => {
           />
           <div className="flex flex-col lg:flex-row min-h-[500px] md:min-h-[600px]">
             {/* Left - Hero content */}
-            <div className="flex-1 p-8 md:p-12 lg:p-16 relative z-10 flex flex-col justify-center space-y-8">
+            <div className="flex-1 p-6 md:p-12 lg:p-16 relative z-10 flex flex-col justify-center space-y-8">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium w-fit animate-fade-in">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -45,7 +45,7 @@ const HeroSection = () => {
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row items-start gap-4 animate-fade-in-delay-1">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-4 animate-fade-in-delay-1">
                 <Button variant="whatsapp" size="xl" asChild>
                   <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5" />

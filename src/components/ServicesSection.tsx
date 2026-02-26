@@ -1,4 +1,4 @@
-import { FileText, Building2, ShoppingCart, Megaphone, MessageCircle } from "lucide-react";
+import { FileText, Building2, ShoppingCart, Megaphone, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
@@ -85,7 +85,7 @@ const ServicesSection = () => {
                 {service.description}
               </p>
               
-              <ul className="space-y-2">
+              <ul className="space-y-2 mb-6">
                 {service.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
@@ -93,6 +93,16 @@ const ServicesSection = () => {
                   </li>
                 ))}
               </ul>
+
+              <a
+                href="https://wa.me/5511932197334"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors group mt-auto"
+              >
+                Saiba mais
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
             </motion.div>
           ))}
         </div>

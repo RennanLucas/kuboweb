@@ -68,7 +68,7 @@ const Contato = () => {
                 </a>
 
                 <a
-                  href="mailto:rennanlucas27oficial@gmail.com"
+                  href="mailto:kuboweb.contato@gmail.com"
                   className="card-premium flex items-start gap-4 p-6 hover:border-primary/30 transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
@@ -76,7 +76,7 @@ const Contato = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-foreground mb-1">E-mail</h3>
-                    <p className="text-muted-foreground text-sm">rennanlucas27oficial@gmail.com</p>
+                    <p className="text-muted-foreground text-sm">kuboweb.contato@gmail.com</p>
                     <p className="text-primary text-sm mt-2 group-hover:underline">Enviar e-mail →</p>
                   </div>
                 </a>

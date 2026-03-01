@@ -11,14 +11,14 @@
     --foreground: 210 20% 98%;
 
     /* Card surfaces */
-    --card: 222 20% 7%;
+    --card: 0 0% 0%;
     --card-foreground: 210 20% 98%;
 
     /* Elevated card */
-    --card-elevated: 222 18% 9%;
+    --card-elevated: 0 0% 0%;
 
     /* Popover */
-    --popover: 222 20% 7%;
+    --popover: 0 0% 0%;
     --popover-foreground: 210 20% 98%;
 
     /* Primary - Modern Blue */
@@ -26,12 +26,12 @@
     --primary-foreground: 0 0% 100%;
 
     /* Secondary */
-    --secondary: 222 16% 11%;
+    --secondary: 0 0% 5%;
     --secondary-foreground: 210 20% 98%;
 
     /* Muted */
-    --muted: 222 14% 15%;
-    --muted-foreground: 215 12% 50%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 45%;
 
     /* Accent */
     --accent: 217 91% 60%;
@@ -50,8 +50,8 @@
     --destructive-foreground: 210 20% 98%;
 
     /* Border and input */
-    --border: 222 14% 14%;
-    --input: 222 14% 14%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
     --ring: 217 91% 60%;
 
     --radius: 0.75rem;
@@ -87,7 +87,7 @@
   }
 
   .bg-gradient-subtle {
-    background: linear-gradient(180deg, hsl(222 22% 7%), hsl(222 22% 5%));
+    background: linear-gradient(180deg, hsl(0 0% 3%), hsl(0 0% 0%));
   }
 
   .shadow-glow {
@@ -100,7 +100,7 @@
 
   .card-premium {
     @apply bg-card border border-border/40 rounded-2xl p-6 transition-all duration-300;
-    background: linear-gradient(145deg, hsl(222 20% 8%), hsl(222 20% 6%));
+    background: linear-gradient(145deg, hsl(0 0% 4%), hsl(0 0% 2%));
   }
 
   .card-premium:hover {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoKuboweb from "@/assets/logo-kuboweb.jpeg";
+import logoKuboweb from "@/assets/logo-kuboweb.png";
 
 const navLinks = [
   { label: "Benefícios", href: "#beneficios" },
@@ -39,7 +39,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <img src={logoKuboweb} alt="KuboWeb" className="h-12 w-auto object-contain mix-blend-lighten" />
+            <img src={logoKuboweb} alt="KuboWeb" className="h-14 w-auto object-contain" />
           </a>
 
           {/* Desktop Nav */}

@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import logoKuboweb from "@/assets/logo-kuboweb.jpeg";
+import logoKuboweb from "@/assets/logo-kuboweb.png";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
 import BenefitsSection from "@/components/BenefitsSection";
@@ -35,7 +35,7 @@ const Index = () => {
             {/* Brand */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <img src={logoKuboweb} alt="KuboWeb" className="h-12 w-auto object-contain mix-blend-lighten" />
+                <img src={logoKuboweb} alt="KuboWeb" className="h-14 w-auto object-contain" />
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Sites profissionais que geram resultados reais para o seu negócio.

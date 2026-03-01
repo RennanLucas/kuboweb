@@ -36,7 +36,7 @@ const Header = () => {
       }>
 
       <div className="container mx-auto max-w-6xl px-4">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-20 md:h-24 bg-black">
           {/* Logo */}
           <a href="#" className="flex items-center shrink-0">
             <img src={logoKuboweb} alt="KuboWeb" className="h-14 md:h-20 w-auto object-contain" />

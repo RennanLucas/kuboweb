@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoKuboweb from "@/assets/logo-kuboweb-dark.png";
+
 
 const navLinks = [
 { label: "Benefícios", href: "#beneficios" },
@@ -38,8 +38,13 @@ const Header = () => {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 shrink-0">
-            <img alt="KuboWeb" className="h-12 md:h-14 w-auto object-contain mix-blend-lighten" src="/lovable-uploads/09363d57-834c-4801-9a4c-31f83a0315fe.jpg" />
+          <a href="#" className="flex items-center gap-2.5 shrink-0">
+            <div className="w-8 h-8 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow-sm">
+              <span className="text-primary-foreground font-heading font-bold text-xs">K</span>
+            </div>
+            <span className="font-heading font-bold text-xl tracking-tight text-foreground">
+              Kubo<span className="text-primary">Web</span>
+            </span>
           </a>
 
           {/* Desktop Nav */}

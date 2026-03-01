@@ -40,7 +40,7 @@ export function SplineScene({ scene, className, delayMs = 0 }: SplineSceneProps)
   }, [isVisible, isMobile, delayMs])
 
   return (
-    <div ref={ref} className={className} style={{ width: '100%', height: '100%', willChange: 'transform', contain: 'strict' }}>
+    <div ref={ref} className={className} style={{ width: '100%', height: '100%', willChange: 'transform', contain: 'strict', contentVisibility: 'auto' }}>
       {shouldLoad ? (
         <Suspense
           fallback={

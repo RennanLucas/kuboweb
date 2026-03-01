@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-
+import logoKuboweb from "@/assets/logo-kuboweb-dark.png";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
 import BenefitsSection from "@/components/BenefitsSection";
@@ -34,13 +34,8 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {/* Brand */}
             <div className="space-y-4">
-              <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow-sm">
-                  <span className="text-primary-foreground font-heading font-bold text-sm">K</span>
-                </div>
-                <span className="font-heading font-bold text-lg text-foreground tracking-tight">
-                  Kubo<span className="text-primary">Web</span>
-                </span>
+              <div className="flex items-center gap-2">
+                <img src={logoKuboweb} alt="KuboWeb" className="h-16 w-auto object-contain mix-blend-lighten" />
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Sites profissionais que geram resultados reais para o seu negócio.

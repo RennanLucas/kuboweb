@@ -39,7 +39,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 shrink-0">
-            <img alt="KuboWeb" className="h-20 md:h-28 w-auto object-contain mix-blend-lighten" src="/lovable-uploads/09363d57-834c-4801-9a4c-31f83a0315fe.jpg" />
+            <img alt="KuboWeb" className="h-12 md:h-14 w-auto object-contain mix-blend-lighten" src="/lovable-uploads/09363d57-834c-4801-9a4c-31f83a0315fe.jpg" />
           </a>
 
           {/* Desktop Nav */}

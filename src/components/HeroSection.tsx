@@ -18,7 +18,7 @@ const HeroSection = () => {
 
       <div className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
         {/* Mobile: no card wrapper, full width. Desktop: card */}
-        <div className="md:hidden flex flex-col min-h-[calc(100dvh-5rem)] justify-center px-5 py-6 space-y-6">
+        <div className="md:hidden flex flex-col min-h-[calc(100dvh-5rem)] justify-center px-5 py-6 space-y-6 will-change-transform">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wide uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
@@ -63,16 +63,7 @@ const HeroSection = () => {
             ))}
           </div>
 
-          {/* 3D Scene mobile */}
-          <div className="relative min-h-[300px] flex-1 overflow-visible">
-            <div className="absolute -inset-6">
-              <SplineScene
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full"
-                delayMs={2400}
-              />
-            </div>
-          </div>
+          {/* 3D Scene removed on mobile for performance */}
         </div>
 
         {/* Desktop: card layout */}

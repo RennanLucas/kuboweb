@@ -29,14 +29,14 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-xl ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       scrolled ?
-      "bg-black/70 border-b border-border/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)]" :
-      "bg-black/30"}`
+      "bg-background/90 backdrop-blur-2xl border-b border-border/30 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" :
+      "bg-transparent"}`
       }>
 
-      <div className="container mx-auto max-w-6xl px-4">
-        <div className="flex items-center justify-between h-20 md:h-24">
+      <div className="container mx-auto max-w-6xl px-4 bg-black">
+        <div className="flex items-center justify-between h-20 md:h-24 bg-black">
           {/* Logo */}
           <a href="#" className="flex items-center shrink-0">
             <img alt="KuboWeb" className="h-20 md:h-28 w-auto object-contain mix-blend-lighten" src="/lovable-uploads/c9fee460-be3a-465e-907f-be07776348d6.jpg" />

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoKuboweb from "@/assets/logo-kuboweb-dark.png";
@@ -15,19 +15,25 @@ const navLinks = [
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const onScroll = () => {
       const currentY = window.scrollY;
+      const delta = currentY - lastScrollY.current;
       setScrolled(currentY > 20);
-      setHidden(currentY > lastScrollY && currentY > 80);
-      setLastScrollY(currentY);
+      // Only hide after scrolling down 10+ px, show on any scroll up
+      if (delta > 10 && currentY > 80) {
+        setHidden(true);
+      } else if (delta < -5) {
+        setHidden(false);
+      }
+      lastScrollY.current = currentY;
     };
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const handleNav = (href: string) => {
     setMobileOpen(false);

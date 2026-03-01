@@ -35,7 +35,7 @@ const Index = () => {
             {/* Brand */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <img src={logoKuboweb} alt="KuboWeb" className="h-9 w-auto rounded-lg object-contain" />
+                <img src={logoKuboweb} alt="KuboWeb" className="h-12 w-auto object-contain mix-blend-lighten" />
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Sites profissionais que geram resultados reais para o seu negócio.

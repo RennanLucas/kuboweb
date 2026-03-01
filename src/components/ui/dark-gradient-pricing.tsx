@@ -1,21 +1,33 @@
 import { motion } from "framer-motion"
-import { Check, X } from "lucide-react"
+import { Check, X, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
 
 interface BenefitProps {
   text: string
   checked: boolean
+  index: number
 }
 
-const Benefit = ({ text, checked }: BenefitProps) => {
+const Benefit = ({ text, checked, index }: BenefitProps) => {
   return (
-    <div className="flex items-center gap-3">
+    <motion.div
+      initial={{ opacity: 0, x: -10 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: 0.3 + index * 0.06, duration: 0.4 }}
+      className="flex items-center gap-3"
+    >
       {checked ? (
-        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20">
+        <motion.span
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 + index * 0.06, type: "spring", stiffness: 300 }}
+          className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/20"
+        >
           <Check className="h-3 w-3 text-primary" />
-        </span>
+        </motion.span>
       ) : (
         <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-muted">
           <X className="h-3 w-3 text-muted-foreground" />
@@ -24,7 +36,7 @@ const Benefit = ({ text, checked }: BenefitProps) => {
       <span className={cn("text-sm", checked ? "text-foreground" : "text-muted-foreground line-through")}>
         {text}
       </span>
-    </div>
+    </motion.div>
   )
 }
 
@@ -36,6 +48,7 @@ interface PricingCardProps {
   benefits: Array<{ text: string; checked: boolean }>
   className?: string
   popular?: boolean
+  index?: number
 }
 
 export const PricingCard = ({
@@ -46,42 +59,93 @@ export const PricingCard = ({
   benefits,
   className,
   popular,
+  index = 0,
 }: PricingCardProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      whileHover={{ y: -8, transition: { duration: 0.3 } }}
+      className="h-full"
     >
-      <Card className={cn(
-        "relative overflow-hidden border-border/50 bg-card p-6 md:p-8",
-        popular && "border-primary/50 shadow-glow",
+      <div className={cn(
+        "relative overflow-hidden rounded-2xl border bg-card p-6 md:p-8 h-full flex flex-col transition-all duration-500",
+        popular
+          ? "border-primary/50 shadow-glow bg-gradient-to-b from-primary/[0.08] to-transparent"
+          : "border-border/50 hover:border-primary/30 hover:shadow-glow-sm",
         className
       )}>
+        {/* Gradient overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
         {popular && (
-          <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs font-medium px-3 py-1 rounded-bl-lg">
+          <motion.div
+            initial={{ x: 40, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, type: "spring" }}
+            className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs font-semibold px-4 py-1.5 rounded-bl-xl flex items-center gap-1.5"
+          >
+            <Sparkles className="w-3 h-3" />
             Popular
-          </div>
+          </motion.div>
         )}
-        <div className="space-y-2 mb-6">
-          <p className="text-sm font-medium text-primary">{tier}</p>
-          <p className="text-3xl md:text-4xl font-bold text-foreground">{price}</p>
-          <p className="text-sm text-muted-foreground">{bestFor}</p>
+
+        <div className="space-y-2 mb-6 relative">
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 + index * 0.1 }}
+            className="text-sm font-semibold text-primary tracking-wide"
+          >
+            {tier}
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 + index * 0.1, type: "spring", stiffness: 200 }}
+          >
+            <p className="text-3xl md:text-4xl font-bold text-foreground">{price}</p>
+          </motion.div>
+          <p className="text-sm text-muted-foreground leading-relaxed">{bestFor}</p>
         </div>
 
-        <div className="space-y-3 mb-8">
-          {benefits.map((benefit, index) => (
-            <Benefit key={index} {...benefit} />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-6" />
+
+        <div className="space-y-3 mb-8 flex-1 relative">
+          {benefits.map((benefit, i) => (
+            <Benefit key={i} {...benefit} index={i} />
           ))}
         </div>
 
-        <Button className="w-full" variant={popular ? "default" : "outline"} asChild>
-          <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
-            {CTA}
-          </a>
-        </Button>
-      </Card>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 + index * 0.1 }}
+        >
+          <Button
+            className={cn(
+              "w-full relative overflow-hidden group",
+              popular && "shadow-lg shadow-primary/25"
+            )}
+            variant={popular ? "default" : "outline"}
+            size="lg"
+            asChild
+          >
+            <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
+              <span className="relative z-10">{CTA}</span>
+              {popular && (
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              )}
+            </a>
+          </Button>
+        </motion.div>
+      </div>
     </motion.div>
   )
 }

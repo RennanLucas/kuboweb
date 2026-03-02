@@ -45,6 +45,7 @@ interface PricingCardProps {
   price: string
   bestFor: string
   CTA: string
+  href?: string
   benefits: Array<{ text: string; checked: boolean }>
   className?: string
   popular?: boolean
@@ -56,6 +57,7 @@ export const PricingCard = ({
   price,
   bestFor,
   CTA,
+  href = "https://wa.me/5511932197334",
   benefits,
   className,
   popular,
@@ -137,7 +139,7 @@ export const PricingCard = ({
             size="lg"
             asChild
           >
-            <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
+            <a href={href} target="_blank" rel="noopener noreferrer">
               <span className="relative z-10">{CTA}</span>
               {popular && (
                 <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

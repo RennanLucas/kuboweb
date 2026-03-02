@@ -72,7 +72,7 @@ const Header = () => {
           {/* CTA Desktop */}
           <div className="hidden md:block">
             <Button variant="whatsapp" size="sm" asChild>
-              <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp
               </a>
@@ -105,7 +105,7 @@ const Header = () => {
           )}
             <div className="pt-3 mt-2 border-t border-border/30">
               <Button variant="whatsapp" size="lg" className="w-full" asChild>
-                <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
                   Falar no WhatsApp
                 </a>

@@ -10,6 +10,7 @@ const servicePlans = [
     price: "R$ 760",
     bestFor: "Presença online completa para seu negócio",
     CTA: "Quero Meu Site",
+    href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20criar%20minha%20Landing%20Page%20de%20R%24%20560.%20Pode%20me%20explicar%20como%20funciona%20e%20como%20come%C3%A7amos%3F",
     popular: true,
     benefits: [
       { text: "Tudo da Landing Page", checked: true },
@@ -25,6 +26,7 @@ const servicePlans = [
     price: "R$ 560",
     bestFor: "Página única focada em conversão",
     CTA: "Quero Minha Landing Page",
+    href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20criar%20minha%20Landing%20Page%20de%20R%24%20560.%20Pode%20me%20explicar%20como%20funciona%20e%20como%20come%C3%A7amos%3F",
     benefits: [
       { text: "Design profissional", checked: true },
       { text: "Responsivo (mobile)", checked: true },
@@ -39,6 +41,7 @@ const servicePlans = [
     price: "R$ 1.200",
     bestFor: "Para quem quer vender produtos online",
     CTA: "Criar Minha Loja",
+    href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Loja%20Virtual%20de%20R%24%201200%20que%20vi%20no%20site.%20Quero%20saber%20prazo%2C%20forma%20de%20pagamento%20e%20o%20que%20preciso%20enviar%20para%20come%C3%A7ar.",
     benefits: [
       { text: "Tudo do plano Site", checked: true },
       { text: "Catálogo de produtos", checked: true },
@@ -53,6 +56,7 @@ const servicePlans = [
     price: "R$ 280",
     bestFor: "Ideal para quem quer tráfego rápido",
     CTA: "Solicitar Orçamento",
+    href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20An%C3%BAncios%20Google%20Ads%20de%20R%24%20280.%20Pode%20me%20explicar%20como%20funciona%20e%20quando%20podemos%20iniciar%3F",
     benefits: [
       { text: "Campanha Google Ads", checked: true },
       { text: "Configuração completa", checked: true },
@@ -199,6 +203,7 @@ const PricingSection = () => {
                 price="R$ 70/mês"
                 bestFor="Mantenha seu site sempre atualizado"
                 CTA="Contratar Manutenção"
+                href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20quero%20contratar%20a%20Manuten%C3%A7%C3%A3o%20Mensal%20de%20R%24%2070.%20Pode%20me%20explicar%20como%20funciona%20e%20como%20ativamos%3F"
                 benefits={[
                   { text: "Atualizações de conteúdo", checked: true },
                   { text: "Correções e ajustes", checked: true },

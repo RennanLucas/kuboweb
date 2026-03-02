@@ -40,7 +40,7 @@ const CTASection = () => {
             transition={{ delay: 0.25, duration: 0.4 }}
           >
             <Button variant="whatsapp" size="xl" asChild>
-              <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20come%C3%A7ar%20meu%20projeto.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-6 h-6" />
                 Falar no WhatsApp
               </a>

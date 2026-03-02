@@ -132,8 +132,8 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <div className="flex-1 relative min-h-[500px] flex items-center justify-center pr-4 lg:pr-8">
-              <div className="w-full max-w-[420px] h-[540px]">
+            <div className="flex-1 relative min-h-[500px] flex items-center justify-center pr-8 lg:pr-12 xl:pr-16">
+              <div className="w-[320px] lg:w-[360px] xl:w-[400px] h-[500px] lg:h-[540px] xl:h-[580px] -translate-x-8 lg:-translate-x-10">
                 <SplineScene
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full"

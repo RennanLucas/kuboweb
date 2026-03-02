@@ -67,7 +67,7 @@ const HeroSection = () => {
           <div className="relative min-h-[300px] flex-1 overflow-visible">
             <div className="absolute -inset-6">
               <SplineScene
-                scene="https://prod.spline.design/6Wq1Q7YGyM-uBdB5/scene.splinecode"
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                 className="w-full h-full"
                 delayMs={2400}
               />
@@ -127,7 +127,7 @@ const HeroSection = () => {
             <div className="flex-1 relative min-h-[500px] overflow-visible">
               <div className="absolute -inset-8">
                 <SplineScene
-                  scene="https://prod.spline.design/6Wq1Q7YGyM-uBdB5/scene.splinecode"
+                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full"
                   delayMs={2400}
                 />

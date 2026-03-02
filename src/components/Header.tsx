@@ -23,10 +23,10 @@ const Header = () => {
       const currentY = window.scrollY;
       const delta = currentY - lastScrollY.current;
       setScrolled(currentY > 20);
-      // Only hide after scrolling down 10+ px, show on any scroll up
-      if (delta > 10 && currentY > 80) {
+      // Only hide after scrolling well past the hero
+      if (delta > 20 && currentY > 300) {
         setHidden(true);
-      } else if (delta < -5) {
+      } else if (delta < -10) {
         setHidden(false);
       }
       lastScrollY.current = currentY;

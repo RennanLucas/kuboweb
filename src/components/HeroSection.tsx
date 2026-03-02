@@ -80,7 +80,7 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop: card layout */}
-        <Card className="hidden md:block w-full bg-card/40 border-border/30 relative overflow-hidden rounded-3xl backdrop-blur-sm">
+        <Card className="hidden md:block w-full bg-card/40 border-border/30 relative overflow-visible rounded-3xl backdrop-blur-sm">
           <Spotlight
             className="-top-40 left-60 -top-20"
             fill="hsl(217 91% 60%)"
@@ -132,8 +132,8 @@ const HeroSection = () => {
               </div>
             </div>
 
-            <div className="flex-1 relative min-h-[500px] overflow-visible">
-              <div className="absolute inset-0 -translate-x-20">
+            <div className="flex-1 relative min-h-[500px] overflow-visible clip-none">
+              <div className="absolute inset-0">
                 <SplineScene
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full"

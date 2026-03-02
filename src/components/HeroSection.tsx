@@ -57,7 +57,7 @@ const HeroSection = () => {
           <div className="overflow-hidden pt-2" style={{ contain: 'layout' }}>
             <div className="flex items-center gap-6 text-xs text-muted-foreground animate-marquee-mobile whitespace-nowrap">
               {[...Array(2)].flatMap((_, i) =>
-                ["Comunicação direta com o desenvolvedor", "Projeto estratégico para gerar clientes", "Processo simples e transparente", "Entrega profissional e otimizada"].map((item) => (
+                ["Estratégia focada em gerar clientes", "Desenvolvimento rápido e organizado", "Projeto sem complicação", "Entrega profissional e otimizada"].map((item) => (
                   <div key={`${item}-${i}`} className="flex items-center gap-1.5 shrink-0">
                     <CheckCircle2 className="w-3.5 h-3.5 text-success" />
                     {item}
@@ -119,7 +119,7 @@ const HeroSection = () => {
               </div>
 
               <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground pt-1">
-                {["Comunicação direta com o desenvolvedor", "Projeto estratégico para gerar clientes", "Processo simples e transparente", "Entrega profissional e otimizada"].map((item) => (
+                {["Estratégia focada em gerar clientes", "Desenvolvimento rápido e organizado", "Projeto sem complicação", "Entrega profissional e otimizada"].map((item) => (
                   <div key={item} className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-success" />
                     {item}

@@ -252,7 +252,7 @@
 }
 
 .animate-marquee-mobile {
-  animation: marquee-mobile 6s linear infinite;
+  animation: marquee-mobile 8s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
 }

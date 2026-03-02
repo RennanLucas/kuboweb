@@ -1,13 +1,10 @@
-import { useState } from "react";
-import { MessageCircle, ArrowDown, CheckCircle2, Play } from "lucide-react";
+import { MessageCircle, ArrowDown, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SplineScene } from "@/components/ui/splite";
 import { Card } from "@/components/ui/card";
 import { Spotlight } from "@/components/ui/spotlight";
-import heroMockup from "@/assets/hero-mockup.jpg";
 
 const HeroSection = () => {
-  const [enableMobile3D, setEnableMobile3D] = useState(false);
   const scrollToServicos = () => {
     document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -73,34 +70,11 @@ const HeroSection = () => {
           {/* 3D Scene mobile */}
           <div className="relative min-h-[300px] flex-1 overflow-visible">
             <div className="absolute -inset-6">
-              {enableMobile3D ? (
-                <SplineScene
-                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                  className="w-full h-full"
-                  delayMs={1200}
-                />
-              ) : (
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <img
-                    src={heroMockup}
-                    alt="Prévia do visual 3D do site"
-                    className="w-full h-full object-contain opacity-90"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setEnableMobile3D(true)}
-                      className="border-border/60 bg-card/80 backdrop-blur"
-                    >
-                      <Play className="w-4 h-4" />
-                      Ativar visual 3D
-                    </Button>
-                  </div>
-                </div>
-              )}
+              <SplineScene
+                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                className="w-full h-full"
+                delayMs={3200}
+              />
             </div>
           </div>
         </div>

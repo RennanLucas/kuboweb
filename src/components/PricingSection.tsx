@@ -10,7 +10,7 @@ const servicePlans = [
     price: "R$ 760",
     bestFor: "Presença online completa para seu negócio",
     CTA: "Quero Meu Site",
-    href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20criar%20minha%20Landing%20Page%20de%20R%24%20560.%20Pode%20me%20explicar%20como%20funciona%20e%20como%20come%C3%A7amos%3F",
+    href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20quero%20criar%20um%20site%20profissional.%20Meu%20nicho%20%C3%A9%20_____%20e%20quero%20come%C3%A7ar%20o%20quanto%20antes.%20Pode%20me%20passar%20os%20pr%C3%B3ximos%20passos%3F",
     popular: true,
     benefits: [
       { text: "Tudo da Landing Page", checked: true },

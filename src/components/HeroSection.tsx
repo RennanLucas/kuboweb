@@ -76,7 +76,7 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop: card layout */}
-        <Card className="hidden md:block w-full bg-card/40 border-border/30 relative overflow-hidden rounded-3xl backdrop-blur-sm">
+        <Card className="hidden md:block w-full bg-transparent border-border/30 relative overflow-hidden rounded-3xl">
           <Spotlight
             className="-top-40 left-60 -top-20"
             fill="hsl(217 91% 60%)"

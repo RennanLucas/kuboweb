@@ -6,20 +6,6 @@ import { useState, useCallback } from "react";
 
 const servicePlans = [
   {
-    tier: "Landing Page",
-    price: "R$ 560",
-    bestFor: "Página única focada em conversão",
-    CTA: "Quero Minha Landing Page",
-    benefits: [
-      { text: "Design profissional", checked: true },
-      { text: "Responsivo (mobile)", checked: true },
-      { text: "Otimizado para Google (SEO)", checked: true },
-      { text: "Botão WhatsApp integrado", checked: true },
-      { text: "Formulário de contato", checked: true },
-      { text: "Entrega rápida", checked: true },
-    ],
-  },
-  {
     tier: "Site Profissional",
     price: "R$ 760",
     bestFor: "Presença online completa para seu negócio",
@@ -32,6 +18,20 @@ const servicePlans = [
       { text: "Blog integrado", checked: true },
       { text: "Painel administrativo", checked: true },
       { text: "Suporte pós-entrega", checked: true },
+    ],
+  },
+  {
+    tier: "Landing Page",
+    price: "R$ 560",
+    bestFor: "Página única focada em conversão",
+    CTA: "Quero Minha Landing Page",
+    benefits: [
+      { text: "Design profissional", checked: true },
+      { text: "Responsivo (mobile)", checked: true },
+      { text: "Otimizado para Google (SEO)", checked: true },
+      { text: "Botão WhatsApp integrado", checked: true },
+      { text: "Formulário de contato", checked: true },
+      { text: "Entrega rápida", checked: true },
     ],
   },
   {

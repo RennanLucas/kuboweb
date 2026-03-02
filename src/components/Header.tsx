@@ -50,7 +50,7 @@ const Header = () => {
       }>
 
       <div className="container mx-auto max-w-6xl px-4 bg-black">
-        <div className="flex items-center justify-between h-20 md:h-24 bg-black">
+        <div className="flex items-center justify-between h-28 md:h-36 bg-black">
           {/* Logo */}
           <a href="#" className="flex items-center shrink-0">
             <img alt="KuboWeb" className="h-28 md:h-36 w-auto object-contain mix-blend-lighten" src="/lovable-uploads/c9fee460-be3a-465e-907f-be07776348d6.jpg" />

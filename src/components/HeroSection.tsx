@@ -53,14 +53,18 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Trust indicators */}
-          <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground pt-2">
-            {["Resposta rápida", "Sem burocracia", "Atendimento direto"].map((item) => (
-              <div key={item} className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-success" />
-                {item}
-              </div>
-            ))}
+          {/* Trust indicators - marquee */}
+          <div className="overflow-hidden pt-2">
+            <div className="flex animate-[marquee_12s_linear_infinite] gap-8 w-max">
+              {[...Array(2)].flatMap((_, i) =>
+                ["Resposta rápida", "Sem burocracia", "Atendimento direto"].map((item) => (
+                  <div key={`${item}-${i}`} className="flex items-center gap-1.5 text-xs text-muted-foreground whitespace-nowrap">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
+                    {item}
+                  </div>
+                ))
+              )}
+            </div>
           </div>
 
           {/* 3D Scene mobile */}
@@ -114,13 +118,17 @@ const HeroSection = () => {
                 </Button>
               </div>
 
-              <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground pt-1">
-                {["Resposta rápida", "Sem burocracia", "Atendimento direto"].map((item) => (
-                  <div key={item} className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-success" />
-                    {item}
-                  </div>
-                ))}
+              <div className="overflow-hidden pt-1">
+                <div className="flex animate-[marquee_12s_linear_infinite] gap-8 w-max">
+                  {[...Array(2)].flatMap((_, i) =>
+                    ["Resposta rápida", "Sem burocracia", "Atendimento direto"].map((item) => (
+                      <div key={`${item}-${i}`} className="flex items-center gap-1.5 text-sm text-muted-foreground whitespace-nowrap">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
+                        {item}
+                      </div>
+                    ))
+                  )}
+                </div>
               </div>
             </div>
 

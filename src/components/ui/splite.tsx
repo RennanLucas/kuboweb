@@ -38,7 +38,7 @@ export function SplineScene({ scene, className, delayMs = 0 }: SplineSceneProps)
   useEffect(() => {
     if (!isVisible) return
 
-    const waitTime = isMobile ? Math.max(delayMs, 2200) : Math.max(delayMs, 800)
+    const waitTime = isMobile ? Math.max(delayMs, 800) : Math.max(delayMs, 300)
 
     const timeout = window.setTimeout(() => setShouldLoad(true), waitTime)
     return () => window.clearTimeout(timeout)

@@ -53,18 +53,14 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          {/* Trust indicators - marquee */}
-          <div className="overflow-hidden pt-2">
-            <div className="flex animate-[marquee_12s_linear_infinite] gap-8 w-max">
-              {[...Array(2)].flatMap((_, i) =>
-                ["Resposta rápida", "Sem burocracia", "Atendimento direto"].map((item) => (
-                  <div key={`${item}-${i}`} className="flex items-center gap-1.5 text-xs text-muted-foreground whitespace-nowrap">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
-                    {item}
-                  </div>
-                ))
-              )}
-            </div>
+          {/* Trust indicators */}
+          <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground pt-2">
+            {["Resposta rápida", "Sem burocracia", "Atendimento direto"].map((item) => (
+              <div key={item} className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-success" />
+                {item}
+              </div>
+            ))}
           </div>
 
           {/* 3D Scene mobile */}
@@ -80,7 +76,7 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop: card layout */}
-        <Card className="hidden md:block w-full bg-card/40 border-border/30 relative overflow-visible rounded-3xl backdrop-blur-sm">
+        <Card className="hidden md:block w-full bg-card/40 border-border/30 relative overflow-hidden rounded-3xl backdrop-blur-sm">
           <Spotlight
             className="-top-40 left-60 -top-20"
             fill="hsl(217 91% 60%)"
@@ -118,26 +114,22 @@ const HeroSection = () => {
                 </Button>
               </div>
 
-              <div className="overflow-hidden pt-1">
-                <div className="flex animate-[marquee_12s_linear_infinite] gap-8 w-max">
-                  {[...Array(2)].flatMap((_, i) =>
-                    ["Resposta rápida", "Sem burocracia", "Atendimento direto"].map((item) => (
-                      <div key={`${item}-${i}`} className="flex items-center gap-1.5 text-sm text-muted-foreground whitespace-nowrap">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
-                        {item}
-                      </div>
-                    ))
-                  )}
-                </div>
+              <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground pt-1">
+                {["Resposta rápida", "Sem burocracia", "Atendimento direto"].map((item) => (
+                  <div key={item} className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-success" />
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="flex-1 relative min-h-[500px] flex items-center justify-center overflow-visible">
-              <div className="w-[520px] lg:w-[560px] xl:w-[600px] h-[520px] lg:h-[560px] xl:h-[580px] -translate-x-44 lg:-translate-x-48 xl:-translate-x-40">
+            <div className="flex-1 relative min-h-[500px] overflow-visible">
+              <div className="absolute -inset-8">
                 <SplineScene
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                  className="w-full h-full pointer-events-none"
-                  delayMs={400}
+                  className="w-full h-full"
+                  delayMs={2400}
                 />
               </div>
             </div>

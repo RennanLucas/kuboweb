@@ -81,8 +81,8 @@ const HeroSection = () => {
             className="-top-40 left-60 -top-20"
             fill="hsl(217 91% 60%)"
           />
-          <div className="flex flex-row min-h-[580px]">
-            <div className="flex-1 p-12 lg:p-16 relative z-10 flex flex-col justify-center space-y-7">
+          <div className="flex flex-row min-h-[580px] items-center justify-center">
+            <div className="flex-1 p-12 lg:p-16 relative z-10 flex flex-col justify-center items-center text-center space-y-7">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wide uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 Web Design Profissional
@@ -95,12 +95,12 @@ const HeroSection = () => {
                   pelo WhatsApp
                 </h1>
                 
-                <p className="text-lg text-muted-foreground max-w-md leading-relaxed">
+                <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
                   Design moderno, performance otimizada e SEO — feitos para empresas que querem vender mais.
                 </p>
               </div>
 
-              <div className="flex flex-row items-start gap-3">
+              <div className="flex flex-row items-center justify-center gap-3">
                 <Button variant="whatsapp" size="xl" asChild>
                   <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5" />
@@ -114,7 +114,7 @@ const HeroSection = () => {
                 </Button>
               </div>
 
-              <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground pt-1">
+              <div className="flex flex-wrap items-center justify-center gap-5 text-sm text-muted-foreground pt-1">
                 {["Resposta rápida", "Sem burocracia", "Atendimento direto"].map((item) => (
                   <div key={item} className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-success" />

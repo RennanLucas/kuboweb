@@ -2,7 +2,12 @@
 
 import { Suspense, lazy, useState, useEffect, useRef } from 'react'
 import { useIsMobile } from '@/hooks/use-mobile'
-const Spline = lazy(() => import('@splinetool/react-spline'))
+const Spline = lazy(() =>
+  import('@splinetool/react-spline').catch(() => {
+    window.location.reload()
+    return import('@splinetool/react-spline')
+  })
+)
 
 interface SplineSceneProps {
   scene: string

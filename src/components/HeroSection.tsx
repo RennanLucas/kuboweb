@@ -54,7 +54,7 @@ const HeroSection = () => {
           </div>
 
           {/* Trust indicators */}
-          <div className="flex flex-col gap-2 text-xs text-muted-foreground pt-2">
+          <div className="flex items-center gap-4 text-xs text-muted-foreground pt-2">
             {["Resposta rápida", "Sem burocracia", "Atendimento direto"].map((item) => (
               <div key={item} className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-success" />

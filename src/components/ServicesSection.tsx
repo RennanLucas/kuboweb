@@ -71,10 +71,10 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="card-premium flex flex-col p-7 md:p-8"
+              className="card-premium flex flex-col p-7 md:p-8 group"
             >
-              <div className="w-11 h-11 rounded-xl bg-primary/8 border border-primary/15 flex items-center justify-center mb-5">
-                <service.icon className="w-5 h-5 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors duration-300">
+                <service.icon className="w-5.5 h-5.5 text-primary" />
               </div>
               
               <h3 className="text-lg md:text-xl font-heading font-semibold mb-2.5 text-foreground">

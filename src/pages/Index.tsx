@@ -18,14 +18,22 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <Header />
       <HeroSection />
+      <div className="section-divider" />
       <StatsSection />
+      <div className="section-divider" />
       <ServicesSection />
       <BenefitsSection />
+      <div className="section-divider" />
       <ProcessSection />
+      <div className="section-divider" />
       <PricingSection />
+      <div className="section-divider" />
       <SocialProofSection />
+      <div className="section-divider" />
       <AudienceSection />
+      <div className="section-divider" />
       <FAQSection />
+      <div className="section-divider" />
       <CTASection />
 
       {/* Footer */}

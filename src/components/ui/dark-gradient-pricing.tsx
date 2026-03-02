@@ -71,10 +71,10 @@ export const PricingCard = ({
       className="h-full"
     >
       <div className={cn(
-        "relative overflow-hidden rounded-2xl border bg-card p-6 md:p-8 h-full flex flex-col transition-all duration-500",
+        "relative overflow-hidden rounded-2xl border p-6 md:p-8 h-full flex flex-col transition-all duration-500",
         popular
-          ? "border-primary/50 shadow-glow bg-gradient-to-b from-primary/[0.08] to-transparent"
-          : "border-border/50 hover:border-primary/30 hover:shadow-glow-sm",
+          ? "border-primary/40 shadow-glow bg-gradient-to-b from-primary/[0.08] via-card to-card"
+          : "border-border/40 bg-gradient-to-b from-card/80 to-card hover:border-primary/25 hover:shadow-glow-sm",
         className
       )}>
         {/* Gradient overlay on hover */}

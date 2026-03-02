@@ -30,8 +30,8 @@
     --secondary-foreground: 210 20% 98%;
 
     /* Muted */
-    --muted: 0 0% 8%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 7%;
+    --muted-foreground: 0 0% 50%;
 
     /* Accent */
     --accent: 217 91% 60%;
@@ -99,30 +99,36 @@
   }
 
   .card-premium {
-    @apply bg-card border border-border/40 rounded-2xl p-6 transition-all duration-300;
-    background: linear-gradient(145deg, hsl(0 0% 4%), hsl(0 0% 2%));
+    @apply bg-card border border-border/40 rounded-2xl p-6 transition-all duration-500;
+    background: linear-gradient(165deg, hsl(0 0% 5%), hsl(0 0% 2%) 70%);
+    backdrop-filter: blur(8px);
   }
 
   .card-premium:hover {
-    @apply border-primary/25;
-    box-shadow: 0 8px 32px hsl(217 91% 60% / 0.06);
+    @apply border-primary/30;
+    box-shadow: 0 8px 40px hsl(217 91% 60% / 0.08), inset 0 1px 0 hsl(0 0% 100% / 0.03);
+    transform: translateY(-2px);
   }
 
   .section-label {
-    @apply text-primary font-semibold text-xs uppercase tracking-[0.2em] inline-flex items-center gap-2;
+    @apply text-primary font-semibold text-[11px] uppercase tracking-[0.25em] inline-flex items-center gap-2.5;
   }
 
   .section-label::before {
     content: "";
-    @apply w-8 h-px bg-primary/50;
+    @apply w-10 h-px bg-gradient-to-r from-primary/60 to-primary/20;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground leading-[1.1];
+    @apply text-3xl md:text-[2.75rem] lg:text-5xl font-heading font-bold text-foreground leading-[1.08] tracking-[-0.02em];
   }
 
   .section-subtitle {
     @apply text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed;
+  }
+
+  .section-divider {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-border/40 to-transparent;
   }
 }
 

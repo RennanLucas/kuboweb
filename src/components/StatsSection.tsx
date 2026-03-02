@@ -49,8 +49,9 @@ const AnimatedNumber = ({ target, suffix, decimal }: { target: number; suffix: s
 
 const StatsSection = () => {
   return (
-    <section className="py-14 md:py-16 px-4 border-y border-border/20 bg-card/30">
-      <div className="container mx-auto max-w-5xl">
+    <section className="py-16 md:py-20 px-4 relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-card/40 via-card/20 to-transparent" />
+      <div className="container mx-auto max-w-5xl relative">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
           {stats.map((stat, index) => (
             <motion.div
@@ -59,10 +60,10 @@ const StatsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="text-center space-y-2"
+              className="text-center space-y-2.5 relative"
             >
               <AnimatedNumber target={stat.value} suffix={stat.suffix} decimal={(stat as any).decimal} />
-              <p className="text-xs md:text-sm text-muted-foreground font-medium tracking-wide">{stat.label}</p>
+              <p className="text-xs md:text-sm text-muted-foreground font-medium tracking-wide uppercase">{stat.label}</p>
             </motion.div>
           ))}
         </div>

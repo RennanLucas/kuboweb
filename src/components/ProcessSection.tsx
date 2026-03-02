@@ -70,7 +70,7 @@ const ProcessSection = () => {
                 transition={{ delay: index * 0.15, duration: 0.4 }}
                 className="relative text-center"
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/20 relative z-10">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/25 relative z-10 ring-1 ring-primary/20 ring-offset-2 ring-offset-background">
                   <step.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
 

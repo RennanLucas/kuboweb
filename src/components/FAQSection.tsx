@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "O que está incluso no valor?",
     answer:
-      "Design personalizado, desenvolvimento responsivo, otimização SEO, integração com WhatsApp, hospedagem e domínio orientados, e suporte pós-lançamento por 30 dias.",
+      "Design personalizado, desenvolvimento responsivo, otimização básica para SEO e integração com WhatsApp.\n\nO suporte é oferecido durante todo o processo de criação do site.\n\nApós a entrega, a manutenção é opcional e custa R$ 70 por mês.",
   },
 ];
 
@@ -91,8 +91,7 @@ const FAQSection = () => {
                 <AccordionTrigger className="text-left font-heading font-semibold text-foreground hover:text-primary transition-colors py-5 hover:no-underline text-[15px]">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pb-5 text-sm">
-                  {faq.answer}
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-5 text-sm whitespace-pre-line">
                 </AccordionContent>
               </AccordionItem>
             </motion.div>

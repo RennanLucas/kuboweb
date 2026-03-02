@@ -10,7 +10,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-16 pb-4 md:py-24 px-0 md:px-4">
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-x-hidden overflow-y-visible pt-16 pb-4 md:py-24 px-0 md:px-4">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-subtle" />
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/4 rounded-full blur-3xl hidden md:block" />
@@ -54,8 +54,8 @@ const HeroSection = () => {
           </div>
 
           {/* Trust indicators - marquee on mobile */}
-          <div className="overflow-hidden pt-2" style={{ contain: 'layout' }}>
-            <div className="flex items-center gap-6 text-xs text-muted-foreground animate-marquee-mobile whitespace-nowrap">
+          <div className="overflow-hidden pt-2 px-2" style={{ contain: 'layout' }}>
+            <div className="flex items-center gap-6 pr-6 text-xs text-muted-foreground animate-marquee-mobile whitespace-nowrap">
               {[...Array(2)].flatMap((_, i) =>
                 ["Estratégia focada em gerar clientes", "Desenvolvimento rápido e organizado", "Projeto sem complicação", "Entrega profissional e otimizada"].map((item) => (
                   <div key={`${item}-${i}`} className="flex items-center gap-1.5 shrink-0">

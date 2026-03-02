@@ -95,7 +95,7 @@ const ServicesSection = () => {
               </ul>
 
               <a
-                href="https://wa.me/5511932197334"
+                href={`https://wa.me/5511932197334?text=${encodeURIComponent(`Olá, vim pelo site da KuboWeb e tenho interesse no serviço de ${service.title}. Pode me explicar como funciona?`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors group mt-auto"
@@ -115,7 +115,7 @@ const ServicesSection = () => {
           className="text-center"
         >
           <Button variant="whatsapp" size="lg" asChild>
-            <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="w-5 h-5" />
               Solicitar orçamento
             </a>

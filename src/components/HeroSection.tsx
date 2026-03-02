@@ -41,7 +41,7 @@ const HeroSection = () => {
           {/* CTAs */}
           <div className="flex flex-col gap-3">
             <Button variant="whatsapp" size="xl" asChild>
-              <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-5 h-5" />
                 Falar no WhatsApp
               </a>
@@ -102,7 +102,7 @@ const HeroSection = () => {
 
               <div className="flex flex-row items-center justify-center gap-3">
                 <Button variant="whatsapp" size="xl" asChild>
-                  <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5" />
                     Falar no WhatsApp
                   </a>

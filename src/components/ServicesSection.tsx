@@ -25,7 +25,7 @@ const services = [
     icon: Megaphone,
     title: "Anúncios",
     description: "Campanhas de tráfego pago no Google e redes sociais para atrair clientes qualificados.",
-    features: ["Google Ads", "Meta Ads", "Relatórios de performance"],
+    features: ["Google Ads", "Relatórios de performance"],
   },
 ];
 

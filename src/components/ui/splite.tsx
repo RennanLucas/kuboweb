@@ -37,28 +37,33 @@ export function SplineScene({ scene, className, delayMs = 0 }: SplineSceneProps)
     const deviceMemory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 4
     const isLowEndMobile = isMobile && (cores <= 4 || deviceMemory <= 4)
 
-    const baseWaitTime = isMobile ? Math.max(delayMs, 10000) : Math.max(delayMs, 800)
-    const waitTime = isLowEndMobile ? baseWaitTime + 1800 : baseWaitTime
+    const baseWaitTime = isMobile ? Math.max(delayMs, 5000) : Math.max(delayMs, 800)
+    const waitTime = isLowEndMobile ? baseWaitTime + 2500 : baseWaitTime
 
-    const scheduleLoad = () => {
-      const timeout = window.setTimeout(() => setShouldLoad(true), waitTime)
-      return () => window.clearTimeout(timeout)
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number
+      cancelIdleCallback?: (id: number) => void
     }
 
-    if ('requestIdleCallback' in window && isMobile) {
-      const idleId = (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number; cancelIdleCallback: (id: number) => void }).requestIdleCallback(
-        () => {
-          setShouldLoad(true)
-        },
-        { timeout: waitTime }
-      )
+    let idleId: number | undefined
 
-      return () => {
-        ;(window as Window & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId)
+    const timeoutId = window.setTimeout(() => {
+      if (isMobile && w.requestIdleCallback) {
+        idleId = w.requestIdleCallback(() => {
+          setShouldLoad(true)
+        }, { timeout: 1500 })
+        return
+      }
+
+      setShouldLoad(true)
+    }, waitTime)
+
+    return () => {
+      window.clearTimeout(timeoutId)
+      if (idleId && w.cancelIdleCallback) {
+        w.cancelIdleCallback(idleId)
       }
     }
-
-    return scheduleLoad()
   }, [isVisible, isMobile, delayMs])
 
   return (

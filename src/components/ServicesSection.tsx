@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 
 const services = [
   {
-    icon: FileText,
-    title: "Landing Pages",
-    description: "Páginas de alta conversão para capturar leads e vender serviços. Ideal para campanhas de marketing.",
-    features: ["Foco em conversão", "Integração WhatsApp", "Design persuasivo"],
-  },
-  {
     icon: Building2,
     title: "Sites Institucionais",
     description: "Presença digital completa para sua empresa. Múltiplas páginas com informações sobre seu negócio.",
     features: ["Várias páginas", "SEO otimizado", "Gestão de conteúdo"],
+  },
+  {
+    icon: FileText,
+    title: "Landing Pages",
+    description: "Páginas de alta conversão para capturar leads e vender serviços. Ideal para campanhas de marketing.",
+    features: ["Foco em conversão", "Integração WhatsApp", "Design persuasivo"],
   },
   {
     icon: ShoppingCart,

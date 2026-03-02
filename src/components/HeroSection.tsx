@@ -134,11 +134,13 @@ const HeroSection = () => {
 
             <div className="flex-1 relative min-h-[500px] overflow-visible clip-none">
               <div className="absolute -inset-y-4 -left-28 -right-8">
-                <SplineScene
-                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                  className="w-full h-full"
-                  delayMs={600}
-                />
+                <div className="w-full h-full origin-center scale-[0.82] -translate-x-16">
+                  <SplineScene
+                    scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                    className="w-full h-full"
+                    delayMs={600}
+                  />
+                </div>
               </div>
             </div>
           </div>

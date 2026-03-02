@@ -242,19 +242,6 @@
   animation: scrollUp linear infinite;
 }
 
-@keyframes marquee-mobile {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee-mobile {
-  animation: marquee-mobile 8s linear infinite;
-}
-
 @media (max-width: 767px) {
   .animate-fade-in,
   .animate-fade-in-up,

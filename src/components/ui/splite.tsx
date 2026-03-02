@@ -33,10 +33,32 @@ export function SplineScene({ scene, className, delayMs = 0 }: SplineSceneProps)
   useEffect(() => {
     if (!isVisible) return
 
-    const waitTime = isMobile ? Math.max(delayMs, 2200) : Math.max(delayMs, 800)
+    const cores = navigator.hardwareConcurrency ?? 4
+    const deviceMemory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 4
+    const isLowEndMobile = isMobile && (cores <= 4 || deviceMemory <= 4)
 
-    const timeout = window.setTimeout(() => setShouldLoad(true), waitTime)
-    return () => window.clearTimeout(timeout)
+    const baseWaitTime = isMobile ? Math.max(delayMs, 2200) : Math.max(delayMs, 800)
+    const waitTime = isLowEndMobile ? baseWaitTime + 1800 : baseWaitTime
+
+    const scheduleLoad = () => {
+      const timeout = window.setTimeout(() => setShouldLoad(true), waitTime)
+      return () => window.clearTimeout(timeout)
+    }
+
+    if ('requestIdleCallback' in window && isMobile) {
+      const idleId = (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number; cancelIdleCallback: (id: number) => void }).requestIdleCallback(
+        () => {
+          setShouldLoad(true)
+        },
+        { timeout: waitTime }
+      )
+
+      return () => {
+        ;(window as Window & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId)
+      }
+    }
+
+    return scheduleLoad()
   }, [isVisible, isMobile, delayMs])
 
   return (

@@ -133,7 +133,7 @@ const HeroSection = () => {
             </div>
 
             <div className="flex-1 relative min-h-[500px] overflow-visible">
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 -translate-x-20">
                 <SplineScene
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full"

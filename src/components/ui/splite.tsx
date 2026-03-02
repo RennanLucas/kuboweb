@@ -37,7 +37,7 @@ export function SplineScene({ scene, className, delayMs = 0 }: SplineSceneProps)
     const deviceMemory = (navigator as Navigator & { deviceMemory?: number }).deviceMemory ?? 4
     const isLowEndMobile = isMobile && (cores <= 4 || deviceMemory <= 4)
 
-    const baseWaitTime = isMobile ? Math.max(delayMs, 30000) : Math.max(delayMs, 800)
+    const baseWaitTime = isMobile ? Math.max(delayMs, 10000) : Math.max(delayMs, 800)
     const waitTime = isLowEndMobile ? baseWaitTime + 1800 : baseWaitTime
 
     const scheduleLoad = () => {

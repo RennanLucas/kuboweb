@@ -36,8 +36,17 @@
   <meta name="twitter:description" content="Sites profissionais modernos, rápidos e estratégicos para empresas e autônomos. Montagem de sites sob medida com foco em conversão. Fale no WhatsApp!">
 </head>
 
-  <body>
+  <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S'))) {
+          e.preventDefault();
+          return false;
+        }
+      });
+    </script>
+    <style>body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}</style>
   </body>
 </html>

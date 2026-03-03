@@ -144,7 +144,7 @@ const PricingSection = () => {
             <div className="md:hidden">
               <div className="relative overflow-hidden">
                 <div
-                  className="flex transition-transform duration-400 ease-out"
+                  className="flex transition-transform duration-300 ease-out will-change-transform"
                   style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
                   {servicePlans.map((plan, i) => (

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 const stats = [
   { value: "+30", label: "Projetos Criados", highlight: "+" },
   { value: "4.9★", label: "Avaliação Média", highlight: "★" },
-  { value: "7 dias", label: "Entrega em até 7 dias úteis", highlight: "dias" },
+  { value: "7", label: "Entrega em até 7 dias úteis", highlight: "" },
   { value: "💬", label: "Suporte Direto no WhatsApp", highlight: "", isIcon: true },
 ];
 

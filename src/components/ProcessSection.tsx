@@ -57,8 +57,11 @@ const ProcessSection = () => {
         </div>
 
         <div className="relative">
-          {/* Connection line */}
-          <div className="hidden md:block absolute top-8 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+          {/* Connection line - desktop */}
+          <div className="hidden md:block absolute top-[2rem] left-[16.66%] right-[16.66%] h-px">
+            <div className="w-full h-full bg-gradient-to-r from-primary/5 via-primary/25 to-primary/5" />
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary/10 via-primary/40 to-primary/10 blur-sm" />
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8 md:gap-10">
             {steps.map((step, index) => (
@@ -68,9 +71,9 @@ const ProcessSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15, duration: 0.4 }}
-                className="relative text-center"
+                className="relative text-center group"
               >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/25 relative z-10 ring-1 ring-primary/20 ring-offset-2 ring-offset-background">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/25 relative z-10 ring-2 ring-primary/20 ring-offset-4 ring-offset-background group-hover:shadow-xl group-hover:shadow-primary/30 transition-shadow duration-300">
                   <step.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
 

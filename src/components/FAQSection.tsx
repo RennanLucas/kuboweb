@@ -92,6 +92,7 @@ const FAQSection = () => {
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground leading-relaxed pb-5 text-sm whitespace-pre-line">
+                  {faq.answer}
                 </AccordionContent>
               </AccordionItem>
             </motion.div>

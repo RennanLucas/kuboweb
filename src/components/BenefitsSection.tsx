@@ -52,9 +52,9 @@ const BenefitsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="card-premium text-center p-8 md:p-10"
+              className="card-premium text-center p-8 md:p-10 group"
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary/8 border border-primary/15 flex items-center justify-center mx-auto mb-6">
+              <div className="w-14 h-14 rounded-2xl bg-primary/8 border border-primary/15 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/15 group-hover:scale-105 transition-all duration-300">
                 <benefit.icon className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-lg md:text-xl font-heading font-semibold mb-3 text-foreground">

@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: 30, suffix: "+", label: "Projetos entregues" },
-  { value: 100, suffix: "%", label: "Clientes satisfeitos" },
-  { value: 4.9, suffix: "★", label: "Avaliação média", decimal: true },
-  { value: 7, suffix: " dias", label: "Tempo médio de entrega" },
+  { value: 30, suffix: "+", label: "Projetos Criados" },
+  { value: 4.9, suffix: "★", label: "Avaliação Média", decimal: true },
+  { value: 7, suffix: " dias", label: "Entrega em até 7 dias" },
+  { value: 0, suffix: "💬", label: "Suporte Direto no WhatsApp", isIcon: true },
 ];
 
 const AnimatedNumber = ({ target, suffix, decimal }: { target: number; suffix: string; decimal?: boolean }) => {
@@ -62,7 +62,13 @@ const StatsSection = () => {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="text-center space-y-2.5 relative"
             >
-              <AnimatedNumber target={stat.value} suffix={stat.suffix} decimal={(stat as any).decimal} />
+              {(stat as any).isIcon ? (
+                <div className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground">
+                  <span className="text-primary">💬</span>
+                </div>
+              ) : (
+                <AnimatedNumber target={stat.value} suffix={stat.suffix} decimal={(stat as any).decimal} />
+              )}
               <p className="text-xs md:text-sm text-muted-foreground font-medium tracking-wide uppercase">{stat.label}</p>
             </motion.div>
           ))}

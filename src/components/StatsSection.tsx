@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
 
 const stats = [
   { value: 30, suffix: "+", label: "Projetos Criados" },
@@ -64,8 +63,28 @@ const StatsSection = () => {
               className="text-center space-y-2.5 relative"
             >
               {(stat as any).isIcon ? (
-                <div className="flex items-center justify-center">
-                  <MessageCircle className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-primary fill-primary/20" />
+                <div className="flex items-center justify-center" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 32 32"
+                    className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-primary"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="16" cy="16" r="12" stroke="currentColor" strokeWidth="2.2" />
+                    <path
+                      d="M12.5 20.2C14.6 21.4 17.3 21.5 19.6 20.3C20.4 19.9 21.1 19.3 21.6 18.6"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M12.3 11.6C12.7 10.9 13.4 10.5 14.1 10.7L15.5 11.1C16.1 11.3 16.4 11.9 16.2 12.5L15.9 13.4C15.8 13.8 15.9 14.3 16.2 14.6L17.4 15.8C17.7 16.1 18.2 16.2 18.6 16.1L19.5 15.8C20.1 15.6 20.7 15.9 20.9 16.5L21.3 17.9C21.5 18.6 21.1 19.3 20.4 19.7L19.9 20"
+                      stroke="currentColor"
+                      strokeWidth="1.9"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </div>
               ) : (
                 <AnimatedNumber target={stat.value} suffix={stat.suffix} decimal={(stat as any).decimal} />

@@ -52,14 +52,14 @@ const AudienceSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08, duration: 0.4 }}
-              className="group relative rounded-2xl border border-border/30 bg-card/40 p-5 md:p-6 hover:border-primary/20 hover:bg-card/60 transition-all duration-300"
+              className="group relative rounded-2xl border border-border/30 bg-gradient-to-br from-card/50 to-card/20 p-5 md:p-6 hover:border-primary/25 hover:bg-card/60 transition-all duration-300 hover:shadow-lg hover:shadow-primary/[0.04]"
             >
               <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-primary/8 border border-primary/12 flex items-center justify-center shrink-0 group-hover:bg-primary/12 group-hover:border-primary/25 transition-all duration-300">
+                <div className="w-11 h-11 rounded-xl bg-primary/8 border border-primary/12 flex items-center justify-center shrink-0 group-hover:bg-primary/15 group-hover:border-primary/30 group-hover:scale-105 transition-all duration-300">
                   <item.icon className="w-5 h-5 text-primary" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="font-heading font-semibold text-foreground text-sm">
+                  <h3 className="font-heading font-semibold text-foreground text-sm group-hover:text-primary transition-colors duration-300">
                     {item.label}
                   </h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">

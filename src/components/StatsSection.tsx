@@ -3,7 +3,7 @@ import { Clock } from "lucide-react";
 const stats = [
   { value: "+30", label: "Projetos Criados" },
   { value: "4.9★", label: "Avaliação Média" },
-  { value: "7", label: "Entrega em até 7 dias úteis", icon: "clock" },
+  { value: "7", label: "Entrega em até 7 dias úteis" },
   { value: "", label: "Suporte Direto no WhatsApp", icon: "whatsapp" },
 ];
 

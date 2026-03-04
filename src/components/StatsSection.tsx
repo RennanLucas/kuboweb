@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { MessageCircle } from "lucide-react";
 
 const stats = [
   { value: 30, suffix: "+", label: "Projetos Criados" },
@@ -63,8 +64,8 @@ const StatsSection = () => {
               className="text-center space-y-2.5 relative"
             >
               {(stat as any).isIcon ? (
-                <div className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground">
-                  <span className="text-primary">💬</span>
+                <div className="flex items-center justify-center">
+                  <MessageCircle className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 text-primary fill-primary/20" />
                 </div>
               ) : (
                 <AnimatedNumber target={stat.value} suffix={stat.suffix} decimal={(stat as any).decimal} />

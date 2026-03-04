@@ -16,8 +16,9 @@ const StatBlock = ({ value, label, icon }: { value: string; label: string; icon?
     ) : icon === "clock" ? (
       <Clock className="w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 text-primary flex-shrink-0" />
     ) : (
-      <span className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-foreground whitespace-nowrap">
-        {value.replace(/[★+]/g, '')}
+      <span className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold whitespace-nowrap">
+        <span className="text-foreground">{value.replace(/[★+\d]/g, '')}</span>
+        <span className="text-primary">{value.match(/[\d.]+/)?.[0] || ''}</span>
         <span className="text-primary">{value.match(/[★+]/)?.[0] || ''}</span>
       </span>
     )}

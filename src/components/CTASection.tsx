@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 const CTASection = () => {
   return (
     <section className="py-24 md:py-32 px-4 relative overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/8 via-primary/3 to-background" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[150px]" />
 
@@ -19,8 +18,8 @@ const CTASection = () => {
               transition={{ duration: 0.5 }}
               className="section-title"
             >
-              Pronto para ter um site que{" "}
-              <span className="text-gradient-primary">passa credibilidade</span>?
+              Pronto para ter um site{" "}
+              <span className="text-gradient-primary">profissional</span>?
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 15 }}
@@ -42,7 +41,7 @@ const CTASection = () => {
             <Button variant="whatsapp" size="xl" asChild>
               <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20come%C3%A7ar%20meu%20projeto.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-6 h-6" />
-                Falar no WhatsApp
+                Começar agora
               </a>
             </Button>
           </motion.div>

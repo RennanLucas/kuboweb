@@ -1,12 +1,12 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import StatsSection from "@/components/StatsSection";
-import BenefitsSection from "@/components/BenefitsSection";
-import AudienceSection from "@/components/AudienceSection";
+import TrustSection from "@/components/TrustSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
-import SocialProofSection from "@/components/SocialProofSection";
+import PortfolioSection from "@/components/PortfolioSection";
+import BenefitsSection from "@/components/BenefitsSection";
 import PricingSection from "@/components/PricingSection";
+import SocialProofSection from "@/components/SocialProofSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -17,19 +17,19 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      <div className="section-divider" />
-      <StatsSection />
+      <TrustSection />
       <div className="section-divider" />
       <ServicesSection />
-      <BenefitsSection />
       <div className="section-divider" />
       <ProcessSection />
+      <div className="section-divider" />
+      <PortfolioSection />
+      <div className="section-divider" />
+      <BenefitsSection />
       <div className="section-divider" />
       <PricingSection />
       <div className="section-divider" />
       <SocialProofSection />
-      <div className="section-divider" />
-      <AudienceSection />
       <div className="section-divider" />
       <FAQSection />
       <div className="section-divider" />

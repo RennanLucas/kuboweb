@@ -1,24 +1,24 @@
-import { MousePointerClick, Palette, Rocket } from "lucide-react";
+import { MessageSquare, Palette, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 
 const steps = [
   {
-    icon: MousePointerClick,
+    icon: MessageSquare,
     number: "01",
-    title: "Escolha seu site",
-    description: "Selecione o tipo de site ideal para o seu negócio.",
+    title: "Briefing",
+    description: "Entendo seu negócio, objetivos e o que você precisa no site.",
   },
   {
     icon: Palette,
     number: "02",
-    title: "Personalizamos para você",
-    description: "Criamos o design e conteúdo sob medida para sua marca.",
+    title: "Criação",
+    description: "Desenvolvo o site com design moderno e foco em resultados.",
   },
   {
     icon: Rocket,
     number: "03",
-    title: "Site online em poucos dias",
-    description: "Seu site no ar, pronto para receber clientes.",
+    title: "Publicação",
+    description: "Site no ar, pronto para receber clientes e gerar vendas.",
   },
 ];
 
@@ -34,7 +34,7 @@ const ProcessSection = () => {
             transition={{ duration: 0.4 }}
             className="section-label justify-center"
           >
-            Como funciona
+            Processo
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
@@ -43,7 +43,7 @@ const ProcessSection = () => {
             transition={{ delay: 0.1, duration: 0.4 }}
             className="section-title"
           >
-            3 passos simples
+            Como funciona
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -60,6 +60,7 @@ const ProcessSection = () => {
           {/* Connection line - desktop */}
           <div className="hidden md:block absolute top-[2rem] left-[16.66%] right-[16.66%] h-px">
             <div className="w-full h-full bg-gradient-to-r from-primary/5 via-primary/25 to-primary/5" />
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary/10 via-primary/40 to-primary/10 blur-sm" />
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 md:gap-10">

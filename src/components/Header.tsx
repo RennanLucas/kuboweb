@@ -51,7 +51,7 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 will-change-transform transition-[transform,opacity] duration-500 ease-in-out ${
       hidden && !mobileOpen ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"} ${
       scrolled ?
-      "bg-background/95 backdrop-blur-2xl border-b border-border/20 shadow-[0_1px_20px_rgba(0,0,0,0.4)]" :
+      "bg-background/95 backdrop-blur-2xl border-b border-border/20 shadow-[0_1px_20px_rgba(0,0,0,0.6)]" :
       "bg-transparent"}`
       }>
 

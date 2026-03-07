@@ -27,70 +27,90 @@ const floatingIcons = [
 const HeroVisual = () => (
   <div className="relative w-full h-full flex items-center justify-center">
     {/* Central glow */}
-    <div className="absolute w-64 h-64 md:w-80 md:h-80 rounded-full bg-primary/10 blur-[80px]" />
+    <div className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary/8 blur-[100px]" />
     
     {/* Browser mockup */}
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.2 }}
-      className="relative z-10 w-[260px] md:w-[320px] rounded-2xl border border-border/40 bg-card/80 backdrop-blur-sm shadow-2xl shadow-primary/10 overflow-hidden"
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+      className="relative z-10 w-[280px] md:w-[360px] rounded-2xl border border-border/50 bg-card shadow-2xl shadow-foreground/5 overflow-hidden"
     >
       {/* Browser bar */}
-      <div className="flex items-center gap-1.5 px-4 py-3 border-b border-border/30 bg-card/60">
-        <div className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
-        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-        <div className="w-2.5 h-2.5 rounded-full bg-success/60" />
-        <div className="ml-3 flex-1 h-5 rounded-md bg-muted/50 flex items-center px-2">
-          <span className="text-[9px] text-muted-foreground/60 truncate">seunegocio.com.br</span>
+      <div className="flex items-center gap-1.5 px-4 py-3.5 border-b border-border/40 bg-card">
+        <div className="w-2.5 h-2.5 rounded-full bg-destructive/70" />
+        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+        <div className="w-2.5 h-2.5 rounded-full bg-success/70" />
+        <div className="ml-3 flex-1 h-6 rounded-lg bg-muted/30 border border-border/30 flex items-center px-3">
+          <div className="w-3 h-3 mr-2 rounded-full bg-success/40 flex items-center justify-center">
+            <div className="w-1.5 h-1.5 rounded-full bg-success" />
+          </div>
+          <span className="text-[10px] text-muted-foreground/70 font-medium tracking-wide">seunegocio.com.br</span>
         </div>
       </div>
       {/* Content */}
-      <div className="p-5 space-y-3">
-        <p className="text-[10px] md:text-[11px] font-heading font-bold text-foreground/80 leading-tight">
-          Seu site profissional<br />
-          <span className="text-primary">começa aqui.</span>
-        </p>
-        <div className="h-2 w-full rounded bg-foreground/6" />
-        <div className="h-2 w-4/5 rounded bg-foreground/6" />
-        <div className="flex items-center gap-2 mt-3">
-          <div className="h-7 px-3 rounded-lg bg-whatsapp/20 flex items-center">
-            <span className="text-[8px] font-semibold text-whatsapp">WhatsApp</span>
-          </div>
-          <div className="h-7 px-3 rounded-lg bg-muted/40 flex items-center">
-            <span className="text-[8px] text-muted-foreground">Saiba mais</span>
+      <div className="p-6 space-y-4 bg-background/50">
+        {/* Nav skeleton */}
+        <div className="flex items-center justify-between mb-2">
+          <div className="h-2 w-16 rounded-full bg-foreground/8" />
+          <div className="flex gap-3">
+            <div className="h-1.5 w-8 rounded-full bg-foreground/6" />
+            <div className="h-1.5 w-8 rounded-full bg-foreground/6" />
+            <div className="h-1.5 w-8 rounded-full bg-foreground/6" />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-2 mt-2">
-          <div className="h-14 rounded-lg bg-muted/30 p-2 flex flex-col justify-between">
-            <Search className="w-3 h-3 text-primary/60" />
-            <span className="text-[7px] text-muted-foreground">SEO otimizado</span>
+
+        <div className="pt-2">
+          <p className="text-[13px] md:text-sm font-heading font-bold text-foreground leading-tight">
+            Seu site profissional<br />
+            <span className="text-primary">começa aqui.</span>
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          <div className="h-2 w-full rounded-full bg-foreground/5" />
+          <div className="h-2 w-3/4 rounded-full bg-foreground/5" />
+        </div>
+
+        <div className="flex items-center gap-2.5 pt-1">
+          <div className="h-8 px-4 rounded-lg bg-whatsapp/15 border border-whatsapp/20 flex items-center">
+            <span className="text-[10px] font-semibold text-whatsapp">WhatsApp</span>
           </div>
-          <div className="h-14 rounded-lg bg-muted/30 p-2 flex flex-col justify-between">
-            <Smartphone className="w-3 h-3 text-primary/60" />
-            <span className="text-[7px] text-muted-foreground">100% responsivo</span>
+          <div className="h-8 px-4 rounded-lg bg-muted/20 border border-border/40 flex items-center">
+            <span className="text-[10px] text-muted-foreground font-medium">Saiba mais</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2.5 pt-2">
+          <div className="h-16 rounded-xl bg-card border border-border/30 p-3 flex flex-col justify-between shadow-sm">
+            <Search className="w-3.5 h-3.5 text-primary/70" />
+            <span className="text-[9px] text-muted-foreground font-medium">SEO otimizado</span>
+          </div>
+          <div className="h-16 rounded-xl bg-card border border-border/30 p-3 flex flex-col justify-between shadow-sm">
+            <Smartphone className="w-3.5 h-3.5 text-primary/70" />
+            <span className="text-[9px] text-muted-foreground font-medium">100% responsivo</span>
           </div>
         </div>
       </div>
     </motion.div>
 
-    {/* Floating icons - CSS animation for performance */}
+    {/* Floating icons */}
     {floatingIcons.map(({ icon: Icon, delay, x, y, label }, i) => (
       <motion.div
         key={i}
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.4 + delay }}
-        className="absolute flex flex-col items-center gap-1"
+        transition={{ duration: 0.5, delay: 0.5 + delay }}
+        className="absolute flex flex-col items-center gap-1.5"
         style={{ left: x, top: y }}
       >
         <div
-          className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-card/80 border border-border/30 flex items-center justify-center shadow-lg backdrop-blur-sm animate-float"
+          className="w-11 h-11 md:w-13 md:h-13 rounded-xl bg-card border border-border/40 flex items-center justify-center shadow-lg animate-float"
           style={{ animationDelay: `${delay}s` }}
         >
           <Icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
         </div>
-        <span className="text-[8px] md:text-[9px] font-medium text-muted-foreground">{label}</span>
+        <span className="text-[8px] md:text-[9px] font-semibold text-muted-foreground/70 tracking-wide">{label}</span>
       </motion.div>
     ))}
   </div>

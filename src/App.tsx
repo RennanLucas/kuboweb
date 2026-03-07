@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 import { useEffect, useState, lazy, Suspense } from "react";
 import Index from "./pages/Index";
@@ -28,7 +28,7 @@ const PageLoader = () => (
 );
 
 const ScrollToTop = () => {
-  const { pathname } = require("react-router-dom").useLocation();
+  const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);

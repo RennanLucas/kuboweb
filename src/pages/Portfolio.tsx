@@ -2,51 +2,71 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, ExternalLink, Globe, ShoppingCart, FileText } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { MessageCircle, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
+
+import imgAdvocacia from "@/assets/portfolio/advocacia.jpg";
+import imgClinica from "@/assets/portfolio/clinica.jpg";
+import imgModa from "@/assets/portfolio/moda.jpg";
+import imgFinanceira from "@/assets/portfolio/financeira.jpg";
+import imgConstrutora from "@/assets/portfolio/construtora.jpg";
+import imgCurso from "@/assets/portfolio/curso.jpg";
 
 const projects = [
   {
-    title: "Site Institucional — Escritório de Advocacia",
+    title: "Moreira & Associados Advocacia",
     category: "Site Institucional",
-    icon: Globe,
-    description: "Site com múltiplas páginas, área de especialidades, equipe e formulário de contato integrado ao WhatsApp.",
-    tags: ["Responsivo", "SEO", "WhatsApp"],
+    image: imgAdvocacia,
+    description:
+      "Site completo para escritório de advocacia com páginas de especialidades, perfil da equipe, blog jurídico e formulário de contato integrado ao WhatsApp.",
+    tags: ["Responsivo", "SEO Otimizado", "Blog", "WhatsApp"],
+    result: "+180% de contatos orgânicos em 3 meses",
   },
   {
-    title: "Landing Page — Consultoria Financeira",
-    category: "Landing Page",
-    icon: FileText,
-    description: "Página de captura de alta conversão com depoimentos, FAQ e CTA direto para agendamento.",
-    tags: ["Conversão", "Performance", "Design"],
+    title: "Clínica Sorriso Perfeito",
+    category: "Site Institucional",
+    image: imgClinica,
+    description:
+      "Site para clínica odontológica com galeria de casos, perfis dos dentistas, agendamento online e integração com Google Maps.",
+    tags: ["Agendamento Online", "Galeria", "Google Maps"],
+    result: "+95 agendamentos/mês via site",
   },
   {
-    title: "Loja Virtual — Moda Feminina",
+    title: "Stella Rose — Moda Feminina",
     category: "E-commerce",
-    icon: ShoppingCart,
-    description: "Loja completa com catálogo de produtos, carrinho, checkout e painel de gestão.",
-    tags: ["E-commerce", "Pagamento", "Catálogo"],
+    image: imgModa,
+    description:
+      "Loja virtual completa com catálogo de mais de 500 produtos, filtros avançados, carrinho, checkout com Pix e cartão, e painel administrativo.",
+    tags: ["E-commerce", "Pix", "Painel Admin", "Catálogo"],
+    result: "R$ 47 mil em vendas no primeiro mês",
   },
   {
-    title: "Site Institucional — Clínica Odontológica",
-    category: "Site Institucional",
-    icon: Globe,
-    description: "Site com galeria de antes e depois, perfil dos dentistas e agendamento online via WhatsApp.",
-    tags: ["Galeria", "Agendamento", "SEO"],
-  },
-  {
-    title: "Landing Page — Curso Online",
+    title: "Vertex Capital — Consultoria",
     category: "Landing Page",
-    icon: FileText,
-    description: "Página de vendas com vídeo, módulos do curso, depoimentos de alunos e checkout integrado.",
-    tags: ["Vendas", "Vídeo", "Conversão"],
+    image: imgFinanceira,
+    description:
+      "Landing page de alta conversão para consultoria financeira com calculadora de investimentos, depoimentos em vídeo e agendamento direto.",
+    tags: ["Alta Conversão", "Calculadora", "Vídeo"],
+    result: "Taxa de conversão de 12,3%",
   },
   {
-    title: "Site Institucional — Construtora",
+    title: "MRK Engenharia & Construções",
     category: "Site Institucional",
-    icon: Globe,
-    description: "Site com portfólio de obras, linha do tempo da empresa e formulário de orçamento.",
-    tags: ["Portfólio", "Institucional", "Responsivo"],
+    image: imgConstrutora,
+    description:
+      "Site institucional com portfólio de obras em galeria interativa, linha do tempo da empresa, certificações e formulário de orçamento.",
+    tags: ["Portfólio", "Galeria", "Orçamento Online"],
+    result: "+60% de solicitações de orçamento",
+  },
+  {
+    title: "AcademIA — Curso de IA",
+    category: "Landing Page",
+    image: imgCurso,
+    description:
+      "Página de vendas para curso online com vídeo de apresentação, grade curricular, depoimentos de alunos e checkout integrado.",
+    tags: ["Vendas", "Vídeo", "Checkout", "Depoimentos"],
+    result: "+320 matrículas na primeira semana",
   },
 ];
 
@@ -56,7 +76,7 @@ const Portfolio = () => (
     <div className="pt-24 md:pt-32" />
 
     <section className="px-4 pb-20 md:pb-28">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-14 md:mb-20 space-y-5">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -72,65 +92,82 @@ const Portfolio = () => (
             transition={{ delay: 0.1, duration: 0.4 }}
             className="section-title"
           >
-            Projetos que entregamos
+            Projetos que já entregamos
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.4 }}
-            className="section-subtitle"
+            className="section-subtitle max-w-2xl mx-auto"
           >
-            Conheça alguns dos sites que criamos para nossos clientes. Cada projeto é único e feito sob medida.
+            Cada projeto é desenvolvido sob medida para o negócio do cliente.
+            Confira alguns dos resultados que geramos.
           </motion.p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-14">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.article
               key={project.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.08, duration: 0.4 }}
-              className="card-premium p-6 flex flex-col group"
+              transition={{ delay: index * 0.08, duration: 0.45 }}
+              className="card-premium group overflow-hidden flex flex-col"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0">
-                  <project.icon className="w-5 h-5 text-primary" />
-                </div>
-                <span className="text-xs font-medium text-primary tracking-wide uppercase">
-                  {project.category}
-                </span>
-              </div>
-
-              <h3 className="font-heading font-semibold text-foreground mb-2 text-[15px] leading-snug">
-                {project.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-grow">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-1.5">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[11px] px-2.5 py-1 rounded-full bg-primary/8 text-primary font-medium"
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={`Projeto ${project.title}`}
+                  className="w-full h-52 md:h-60 object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute top-3 left-3">
+                  <Badge
+                    variant="secondary"
+                    className="bg-background/90 backdrop-blur-sm text-foreground border-border text-xs"
                   >
-                    {tag}
-                  </span>
-                ))}
+                    {project.category}
+                  </Badge>
+                </div>
               </div>
-            </motion.div>
+
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="font-heading font-semibold text-foreground text-lg mb-2 leading-snug">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-grow">
+                  {project.description}
+                </p>
+
+                <div className="bg-primary/5 border border-primary/10 rounded-lg px-3 py-2 mb-4">
+                  <p className="text-xs font-semibold text-primary">
+                    📈 {project.result}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[11px] px-2.5 py-1 rounded-full bg-secondary text-muted-foreground font-medium border border-border"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
           ))}
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.4 }}
+          transition={{ delay: 0.5, duration: 0.4 }}
           className="text-center space-y-5"
         >
           <p className="text-lg text-foreground font-heading font-semibold">
-            Quer um projeto como esses?
+            Quer resultados como esses para o seu negócio?
           </p>
           <Button variant="whatsapp" size="xl" asChild>
             <a

@@ -18,10 +18,10 @@ const TrustIndicators = ({ className = "" }: { className?: string }) => (
 );
 
 const floatingIcons = [
-  { icon: Code2, delay: 0, x: "10%", y: "15%" },
-  { icon: Smartphone, delay: 0.3, x: "75%", y: "10%" },
-  { icon: Search, delay: 0.6, x: "85%", y: "55%" },
-  { icon: Zap, delay: 0.9, x: "15%", y: "65%" },
+  { icon: Code2, delay: 0, x: "5%", y: "12%", label: "Design" },
+  { icon: Smartphone, delay: 0.3, x: "72%", y: "8%", label: "Mobile" },
+  { icon: Search, delay: 0.6, x: "80%", y: "58%", label: "SEO" },
+  { icon: Zap, delay: 0.9, x: "8%", y: "68%", label: "Rápido" },
 ];
 
 const HeroVisual = () => (
@@ -41,37 +41,57 @@ const HeroVisual = () => (
         <div className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
         <div className="w-2.5 h-2.5 rounded-full bg-success/60" />
-        <div className="ml-3 flex-1 h-5 rounded-md bg-muted/50" />
+        <div className="ml-3 flex-1 h-5 rounded-md bg-muted/50 flex items-center px-2">
+          <span className="text-[9px] text-muted-foreground/60 truncate">seunegocio.com.br</span>
+        </div>
       </div>
       {/* Content */}
       <div className="p-5 space-y-3">
-        <div className="h-3 w-3/4 rounded bg-foreground/10" />
-        <div className="h-3 w-full rounded bg-foreground/6" />
-        <div className="h-3 w-5/6 rounded bg-foreground/6" />
-        <div className="h-8 w-1/2 rounded-lg bg-primary/20 mt-4" />
-        <div className="grid grid-cols-2 gap-2 mt-3">
-          <div className="h-16 rounded-lg bg-muted/40" />
-          <div className="h-16 rounded-lg bg-muted/40" />
+        <p className="text-[10px] md:text-[11px] font-heading font-bold text-foreground/80 leading-tight">
+          Seu site profissional<br />
+          <span className="text-primary">começa aqui.</span>
+        </p>
+        <div className="h-2 w-full rounded bg-foreground/6" />
+        <div className="h-2 w-4/5 rounded bg-foreground/6" />
+        <div className="flex items-center gap-2 mt-3">
+          <div className="h-7 px-3 rounded-lg bg-whatsapp/20 flex items-center">
+            <span className="text-[8px] font-semibold text-whatsapp">WhatsApp</span>
+          </div>
+          <div className="h-7 px-3 rounded-lg bg-muted/40 flex items-center">
+            <span className="text-[8px] text-muted-foreground">Saiba mais</span>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-2 mt-2">
+          <div className="h-14 rounded-lg bg-muted/30 p-2 flex flex-col justify-between">
+            <Search className="w-3 h-3 text-primary/60" />
+            <span className="text-[7px] text-muted-foreground">SEO otimizado</span>
+          </div>
+          <div className="h-14 rounded-lg bg-muted/30 p-2 flex flex-col justify-between">
+            <Smartphone className="w-3 h-3 text-primary/60" />
+            <span className="text-[7px] text-muted-foreground">100% responsivo</span>
+          </div>
         </div>
       </div>
     </motion.div>
 
     {/* Floating icons */}
-    {floatingIcons.map(({ icon: Icon, delay, x, y }, i) => (
+    {floatingIcons.map(({ icon: Icon, delay, x, y, label }, i) => (
       <motion.div
         key={i}
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.4 + delay }}
-        className="absolute w-10 h-10 md:w-12 md:h-12 rounded-xl bg-card/80 border border-border/30 flex items-center justify-center shadow-lg backdrop-blur-sm"
+        className="absolute flex flex-col items-center gap-1"
         style={{ left: x, top: y }}
       >
         <motion.div
           animate={{ y: [0, -6, 0] }}
-          transition={{ duration: 3, repeat: Infinity, delay: delay, ease: "easeInOut" }}
+          transition={{ duration: 3, repeat: Infinity, delay, ease: "easeInOut" }}
+          className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-card/80 border border-border/30 flex items-center justify-center shadow-lg backdrop-blur-sm"
         >
           <Icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
         </motion.div>
+        <span className="text-[8px] md:text-[9px] font-medium text-muted-foreground">{label}</span>
       </motion.div>
     ))}
   </div>

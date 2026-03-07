@@ -1,8 +1,8 @@
+import { memo, useState, useCallback } from "react";
 import { PricingCard } from "@/components/ui/dark-gradient-pricing";
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useCallback } from "react";
 
 const servicePlans = [
   {
@@ -80,13 +80,12 @@ const PricingSection = () => {
 
   return (
     <section id="precos" className="py-20 md:py-28 px-4 bg-background relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto max-w-6xl relative">
-        <div className="text-center mb-12 md:mb-16 space-y-4">
+        <div className="text-center mb-10 md:mb-16 space-y-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -122,7 +121,7 @@ const PricingSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <TabsList className="grid w-full max-w-sm mx-auto grid-cols-2 mb-10 md:mb-12 bg-secondary/50 backdrop-blur-sm p-1">
+            <TabsList className="grid w-full max-w-xs sm:max-w-sm mx-auto grid-cols-2 mb-8 md:mb-12 bg-secondary/50 backdrop-blur-sm p-1">
               <TabsTrigger value="servicos" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300">
                 Serviços
               </TabsTrigger>
@@ -133,44 +132,44 @@ const PricingSection = () => {
           </motion.div>
 
           <TabsContent value="servicos">
-            {/* Desktop: grid */}
+            {/* Desktop grid */}
             <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5">
               {servicePlans.map((plan, i) => (
                 <PricingCard key={plan.tier} {...plan} index={i} />
               ))}
             </div>
 
-            {/* Mobile: simple swipeable carousel with CSS */}
+            {/* Mobile carousel */}
             <div className="md:hidden">
               <div className="relative overflow-hidden">
                 <div
                   className="flex transition-transform duration-300 ease-out will-change-transform"
                   style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                 >
-                  {servicePlans.map((plan, i) => (
-                    <div key={plan.tier} className="w-full flex-shrink-0 px-1">
+                  {servicePlans.map((plan) => (
+                    <div key={plan.tier} className="w-full shrink-0 px-1">
                       <PricingCard {...plan} index={0} />
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Navigation */}
               <div className="flex items-center justify-between mt-6 px-1">
                 <button
                   onClick={goPrev}
                   disabled={currentIndex === 0}
                   className="w-10 h-10 rounded-full border border-border/50 bg-card flex items-center justify-center text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:border-primary/50"
+                  aria-label="Anterior"
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
 
-                {/* Dots */}
                 <div className="flex items-center gap-2">
                   {servicePlans.map((_, i) => (
                     <button
                       key={i}
                       onClick={() => setCurrentIndex(i)}
+                      aria-label={`Plano ${i + 1}`}
                       className={`rounded-full transition-all duration-300 ${
                         i === currentIndex
                           ? "bg-primary w-6 h-2.5"
@@ -184,6 +183,7 @@ const PricingSection = () => {
                   onClick={goNext}
                   disabled={currentIndex === servicePlans.length - 1}
                   className="w-10 h-10 rounded-full border border-border/50 bg-card flex items-center justify-center text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:border-primary/50"
+                  aria-label="Próximo"
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -220,4 +220,4 @@ const PricingSection = () => {
   );
 };
 
-export default PricingSection;
+export default memo(PricingSection);

@@ -149,7 +149,7 @@ const Portfolio = () => (
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[11px] px-2.5 py-1 rounded-full bg-secondary text-muted-foreground font-medium border border-border"
+                      className="text-[11px] px-2.5 py-1 rounded-full bg-primary/10 text-primary font-medium border border-primary/15"
                     >
                       {tag}
                     </span>

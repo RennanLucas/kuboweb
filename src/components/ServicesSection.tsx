@@ -2,6 +2,7 @@ import { memo } from "react";
 import { FileText, Building2, ShoppingCart, Megaphone, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -9,24 +10,28 @@ const services = [
     title: "Sites Institucionais",
     description: "Presença digital completa para sua empresa. Múltiplas páginas com informações sobre seu negócio.",
     features: ["Várias páginas", "SEO otimizado", "Gestão de conteúdo"],
+    href: "/servicos/sites-institucionais",
   },
   {
     icon: FileText,
     title: "Landing Pages",
     description: "Páginas de alta conversão para capturar leads e vender serviços. Ideal para campanhas de marketing.",
     features: ["Foco em conversão", "Integração WhatsApp", "Design persuasivo"],
+    href: "/servicos/landing-pages",
   },
   {
     icon: ShoppingCart,
     title: "Loja Virtual",
     description: "Venda seus produtos online com uma loja profissional, segura e fácil de gerenciar.",
     features: ["Catálogo de produtos", "Pagamento integrado", "Painel de gestão"],
+    href: "/servicos/loja-virtual",
   },
   {
     icon: Megaphone,
     title: "Anúncios",
     description: "Campanhas de tráfego pago no Google e redes sociais para atrair clientes qualificados.",
     features: ["Google Ads", "Relatórios de performance"],
+    href: "/servicos/anuncios",
   },
 ];
 
@@ -94,15 +99,13 @@ const ServicesSection = () => (
               ))}
             </ul>
 
-            <a
-              href={`https://wa.me/5511932197334?text=${encodeURIComponent(`Olá, vim pelo site da KuboWeb e tenho interesse no serviço de ${service.title}. Pode me explicar como funciona?`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={service.href}
               className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors group/link mt-auto"
             >
               Saiba mais
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
-            </a>
+            </Link>
           </motion.div>
         ))}
       </div>

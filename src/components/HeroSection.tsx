@@ -75,21 +75,23 @@ const HeroVisual = () => (
     </motion.div>
 
     {/* Floating icons */}
-    {floatingIcons.map(({ icon: Icon, delay, x, y }, i) => (
+    {floatingIcons.map(({ icon: Icon, delay, x, y, label }, i) => (
       <motion.div
         key={i}
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.4 + delay }}
-        className="absolute w-10 h-10 md:w-12 md:h-12 rounded-xl bg-card/80 border border-border/30 flex items-center justify-center shadow-lg backdrop-blur-sm"
+        className="absolute flex flex-col items-center gap-1"
         style={{ left: x, top: y }}
       >
         <motion.div
           animate={{ y: [0, -6, 0] }}
-          transition={{ duration: 3, repeat: Infinity, delay: delay, ease: "easeInOut" }}
+          transition={{ duration: 3, repeat: Infinity, delay, ease: "easeInOut" }}
+          className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-card/80 border border-border/30 flex items-center justify-center shadow-lg backdrop-blur-sm"
         >
           <Icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
         </motion.div>
+        <span className="text-[8px] md:text-[9px] font-medium text-muted-foreground">{label}</span>
       </motion.div>
     ))}
   </div>

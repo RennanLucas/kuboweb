@@ -1,10 +1,10 @@
-import { memo } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Clock } from "lucide-react";
 
 const stats = [
-  { value: "+30", label: "Projetos Criados" },
-  { value: "4.9★", label: "Avaliação Média" },
-  { value: "7", label: "Entrega em até 7 dias úteis" },
+  { value: "+30", label: "Projetos Criados", numericValue: 30, prefix: "+" },
+  { value: "4.9★", label: "Avaliação Média", numericValue: 4.9, suffix: "★", decimals: 1 },
+  { value: "7", label: "Entrega em até 7 dias úteis", numericValue: 7 },
   { value: "", label: "Suporte Direto no WhatsApp", icon: "whatsapp" },
 ];
 
@@ -14,16 +14,51 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const StatBlock = ({ value, label, icon }: { value: string; label: string; icon?: string }) => (
+const AnimatedNumber = ({ value, prefix = "", suffix = "", decimals = 0 }: { value: number; prefix?: string; suffix?: string; decimals?: number }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const animated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !animated.current) {
+          animated.current = true;
+          const duration = 1500;
+          const start = performance.now();
+          const step = (now: number) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+            setCount(eased * value);
+            if (progress < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value]);
+
+  return (
+    <span ref={ref} className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold whitespace-nowrap text-primary">
+      {prefix}{decimals > 0 ? count.toFixed(decimals) : Math.round(count)}{suffix}
+    </span>
+  );
+};
+
+const StatBlock = ({ value, label, icon, numericValue, prefix, suffix, decimals }: { value: string; label: string; icon?: string; numericValue?: number; prefix?: string; suffix?: string; decimals?: number }) => (
   <div className="flex-shrink-0 flex items-center gap-3 px-8 md:px-12">
     {icon === "whatsapp" ? (
       <WhatsAppIcon />
     ) : icon === "clock" ? (
       <Clock className="w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 text-primary shrink-0" />
+    ) : numericValue !== undefined ? (
+      <AnimatedNumber value={numericValue} prefix={prefix} suffix={suffix} decimals={decimals} />
     ) : (
       <span className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold whitespace-nowrap">
-        <span className="text-primary">{value.match(/[\d.]+/)?.[0] || ''}</span>
-        <span className="text-primary">{value.match(/[★+]/)?.[0] || ''}</span>
+        <span className="text-primary">{value}</span>
       </span>
     )}
     <span className="text-xs md:text-sm text-muted-foreground font-medium tracking-wide uppercase whitespace-nowrap">
@@ -40,7 +75,15 @@ const StatsSection = () => (
         {[...Array(4)].map((_, setIndex) =>
           stats.map((stat, i) => (
             <div key={`${setIndex}-${i}`} className="flex items-center">
-              <StatBlock value={stat.value} label={stat.label} icon={stat.icon} />
+              <StatBlock
+                value={stat.value}
+                label={stat.label}
+                icon={stat.icon}
+                numericValue={(stat as any).numericValue}
+                prefix={(stat as any).prefix}
+                suffix={(stat as any).suffix}
+                decimals={(stat as any).decimals}
+              />
               <div className="w-px h-6 bg-border/40 shrink-0" />
             </div>
           ))

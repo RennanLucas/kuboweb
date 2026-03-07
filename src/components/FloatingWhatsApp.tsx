@@ -1,16 +1,44 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { MessageCircle } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const FloatingWhatsApp = () => (
-  <a
-    href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg shadow-whatsapp/30 hover:scale-110 hover:shadow-xl hover:shadow-whatsapp/40 transition-all duration-300 animate-pulse-slow"
-    aria-label="Falar no WhatsApp"
-  >
-    <MessageCircle className="w-6 h-6" />
-  </a>
-);
+const FloatingWhatsApp = () => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+      <AnimatePresence>
+        {hovered && (
+          <motion.div
+            initial={{ opacity: 0, x: 10, scale: 0.9 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: 10, scale: 0.9 }}
+            transition={{ duration: 0.2 }}
+            className="bg-card border border-border/50 rounded-xl px-4 py-2.5 shadow-xl whitespace-nowrap"
+          >
+            <p className="text-sm font-medium text-foreground">Precisa de ajuda?</p>
+            <p className="text-xs text-muted-foreground">Fale conosco no WhatsApp</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <motion.a
+        href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg shadow-whatsapp/30"
+        aria-label="Falar no WhatsApp"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1 }}
+        whileHover={{ scale: 1.15 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <MessageCircle className="w-6 h-6" />
+      </motion.a>
+    </div>
+  );
+};
 
 export default memo(FloatingWhatsApp);

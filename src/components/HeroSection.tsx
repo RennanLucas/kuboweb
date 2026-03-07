@@ -74,7 +74,7 @@ const HeroVisual = () => (
       </div>
     </motion.div>
 
-    {/* Floating icons */}
+    {/* Floating icons - CSS animation for performance */}
     {floatingIcons.map(({ icon: Icon, delay, x, y, label }, i) => (
       <motion.div
         key={i}
@@ -84,13 +84,12 @@ const HeroVisual = () => (
         className="absolute flex flex-col items-center gap-1"
         style={{ left: x, top: y }}
       >
-        <motion.div
-          animate={{ y: [0, -6, 0] }}
-          transition={{ duration: 3, repeat: Infinity, delay, ease: "easeInOut" }}
-          className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-card/80 border border-border/30 flex items-center justify-center shadow-lg backdrop-blur-sm"
+        <div
+          className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-card/80 border border-border/30 flex items-center justify-center shadow-lg backdrop-blur-sm animate-float"
+          style={{ animationDelay: `${delay}s` }}
         >
           <Icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-        </motion.div>
+        </div>
         <span className="text-[8px] md:text-[9px] font-medium text-muted-foreground">{label}</span>
       </motion.div>
     ))}

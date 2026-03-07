@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoKuboweb from "@/assets/logo-kuboweb-dark.png";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const navLinks = [
 { label: "Benefícios", href: "#beneficios" },
@@ -13,6 +13,8 @@ const navLinks = [
 
 
 const Header = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -37,7 +39,11 @@ const Header = () => {
 
   const handleNav = (href: string) => {
     setMobileOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    if (location.pathname !== "/") {
+      navigate("/" + href);
+    } else {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -52,7 +58,7 @@ const Header = () => {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center shrink-0">
+          <a href="/" className="flex items-center shrink-0" onClick={(e) => { if (location.pathname === "/") { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); } }}>
             <img alt="KuboWeb" className="h-28 md:h-24 w-auto object-contain" src="/lovable-uploads/9a3f5302-65af-43f4-b5a2-96e1efe72e54.png" />
           </a>
 

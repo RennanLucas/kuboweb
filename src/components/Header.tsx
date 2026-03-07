@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoKuboweb from "@/assets/logo-kuboweb-dark.png";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const navLinks = [
 { label: "Benefícios", href: "#beneficios" },

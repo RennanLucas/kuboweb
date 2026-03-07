@@ -18,10 +18,10 @@ const TrustIndicators = ({ className = "" }: { className?: string }) => (
 );
 
 const floatingIcons = [
-  { icon: Code2, delay: 0, x: "10%", y: "15%" },
-  { icon: Smartphone, delay: 0.3, x: "75%", y: "10%" },
-  { icon: Search, delay: 0.6, x: "85%", y: "55%" },
-  { icon: Zap, delay: 0.9, x: "15%", y: "65%" },
+  { icon: Code2, delay: 0, x: "5%", y: "12%", label: "Design" },
+  { icon: Smartphone, delay: 0.3, x: "72%", y: "8%", label: "Mobile" },
+  { icon: Search, delay: 0.6, x: "80%", y: "58%", label: "SEO" },
+  { icon: Zap, delay: 0.9, x: "8%", y: "68%", label: "Rápido" },
 ];
 
 const HeroVisual = () => (

@@ -7,7 +7,9 @@ import { MotionConfig } from "framer-motion";
 import { useEffect, useState, lazy, Suspense } from "react";
 import Index from "./pages/Index";
 
+const Sobre = lazy(() => import("./pages/Sobre"));
 const Servicos = lazy(() => import("./pages/Servicos"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
 const Precos = lazy(() => import("./pages/Precos"));
 const Faq = lazy(() => import("./pages/Faq"));
 const Contato = lazy(() => import("./pages/Contato"));
@@ -24,6 +26,14 @@ const PageLoader = () => (
     <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
   </div>
 );
+
+const ScrollToTop = () => {
+  const { pathname } = require("react-router-dom").useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -43,10 +53,13 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ScrollToTop />
             <Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/sobre" element={<Sobre />} />
                 <Route path="/servicos" element={<Servicos />} />
+                <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/precos" element={<Precos />} />
                 <Route path="/faq" element={<Faq />} />
                 <Route path="/contato" element={<Contato />} />
@@ -54,7 +67,6 @@ const App = () => {
                 <Route path="/servicos/landing-pages" element={<LandingPages />} />
                 <Route path="/servicos/loja-virtual" element={<LojaVirtual />} />
                 <Route path="/servicos/anuncios" element={<Anuncios />} />
-                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

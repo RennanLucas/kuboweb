@@ -58,7 +58,7 @@ const Header = () => {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center shrink-0">
+          <a href="/" className="flex items-center shrink-0" onClick={(e) => { if (location.pathname === "/") { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); } }}>
             <img alt="KuboWeb" className="h-28 md:h-24 w-auto object-contain" src="/lovable-uploads/9a3f5302-65af-43f4-b5a2-96e1efe72e54.png" />
           </a>
 

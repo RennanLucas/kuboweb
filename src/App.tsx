@@ -11,6 +11,10 @@ const Servicos = lazy(() => import("./pages/Servicos"));
 const Precos = lazy(() => import("./pages/Precos"));
 const Faq = lazy(() => import("./pages/Faq"));
 const Contato = lazy(() => import("./pages/Contato"));
+const SitesInstitucionais = lazy(() => import("./pages/SitesInstitucionais"));
+const LandingPages = lazy(() => import("./pages/LandingPages"));
+const LojaVirtual = lazy(() => import("./pages/LojaVirtual"));
+const Anuncios = lazy(() => import("./pages/Anuncios"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -46,6 +50,10 @@ const App = () => {
                 <Route path="/precos" element={<Precos />} />
                 <Route path="/faq" element={<Faq />} />
                 <Route path="/contato" element={<Contato />} />
+                <Route path="/servicos/sites-institucionais" element={<SitesInstitucionais />} />
+                <Route path="/servicos/landing-pages" element={<LandingPages />} />
+                <Route path="/servicos/loja-virtual" element={<LojaVirtual />} />
+                <Route path="/servicos/anuncios" element={<Anuncios />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

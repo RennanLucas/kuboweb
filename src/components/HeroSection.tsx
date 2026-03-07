@@ -63,7 +63,7 @@ const HeroSection = () => {
             </Button>
           </div>
 
-          <TrustIndicators className="pt-2 overflow-x-auto scrollbar-none" />
+          <TrustIndicators className="pt-2 flex-wrap gap-y-2" />
 
           <div className="relative min-h-[300px] flex-1 overflow-visible">
             <div className="absolute -inset-6">

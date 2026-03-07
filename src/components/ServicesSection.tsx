@@ -10,24 +10,28 @@ const services = [
     title: "Sites Institucionais",
     description: "Presença digital completa para sua empresa. Múltiplas páginas com informações sobre seu negócio.",
     features: ["Várias páginas", "SEO otimizado", "Gestão de conteúdo"],
+    href: "/servicos/sites-institucionais",
   },
   {
     icon: FileText,
     title: "Landing Pages",
     description: "Páginas de alta conversão para capturar leads e vender serviços. Ideal para campanhas de marketing.",
     features: ["Foco em conversão", "Integração WhatsApp", "Design persuasivo"],
+    href: "/servicos/landing-pages",
   },
   {
     icon: ShoppingCart,
     title: "Loja Virtual",
     description: "Venda seus produtos online com uma loja profissional, segura e fácil de gerenciar.",
     features: ["Catálogo de produtos", "Pagamento integrado", "Painel de gestão"],
+    href: "/servicos/loja-virtual",
   },
   {
     icon: Megaphone,
     title: "Anúncios",
     description: "Campanhas de tráfego pago no Google e redes sociais para atrair clientes qualificados.",
     features: ["Google Ads", "Relatórios de performance"],
+    href: "/servicos/anuncios",
   },
 ];
 

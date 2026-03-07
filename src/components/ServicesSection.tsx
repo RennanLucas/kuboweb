@@ -76,35 +76,52 @@ const ServicesSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.4 }}
-            className="card-premium flex flex-col p-6 sm:p-7 md:p-8 group"
           >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors duration-300">
-              <service.icon className="w-5 h-5 text-primary" />
-            </div>
-            
-            <h3 className="text-lg md:text-xl font-heading font-semibold mb-2.5 text-foreground">
-              {service.title}
-            </h3>
-            
-            <p className="text-muted-foreground mb-5 flex-grow text-sm leading-relaxed">
-              {service.description}
-            </p>
-            
-            <ul className="space-y-2 mb-5">
-              {service.features.map((feature) => (
-                <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <span className="w-1 h-1 rounded-full bg-primary shrink-0" />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-
             <Link
               to={service.href}
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors group/link mt-auto"
+              className="card-premium flex flex-col p-6 sm:p-7 md:p-8 group cursor-pointer h-full relative overflow-hidden"
             >
-              Saiba mais
-              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
+              {/* Hover gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <motion.div
+                  whileHover={{ rotate: [0, -10, 10, 0] }}
+                  transition={{ duration: 0.5 }}
+                  className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300"
+                >
+                  <service.icon className="w-5 h-5 text-primary" />
+                </motion.div>
+                
+                <h3 className="text-lg md:text-xl font-heading font-semibold mb-2.5 text-foreground group-hover:text-primary transition-colors duration-300">
+                  {service.title}
+                </h3>
+                
+                <p className="text-muted-foreground mb-5 flex-grow text-sm leading-relaxed">
+                  {service.description}
+                </p>
+                
+                <ul className="space-y-2 mb-5">
+                  {service.features.map((feature, fi) => (
+                    <motion.li
+                      key={feature}
+                      className="flex items-center gap-2 text-sm text-muted-foreground"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 + fi * 0.05 + 0.2, duration: 0.3 }}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 group-hover:scale-150 transition-transform duration-300" />
+                      {feature}
+                    </motion.li>
+                  ))}
+                </ul>
+
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all duration-300 mt-auto">
+                  Saiba mais
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </div>
             </Link>
           </motion.div>
         ))}

@@ -6,14 +6,13 @@ const Footer = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="grid md:grid-cols-3 gap-10 md:gap-8 mb-10">
           <div className="space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-primary flex items-center justify-center shadow-lg shadow-primary/20">
-                <span className="text-primary-foreground font-heading font-bold text-sm">K</span>
-              </div>
-              <span className="font-heading font-bold text-lg text-foreground tracking-tight">
-                Kubo<span className="text-primary">Web</span>
-              </span>
-            </div>
+            <a href="#" className="inline-block">
+              <img
+                src="/lovable-uploads/9a3f5302-65af-43f4-b5a2-96e1efe72e54.png"
+                alt="KuboWeb"
+                className="h-16 w-auto object-contain"
+              />
+            </a>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-[280px]">
               Sites profissionais que geram resultados reais para o seu negócio.
             </p>

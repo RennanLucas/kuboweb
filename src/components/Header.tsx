@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { MessageCircle, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
+import logoKuboweb from "@/assets/logo-kuboweb.png";
 
 const navLinks = [
   { label: "Início", href: "/" },
@@ -56,7 +57,7 @@ const Header = () => {
             <img
               alt="KuboWeb"
               className="h-28 md:h-24 w-auto object-contain"
-              src="/lovable-uploads/9a3f5302-65af-43f4-b5a2-96e1efe72e54.png"
+              src={logoKuboweb}
             />
           </Link>
 

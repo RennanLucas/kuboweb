@@ -1,5 +1,6 @@
 import { MessageCircle, Mail, MapPin, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
+import logoKuboweb from "@/assets/logo-kuboweb.png";
 
 const Footer = () => {
   return (
@@ -9,7 +10,7 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="inline-block">
               <img
-                src="/lovable-uploads/9a3f5302-65af-43f4-b5a2-96e1efe72e54.png"
+                src={logoKuboweb}
                 alt="KuboWeb"
                 className="h-16 w-auto object-contain"
               />

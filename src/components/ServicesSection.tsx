@@ -99,15 +99,13 @@ const ServicesSection = () => (
               ))}
             </ul>
 
-            <a
-              href={`https://wa.me/5511932197334?text=${encodeURIComponent(`Olá, vim pelo site da KuboWeb e tenho interesse no serviço de ${service.title}. Pode me explicar como funciona?`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to={service.href}
               className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors group/link mt-auto"
             >
               Saiba mais
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
-            </a>
+            </Link>
           </motion.div>
         ))}
       </div>

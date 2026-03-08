@@ -55,7 +55,7 @@ const ServicesSection = () => (
           transition={{ delay: 0.1, duration: 0.4 }}
           className="section-title"
         >
-          Soluções para cada necessidade
+          Soluções desenhadas para o seu crescimento
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 15 }}
@@ -64,7 +64,7 @@ const ServicesSection = () => (
           transition={{ delay: 0.15, duration: 0.4 }}
           className="section-subtitle"
         >
-          Do simples ao completo, criamos a solução ideal para o seu negócio crescer online.
+          Cada projeto é pensado para gerar resultado real — mais visibilidade, mais contatos, mais vendas.
         </motion.p>
       </div>
 

@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Servicos = lazy(() => import("./pages/Servicos"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const Precos = lazy(() => import("./pages/Precos"));
 const Faq = lazy(() => import("./pages/Faq"));
 const Contato = lazy(() => import("./pages/Contato"));

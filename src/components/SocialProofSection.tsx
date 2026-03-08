@@ -37,7 +37,7 @@ const SocialProofSection = () => (
           transition={{ duration: 0.5, delay: 0.1 }}
           className="section-title"
         >
-          O que nossos clientes dizem
+          Quem confia, recomenda
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ const SocialProofSection = () => (
           transition={{ duration: 0.5, delay: 0.2 }}
           className="section-subtitle"
         >
-          Veja o que nossos clientes falam sobre nosso trabalho.
+          Mais de 150 projetos entregues e uma avaliação de 98% de satisfação.
         </motion.p>
       </div>
 

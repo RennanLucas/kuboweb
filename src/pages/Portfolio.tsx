@@ -92,7 +92,7 @@ const Portfolio = () => (
             transition={{ delay: 0.1, duration: 0.4 }}
             className="section-title"
           >
-            Projetos que já entregamos
+            Resultados reais de projetos sob medida
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 15 }}
@@ -100,8 +100,8 @@ const Portfolio = () => (
             transition={{ delay: 0.15, duration: 0.4 }}
             className="section-subtitle max-w-2xl mx-auto"
           >
-            Cada projeto é desenvolvido sob medida para o negócio do cliente.
-            Confira alguns dos resultados que geramos.
+            Cada projeto nasce de um diagnóstico estratégico do negócio do cliente.
+            Confira entregas recentes e os resultados que alcançamos juntos.
           </motion.p>
         </div>
 

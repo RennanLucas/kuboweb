@@ -43,14 +43,14 @@ const floatingIcons = [
 
 const HeroVisual = () => (
   <div className="relative w-full h-full flex items-center justify-center">
-    <div className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary/8 blur-[100px]" />
+    <div className="absolute w-72 h-72 md:w-80 md:h-80 rounded-full bg-primary/8 blur-[100px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
     
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -5, transition: { duration: 0.3 } }}
-      className="relative z-10 w-[280px] md:w-[360px] rounded-2xl border border-border/50 bg-card shadow-2xl shadow-foreground/5 overflow-hidden cursor-default"
+      className="relative z-10 w-[280px] md:w-[340px] rounded-2xl border border-border/50 bg-card shadow-2xl shadow-foreground/5 overflow-hidden cursor-default mx-auto"
     >
       <div className="flex items-center gap-1.5 px-4 py-3.5 border-b border-border/40 bg-card">
         <div className="w-2.5 h-2.5 rounded-full bg-destructive/70" />
@@ -103,25 +103,33 @@ const HeroVisual = () => (
       </div>
     </motion.div>
 
-    {floatingIcons.map(({ icon: Icon, delay, x, y, label }, i) => (
-      <motion.div
-        key={i}
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 + delay }}
-        whileHover={{ scale: 1.2, transition: { duration: 0.2 } }}
-        className="absolute flex flex-col items-center gap-1.5 cursor-default"
-        style={{ left: x, top: y }}
-      >
-        <div
-          className="w-11 h-11 md:w-13 md:h-13 rounded-xl bg-card border border-border/40 flex items-center justify-center shadow-lg animate-float"
-          style={{ animationDelay: `${delay}s` }}
+    {floatingIcons.map(({ icon: Icon, delay, label }, i) => {
+      const positions = [
+        { left: "-8%", top: "10%" },
+        { right: "-8%", top: "5%" },
+        { right: "-12%", bottom: "25%" },
+        { left: "-12%", bottom: "20%" },
+      ];
+      return (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 + delay }}
+          whileHover={{ scale: 1.2, transition: { duration: 0.2 } }}
+          className="absolute flex flex-col items-center gap-1.5 cursor-default z-20"
+          style={positions[i]}
         >
-          <Icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-        </div>
-        <span className="text-[8px] md:text-[9px] font-semibold text-muted-foreground/70 tracking-wide">{label}</span>
-      </motion.div>
-    ))}
+          <div
+            className="w-11 h-11 md:w-12 md:h-12 rounded-xl bg-card border border-border/40 flex items-center justify-center shadow-lg animate-float"
+            style={{ animationDelay: `${delay}s` }}
+          >
+            <Icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+          </div>
+          <span className="text-[8px] md:text-[9px] font-semibold text-muted-foreground/70 tracking-wide">{label}</span>
+        </motion.div>
+      );
+    })}
   </div>
 );
 

@@ -19,7 +19,7 @@ const projects = [
     category: "Site Institucional",
     image: imgAdvocacia,
     description:
-      "Site completo para escritório de advocacia com páginas de especialidades, perfil da equipe, blog jurídico e formulário de contato integrado ao WhatsApp.",
+      "Desenvolvemos um site institucional completo para o escritório, com páginas dedicadas a cada área de atuação, perfis detalhados da equipe jurídica, blog com artigos especializados e formulário de contato integrado ao WhatsApp para captação direta de leads.",
     tags: ["Responsivo", "SEO Otimizado", "Blog", "WhatsApp"],
     result: "+180% de contatos orgânicos em 3 meses",
   },
@@ -28,7 +28,7 @@ const projects = [
     category: "Site Institucional",
     image: imgClinica,
     description:
-      "Site para clínica odontológica com galeria de casos, perfis dos dentistas, agendamento online e integração com Google Maps.",
+      "Criamos uma presença digital estratégica para a clínica, incluindo galeria de casos clínicos, perfis profissionais da equipe, sistema de agendamento online e integração com Google Maps — facilitando a jornada do paciente do primeiro acesso à consulta.",
     tags: ["Agendamento Online", "Galeria", "Google Maps"],
     result: "+95 agendamentos/mês via site",
   },
@@ -37,7 +37,7 @@ const projects = [
     category: "E-commerce",
     image: imgModa,
     description:
-      "Loja virtual completa com catálogo de mais de 500 produtos, filtros avançados, carrinho, checkout com Pix e cartão, e painel administrativo.",
+      "Estruturamos uma operação de e-commerce robusta com catálogo de mais de 500 produtos, filtros inteligentes por categoria, carrinho otimizado para conversão, checkout com Pix e cartão, além de painel administrativo completo para gestão autônoma da loja.",
     tags: ["E-commerce", "Pix", "Painel Admin", "Catálogo"],
     result: "R$ 47 mil em vendas no primeiro mês",
   },
@@ -46,7 +46,7 @@ const projects = [
     category: "Landing Page",
     image: imgFinanceira,
     description:
-      "Landing page de alta conversão para consultoria financeira com calculadora de investimentos, depoimentos em vídeo e agendamento direto.",
+      "Projetamos uma landing page focada em conversão para a consultoria, com calculadora de investimentos interativa, depoimentos em vídeo de clientes reais e fluxo de agendamento direto — reduzindo etapas entre o interesse e o contato comercial.",
     tags: ["Alta Conversão", "Calculadora", "Vídeo"],
     result: "Taxa de conversão de 12,3%",
   },
@@ -55,7 +55,7 @@ const projects = [
     category: "Site Institucional",
     image: imgConstrutora,
     description:
-      "Site institucional com portfólio de obras em galeria interativa, linha do tempo da empresa, certificações e formulário de orçamento.",
+      "Entregamos um site institucional que reflete a solidez da marca, com portfólio de obras em galeria interativa, linha do tempo corporativa, seção de certificações e formulário de solicitação de orçamento — conectando a empresa a novos projetos de forma contínua.",
     tags: ["Portfólio", "Galeria", "Orçamento Online"],
     result: "+60% de solicitações de orçamento",
   },
@@ -64,7 +64,7 @@ const projects = [
     category: "Landing Page",
     image: imgCurso,
     description:
-      "Página de vendas para curso online com vídeo de apresentação, grade curricular, depoimentos de alunos e checkout integrado.",
+      "Desenvolvemos uma página de vendas de alto desempenho para o lançamento do curso, com vídeo de apresentação, grade curricular detalhada, prova social com depoimentos de alunos e checkout integrado — tudo pensado para maximizar matrículas desde o primeiro dia.",
     tags: ["Vendas", "Vídeo", "Checkout", "Depoimentos"],
     result: "+320 matrículas na primeira semana",
   },

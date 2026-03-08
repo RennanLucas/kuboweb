@@ -36,7 +36,7 @@ const services = [
 ];
 
 const ServicesSection = () => (
-  <section id="servicos" className="py-20 md:py-32 px-4 bg-background">
+  <section id="servicos" className="py-24 md:py-36 px-4 bg-muted/20">
     <div className="container mx-auto max-w-6xl">
       <div className="text-center mb-12 md:mb-20 space-y-4">
         <motion.p

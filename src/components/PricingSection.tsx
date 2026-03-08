@@ -110,7 +110,7 @@ const PricingSection = () => {
             transition={{ delay: 0.2 }}
             className="section-subtitle"
           >
-            Escolha o serviço ideal para o seu negócio e comece a vender mais online.
+            Valores transparentes, sem surpresas. Escolha o plano ideal e comece a vender mais.
           </motion.p>
         </div>
 

@@ -1,4 +1,4 @@
-import { MessageCircle, Mail, MapPin, Instagram } from "lucide-react";
+import { MessageCircle, Mail, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoKuboweb from "@/assets/logo-kuboweb.png";
 
@@ -78,10 +78,6 @@ const Footer = () => {
                 <Mail className="w-4 h-4" />
                 kuboweb.contato@gmail.com
               </a>
-              <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4" />
-                São Paulo, SP
-              </div>
               <a
                 href="https://instagram.com/kuboweboficial"
                 target="_blank"

@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];
 const whatsappUrl = "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os.%20Pode%20me%20ajudar%3F";
 
-const rotatingWords = ["geram clientes", "vendem mais", "passam credibilidade", "convertem visitantes"];
+const rotatingWords = ["vendem por você", "geram lucro real", "atraem clientes", "passam credibilidade"];
 
 const useRotatingText = (words: string[], interval = 3000) => {
   const [index, setIndex] = useState(0);

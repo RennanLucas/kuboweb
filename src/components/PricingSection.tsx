@@ -101,7 +101,7 @@ const PricingSection = () => {
             transition={{ delay: 0.1 }}
             className="section-title"
           >
-            Planos que cabem no seu bolso
+            Invista no crescimento do seu negócio
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

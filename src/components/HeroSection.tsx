@@ -171,12 +171,11 @@ const HeroSection = () => {
 
           <div className="space-y-4">
             <h1 className="text-[1.85rem] sm:text-3xl font-heading font-bold leading-[1.1] text-foreground tracking-tight">
-              Criação de sites profissionais que{" "}
-              <RotatingWord />{" "}
-              pelo WhatsApp
-            </h1>
-            <p className="text-[15px] text-muted-foreground leading-relaxed">
-              Design moderno, performance otimizada e SEO — feitos para empresas que querem vender mais.
+                Não tenha apenas um site.{" "}
+                Tenha uma <RotatingWord />
+              </h1>
+              <p className="text-[15px] text-muted-foreground leading-relaxed">
+                Sites estratégicos que transformam visitantes em clientes — com design premium, SEO e atendimento direto.
             </p>
           </div>
 

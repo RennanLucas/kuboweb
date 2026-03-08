@@ -46,56 +46,61 @@ const Portfolio = () => (
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16">
           {projects.map((project, index) => (
-            <motion.article
+            <Link
+              to={`/portfolio/${project.slug}`}
               key={project.title}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.08, duration: 0.45 }}
-              className="card-premium group overflow-hidden flex flex-col"
+              className="block"
             >
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={`Projeto ${project.title}`}
-                  className="w-full h-52 md:h-60 object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute top-3 left-3">
-                  <Badge
-                    variant="secondary"
-                    className="bg-background/90 backdrop-blur-sm text-foreground border-border text-xs"
-                  >
-                    {project.category}
-                  </Badge>
-                </div>
-              </div>
-
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="font-heading font-semibold text-foreground text-lg mb-2 leading-snug">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-grow">
-                  {project.description}
-                </p>
-
-                <div className="bg-primary/5 border border-primary/10 rounded-lg px-3 py-2 mb-4">
-                  <p className="text-xs font-semibold text-primary">
-                    📈 {project.result}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[11px] px-2.5 py-1 rounded-full bg-primary/10 text-primary font-medium border border-primary/15"
+              <motion.article
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.08, duration: 0.45 }}
+                className="card-premium group overflow-hidden flex flex-col h-full cursor-pointer"
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={`Projeto ${project.title}`}
+                    className="w-full h-52 md:h-60 object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <Badge
+                      variant="secondary"
+                      className="bg-background/90 backdrop-blur-sm text-foreground border-border text-xs"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      {project.category}
+                    </Badge>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
+
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="font-heading font-semibold text-foreground text-lg mb-2 leading-snug">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-grow">
+                    {project.description}
+                  </p>
+
+                  <div className="bg-primary/5 border border-primary/10 rounded-lg px-3 py-2 mb-4">
+                    <p className="text-xs font-semibold text-primary">
+                      📈 {project.result}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[11px] px-2.5 py-1 rounded-full bg-primary/10 text-primary font-medium border border-primary/15"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.article>
+            </Link>
           ))}
         </div>
 

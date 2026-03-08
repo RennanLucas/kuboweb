@@ -79,7 +79,7 @@ const PricingSection = () => {
   }, []);
 
   return (
-    <section id="precos" className="py-20 md:py-28 px-4 bg-background relative overflow-hidden">
+    <section id="precos" className="py-24 md:py-36 px-4 bg-muted/20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-3xl" />
       </div>
@@ -101,7 +101,7 @@ const PricingSection = () => {
             transition={{ delay: 0.1 }}
             className="section-title"
           >
-            Planos que cabem no seu bolso
+            Invista no crescimento do seu negócio
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -110,7 +110,7 @@ const PricingSection = () => {
             transition={{ delay: 0.2 }}
             className="section-subtitle"
           >
-            Escolha o serviço ideal para o seu negócio e comece a vender mais online.
+            Valores transparentes, sem surpresas. Escolha o plano ideal e comece a vender mais.
           </motion.p>
         </div>
 

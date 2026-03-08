@@ -1,9 +1,17 @@
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
 import { MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FloatingWhatsApp = () => {
   const [hovered, setHovered] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!visible) return null;
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
@@ -25,13 +33,13 @@ const FloatingWhatsApp = () => {
         href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg shadow-whatsapp/30"
+        className="flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg shadow-whatsapp/30 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_3]"
         aria-label="Falar no WhatsApp"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1 }}
+        transition={{ type: "spring", stiffness: 260, damping: 20 }}
         whileHover={{ scale: 1.15 }}
         whileTap={{ scale: 0.95 }}
       >

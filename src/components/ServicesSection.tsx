@@ -36,7 +36,7 @@ const services = [
 ];
 
 const ServicesSection = () => (
-  <section id="servicos" className="py-20 md:py-32 px-4 bg-background">
+  <section id="servicos" className="py-24 md:py-36 px-4 bg-muted/20">
     <div className="container mx-auto max-w-6xl">
       <div className="text-center mb-12 md:mb-20 space-y-4">
         <motion.p
@@ -55,7 +55,7 @@ const ServicesSection = () => (
           transition={{ delay: 0.1, duration: 0.4 }}
           className="section-title"
         >
-          Soluções para cada necessidade
+          Soluções desenhadas para o seu crescimento
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 15 }}
@@ -64,7 +64,7 @@ const ServicesSection = () => (
           transition={{ delay: 0.15, duration: 0.4 }}
           className="section-subtitle"
         >
-          Do simples ao completo, criamos a solução ideal para o seu negócio crescer online.
+          Cada projeto é pensado para gerar resultado real — mais visibilidade, mais contatos, mais vendas.
         </motion.p>
       </div>
 

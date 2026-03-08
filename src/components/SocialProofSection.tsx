@@ -19,7 +19,7 @@ const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
 const SocialProofSection = () => (
-  <section id="depoimentos" className="py-20 md:py-32 px-4 bg-background">
+  <section id="depoimentos" className="py-24 md:py-36 px-4 bg-background">
     <div className="container mx-auto max-w-6xl">
       <div className="text-center mb-12 md:mb-20 space-y-4">
         <motion.div
@@ -37,7 +37,7 @@ const SocialProofSection = () => (
           transition={{ duration: 0.5, delay: 0.1 }}
           className="section-title"
         >
-          O que nossos clientes dizem
+          Quem confia, recomenda
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -46,7 +46,7 @@ const SocialProofSection = () => (
           transition={{ duration: 0.5, delay: 0.2 }}
           className="section-subtitle"
         >
-          Veja o que nossos clientes falam sobre nosso trabalho.
+          Mais de 150 projetos entregues e uma avaliação de 98% de satisfação.
         </motion.p>
       </div>
 

@@ -2,9 +2,9 @@ import { memo, useEffect, useRef, useState } from "react";
 import { Clock } from "lucide-react";
 
 const stats = [
-  { value: "+30", label: "Projetos Criados", numericValue: 30, prefix: "+" },
-  { value: "4.9★", label: "Avaliação Média", numericValue: 4.9, suffix: "★", decimals: 1 },
-  { value: "7", label: "Entrega em até 7 dias úteis", numericValue: 7 },
+  { value: "+150", label: "Projetos Entregues", numericValue: 150, prefix: "+" },
+  { value: "98%", label: "Clientes Satisfeitos", numericValue: 98, suffix: "%" },
+  { value: "7-15", label: "Dias Úteis de Entrega", numericValue: 15, prefix: "", suffix: " dias" },
   { value: "", label: "Suporte Direto no WhatsApp", icon: "whatsapp" },
 ];
 

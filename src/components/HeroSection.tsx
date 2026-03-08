@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];
 const whatsappUrl = "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os.%20Pode%20me%20ajudar%3F";
 
-const rotatingWords = ["geram clientes", "vendem mais", "passam credibilidade", "convertem visitantes"];
+const rotatingWords = ["máquina de vendas", "vitrine digital", "fonte de clientes", "marca de autoridade"];
 
 const useRotatingText = (words: string[], interval = 3000) => {
   const [index, setIndex] = useState(0);
@@ -171,12 +171,11 @@ const HeroSection = () => {
 
           <div className="space-y-4">
             <h1 className="text-[1.85rem] sm:text-3xl font-heading font-bold leading-[1.1] text-foreground tracking-tight">
-              Criação de sites profissionais que{" "}
-              <RotatingWord />{" "}
-              pelo WhatsApp
-            </h1>
-            <p className="text-[15px] text-muted-foreground leading-relaxed">
-              Design moderno, performance otimizada e SEO — feitos para empresas que querem vender mais.
+                Não tenha apenas um site.{" "}
+                Tenha uma <RotatingWord />
+              </h1>
+              <p className="text-[15px] text-muted-foreground leading-relaxed">
+                Sites estratégicos que transformam visitantes em clientes — com design premium, SEO e atendimento direto.
             </p>
           </div>
 
@@ -219,9 +218,8 @@ const HeroSection = () => {
 
             <div className="space-y-5">
               <h1 className="text-4xl lg:text-5xl xl:text-[3.5rem] font-heading font-bold leading-[1.08] text-foreground tracking-tight">
-                Criação de sites profissionais que{" "}
-                <RotatingWord />{" "}
-                pelo WhatsApp
+                Não tenha apenas um site.{" "}
+                Tenha uma <RotatingWord />
               </h1>
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
@@ -229,7 +227,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.3, duration: 0.5 }}
                 className="text-lg text-muted-foreground max-w-lg leading-relaxed mx-auto"
               >
-                Design moderno, performance otimizada e SEO — feitos para empresas que querem vender mais.
+                Sites estratégicos que transformam visitantes em clientes — com design premium, SEO e atendimento direto.
               </motion.p>
             </div>
 

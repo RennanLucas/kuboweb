@@ -3,15 +3,10 @@ import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MessageCircle, ExternalLink } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
-
-import imgAdvocacia from "@/assets/portfolio/advocacia.jpg";
-import imgClinica from "@/assets/portfolio/clinica.jpg";
-import imgModa from "@/assets/portfolio/moda.jpg";
-import imgFinanceira from "@/assets/portfolio/financeira.jpg";
-import imgConstrutora from "@/assets/portfolio/construtora.jpg";
-import imgCurso from "@/assets/portfolio/curso.jpg";
+import { Link } from "react-router-dom";
+import { projects } from "@/data/projects";
 
 const projects = [
   {

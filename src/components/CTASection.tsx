@@ -72,4 +72,4 @@ const CTASection = () => {
   );
 };
 
-export default CTASection;
+export default memo(CTASection);

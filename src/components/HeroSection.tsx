@@ -203,7 +203,6 @@ const RotatingWord = () => {
 const HeroSection = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 80]);
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   const scrollToServicos = () => {
     document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });

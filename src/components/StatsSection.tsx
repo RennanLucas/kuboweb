@@ -1,7 +1,17 @@
 import { memo, useEffect, useRef, useState } from "react";
 import { Clock } from "lucide-react";
 
-const stats = [
+interface StatItem {
+  value: string;
+  label: string;
+  numericValue?: number;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+  icon?: string;
+}
+
+const stats: StatItem[] = [
   { value: "+150", label: "Projetos Entregues", numericValue: 150, prefix: "+" },
   { value: "98%", label: "Clientes Satisfeitos", numericValue: 98, suffix: "%" },
   { value: "7-15", label: "Dias Úteis de Entrega", numericValue: 15, prefix: "", suffix: " dias" },
@@ -28,7 +38,7 @@ const AnimatedNumber = ({ value, prefix = "", suffix = "", decimals = 0 }: { val
           const start = performance.now();
           const step = (now: number) => {
             const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+            const eased = 1 - Math.pow(1 - progress, 3);
             setCount(eased * value);
             if (progress < 1) requestAnimationFrame(step);
           };
@@ -48,7 +58,7 @@ const AnimatedNumber = ({ value, prefix = "", suffix = "", decimals = 0 }: { val
   );
 };
 
-const StatBlock = ({ value, label, icon, numericValue, prefix, suffix, decimals }: { value: string; label: string; icon?: string; numericValue?: number; prefix?: string; suffix?: string; decimals?: number }) => (
+const StatBlock = ({ label, icon, numericValue, prefix, suffix, value, decimals }: StatItem) => (
   <div className="flex-shrink-0 flex items-center gap-3 px-8 md:px-12">
     {icon === "whatsapp" ? (
       <WhatsAppIcon />
@@ -75,15 +85,7 @@ const StatsSection = () => (
         {[...Array(4)].map((_, setIndex) =>
           stats.map((stat, i) => (
             <div key={`${setIndex}-${i}`} className="flex items-center">
-              <StatBlock
-                value={stat.value}
-                label={stat.label}
-                icon={stat.icon}
-                numericValue={(stat as any).numericValue}
-                prefix={(stat as any).prefix}
-                suffix={(stat as any).suffix}
-                decimals={(stat as any).decimals}
-              />
+              <StatBlock {...stat} />
               <div className="w-px h-6 bg-border/40 shrink-0" />
             </div>
           ))

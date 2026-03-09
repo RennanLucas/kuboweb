@@ -203,7 +203,6 @@ const RotatingWord = () => {
 const HeroSection = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 80]);
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   const scrollToServicos = () => {
     document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
@@ -215,7 +214,7 @@ const HeroSection = () => {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/4 rounded-full blur-3xl hidden md:block" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl hidden md:block" />
 
-      <motion.div style={{ y, opacity }} className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
+      <motion.div style={{ y }} className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
         <div className="md:hidden flex flex-col min-h-[calc(100dvh-5rem)] justify-center px-5 py-6 gap-5">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}

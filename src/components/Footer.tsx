@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { MessageCircle, Mail, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoKuboweb from "@/assets/logo-kuboweb.png";

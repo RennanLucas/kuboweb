@@ -185,7 +185,7 @@ const TrustIndicators = ({ className = "" }: { className?: string }) => (
   </div>
 );
 
-
+const RotatingWord = () => {
   const word = useRotatingText(rotatingWords);
   return (
     <motion.span

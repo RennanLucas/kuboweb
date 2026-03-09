@@ -168,7 +168,24 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => (
   </motion.div>
 );
 
-const RotatingWord = () => {
+const TrustIndicators = ({ className = "" }: { className?: string }) => (
+  <div className={`flex items-center gap-4 text-xs text-muted-foreground ${className}`}>
+    {trustItems.map((item, i) => (
+      <motion.div
+        key={item}
+        className="flex items-center gap-1.5 whitespace-nowrap"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8 + i * 0.1, duration: 0.4 }}
+      >
+        <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
+        {item}
+      </motion.div>
+    ))}
+  </div>
+);
+
+
   const word = useRotatingText(rotatingWords);
   return (
     <motion.span

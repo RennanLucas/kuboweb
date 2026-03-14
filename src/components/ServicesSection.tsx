@@ -35,6 +35,20 @@ const services = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  }),
+};
+
 const ServicesSection = () => (
   <section id="servicos" className="py-24 md:py-36 px-4 bg-muted/20">
     <div className="container mx-auto max-w-6xl">
@@ -49,10 +63,10 @@ const ServicesSection = () => (
           Serviços
         </motion.p>
         <motion.h2
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.4 }}
+          transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="section-title"
         >
           Soluções desenhadas para o seu crescimento
@@ -61,7 +75,7 @@ const ServicesSection = () => (
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.15, duration: 0.4 }}
+          transition={{ delay: 0.2, duration: 0.4 }}
           className="section-subtitle"
         >
           Cada projeto é pensado para gerar resultado real — mais visibilidade, mais contatos, mais vendas.
@@ -72,23 +86,38 @@ const ServicesSection = () => (
         {services.map((service, index) => (
           <motion.div
             key={service.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1, duration: 0.4 }}
+            custom={index}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
             <Link
               to={service.href}
               className="card-premium flex flex-col p-6 sm:p-7 md:p-8 group cursor-pointer h-full relative overflow-hidden"
             >
-              {/* Hover gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Animated gradient overlay */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-primary/8 via-primary/3 to-transparent"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileHover={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4 }}
+              />
+              
+              {/* Shimmer effect on hover */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -skew-x-12"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "200%" }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              />
               
               <div className="relative z-10">
                 <motion.div
-                  whileHover={{ rotate: [0, -10, 10, 0] }}
+                  whileHover={{ rotate: [0, -10, 10, 0], scale: 1.15 }}
                   transition={{ duration: 0.5 }}
-                  className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300"
+                  className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:shadow-lg group-hover:shadow-primary/10 transition-all duration-300"
                 >
                   <service.icon className="w-5 h-5 text-primary" />
                 </motion.div>
@@ -106,21 +135,29 @@ const ServicesSection = () => (
                     <motion.li
                       key={feature}
                       className="flex items-center gap-2 text-sm text-muted-foreground"
-                      initial={{ opacity: 0, x: -10 }}
+                      initial={{ opacity: 0, x: -15 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 + fi * 0.05 + 0.2, duration: 0.3 }}
+                      transition={{ delay: index * 0.15 + fi * 0.08 + 0.3, duration: 0.4 }}
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 group-hover:scale-150 transition-transform duration-300" />
+                      <motion.span
+                        className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"
+                        whileHover={{ scale: 2 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      />
                       {feature}
                     </motion.li>
                   ))}
                 </ul>
 
-                <span className="inline-flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all duration-300 mt-auto">
+                <motion.span
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary mt-auto"
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   Saiba mais
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </motion.span>
               </div>
             </Link>
           </motion.div>
@@ -128,18 +165,20 @@ const ServicesSection = () => (
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 20, scale: 0.9 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
         className="text-center"
       >
-        <Button variant="whatsapp" size="lg" asChild>
-          <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
-            <MessageCircle className="w-5 h-5" />
-            Solicitar orçamento
-          </a>
-        </Button>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+          <Button variant="whatsapp" size="lg" asChild>
+            <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="w-5 h-5" />
+              Solicitar orçamento
+            </a>
+          </Button>
+        </motion.div>
       </motion.div>
     </div>
   </section>

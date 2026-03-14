@@ -49,7 +49,7 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <MotionConfig reducedMotion="never">
+      <MotionConfig reducedMotion="user">
         <TooltipProvider>
           <Toaster />
           <Sonner />

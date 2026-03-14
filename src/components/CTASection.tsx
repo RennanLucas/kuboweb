@@ -18,26 +18,26 @@ const CTASection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-primary/8 via-primary/3 to-background" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[150px]" />
 
-      {/* Floating particles */}
-      {floatingParticles.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute rounded-full bg-primary/10"
-          style={{ width: p.size, height: p.size, left: p.x, top: p.y }}
-          animate={{
-            y: [0, -30, 0],
-            x: [0, 15, 0],
-            opacity: [0.2, 0.6, 0.2],
-            scale: [1, 1.3, 1],
-          }}
-          transition={{
-            duration: p.duration,
-            delay: p.delay,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
+      {/* Floating particles - desktop only */}
+      <div className="hidden md:block">
+        {floatingParticles.map((p) => (
+          <motion.div
+            key={p.id}
+            className="absolute rounded-full bg-primary/10"
+            style={{ width: p.size, height: p.size, left: p.x, top: p.y }}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: p.duration,
+              delay: p.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
 
       <div className="container mx-auto max-w-2xl relative z-10">
         <div className="text-center space-y-8">
@@ -60,7 +60,7 @@ const CTASection = () => {
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
               className="section-title"
             >
               Seu próximo cliente está te{" "}

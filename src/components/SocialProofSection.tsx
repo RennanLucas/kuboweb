@@ -31,10 +31,10 @@ const SocialProofSection = () => (
           <p className="section-label justify-center">Depoimentos</p>
         </motion.div>
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 25, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="section-title"
         >
           Quem confia, recomenda
@@ -50,11 +50,17 @@ const SocialProofSection = () => (
         </motion.p>
       </div>
 
-      <div className="flex justify-center gap-4 md:gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] max-h-[600px] md:max-h-[700px] overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        className="flex justify-center gap-4 md:gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] max-h-[600px] md:max-h-[700px] overflow-hidden"
+      >
         <TestimonialsColumn testimonials={firstColumn} duration={15} />
         <TestimonialsColumn testimonials={secondColumn} duration={19} className="hidden md:block" />
         <TestimonialsColumn testimonials={thirdColumn} duration={17} className="hidden lg:block" />
-      </div>
+      </motion.div>
     </div>
   </section>
 );

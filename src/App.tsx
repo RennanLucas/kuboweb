@@ -49,7 +49,7 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <MotionConfig reducedMotion={isMobile ? "always" : "never"}>
+      <MotionConfig reducedMotion="never">
         <TooltipProvider>
           <Toaster />
           <Sonner />

@@ -105,9 +105,9 @@ const ServicesSection = () => (
                 transition={{ duration: 0.4 }}
               />
               
-              {/* Shimmer effect on hover */}
+              {/* Shimmer effect - desktop only */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -skew-x-12"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -skew-x-12 hidden md:block"
                 initial={{ x: "-100%" }}
                 whileHover={{ x: "200%" }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}

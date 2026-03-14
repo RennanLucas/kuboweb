@@ -38,7 +38,6 @@ const CTASection = () => {
           />
         ))}
       </div>
-      ))}
 
       <div className="container mx-auto max-w-2xl relative z-10">
         <div className="text-center space-y-8">
@@ -61,7 +60,7 @@ const CTASection = () => {
               initial={{ opacity: 0, y: 30, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
               className="section-title"
             >
               Seu próximo cliente está te{" "}

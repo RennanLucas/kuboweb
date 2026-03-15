@@ -385,7 +385,7 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            <TrustIndicators className="flex-wrap justify-center gap-5 text-sm pt-1" />
+            <TrustTicker />
           </div>
 
           <div className="flex-1 relative min-h-[500px] flex items-center justify-center">

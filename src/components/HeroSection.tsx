@@ -327,7 +327,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          <TrustIndicators className="flex-wrap gap-y-2 gap-x-4" />
+          <TrustTicker />
           <HeroVisual mobile />
         </div>
 

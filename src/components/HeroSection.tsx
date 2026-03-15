@@ -241,7 +241,7 @@ const TrustTicker = () => {
   return (
     <div className="w-full overflow-hidden group" style={{ contain: "layout paint" }}>
       <div
-        className="flex items-center gap-10 w-max animate-trust-ticker group-hover:[animation-play-state:paused]"
+        className="flex items-center gap-10 w-max animate-trust-ticker md:group-hover:[animation-play-state:paused]"
       >
         {items.map((item, i) => (
           <div key={i} className="flex items-center gap-2 whitespace-nowrap text-xs text-muted-foreground shrink-0">

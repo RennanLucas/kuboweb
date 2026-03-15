@@ -236,22 +236,23 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
   );
 };
 
-const TrustIndicators = ({ className = "" }: { className?: string }) => (
-  <div className={`flex items-center gap-4 text-xs text-muted-foreground ${className}`}>
-    {trustItems.map((item, i) => (
-      <motion.div
-        key={item}
-        className="flex items-center gap-1.5 whitespace-nowrap"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8 + i * 0.1, duration: 0.4 }}
+const TrustTicker = () => {
+  const items = [...trustItems, ...trustItems, ...trustItems, ...trustItems];
+  return (
+    <div className="w-full overflow-hidden group" style={{ contain: "layout paint" }}>
+      <div
+        className="flex items-center gap-10 w-max animate-trust-ticker group-hover:[animation-play-state:paused]"
       >
-        <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
-        {item}
-      </motion.div>
-    ))}
-  </div>
-);
+        {items.map((item, i) => (
+          <div key={i} className="flex items-center gap-2 whitespace-nowrap text-xs text-muted-foreground shrink-0">
+            <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
+            <span className="font-medium">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const RotatingWord = () => {
   const word = useRotatingText(rotatingWords);

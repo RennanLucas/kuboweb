@@ -58,7 +58,7 @@ const Header = () => {
           <Link to="/" className="flex items-center shrink-0">
             <motion.img
               alt="KuboWeb"
-              className="h-28 md:h-24 w-auto object-contain"
+              className="h-36 md:h-32 w-auto object-contain"
               src={logoKuboweb}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}

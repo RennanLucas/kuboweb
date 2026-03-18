@@ -33,7 +33,7 @@ const Footer = () => {
               <motion.img
                 src={logoKuboweb}
                 alt="KuboWeb"
-                className="h-16 w-auto object-contain"
+                className="h-24 w-auto object-contain"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               />

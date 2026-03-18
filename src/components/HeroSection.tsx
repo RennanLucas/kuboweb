@@ -236,23 +236,22 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
   );
 };
 
-const TrustTicker = () => {
-  const items = [...trustItems, ...trustItems, ...trustItems, ...trustItems];
-  return (
-    <div className="w-full overflow-hidden group" style={{ contain: "layout paint" }}>
-      <div
-        className="flex items-center gap-10 w-max animate-trust-ticker md:group-hover:[animation-play-state:paused]"
+const TrustIndicators = ({ className = "" }: { className?: string }) => (
+  <div className={`flex items-center gap-4 text-xs text-muted-foreground ${className}`}>
+    {trustItems.map((item, i) => (
+      <motion.div
+        key={item}
+        className="flex items-center gap-1.5 whitespace-nowrap"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8 + i * 0.1, duration: 0.4 }}
       >
-        {items.map((item, i) => (
-          <div key={i} className="flex items-center gap-2 whitespace-nowrap text-xs text-muted-foreground shrink-0">
-            <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
-            <span className="font-medium">{item}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+        <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
+        {item}
+      </motion.div>
+    ))}
+  </div>
+);
 
 const RotatingWord = () => {
   const word = useRotatingText(rotatingWords);
@@ -278,12 +277,12 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center pt-16 pb-4 md:py-24 px-0 md:px-4 overflow-x-hidden">
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-16 pb-4 md:py-24 px-0 md:px-4">
       <div className="absolute inset-0 bg-background" />
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/4 rounded-full blur-3xl hidden md:block" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl hidden md:block" />
 
-      <motion.div style={{ y }} className="w-full md:container md:mx-auto md:max-w-5xl relative z-10 md:px-6 lg:px-8">
+      <motion.div style={{ y }} className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
         {/* Mobile */}
         <div className="md:hidden flex flex-col min-h-[calc(100dvh-5rem)] justify-center px-5 py-6 gap-5">
           <motion.div
@@ -327,7 +326,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          <TrustTicker />
+          <TrustIndicators className="flex-wrap gap-y-2 gap-x-4" />
           <HeroVisual mobile />
         </div>
 
@@ -385,7 +384,7 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            <TrustTicker />
+            <TrustIndicators className="flex-wrap justify-center gap-5 text-sm pt-1" />
           </div>
 
           <div className="flex-1 relative min-h-[500px] flex items-center justify-center">

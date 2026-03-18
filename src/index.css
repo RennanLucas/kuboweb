@@ -341,19 +341,6 @@
   }
 }
 
-@keyframes trustTicker {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-trust-ticker {
-  animation: trustTicker 15s linear infinite;
-}
-
 @media (max-width: 767px) {
   .animate-fade-in,
   .animate-fade-in-up,

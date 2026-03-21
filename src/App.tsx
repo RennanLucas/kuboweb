@@ -12,7 +12,7 @@ const Sobre = lazy(() => import("./pages/Sobre"));
 const Servicos = lazy(() => import("./pages/Servicos"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
-
+const Diagnostico = lazy(() => import("./pages/Diagnostico"));
 const Faq = lazy(() => import("./pages/Faq"));
 const Contato = lazy(() => import("./pages/Contato"));
 const SitesInstitucionais = lazy(() => import("./pages/SitesInstitucionais"));

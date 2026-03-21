@@ -19,7 +19,8 @@ const itemVariants = {
 
 const Footer = () => {
   return (
-    <footer className="py-14 md:py-16 px-4 border-t border-border/20 bg-card/20">
+    <footer className="py-14 md:py-16 px-4 border-t border-border/20 bg-card/30 relative overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-primary/3 rounded-full blur-[120px] hidden md:block" />
       <div className="container mx-auto max-w-6xl">
         <motion.div
           variants={containerVariants}

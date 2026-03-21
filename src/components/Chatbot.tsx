@@ -234,8 +234,8 @@ const TypingIndicator = () => (
 );
 
 const ProgressBar = ({ step }: { step: Step }) => {
-  const steps = STEP_FLOW.filter((s) => s !== "welcome" && s !== "resultado");
-  const currentIdx = steps.indexOf(step);
+  const steps = STEP_FLOW.filter((s): s is Exclude<Step, "welcome" | "resultado"> => s !== "welcome" && s !== "resultado");
+  const currentIdx = steps.indexOf(step as typeof steps[number]);
   const progress = step === "resultado" ? 100 : step === "welcome" ? 0 : ((currentIdx + 1) / steps.length) * 100;
 
   if (step === "welcome") return null;

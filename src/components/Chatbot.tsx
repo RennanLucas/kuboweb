@@ -465,7 +465,7 @@ const Chatbot = () => {
   };
 
   const recommendation = currentStep === "resultado" ? getRecommendation(answers) : null;
-  const currentOptions = !["welcome", "nome", "resultado"].includes(currentStep) ? OPTIONS[currentStep] : null;
+  const currentOptions = !["welcome", "nome", "resultado"].includes(currentStep) ? OPTIONS[currentStep as keyof typeof OPTIONS] : null;
 
   return (
     <>

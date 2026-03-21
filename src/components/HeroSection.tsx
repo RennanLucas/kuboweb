@@ -58,8 +58,8 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
       className={`relative mx-auto ${mobile ? "w-full max-w-[300px]" : "w-full max-w-[520px]"}`}
     >
       {/* Ambient glow */}
-      <div className="absolute -inset-8 bg-primary/6 rounded-[2rem] blur-3xl -z-10" />
-      <div className="absolute -inset-4 bg-primary/4 rounded-3xl blur-xl -z-10" />
+      <div className="absolute -inset-8 bg-primary/8 rounded-[2rem] blur-3xl -z-10 animate-glow-pulse" />
+      <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-xl -z-10" />
 
       {/* Floating badges - desktop only */}
       {!mobile && floatingFeatures.map((feat) => (
@@ -72,10 +72,10 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
             scale: { delay: feat.delay, duration: 0.5, type: "spring", stiffness: 180, damping: 15 },
             y: { delay: feat.delay + 0.5, duration: 4, repeat: Infinity, ease: "easeInOut" },
           }}
-          className="absolute z-20 flex items-center gap-2.5 pl-2.5 pr-4 py-2 rounded-2xl bg-card border border-border/40 shadow-lg shadow-foreground/5 text-[11px] font-semibold text-foreground backdrop-blur-md"
+          className="absolute z-20 flex items-center gap-2.5 pl-2.5 pr-4 py-2 rounded-2xl bg-card/90 border border-border/40 shadow-lg shadow-primary/5 text-[11px] font-semibold text-foreground backdrop-blur-xl"
           style={{ left: feat.x, top: feat.y }}
         >
-          <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 flex items-center justify-center border border-primary/10">
+          <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/15">
             <feat.icon className="w-3.5 h-3.5 text-primary" />
           </div>
           {feat.label}
@@ -83,7 +83,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
       ))}
 
       {/* Browser window */}
-      <div className="relative overflow-hidden rounded-2xl border border-border/25 bg-card shadow-2xl">
+      <div className="relative overflow-hidden rounded-2xl border border-border/30 bg-card shadow-2xl shadow-primary/5">
         {/* Title bar */}
         <div className="flex items-center gap-3 px-4 py-2 border-b border-border/15 bg-gradient-to-r from-muted/30 via-muted/20 to-muted/30">
           <div className="flex gap-[6px]">
@@ -142,10 +142,10 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.5 }}
-            className={`w-full rounded-xl bg-gradient-to-br from-primary/12 via-primary/6 to-accent/8 border border-primary/8 ${sz.bannerP} relative overflow-hidden`}
+            className={`w-full rounded-xl bg-gradient-to-br from-primary/12 via-primary/6 to-accent/8 border border-primary/10 ${sz.bannerP} relative overflow-hidden`}
           >
-            <div className="absolute -top-6 -right-6 w-20 h-20 bg-primary/8 rounded-full blur-2xl" />
-            <div className="absolute bottom-0 left-0 w-16 h-16 bg-primary/5 rounded-full blur-xl" />
+            <div className="absolute -top-6 -right-6 w-20 h-20 bg-primary/10 rounded-full blur-2xl" />
+            <div className="absolute bottom-0 left-0 w-16 h-16 bg-primary/6 rounded-full blur-xl" />
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }}>
               <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 border border-primary/15 ${sz.textXs} text-primary font-semibold mb-2`}>
                 <Star className="w-2 h-2" /> Agência Premium
@@ -163,7 +163,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
                 transition={{ delay: 1.4, duration: 0.4, ease: "easeOut" }}
                 className="origin-left"
               >
-                <div className={`mt-3 inline-flex items-center gap-1.5 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-lg font-bold shadow-md shadow-primary/20 ${mobile ? "px-3 py-1.5 text-[7px]" : "px-4 py-2 text-[9px]"}`}>
+                <div className={`mt-3 inline-flex items-center gap-1.5 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-lg font-bold shadow-md shadow-primary/25 ${mobile ? "px-3 py-1.5 text-[7px]" : "px-4 py-2 text-[9px]"}`}>
                   Fale Conosco
                   <ChevronRight className={`${mobile ? "w-2 h-2" : "w-2.5 h-2.5"}`} />
                 </div>
@@ -179,18 +179,18 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
             className={`grid grid-cols-3 ${sz.gap} ${mobile ? "mt-2.5" : "mt-3.5"}`}
           >
             {[
-              { icon: Palette, title: "Design", desc: "UI/UX Premium", color: "from-primary/12 to-primary/4" },
-              { icon: Search, title: "SEO", desc: "Google Top 10", color: "from-success/12 to-success/4" },
-              { icon: Smartphone, title: "Mobile", desc: "100% Responsivo", color: "from-primary/12 to-primary/4" },
+              { icon: Palette, title: "Design", desc: "UI/UX Premium", color: "from-primary/15 to-primary/5" },
+              { icon: Search, title: "SEO", desc: "Google Top 10", color: "from-success/15 to-success/5" },
+              { icon: Smartphone, title: "Mobile", desc: "100% Responsivo", color: "from-primary/15 to-primary/5" },
             ].map((card, i) => (
               <motion.div
                 key={card.title}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.6 + i * 0.1 }}
-                className={`rounded-xl border border-border/20 bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-sm ${sz.cardP} hover:border-primary/20 transition-colors`}
+                className={`rounded-xl border border-border/20 bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-sm ${sz.cardP} hover:border-primary/25 transition-all duration-300`}
               >
-                <div className={`${sz.iconBox} rounded-lg bg-gradient-to-br ${card.color} flex items-center justify-center mb-1.5 border border-primary/5`}>
+                <div className={`${sz.iconBox} rounded-lg bg-gradient-to-br ${card.color} flex items-center justify-center mb-1.5 border border-primary/8`}>
                   <card.icon className={`text-primary ${sz.iconSz}`} />
                 </div>
                 <div className={`font-heading font-bold text-foreground ${sz.textSm} leading-tight`}>
@@ -208,7 +208,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.0 }}
-            className={`flex items-center justify-around rounded-xl bg-gradient-to-r from-muted/15 via-muted/10 to-muted/15 border border-border/10 ${mobile ? "mt-2.5 px-2 py-1.5" : "mt-3.5 px-4 py-2.5"}`}
+            className={`flex items-center justify-around rounded-xl bg-gradient-to-r from-primary/8 via-primary/4 to-primary/8 border border-primary/10 ${mobile ? "mt-2.5 px-2 py-1.5" : "mt-3.5 px-4 py-2.5"}`}
           >
             {[
               { icon: Users, value: "150+", label: "Clientes" },
@@ -222,7 +222,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
                 transition={{ delay: 2.1 + i * 0.1 }}
                 className="flex items-center gap-1.5 text-center"
               >
-                <stat.icon className={`text-primary/60 ${mobile ? "w-2.5 h-2.5" : "w-3 h-3"}`} />
+                <stat.icon className={`text-primary/70 ${mobile ? "w-2.5 h-2.5" : "w-3 h-3"}`} />
                 <div>
                   <div className={`font-heading font-bold text-foreground ${sz.textSm} leading-none`}>{stat.value}</div>
                   <div className={`text-muted-foreground ${sz.textXs} leading-none mt-0.5`}>{stat.label}</div>
@@ -258,10 +258,11 @@ const RotatingWord = () => {
   return (
     <motion.span
       key={word}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className="text-gradient-primary inline-block"
+      initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+      transition={{ duration: 0.5 }}
+      className="text-gradient-hero inline-block"
     >
       {word}
     </motion.span>
@@ -271,6 +272,7 @@ const RotatingWord = () => {
 const HeroSection = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 80]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0.3]);
 
   const scrollToServicos = () => {
     document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
@@ -278,18 +280,26 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-16 pb-4 md:py-24 px-0 md:px-4">
+      {/* Premium background effects */}
       <div className="absolute inset-0 bg-background" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/4 rounded-full blur-3xl hidden md:block" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-3xl hidden md:block" />
+      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/5 rounded-full blur-[150px] hidden md:block" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[120px] hidden md:block" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-primary/3 rounded-full blur-[200px] hidden md:block" />
+      
+      {/* Grid pattern overlay - desktop */}
+      <div className="absolute inset-0 hidden md:block opacity-[0.03]" style={{
+        backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
+        backgroundSize: '60px 60px'
+      }} />
 
-      <motion.div style={{ y }} className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
+      <motion.div style={{ y, opacity }} className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
         {/* Mobile */}
         <div className="md:hidden flex flex-col min-h-[calc(100dvh-5rem)] justify-center px-5 py-6 gap-5">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wide uppercase"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold w-fit tracking-wide uppercase shadow-glow-sm"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             Web Design Profissional
@@ -297,7 +307,10 @@ const HeroSection = () => {
 
           <div className="space-y-3">
             <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.12] text-foreground tracking-tight">
-              Não tenha apenas um site. Tenha uma <RotatingWord />
+              Não tenha apenas um site. Tenha uma{" "}
+              <AnimatePresence mode="wait">
+                <RotatingWord />
+              </AnimatePresence>
             </h1>
             <p className="text-[14px] text-muted-foreground leading-relaxed">
               Sites estratégicos que transformam visitantes em clientes — com design premium, SEO e atendimento direto.
@@ -306,7 +319,7 @@ const HeroSection = () => {
 
           <div className="flex flex-col gap-3">
             <motion.div whileTap={{ scale: 0.98 }}>
-              <Button variant="whatsapp" size="xl" asChild className="w-full">
+              <Button variant="whatsapp" size="xl" asChild className="w-full shadow-glow-sm">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
                   Falar no WhatsApp
@@ -337,7 +350,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wide uppercase"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold w-fit tracking-wide uppercase shadow-glow-sm"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
               Web Design Profissional
@@ -345,7 +358,10 @@ const HeroSection = () => {
 
             <div className="space-y-5">
               <h1 className="text-4xl lg:text-5xl xl:text-[3.5rem] font-heading font-bold leading-[1.08] text-foreground tracking-tight">
-                Não tenha apenas um site. Tenha uma <RotatingWord />
+                Não tenha apenas um site. Tenha uma{" "}
+                <AnimatePresence mode="wait">
+                  <RotatingWord />
+                </AnimatePresence>
               </h1>
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
@@ -364,7 +380,7 @@ const HeroSection = () => {
               className="flex flex-row items-center justify-center gap-3"
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                <Button variant="whatsapp" size="xl" asChild>
+                <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm">
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-5 h-5" />
                     Falar no WhatsApp
@@ -376,7 +392,7 @@ const HeroSection = () => {
                   variant="outline"
                   size="xl"
                   onClick={scrollToServicos}
-                  className="border-border/50 text-muted-foreground hover:text-foreground"
+                  className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30"
                 >
                   Ver Serviços
                   <ArrowDown className="w-4 h-4" />
@@ -384,12 +400,37 @@ const HeroSection = () => {
               </motion.div>
             </motion.div>
 
-            <TrustIndicators className="flex-wrap justify-center gap-5 text-sm pt-1" />
+            <TrustIndicators />
+
+            {/* Scroll indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2 }}
+              className="absolute -bottom-8"
+            >
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="w-6 h-10 rounded-full border-2 border-border/40 flex items-start justify-center p-1.5"
+              >
+                <motion.div
+                  animate={{ opacity: [0.3, 1, 0.3], height: ["4px", "8px", "4px"] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  className="w-1 rounded-full bg-primary"
+                />
+              </motion.div>
+            </motion.div>
           </div>
 
-          <div className="flex-1 relative min-h-[500px] flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex-1 flex justify-center"
+          >
             <HeroVisual />
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </section>

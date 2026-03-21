@@ -9,16 +9,16 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background bg-gradient-mesh bg-noise">
       <Header />
       <HeroSection />
-      <div className="section-divider" />
+      <div className="line-glow" />
       <StatsSection />
-      <div className="section-divider" />
+      <div className="line-glow" />
       <ServicesSection />
-      <div className="section-divider" />
+      <div className="line-glow" />
       <SocialProofSection />
-      <div className="section-divider" />
+      <div className="line-glow" />
       <CTASection />
       <Footer />
       <FloatingWhatsApp />

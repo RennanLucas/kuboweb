@@ -50,8 +50,13 @@ const cardVariants = {
 };
 
 const ServicesSection = () => (
-  <section id="servicos" className="py-24 md:py-36 px-4 bg-muted/20">
-    <div className="container mx-auto max-w-6xl">
+  <section id="servicos" className="py-24 md:py-36 px-4 relative overflow-hidden">
+    {/* Background effects */}
+    <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-card/20" />
+    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[150px] hidden md:block" />
+    <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px] hidden md:block" />
+
+    <div className="container mx-auto max-w-6xl relative z-10">
       <div className="text-center mb-12 md:mb-20 space-y-4">
         <motion.p
           initial={{ opacity: 0, y: 15 }}
@@ -95,7 +100,7 @@ const ServicesSection = () => (
           >
             <Link
               to={service.href}
-              className="card-premium flex flex-col p-6 sm:p-7 md:p-8 group cursor-pointer h-full relative overflow-hidden"
+              className="card-premium border-glow flex flex-col p-6 sm:p-7 md:p-8 group cursor-pointer h-full relative overflow-hidden"
             >
               {/* Animated gradient overlay */}
               <motion.div
@@ -117,7 +122,7 @@ const ServicesSection = () => (
                 <motion.div
                   whileHover={{ rotate: [0, -10, 10, 0], scale: 1.15 }}
                   transition={{ duration: 0.5 }}
-                  className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:shadow-lg group-hover:shadow-primary/10 transition-all duration-300"
+                  className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/25 group-hover:shadow-lg group-hover:shadow-primary/15 transition-all duration-300"
                 >
                   <service.icon className="w-5 h-5 text-primary" />
                 </motion.div>
@@ -172,7 +177,7 @@ const ServicesSection = () => (
         className="text-center"
       >
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
-          <Button variant="whatsapp" size="lg" asChild>
+          <Button variant="whatsapp" size="lg" asChild className="shadow-glow-sm">
             <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="w-5 h-5" />
               Solicitar orçamento

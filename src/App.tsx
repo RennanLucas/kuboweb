@@ -12,7 +12,7 @@ const Sobre = lazy(() => import("./pages/Sobre"));
 const Servicos = lazy(() => import("./pages/Servicos"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
-
+const Diagnostico = lazy(() => import("./pages/Diagnostico"));
 const Faq = lazy(() => import("./pages/Faq"));
 const Contato = lazy(() => import("./pages/Contato"));
 const SitesInstitucionais = lazy(() => import("./pages/SitesInstitucionais"));
@@ -63,7 +63,8 @@ const App = () => {
                 <Route path="/servicos" element={<Servicos />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/:slug" element={<ProjectDetail />} />
-                
+
+                <Route path="/diagnostico" element={<Diagnostico />} />
                 <Route path="/faq" element={<Faq />} />
                 <Route path="/contato" element={<Contato />} />
                 <Route path="/servicos/sites-institucionais" element={<SitesInstitucionais />} />

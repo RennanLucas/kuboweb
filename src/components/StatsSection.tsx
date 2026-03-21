@@ -79,14 +79,14 @@ const StatBlock = ({ label, icon, numericValue, prefix, suffix, value, decimals 
 
 const StatsSection = () => (
   <section className="py-10 md:py-14 relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-b from-card/40 via-card/20 to-transparent pointer-events-none" />
+    <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-primary/3 to-transparent pointer-events-none" />
     <div className="relative">
       <div className="flex w-max animate-marquee-stats will-change-transform" style={{ contain: "layout paint" }}>
         {[...Array(4)].map((_, setIndex) =>
           stats.map((stat, i) => (
             <div key={`${setIndex}-${i}`} className="flex items-center">
               <StatBlock {...stat} />
-              <div className="w-px h-6 bg-border/40 shrink-0" />
+              <div className="w-px h-6 bg-primary/15 shrink-0" />
             </div>
           ))
         )}

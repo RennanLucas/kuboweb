@@ -19,8 +19,12 @@ const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
 const SocialProofSection = () => (
-  <section id="depoimentos" className="py-24 md:py-36 px-4 bg-background">
-    <div className="container mx-auto max-w-6xl">
+  <section id="depoimentos" className="py-24 md:py-36 px-4 relative overflow-hidden">
+    {/* Background */}
+    <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-primary/3 rounded-full blur-[180px] hidden md:block" />
+
+    <div className="container mx-auto max-w-6xl relative z-10">
       <div className="text-center mb-12 md:mb-20 space-y-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,7 +41,7 @@ const SocialProofSection = () => (
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="section-title"
         >
-          Quem confia, recomenda
+          Quem confia, <span className="text-gradient-primary">recomenda</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +59,7 @@ const SocialProofSection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="flex justify-center gap-4 md:gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)] max-h-[600px] md:max-h-[700px] overflow-hidden"
+        className="flex justify-center gap-4 md:gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] max-h-[600px] md:max-h-[700px] overflow-hidden"
       >
         <TestimonialsColumn testimonials={firstColumn} duration={15} />
         <TestimonialsColumn testimonials={secondColumn} duration={19} className="hidden md:block" />

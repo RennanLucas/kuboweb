@@ -139,7 +139,7 @@ function getRecommendation(answers: Answers) {
         "Relatórios mensais detalhados",
         "Otimização contínua de campanhas",
       ],
-      investimento: "A partir de R$ 497/mês + verba de anúncios",
+      investimento: "A partir de R$ 250/mês + verba de anúncios",
       prazo: "Setup em 3 a 5 dias úteis",
       whatsappMsg: `Olá! Sou ${answers.nome || "cliente"} do segmento de ${segmento || "negócios"}. Fiz o diagnóstico e quero investir em Google Ads. Pode me ajudar?`,
     };

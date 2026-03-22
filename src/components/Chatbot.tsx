@@ -467,14 +467,8 @@ const Chatbot = () => {
   const recommendation = currentStep === "resultado" ? getRecommendation(answers) : null;
   const currentOptions = !["welcome", "nome", "resultado"].includes(currentStep) ? OPTIONS[currentStep as keyof typeof OPTIONS] : null;
 
-  const [showTooltip, setShowTooltip] = useState(true);
-
-  useEffect(() => {
-    if (!isOpen && showTooltip) {
-      const timer = setTimeout(() => setShowTooltip(false), 6000);
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen, showTooltip]);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [hoveringButton, setHoveringButton] = useState(false);
 
   return (
     <>
@@ -505,6 +499,9 @@ const Chatbot = () => {
             </AnimatePresence>
             <motion.button
               onClick={handleOpen}
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+              onTouchStart={() => setShowTooltip((v) => !v)}
               className="w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shrink-0"
               aria-label="Abrir consultor digital"
               animate={{ scale: [1, 1.06, 1] }}

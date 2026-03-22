@@ -467,9 +467,18 @@ const Chatbot = () => {
   const recommendation = currentStep === "resultado" ? getRecommendation(answers) : null;
   const currentOptions = !["welcome", "nome", "resultado"].includes(currentStep) ? OPTIONS[currentStep as keyof typeof OPTIONS] : null;
 
+  const [showTooltip, setShowTooltip] = useState(true);
+
+  useEffect(() => {
+    if (!isOpen && showTooltip) {
+      const timer = setTimeout(() => setShowTooltip(false), 6000);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen, showTooltip]);
+
   return (
     <>
-      {/* Toggle button with tooltip */}
+      {/* Toggle button */}
       <AnimatePresence>
         {!isOpen && (
           <motion.div
@@ -477,27 +486,29 @@ const Chatbot = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="fixed bottom-24 right-4 sm:right-6 z-50 flex items-end gap-3"
+            className="fixed bottom-24 right-4 sm:right-6 z-50 flex items-end gap-2"
           >
-            <motion.div
-              initial={{ opacity: 0, x: 20, scale: 0.9 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ delay: 0.8, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-card border border-border/50 rounded-2xl rounded-br-sm px-4 py-3 shadow-xl max-w-[220px] cursor-pointer hover:border-primary/30 transition-colors"
-              onClick={handleOpen}
-            >
-              <p className="text-xs font-bold text-foreground mb-0.5">🚀 Consultoria gratuita</p>
-              <p className="text-[11px] text-muted-foreground leading-snug">
-                Descubra qual solução digital vai fazer seu negócio faturar mais
-              </p>
-              <p className="text-[10px] text-primary font-semibold mt-1.5">Leva menos de 2 min →</p>
-            </motion.div>
+            <AnimatePresence>
+              {showTooltip && (
+                <motion.div
+                  initial={{ opacity: 0, x: 10, scale: 0.9 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: 10, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-card border border-border/50 rounded-xl rounded-br-sm px-3 py-2 shadow-lg cursor-pointer max-w-[160px]"
+                  onClick={handleOpen}
+                >
+                  <p className="text-[11px] font-semibold text-foreground">🚀 Consultoria grátis</p>
+                  <p className="text-[10px] text-primary font-medium mt-0.5">2 min →</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
             <motion.button
               onClick={handleOpen}
               className="w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shrink-0"
               aria-label="Abrir consultor digital"
-              animate={{ scale: [1, 1.08, 1] }}
-              transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+              animate={{ scale: [1, 1.06, 1] }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
             >
               <Sparkles className="w-6 h-6" />
             </motion.button>

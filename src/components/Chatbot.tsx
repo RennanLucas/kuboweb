@@ -467,14 +467,8 @@ const Chatbot = () => {
   const recommendation = currentStep === "resultado" ? getRecommendation(answers) : null;
   const currentOptions = !["welcome", "nome", "resultado"].includes(currentStep) ? OPTIONS[currentStep as keyof typeof OPTIONS] : null;
 
-  const [showTooltip, setShowTooltip] = useState(true);
-
-  useEffect(() => {
-    if (!isOpen && showTooltip) {
-      const timer = setTimeout(() => setShowTooltip(false), 6000);
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen, showTooltip]);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [hoveringButton, setHoveringButton] = useState(false);
 
   return (
     <>

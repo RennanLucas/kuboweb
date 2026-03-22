@@ -12,12 +12,12 @@ const faqs = [
   {
     question: "Quanto custa criar um site profissional?",
     answer:
-      "Anúncios a partir de R$280, Landing Pages a partir de R$560, Sites Profissionais a partir de R$760 e Lojas Virtuais a partir de R$1.200. Envie uma mensagem no WhatsApp para um orçamento personalizado.",
+      "Google Ads a partir de R$ 250/mês + verba de anúncios, Landing Pages a partir de R$ 697, Sites Institucionais a partir de R$ 997 e Lojas Virtuais a partir de R$ 1.497. Envie uma mensagem no WhatsApp para um orçamento personalizado.",
   },
   {
     question: "Em quanto tempo o site fica pronto?",
     answer:
-      "Sites e landing pages são entregues em até 7 dias úteis. Lojas virtuais têm prazo de até 14 dias úteis. O prazo exato depende da complexidade e dos materiais fornecidos.",
+      "Landing Pages são entregues em 5 a 10 dias úteis. Sites Institucionais e Lojas Virtuais têm prazo de 7 a 15 dias úteis. Campanhas de Google Ads ficam prontas em 3 a 5 dias úteis. O prazo exato depende da complexidade e dos materiais fornecidos.",
   },
   {
     question: "O site fica otimizado para celular?",
@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "O que está incluso no valor?",
     answer:
-      "Design personalizado, desenvolvimento responsivo, otimização básica para SEO e integração com WhatsApp.\n\nO suporte é oferecido durante todo o processo de criação do site.\n\nApós a entrega, a manutenção é opcional e custa R$ 70 por mês.",
+      "Design personalizado, desenvolvimento responsivo, otimização básica para SEO e integração com WhatsApp.\n\nO suporte é oferecido durante todo o processo de criação do site.\n\nApós a entrega, a manutenção é opcional e custa R$ 70 por mês, incluindo hospedagem, backups, atualizações de segurança e suporte via WhatsApp.",
   },
 ];
 

@@ -477,23 +477,30 @@ const Chatbot = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="fixed bottom-24 right-6 z-50 flex items-center gap-2"
+            className="fixed bottom-24 right-4 sm:right-6 z-50 flex items-end gap-3"
           >
             <motion.div
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1, duration: 0.3 }}
-              className="hidden sm:block bg-card border border-border/50 rounded-xl px-3 py-2 shadow-lg"
-            >
-              <p className="text-xs font-medium text-foreground whitespace-nowrap">Diagnóstico gratuito ✨</p>
-            </motion.div>
-            <button
+              initial={{ opacity: 0, x: 20, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ delay: 0.8, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-card border border-border/50 rounded-2xl rounded-br-sm px-4 py-3 shadow-xl max-w-[220px] cursor-pointer hover:border-primary/30 transition-colors"
               onClick={handleOpen}
-              className="w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center hover:scale-110 transition-transform"
+            >
+              <p className="text-xs font-bold text-foreground mb-0.5">🚀 Consultoria gratuita</p>
+              <p className="text-[11px] text-muted-foreground leading-snug">
+                Descubra qual solução digital vai fazer seu negócio faturar mais
+              </p>
+              <p className="text-[10px] text-primary font-semibold mt-1.5">Leva menos de 2 min →</p>
+            </motion.div>
+            <motion.button
+              onClick={handleOpen}
+              className="w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shrink-0"
               aria-label="Abrir consultor digital"
+              animate={{ scale: [1, 1.08, 1] }}
+              transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
             >
               <Sparkles className="w-6 h-6" />
-            </button>
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

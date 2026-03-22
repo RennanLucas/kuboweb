@@ -476,7 +476,7 @@ const Chatbot = () => {
       const hide = setTimeout(() => setShowTooltip(false), 8000);
       return () => clearTimeout(hide);
     } else {
-      const show = setTimeout(() => setShowTooltip(true), 25000);
+      const show = setTimeout(() => setShowTooltip(true), 45000);
       return () => clearTimeout(show);
     }
   }, [isOpen, showTooltip]);

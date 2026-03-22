@@ -526,7 +526,7 @@ const Chatbot = () => {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-foreground tracking-tight">Consultor KuboWeb</p>
-                  <p className="text-[11px] text-muted-foreground">Diagnóstico digital gratuito</p>
+                  <p className="text-[11px] text-muted-foreground">Consultoria digital gratuita</p>
                 </div>
               </div>
               <button

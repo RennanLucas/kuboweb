@@ -20,6 +20,7 @@ const LandingPages = lazy(() => import("./pages/LandingPages"));
 const LojaVirtual = lazy(() => import("./pages/LojaVirtual"));
 const Anuncios = lazy(() => import("./pages/Anuncios"));
 const Manutencao = lazy(() => import("./pages/Manutencao"));
+const Calculadora = lazy(() => import("./pages/Calculadora"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -73,6 +74,7 @@ const App = () => {
                 <Route path="/servicos/loja-virtual" element={<LojaVirtual />} />
                 <Route path="/servicos/anuncios" element={<Anuncios />} />
                 <Route path="/manutencao" element={<Manutencao />} />
+                <Route path="/calculadora" element={<Calculadora />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

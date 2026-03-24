@@ -5,67 +5,109 @@ import { Button } from "@/components/ui/button";
 
 const cases = [
   {
-    cliente: "Clínica Vida & Saúde",
-    segmento: "Saúde",
+    cliente: "Clínica Sorriso Perfeito",
+    segmento: "Saúde — Odontologia",
     servico: "Site Institucional + Google Ads",
     antes: {
-      agendamentos: "~15/mês",
+      volume: "~15 agendamentos/mês",
       presenca: "Só Instagram",
       investimento: "Nenhum em digital",
     },
     depois: {
-      agendamentos: "85/mês",
+      volume: "95 agendamentos/mês",
       presenca: "Site + Google + Instagram",
       investimento: "R$ 250/mês em ads",
     },
     metricas: [
-      { icon: Users, label: "Agendamentos", valor: "+467%", cor: "text-primary" },
-      { icon: TrendingUp, label: "Faturamento", valor: "+R$ 28k/mês", cor: "text-primary" },
-      { icon: Eye, label: "Visibilidade", valor: "3x mais", cor: "text-primary" },
+      { icon: Users, label: "Agendamentos", valor: "+533%", cor: "text-primary" },
+      { icon: TrendingUp, label: "Faturamento", valor: "+R$ 38k/mês", cor: "text-primary" },
+      { icon: Eye, label: "Visibilidade", valor: "4x mais", cor: "text-primary" },
     ],
-    depoimento: "Em 3 meses, minha agenda lotou. O site transmite a credibilidade que eu precisava.",
+    depoimento: "Em 3 meses, minha agenda lotou. O site transmite a credibilidade que eu precisava para atrair pacientes novos.",
   },
   {
-    cliente: "Doce Sabor Confeitaria",
-    segmento: "Alimentação",
-    servico: "Landing Page + WhatsApp",
+    cliente: "Stella Rose — Moda Feminina",
+    segmento: "E-commerce — Moda",
+    servico: "Loja Virtual completa",
     antes: {
-      agendamentos: "~30 pedidos/mês",
-      presenca: "Só WhatsApp pessoal",
-      investimento: "R$ 0",
+      volume: "~20 vendas/mês",
+      presenca: "Só redes sociais",
+      investimento: "R$ 0 em estrutura digital",
     },
     depois: {
-      agendamentos: "120 pedidos/mês",
-      presenca: "Landing Page otimizada",
-      investimento: "R$ 697 (único)",
+      volume: "R$ 47 mil em vendas no 1º mês",
+      presenca: "Loja Virtual + Pix + Painel Admin",
+      investimento: "R$ 1.497 (único)",
     },
     metricas: [
-      { icon: ShoppingCart, label: "Pedidos", valor: "+300%", cor: "text-primary" },
-      { icon: TrendingUp, label: "Faturamento", valor: "+R$ 12k/mês", cor: "text-primary" },
-      { icon: Users, label: "Clientes novos", valor: "4x mais", cor: "text-primary" },
+      { icon: ShoppingCart, label: "Vendas", valor: "R$ 47k", cor: "text-primary" },
+      { icon: TrendingUp, label: "Ticket médio", valor: "+65%", cor: "text-primary" },
+      { icon: Users, label: "Clientes novos", valor: "320+", cor: "text-primary" },
     ],
-    depoimento: "A landing page profissional fez toda a diferença. Os clientes confiam mais e pedem sem medo.",
+    depoimento: "A loja virtual profissional fez toda a diferença. Os clientes confiam mais e compram sem medo. Melhor investimento que fiz.",
   },
   {
-    cliente: "Tech Solutions Consultoria",
-    segmento: "Serviços B2B",
-    servico: "Site Institucional",
+    cliente: "Moreira & Associados Advocacia",
+    segmento: "Advocacia — B2B",
+    servico: "Site Institucional + SEO",
     antes: {
-      agendamentos: "~5 leads/mês",
-      presenca: "Cartão de visita apenas",
+      volume: "~5 contatos/mês",
+      presenca: "Só indicações presenciais",
       investimento: "R$ 0",
     },
     depois: {
-      agendamentos: "35 leads/mês",
-      presenca: "Site + SEO + Blog",
+      volume: "30+ contatos qualificados/mês",
+      presenca: "Site + Blog + SEO jurídico",
       investimento: "R$ 997 (único)",
     },
     metricas: [
-      { icon: Users, label: "Leads qualificados", valor: "+600%", cor: "text-primary" },
-      { icon: TrendingUp, label: "Contratos", valor: "+8/mês", cor: "text-primary" },
-      { icon: Eye, label: "Tráfego orgânico", valor: "2.5k/mês", cor: "text-primary" },
+      { icon: Users, label: "Contatos orgânicos", valor: "+180%", cor: "text-primary" },
+      { icon: TrendingUp, label: "Leads qualificados", valor: "6x mais", cor: "text-primary" },
+      { icon: Eye, label: "Posição no Google", valor: "Top 5", cor: "text-primary" },
     ],
-    depoimento: "Saí do zero no digital para fechar 8 contratos por mês. O ROI foi absurdo.",
+    depoimento: "Antes do site, recebíamos em média 5 contatos por mês via internet. Hoje são mais de 30, e a qualidade dos leads melhorou significativamente.",
+  },
+  {
+    cliente: "Vertex Capital — Consultoria",
+    segmento: "Finanças — B2B",
+    servico: "Landing Page de alta conversão",
+    antes: {
+      volume: "~8 leads/mês",
+      presenca: "Cartão de visita + LinkedIn",
+      investimento: "R$ 0",
+    },
+    depois: {
+      volume: "Taxa de conversão de 12,3%",
+      presenca: "Landing Page + Calculadora + Vídeo",
+      investimento: "R$ 697 (único)",
+    },
+    metricas: [
+      { icon: TrendingUp, label: "Conversão", valor: "12,3%", cor: "text-primary" },
+      { icon: Users, label: "Leads/mês", valor: "45+", cor: "text-primary" },
+      { icon: Eye, label: "Tempo na página", valor: "4min30s", cor: "text-primary" },
+    ],
+    depoimento: "A landing page com calculadora de investimentos foi um diferencial. Os clientes já chegam prontos para contratar.",
+  },
+  {
+    cliente: "AcademIA — Curso de IA",
+    segmento: "Educação — Infoproduto",
+    servico: "Landing Page de vendas",
+    antes: {
+      volume: "Lançamento do zero",
+      presenca: "Apenas redes sociais",
+      investimento: "R$ 0 em página própria",
+    },
+    depois: {
+      volume: "+320 matrículas na 1ª semana",
+      presenca: "Página de vendas + Checkout integrado",
+      investimento: "R$ 697 (único)",
+    },
+    metricas: [
+      { icon: ShoppingCart, label: "Matrículas", valor: "320+", cor: "text-primary" },
+      { icon: TrendingUp, label: "Faturamento", valor: "R$ 96k", cor: "text-primary" },
+      { icon: Users, label: "Taxa de conversão", valor: "8,7%", cor: "text-primary" },
+    ],
+    depoimento: "A página de vendas converteu muito acima da média do mercado. O checkout integrado eliminou a fricção e as matrículas dispararam.",
   },
 ];
 
@@ -129,7 +171,7 @@ const CasesSection = () => (
                   <p className="text-xs font-bold text-destructive/80 uppercase tracking-wider mb-3">❌ Antes</p>
                   {Object.entries(c.antes).map(([k, v]) => (
                     <div key={k} className="flex justify-between text-sm py-1">
-                      <span className="text-muted-foreground capitalize">{k === "agendamentos" ? "Volume" : k === "presenca" ? "Presença" : "Investimento"}</span>
+                      <span className="text-muted-foreground capitalize">{k === "volume" ? "Volume" : k === "presenca" ? "Presença" : "Investimento"}</span>
                       <span className="text-foreground font-medium">{v}</span>
                     </div>
                   ))}
@@ -138,7 +180,7 @@ const CasesSection = () => (
                   <p className="text-xs font-bold text-primary uppercase tracking-wider mb-3">✅ Depois</p>
                   {Object.entries(c.depois).map(([k, v]) => (
                     <div key={k} className="flex justify-between text-sm py-1">
-                      <span className="text-muted-foreground capitalize">{k === "agendamentos" ? "Volume" : k === "presenca" ? "Presença" : "Investimento"}</span>
+                      <span className="text-muted-foreground capitalize">{k === "volume" ? "Volume" : k === "presenca" ? "Presença" : "Investimento"}</span>
                       <span className="text-foreground font-bold">{v}</span>
                     </div>
                   ))}

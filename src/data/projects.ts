@@ -52,8 +52,8 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "clinica-sorriso-perfeito",
-    title: "Clínica Sorriso Perfeito",
+    slug: "clinica-odontologica",
+    title: "Clínica Odontológica — SP",
     category: "Site Institucional",
     image: imgClinica,
     description:
@@ -81,8 +81,8 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "stella-rose-moda-feminina",
-    title: "Stella Rose — Moda Feminina",
+    slug: "loja-moda-feminina",
+    title: "Loja de Moda Feminina — E-commerce",
     category: "E-commerce",
     image: imgModa,
     description:
@@ -110,8 +110,8 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "vertex-capital-consultoria",
-    title: "Vertex Capital — Consultoria",
+    slug: "consultoria-financeira",
+    title: "Consultoria Financeira — Landing Page",
     category: "Landing Page",
     image: imgFinanceira,
     description:
@@ -139,8 +139,8 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "mrk-engenharia-construcoes",
-    title: "MRK Engenharia & Construções",
+    slug: "construtora-engenharia",
+    title: "Construtora & Engenharia — SP",
     category: "Site Institucional",
     image: imgConstrutora,
     description:
@@ -168,8 +168,8 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "academia-curso-ia",
-    title: "AcademIA — Curso de IA",
+    slug: "curso-online-tecnologia",
+    title: "Curso Online de Tecnologia — Infoproduto",
     category: "Landing Page",
     image: imgCurso,
     description:

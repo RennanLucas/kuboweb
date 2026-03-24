@@ -331,17 +331,17 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
 };
 
 const TrustIndicators = ({ className = "" }: { className?: string }) => (
-  <div className={`flex items-center gap-4 text-xs text-muted-foreground ${className}`}>
+  <div className={`flex items-center gap-5 text-xs text-muted-foreground ${className}`}>
     {trustItems.map((item, i) => (
       <motion.div
         key={item}
-        className="flex items-center gap-1.5 whitespace-nowrap"
+        className="flex items-center gap-2 whitespace-nowrap"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.8 + i * 0.1, duration: 0.4 }}
       >
-        <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
-        {item}
+        <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
+        <span className="font-medium">{item}</span>
       </motion.div>
     ))}
   </div>
@@ -375,15 +375,15 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-16 pb-4 md:py-24 px-0 md:px-4">
       {/* Premium background effects */}
-      <div className="absolute inset-0 bg-background" />
-      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/5 rounded-full blur-[150px] hidden md:block" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[120px] hidden md:block" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-primary/3 rounded-full blur-[200px] hidden md:block" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-accent/20" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/4 rounded-full blur-[180px] hidden md:block" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/3 rounded-full blur-[150px] hidden md:block" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[700px] bg-primary/2 rounded-full blur-[250px] hidden md:block" />
       
-      {/* Grid pattern overlay - desktop */}
-      <div className="absolute inset-0 hidden md:block opacity-[0.03]" style={{
-        backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-        backgroundSize: '60px 60px'
+      {/* Refined dot pattern overlay - desktop */}
+      <div className="absolute inset-0 hidden md:block opacity-[0.025]" style={{
+        backgroundImage: `radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)`,
+        backgroundSize: '32px 32px'
       }} />
 
       <motion.div style={{ y, opacity }} className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
@@ -393,10 +393,10 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold w-fit tracking-wide uppercase shadow-glow-sm"
+            className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wider uppercase shadow-sm"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            Web Design Profissional
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-sm shadow-primary/50" />
+            Agência Premium
           </motion.div>
 
           <div className="space-y-3">
@@ -439,20 +439,22 @@ const HeroSection = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex flex-row min-h-[580px] items-center justify-center max-w-6xl mx-auto">
-          <div className="flex-1 pr-8 lg:pr-16 relative z-10 flex flex-col justify-center items-center text-center space-y-7">
+          <div className="flex-1 pr-8 lg:pr-16 relative z-10 flex flex-col justify-center items-center text-center space-y-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold w-fit tracking-wide uppercase shadow-glow-sm"
+              className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wider uppercase shadow-sm"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Web Design Profissional
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-sm shadow-primary/50" />
+              Agência de Web Design Premium
             </motion.div>
 
-            <div className="space-y-5">
-              <h1 className="text-4xl lg:text-5xl xl:text-[3.5rem] font-heading font-bold leading-[1.08] text-foreground tracking-tight">
-                Não tenha apenas um site. Tenha uma{" "}
+            <div className="space-y-6">
+              <h1 className="text-4xl lg:text-5xl xl:text-[3.5rem] font-heading font-extrabold leading-[1.06] text-foreground tracking-tight">
+                Não tenha apenas um site.
+                <br />
+                Tenha uma{" "}
                 <AnimatePresence mode="wait">
                   <RotatingWord />
                 </AnimatePresence>
@@ -461,9 +463,9 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-lg text-muted-foreground max-w-lg leading-relaxed mx-auto"
+                className="text-lg text-muted-foreground max-w-xl leading-relaxed mx-auto"
               >
-                Sites estratégicos que transformam visitantes em clientes — com design premium, SEO e atendimento direto.
+                Criamos sites estratégicos que transformam visitantes em clientes — com design premium, SEO avançado e atendimento humanizado.
               </motion.p>
             </div>
 

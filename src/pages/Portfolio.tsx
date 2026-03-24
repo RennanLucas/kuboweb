@@ -42,6 +42,14 @@ const Portfolio = () => (
             Cada projeto nasce de um diagnóstico estratégico do negócio do cliente.
             Confira entregas recentes e os resultados que alcançamos juntos.
           </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+            className="text-xs text-muted-foreground italic max-w-lg mx-auto"
+          >
+            🔒 Os nomes de empresas foram alterados para preservar a confidencialidade dos nossos clientes.
+          </motion.p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-16">

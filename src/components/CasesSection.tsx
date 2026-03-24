@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const cases = [
   {
-    cliente: "Clínica Sorriso Perfeito",
+    cliente: "Clínica Odontológica — SP",
     segmento: "Saúde — Odontologia",
     servico: "Site Institucional + Google Ads",
     antes: {
@@ -26,7 +26,7 @@ const cases = [
     depoimento: "Em 3 meses, minha agenda lotou. O site transmite a credibilidade que eu precisava para atrair pacientes novos.",
   },
   {
-    cliente: "Stella Rose — Moda Feminina",
+    cliente: "Loja de Moda Feminina — E-commerce",
     segmento: "E-commerce — Moda",
     servico: "Loja Virtual completa",
     antes: {
@@ -47,7 +47,7 @@ const cases = [
     depoimento: "A loja virtual profissional fez toda a diferença. Os clientes confiam mais e compram sem medo. Melhor investimento que fiz.",
   },
   {
-    cliente: "Moreira & Associados Advocacia",
+    cliente: "Escritório de Advocacia — SP",
     segmento: "Advocacia — B2B",
     servico: "Site Institucional + SEO",
     antes: {
@@ -68,7 +68,7 @@ const cases = [
     depoimento: "Antes do site, recebíamos em média 5 contatos por mês via internet. Hoje são mais de 30, e a qualidade dos leads melhorou significativamente.",
   },
   {
-    cliente: "Vertex Capital — Consultoria",
+    cliente: "Consultoria Financeira — Landing Page",
     segmento: "Finanças — B2B",
     servico: "Landing Page de alta conversão",
     antes: {
@@ -89,7 +89,7 @@ const cases = [
     depoimento: "A landing page com calculadora de investimentos foi um diferencial. Os clientes já chegam prontos para contratar.",
   },
   {
-    cliente: "AcademIA — Curso de IA",
+    cliente: "Curso Online de Tecnologia — Infoproduto",
     segmento: "Educação — Infoproduto",
     servico: "Landing Page de vendas",
     antes: {

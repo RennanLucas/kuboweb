@@ -23,8 +23,8 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "moreira-associados-advocacia",
-    title: "Moreira & Associados Advocacia",
+    slug: "escritorio-advocacia",
+    title: "Escritório de Advocacia — São Paulo",
     category: "Site Institucional",
     image: imgAdvocacia,
     description:
@@ -46,14 +46,14 @@ export const projects: Project[] = [
       ],
       testimonial: {
         text: "Antes do site, nosso escritório recebia em média 5 contatos por mês via internet. Hoje são mais de 30, e a qualidade dos leads melhorou significativamente.",
-        author: "Dr. Ricardo Moreira",
-        role: "Sócio-fundador, Moreira & Associados",
+        author: "Sócio-fundador",
+        role: "Escritório de Advocacia, São Paulo",
       },
     },
   },
   {
-    slug: "clinica-sorriso-perfeito",
-    title: "Clínica Sorriso Perfeito",
+    slug: "clinica-odontologica",
+    title: "Clínica Odontológica — SP",
     category: "Site Institucional",
     image: imgClinica,
     description:
@@ -75,14 +75,14 @@ export const projects: Project[] = [
       ],
       testimonial: {
         text: "Em 3 meses, minha agenda lotou. O site transmite a credibilidade que eu precisava para atrair pacientes novos.",
-        author: "Dra. Carolina Mendes",
-        role: "Diretora clínica, Sorriso Perfeito",
+        author: "Diretora clínica",
+        role: "Clínica Odontológica, São Paulo",
       },
     },
   },
   {
-    slug: "stella-rose-moda-feminina",
-    title: "Stella Rose — Moda Feminina",
+    slug: "loja-moda-feminina",
+    title: "Loja de Moda Feminina — E-commerce",
     category: "E-commerce",
     image: imgModa,
     description:
@@ -104,14 +104,14 @@ export const projects: Project[] = [
       ],
       testimonial: {
         text: "A loja virtual profissional fez toda a diferença. Os clientes confiam mais e compram sem medo. Faturamos R$ 47 mil no primeiro mês.",
-        author: "Juliana Costa",
-        role: "Fundadora, Stella Rose",
+        author: "Fundadora",
+        role: "Loja de Moda Feminina",
       },
     },
   },
   {
-    slug: "vertex-capital-consultoria",
-    title: "Vertex Capital — Consultoria",
+    slug: "consultoria-financeira",
+    title: "Consultoria Financeira — Landing Page",
     category: "Landing Page",
     image: imgFinanceira,
     description:
@@ -133,14 +133,14 @@ export const projects: Project[] = [
       ],
       testimonial: {
         text: "A landing page com calculadora de investimentos foi um diferencial. Os clientes já chegam prontos para contratar.",
-        author: "Fernando Alves",
-        role: "CEO, Vertex Capital",
+        author: "CEO",
+        role: "Consultoria Financeira",
       },
     },
   },
   {
-    slug: "mrk-engenharia-construcoes",
-    title: "MRK Engenharia & Construções",
+    slug: "construtora-engenharia",
+    title: "Construtora & Engenharia — SP",
     category: "Site Institucional",
     image: imgConstrutora,
     description:
@@ -162,14 +162,14 @@ export const projects: Project[] = [
       ],
       testimonial: {
         text: "O site trouxe uma visibilidade que não tínhamos. Recebemos 60% mais pedidos de orçamento e fechamos projetos maiores.",
-        author: "Eng. Marcos Kikuchi",
-        role: "Diretor, MRK Engenharia",
+        author: "Diretor",
+        role: "Construtora & Engenharia, São Paulo",
       },
     },
   },
   {
-    slug: "academia-curso-ia",
-    title: "AcademIA — Curso de IA",
+    slug: "curso-online-tecnologia",
+    title: "Curso Online de Tecnologia — Infoproduto",
     category: "Landing Page",
     image: imgCurso,
     description:
@@ -191,8 +191,8 @@ export const projects: Project[] = [
       ],
       testimonial: {
         text: "A página de vendas converteu muito acima da média. Foram 320 matrículas na primeira semana. O checkout integrado eliminou toda a fricção.",
-        author: "Prof. André Lima",
-        role: "Fundador, AcademIA",
+        author: "Fundador",
+        role: "Curso Online de Tecnologia",
       },
     },
   },

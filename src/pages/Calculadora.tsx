@@ -47,8 +47,9 @@ const Calculadora = () => {
       <Header />
 
       <section className="pt-28 md:pt-36 pb-16 md:pb-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-background to-background" />
-        <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[150px] hidden md:block" />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary/10 via-background to-background" />
+        <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] hidden md:block" />
+        <div className="absolute bottom-20 right-1/4 w-[400px] h-[400px] bg-accent/30 rounded-full blur-[120px] hidden md:block" />
 
         <div className="container mx-auto max-w-4xl relative z-10">
           <motion.div
@@ -71,7 +72,7 @@ const Calculadora = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="card-premium p-6 md:p-8 space-y-6"
+              className="card-premium p-6 md:p-8 space-y-6 bg-gradient-to-br from-card to-background shadow-xl shadow-primary/5 border-primary/10"
             >
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
@@ -88,10 +89,10 @@ const Calculadora = () => {
                     <button
                       key={opt.value}
                       onClick={() => { setService(opt.value); setShowResult(false); }}
-                      className={`px-3 py-2.5 rounded-xl border text-left transition-all text-sm ${
+                    className={`px-3 py-2.5 rounded-xl border text-left transition-all text-sm ${
                         service === opt.value
-                          ? "border-primary/50 bg-primary/8 text-primary font-semibold"
-                          : "border-border/50 bg-secondary/20 text-muted-foreground hover:border-primary/30"
+                          ? "border-primary/40 bg-gradient-to-br from-primary/10 to-primary/5 text-primary font-semibold shadow-md shadow-primary/10 ring-1 ring-primary/20"
+                          : "border-border/40 bg-card text-muted-foreground hover:border-primary/30 hover:bg-accent/30"
                       }`}
                     >
                       <span className="text-base">{opt.emoji}</span>
@@ -158,9 +159,9 @@ const Calculadora = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="card-premium border-glow p-6 md:p-8 relative overflow-hidden flex flex-col"
+              className="card-premium border-glow p-6 md:p-8 relative overflow-hidden flex flex-col shadow-xl shadow-primary/5 border-primary/15"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/6 via-transparent to-primary/3" />
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/15 via-transparent to-primary/5" />
 
               {!showResult ? (
                 <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center py-8">
@@ -189,22 +190,22 @@ const Calculadora = () => {
                   </div>
 
                   <div className="grid grid-cols-2 gap-3 mb-6">
-                    <div className="bg-secondary/30 rounded-xl p-4 border border-border/30">
+                    <div className="bg-card rounded-xl p-4 border border-border/30 shadow-sm">
                       <Users className="w-4 h-4 text-primary mb-1" />
                       <p className="text-2xl font-heading font-bold text-foreground">{result.leadsMes}</p>
                       <p className="text-[11px] text-muted-foreground">Leads/mês</p>
                     </div>
-                    <div className="bg-secondary/30 rounded-xl p-4 border border-border/30">
+                    <div className="bg-card rounded-xl p-4 border border-border/30 shadow-sm">
                       <Users className="w-4 h-4 text-primary mb-1" />
                       <p className="text-2xl font-heading font-bold text-foreground">{result.clientesMes}</p>
                       <p className="text-[11px] text-muted-foreground">Clientes/mês</p>
                     </div>
-                    <div className="bg-secondary/30 rounded-xl p-4 border border-border/30">
+                    <div className="bg-card rounded-xl p-4 border border-border/30 shadow-sm">
                       <DollarSign className="w-4 h-4 text-primary mb-1" />
                       <p className="text-xl font-heading font-bold text-foreground">R$ {result.faturamentoMes.toLocaleString("pt-BR")}</p>
                       <p className="text-[11px] text-muted-foreground">Faturamento/mês</p>
                     </div>
-                    <div className="bg-primary/8 rounded-xl p-4 border border-primary/20">
+                    <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-4 border border-primary/20 shadow-md shadow-primary/10">
                       <TrendingUp className="w-4 h-4 text-primary mb-1" />
                       <p className="text-xl font-heading font-bold text-primary">{result.roi}%</p>
                       <p className="text-[11px] text-muted-foreground">ROI estimado/ano</p>

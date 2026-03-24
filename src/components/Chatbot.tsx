@@ -500,7 +500,7 @@ const Chatbot = () => {
                   animate={{ opacity: 1, x: 0, scale: 1 }}
                   exit={{ opacity: 0, x: 10, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-card border border-border/50 rounded-xl rounded-br-sm px-3 py-2 shadow-lg cursor-pointer max-w-[160px]"
+                  className="bg-gradient-to-br from-card to-background border border-primary/20 rounded-xl rounded-br-sm px-3 py-2.5 shadow-xl shadow-primary/10 cursor-pointer max-w-[170px]"
                   onClick={handleOpen}
                 >
                   <p className="text-[11px] font-semibold text-foreground">🚀 Consultoria grátis</p>
@@ -510,7 +510,7 @@ const Chatbot = () => {
             </AnimatePresence>
             <motion.button
               onClick={handleOpen}
-              className="w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shrink-0"
+              className="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-xl shadow-primary/30 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shrink-0 ring-2 ring-primary/20 ring-offset-2 ring-offset-background"
               aria-label="Abrir consultor digital"
               animate={{ scale: [1, 1.06, 1] }}
               transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
@@ -529,14 +529,14 @@ const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] h-[560px] max-h-[75vh] rounded-2xl border border-border/60 bg-card shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] h-[560px] max-h-[75vh] rounded-2xl border border-border/40 bg-gradient-to-b from-card to-background shadow-2xl shadow-primary/10 flex flex-col overflow-hidden backdrop-blur-sm"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-border/30 bg-gradient-to-r from-primary/8 via-primary/4 to-transparent">
+            <div className="flex items-center justify-between px-4 py-3.5 border-b border-primary/15 bg-gradient-to-r from-secondary/80 via-secondary/40 to-secondary/20">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/25 flex items-center justify-center">
-                    <Bot className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/70 border border-primary/40 flex items-center justify-center shadow-md shadow-primary/20">
+                    <Bot className="w-5 h-5 text-primary-foreground" />
                   </div>
                   <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-whatsapp border-2 border-card" />
                 </div>

@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
 import ServicesSection from "@/components/ServicesSection";
 import SocialProofSection from "@/components/SocialProofSection";
+import CasesSection from "@/components/CasesSection";
 import CTASection from "@/components/CTASection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
@@ -18,6 +19,8 @@ const Index = () => {
       <ServicesSection />
       <div className="line-glow" />
       <SocialProofSection />
+      <div className="line-glow" />
+      <CasesSection />
       <div className="line-glow" />
       <CTASection />
       <Footer />

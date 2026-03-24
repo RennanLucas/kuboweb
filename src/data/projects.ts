@@ -23,8 +23,8 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "moreira-associados-advocacia",
-    title: "Moreira & Associados Advocacia",
+    slug: "escritorio-advocacia",
+    title: "Escritório de Advocacia — São Paulo",
     category: "Site Institucional",
     image: imgAdvocacia,
     description:

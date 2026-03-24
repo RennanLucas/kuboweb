@@ -171,7 +171,7 @@ const CasesSection = () => (
                   <p className="text-xs font-bold text-destructive/80 uppercase tracking-wider mb-3">❌ Antes</p>
                   {Object.entries(c.antes).map(([k, v]) => (
                     <div key={k} className="flex justify-between text-sm py-1">
-                      <span className="text-muted-foreground capitalize">{k === "agendamentos" ? "Volume" : k === "presenca" ? "Presença" : "Investimento"}</span>
+                      <span className="text-muted-foreground capitalize">{k === "volume" ? "Volume" : k === "presenca" ? "Presença" : "Investimento"}</span>
                       <span className="text-foreground font-medium">{v}</span>
                     </div>
                   ))}
@@ -180,7 +180,7 @@ const CasesSection = () => (
                   <p className="text-xs font-bold text-primary uppercase tracking-wider mb-3">✅ Depois</p>
                   {Object.entries(c.depois).map(([k, v]) => (
                     <div key={k} className="flex justify-between text-sm py-1">
-                      <span className="text-muted-foreground capitalize">{k === "agendamentos" ? "Volume" : k === "presenca" ? "Presença" : "Investimento"}</span>
+                      <span className="text-muted-foreground capitalize">{k === "volume" ? "Volume" : k === "presenca" ? "Presença" : "Investimento"}</span>
                       <span className="text-foreground font-bold">{v}</span>
                     </div>
                   ))}

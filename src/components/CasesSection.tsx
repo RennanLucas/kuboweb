@@ -143,6 +143,15 @@ const CasesSection = () => (
         >
           Veja como nossos clientes transformaram seus negócios com presença digital profissional.
         </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.25 }}
+          className="text-xs text-muted-foreground italic"
+        >
+          🔒 Nomes alterados para preservar a confidencialidade dos clientes.
+        </motion.p>
       </div>
 
       <div className="space-y-6 md:space-y-8">

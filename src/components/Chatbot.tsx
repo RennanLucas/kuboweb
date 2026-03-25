@@ -1,5 +1,5 @@
 import { memo, useState, useRef, useCallback, useEffect } from "react";
-import { MessageCircle, Headset, User, Sparkles, ArrowRight, X, RotateCcw, Zap, TrendingUp, ShoppingCart, Globe, Target, Megaphone } from "lucide-react";
+import { MessageCircle, UserRound, User, Sparkles, ArrowRight, X, RotateCcw, Zap, TrendingUp, ShoppingCart, Globe, Target, Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -218,7 +218,7 @@ const TypingIndicator = () => (
     className="flex items-center gap-2 px-4 py-3"
   >
     <div className="w-7 h-7 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0">
-      <Headset className="w-3.5 h-3.5 text-primary" />
+      <UserRound className="w-3.5 h-3.5 text-primary" />
     </div>
     <div className="flex items-center gap-1.5 bg-accent border border-border/30 rounded-2xl px-4 py-2.5">
       {[0, 1, 2].map((i) => (
@@ -327,7 +327,7 @@ const ChatMessage = memo(({ message }: { message: Message }) => {
     >
       {isBot && (
         <div className="w-7 h-7 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0 mt-0.5">
-          <Headset className="w-3.5 h-3.5 text-primary" />
+          <UserRound className="w-3.5 h-3.5 text-primary" />
         </div>
       )}
       <div
@@ -515,7 +515,7 @@ const Chatbot = () => {
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
             >
-              <Headset className="w-6 h-6" />
+              <UserRound className="w-6 h-6" />
             </motion.button>
           </motion.div>
         )}
@@ -536,7 +536,7 @@ const Chatbot = () => {
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/20 flex items-center justify-center">
-                    <Headset className="w-5 h-5 text-primary" />
+                    <UserRound className="w-5 h-5 text-primary" />
                   </div>
                   <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-whatsapp border-2 border-card" />
                 </div>

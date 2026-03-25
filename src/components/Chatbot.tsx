@@ -1,8 +1,9 @@
 import { memo, useState, useRef, useCallback, useEffect } from "react";
-import { MessageCircle, UserRound, User, Sparkles, ArrowRight, X, RotateCcw, Zap, TrendingUp, ShoppingCart, Globe, Target, Megaphone } from "lucide-react";
+import { MessageCircle, User, Sparkles, ArrowRight, X, RotateCcw, Zap, TrendingUp, ShoppingCart, Globe, Target, Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import botAvatar from "@/assets/bot-avatar.jpg";
 
 type Message = {
   id: number;
@@ -217,8 +218,8 @@ const TypingIndicator = () => (
     exit={{ opacity: 0 }}
     className="flex items-center gap-2 px-4 py-3"
   >
-    <div className="w-7 h-7 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0">
-      <UserRound className="w-3.5 h-3.5 text-primary" />
+    <div className="w-7 h-7 rounded-full overflow-hidden shrink-0">
+      <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
     </div>
     <div className="flex items-center gap-1.5 bg-accent border border-border/30 rounded-2xl px-4 py-2.5">
       {[0, 1, 2].map((i) => (
@@ -326,8 +327,8 @@ const ChatMessage = memo(({ message }: { message: Message }) => {
       className={cn("flex gap-2 px-4", isBot ? "justify-start" : "justify-end")}
     >
       {isBot && (
-        <div className="w-7 h-7 rounded-full bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0 mt-0.5">
-          <UserRound className="w-3.5 h-3.5 text-primary" />
+        <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 mt-0.5">
+          <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
         </div>
       )}
       <div
@@ -510,12 +511,12 @@ const Chatbot = () => {
             </AnimatePresence>
             <motion.button
               onClick={handleOpen}
-              className="w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shrink-0"
+              className="w-14 h-14 rounded-full overflow-hidden shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shrink-0 border-2 border-primary/30"
               aria-label="Abrir consultor digital"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
             >
-              <UserRound className="w-6 h-6" />
+              <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
             </motion.button>
           </motion.div>
         )}
@@ -535,8 +536,8 @@ const Chatbot = () => {
             <div className="flex items-center justify-between px-4 py-3.5 border-b border-border/30 bg-card">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/20 flex items-center justify-center">
-                    <UserRound className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
+                    <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
                   </div>
                   <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-whatsapp border-2 border-card" />
                 </div>

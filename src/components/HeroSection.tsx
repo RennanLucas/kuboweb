@@ -498,25 +498,6 @@ const HeroSection = () => {
 
             <TrustIndicators />
 
-            {/* Scroll indicator */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2 }}
-              className="absolute -bottom-8"
-            >
-              <motion.div
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="w-6 h-10 rounded-full border-2 border-border/40 flex items-start justify-center p-1.5"
-              >
-                <motion.div
-                  animate={{ opacity: [0.3, 1, 0.3], height: ["4px", "8px", "4px"] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-1 rounded-full bg-primary"
-                />
-              </motion.div>
-            </motion.div>
           </div>
 
           <motion.div

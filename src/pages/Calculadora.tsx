@@ -1,6 +1,6 @@
 import { memo, useState, useMemo } from "react";
-import { motion } from "framer-motion";
-import { Calculator, TrendingUp, DollarSign, Users, MessageCircle, BarChart3, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Calculator, TrendingUp, DollarSign, Users, MessageCircle, BarChart3, Zap, Target, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,11 +8,11 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 type ServiceType = "site" | "landing" | "loja" | "ads";
 
-const serviceOptions: { value: ServiceType; label: string; emoji: string }[] = [
-  { value: "landing", label: "Landing Page", emoji: "📄" },
-  { value: "site", label: "Site Institucional", emoji: "🏢" },
-  { value: "loja", label: "Loja Virtual", emoji: "🛒" },
-  { value: "ads", label: "Google Ads", emoji: "📢" },
+const serviceOptions: { value: ServiceType; label: string; icon: React.ReactNode }[] = [
+  { value: "landing", label: "Landing Page", icon: <Target className="w-4 h-4" /> },
+  { value: "site", label: "Site Institucional", icon: <BarChart3 className="w-4 h-4" /> },
+  { value: "loja", label: "Loja Virtual", icon: <DollarSign className="w-4 h-4" /> },
+  { value: "ads", label: "Google Ads", icon: <Zap className="w-4 h-4" /> },
 ];
 
 const serviceData: Record<ServiceType, { investimento: number; mensal?: number; conversaoMedia: number; ticketMedio: number; leadsMes: number; label: string }> = {
@@ -21,6 +21,22 @@ const serviceData: Record<ServiceType, { investimento: number; mensal?: number; 
   loja: { investimento: 1497, conversaoMedia: 3, ticketMedio: 150, leadsMes: 500, label: "Loja Virtual" },
   ads: { investimento: 250, mensal: 250, conversaoMedia: 10, ticketMedio: 600, leadsMes: 300, label: "Google Ads" },
 };
+
+const StatCard = ({ icon, value, label, highlight = false }: { icon: React.ReactNode; value: string | number; label: string; highlight?: boolean }) => (
+  <div className={`rounded-2xl p-5 border transition-all ${
+    highlight 
+      ? "bg-primary/10 border-primary/25 shadow-lg shadow-primary/10" 
+      : "bg-card/80 border-border/30 shadow-sm"
+  }`}>
+    <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 ${
+      highlight ? "bg-primary/20 text-primary" : "bg-secondary/30 text-primary"
+    }`}>
+      {icon}
+    </div>
+    <p className={`text-2xl font-heading font-bold ${highlight ? "text-primary" : "text-foreground"}`}>{value}</p>
+    <p className="text-xs text-muted-foreground mt-1">{label}</p>
+  </div>
+);
 
 const Calculadora = () => {
   const [service, setService] = useState<ServiceType>("landing");
@@ -47,98 +63,106 @@ const Calculadora = () => {
       <Header />
 
       <section className="pt-28 md:pt-36 pb-16 md:pb-24 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/10 via-background to-background" />
-        <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] hidden md:block" />
-        <div className="absolute bottom-20 right-1/4 w-[400px] h-[400px] bg-accent/30 rounded-full blur-[120px] hidden md:block" />
+        {/* Background effects */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.06),transparent_60%)]" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-        <div className="container mx-auto max-w-4xl relative z-10">
+        <div className="container mx-auto max-w-5xl relative z-10">
+          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-10 md:mb-14"
+            className="text-center mb-12 md:mb-16"
           >
-            <p className="section-label justify-center mb-4">Calculadora de ROI</p>
-            <h1 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-4 leading-tight">
-              Quanto seu negócio pode <span className="text-gradient">faturar a mais?</span>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold tracking-wider uppercase mb-5">
+              <Calculator className="w-3.5 h-3.5" />
+              Calculadora de ROI
+            </div>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4 leading-tight">
+              Quanto seu negócio pode{" "}
+              <span className="text-primary">faturar a mais?</span>
             </h1>
-            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-              Simule o retorno do seu investimento em presença digital e descubra o potencial de crescimento.
+            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Simule o retorno do seu investimento em presença digital e descubra o potencial real de crescimento.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Input Card */}
+          {/* Main content */}
+          <div className="grid lg:grid-cols-5 gap-6 lg:gap-8">
+            {/* Input Card - 2 cols */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="card-premium p-6 md:p-8 space-y-6 bg-gradient-to-br from-card to-background shadow-xl shadow-primary/5 border-primary/10"
+              transition={{ delay: 0.15 }}
+              className="lg:col-span-2 rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm p-6 md:p-8 space-y-7"
             >
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                  <Calculator className="w-5 h-5 text-primary" />
-                </div>
-                <h2 className="text-lg font-heading font-semibold text-foreground">Configure sua simulação</h2>
+              <div>
+                <h2 className="text-base font-heading font-semibold text-foreground mb-1">Configure sua simulação</h2>
+                <p className="text-xs text-muted-foreground">Ajuste os parâmetros abaixo</p>
               </div>
 
-              {/* Service */}
+              {/* Service selector */}
               <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">Tipo de solução</label>
+                <label className="text-xs font-semibold text-foreground/70 uppercase tracking-wider mb-3 block">Solução</label>
                 <div className="grid grid-cols-2 gap-2">
                   {serviceOptions.map((opt) => (
                     <button
                       key={opt.value}
                       onClick={() => { setService(opt.value); setShowResult(false); }}
-                    className={`px-3 py-2.5 rounded-xl border text-left transition-all text-sm ${
+                      className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border text-sm transition-all ${
                         service === opt.value
-                          ? "border-primary/40 bg-gradient-to-br from-primary/10 to-primary/5 text-primary font-semibold shadow-md shadow-primary/10 ring-1 ring-primary/20"
-                          : "border-border/40 bg-card text-muted-foreground hover:border-primary/30 hover:bg-accent/30"
+                          ? "border-primary/40 bg-primary/8 text-primary font-semibold ring-1 ring-primary/15"
+                          : "border-border/30 bg-background/50 text-muted-foreground hover:border-primary/20 hover:text-foreground"
                       }`}
                     >
-                      <span className="text-base">{opt.emoji}</span>
-                      <p className="text-xs mt-0.5">{opt.label}</p>
+                      {opt.icon}
+                      <span className="text-xs">{opt.label}</span>
                     </button>
                   ))}
                 </div>
               </div>
 
-              {/* Visitantes */}
+              {/* Visitantes slider */}
               <div>
-                <div className="flex justify-between mb-2">
-                  <label className="text-sm font-medium text-foreground">Visitantes esperados/mês</label>
-                  <span className="text-sm font-bold text-primary">{visitantes.toLocaleString("pt-BR")}</span>
+                <div className="flex justify-between items-center mb-3">
+                  <label className="text-xs font-semibold text-foreground/70 uppercase tracking-wider">Visitantes/mês</label>
+                  <span className="text-sm font-bold text-primary tabular-nums">{visitantes.toLocaleString("pt-BR")}</span>
                 </div>
-                <input
-                  type="range"
-                  min={100}
-                  max={5000}
-                  step={100}
-                  value={visitantes}
-                  onChange={(e) => { setVisitantes(Number(e.target.value)); setShowResult(false); }}
-                  className="w-full accent-primary"
-                />
-                <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
+                <div className="relative">
+                  <input
+                    type="range"
+                    min={100}
+                    max={5000}
+                    step={100}
+                    value={visitantes}
+                    onChange={(e) => { setVisitantes(Number(e.target.value)); setShowResult(false); }}
+                    className="w-full h-2 rounded-full appearance-none cursor-pointer bg-secondary/40 accent-primary [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:shadow-primary/30 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-background"
+                  />
+                </div>
+                <div className="flex justify-between text-[10px] text-muted-foreground/60 mt-1.5">
                   <span>100</span>
                   <span>5.000</span>
                 </div>
               </div>
 
-              {/* Ticket */}
+              {/* Ticket slider */}
               <div>
-                <div className="flex justify-between mb-2">
-                  <label className="text-sm font-medium text-foreground">Ticket médio (R$)</label>
-                  <span className="text-sm font-bold text-primary">R$ {ticketMedio.toLocaleString("pt-BR")}</span>
+                <div className="flex justify-between items-center mb-3">
+                  <label className="text-xs font-semibold text-foreground/70 uppercase tracking-wider">Ticket médio</label>
+                  <span className="text-sm font-bold text-primary tabular-nums">R$ {ticketMedio.toLocaleString("pt-BR")}</span>
                 </div>
-                <input
-                  type="range"
-                  min={50}
-                  max={5000}
-                  step={50}
-                  value={ticketMedio}
-                  onChange={(e) => { setTicketMedio(Number(e.target.value)); setShowResult(false); }}
-                  className="w-full accent-primary"
-                />
-                <div className="flex justify-between text-[10px] text-muted-foreground mt-1">
+                <div className="relative">
+                  <input
+                    type="range"
+                    min={50}
+                    max={5000}
+                    step={50}
+                    value={ticketMedio}
+                    onChange={(e) => { setTicketMedio(Number(e.target.value)); setShowResult(false); }}
+                    className="w-full h-2 rounded-full appearance-none cursor-pointer bg-secondary/40 accent-primary [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-primary [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:shadow-primary/30 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-background"
+                  />
+                </div>
+                <div className="flex justify-between text-[10px] text-muted-foreground/60 mt-1.5">
                   <span>R$ 50</span>
                   <span>R$ 5.000</span>
                 </div>
@@ -147,99 +171,98 @@ const Calculadora = () => {
               <Button
                 onClick={() => setShowResult(true)}
                 size="lg"
-                className="w-full"
+                className="w-full mt-2"
               >
                 <BarChart3 className="w-5 h-5" />
                 Calcular meu ROI
               </Button>
             </motion.div>
 
-            {/* Result Card */}
+            {/* Result Card - 3 cols */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="card-premium border-glow p-6 md:p-8 relative overflow-hidden flex flex-col shadow-xl shadow-primary/5 border-primary/15"
+              transition={{ delay: 0.25 }}
+              className="lg:col-span-3 rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm p-6 md:p-8 relative overflow-hidden min-h-[480px] flex flex-col"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/15 via-transparent to-primary/5" />
-
-              {!showResult ? (
-                <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center py-8">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center mb-4">
-                    <TrendingUp className="w-8 h-8 text-primary" />
-                  </div>
-                  <p className="text-foreground font-heading font-semibold mb-2">Pronto para simular?</p>
-                  <p className="text-sm text-muted-foreground max-w-xs">
-                    Configure os dados ao lado e clique em "Calcular meu ROI" para ver o potencial do seu negócio.
-                  </p>
-                </div>
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="relative z-10 flex-1 flex flex-col"
-                >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
-                      <TrendingUp className="w-5 h-5 text-primary" />
+              <AnimatePresence mode="wait">
+                {!showResult ? (
+                  <motion.div
+                    key="empty"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="flex-1 flex flex-col items-center justify-center text-center py-8"
+                  >
+                    <div className="w-20 h-20 rounded-2xl bg-primary/8 border border-primary/15 flex items-center justify-center mb-5">
+                      <TrendingUp className="w-9 h-9 text-primary/60" />
                     </div>
-                    <div>
-                      <h2 className="text-lg font-heading font-semibold text-foreground">Resultado estimado</h2>
-                      <p className="text-[11px] text-muted-foreground">{data.label} · Taxa de conversão: {data.conversaoMedia}%</p>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3 mb-6">
-                    <div className="bg-card rounded-xl p-4 border border-border/30 shadow-sm">
-                      <Users className="w-4 h-4 text-primary mb-1" />
-                      <p className="text-2xl font-heading font-bold text-foreground">{result.leadsMes}</p>
-                      <p className="text-[11px] text-muted-foreground">Leads/mês</p>
-                    </div>
-                    <div className="bg-card rounded-xl p-4 border border-border/30 shadow-sm">
-                      <Users className="w-4 h-4 text-primary mb-1" />
-                      <p className="text-2xl font-heading font-bold text-foreground">{result.clientesMes}</p>
-                      <p className="text-[11px] text-muted-foreground">Clientes/mês</p>
-                    </div>
-                    <div className="bg-card rounded-xl p-4 border border-border/30 shadow-sm">
-                      <DollarSign className="w-4 h-4 text-primary mb-1" />
-                      <p className="text-xl font-heading font-bold text-foreground">R$ {result.faturamentoMes.toLocaleString("pt-BR")}</p>
-                      <p className="text-[11px] text-muted-foreground">Faturamento/mês</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl p-4 border border-primary/20 shadow-md shadow-primary/10">
-                      <TrendingUp className="w-4 h-4 text-primary mb-1" />
-                      <p className="text-xl font-heading font-bold text-primary">{result.roi}%</p>
-                      <p className="text-[11px] text-muted-foreground">ROI estimado/ano</p>
-                    </div>
-                  </div>
-
-                  <div className="bg-secondary/20 rounded-xl p-3 border border-border/30 mb-6">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Investimento total (1º ano)</span>
-                      <span className="font-semibold text-foreground">R$ {result.investTotal.toLocaleString("pt-BR")}</span>
-                    </div>
-                    <div className="flex justify-between text-sm mt-1">
-                      <span className="text-muted-foreground">Faturamento estimado/ano</span>
-                      <span className="font-bold text-primary">R$ {result.faturamentoAno.toLocaleString("pt-BR")}</span>
-                    </div>
-                  </div>
-
-                  <div className="mt-auto space-y-2">
-                    <Button variant="whatsapp" size="lg" className="w-full shadow-glow-sm" asChild>
-                      <a
-                        href={`https://wa.me/5511932197334?text=${encodeURIComponent(`Olá! Fiz a simulação de ROI no site e o resultado foi incrível. Quero investir em ${data.label}. Pode me ajudar?`)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <MessageCircle className="w-5 h-5" />
-                        Quero esse resultado
-                      </a>
-                    </Button>
-                    <p className="text-[10px] text-center text-muted-foreground">
-                      * Valores estimados com base em médias de mercado. Resultados reais podem variar.
+                    <p className="text-foreground font-heading font-semibold text-lg mb-2">Pronto para simular?</p>
+                    <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
+                      Configure os parâmetros ao lado e clique em "Calcular meu ROI" para visualizar o potencial do seu negócio.
                     </p>
-                  </div>
-                </motion.div>
-              )}
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="result"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="flex-1 flex flex-col"
+                  >
+                    {/* Result header */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div>
+                        <h2 className="text-lg font-heading font-semibold text-foreground">Resultado estimado</h2>
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          {data.label} · Conversão: {data.conversaoMedia}% · Fechamento: 20%
+                        </p>
+                      </div>
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                        <ArrowUpRight className="w-5 h-5 text-primary" />
+                      </div>
+                    </div>
+
+                    {/* Stats grid */}
+                    <div className="grid grid-cols-2 gap-3 mb-6">
+                      <StatCard icon={<Users className="w-4 h-4" />} value={result.leadsMes} label="Leads por mês" />
+                      <StatCard icon={<Users className="w-4 h-4" />} value={result.clientesMes} label="Clientes por mês" />
+                      <StatCard icon={<DollarSign className="w-4 h-4" />} value={`R$ ${result.faturamentoMes.toLocaleString("pt-BR")}`} label="Faturamento mensal" />
+                      <StatCard icon={<TrendingUp className="w-4 h-4" />} value={`${result.roi}%`} label="ROI estimado anual" highlight />
+                    </div>
+
+                    {/* Investment summary */}
+                    <div className="rounded-xl bg-background/60 border border-border/20 p-4 mb-6">
+                      <div className="flex justify-between items-center text-sm mb-2">
+                        <span className="text-muted-foreground">Investimento total (1º ano)</span>
+                        <span className="font-semibold text-foreground tabular-nums">R$ {result.investTotal.toLocaleString("pt-BR")}</span>
+                      </div>
+                      <div className="h-px bg-border/20 my-2" />
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-muted-foreground">Faturamento estimado anual</span>
+                        <span className="font-bold text-primary tabular-nums">R$ {result.faturamentoAno.toLocaleString("pt-BR")}</span>
+                      </div>
+                    </div>
+
+                    {/* CTA */}
+                    <div className="mt-auto space-y-3">
+                      <Button variant="whatsapp" size="lg" className="w-full" asChild>
+                        <a
+                          href={`https://wa.me/5511932197334?text=${encodeURIComponent(`Olá! Fiz a simulação de ROI no site e o resultado foi incrível. Quero investir em ${data.label}. Pode me ajudar?`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <MessageCircle className="w-5 h-5" />
+                          Quero esse resultado
+                        </a>
+                      </Button>
+                      <p className="text-[10px] text-center text-muted-foreground/60">
+                        * Valores estimados com base em médias de mercado. Resultados reais podem variar.
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
           </div>
         </div>

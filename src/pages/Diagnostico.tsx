@@ -1,10 +1,11 @@
 import { memo, useState, useRef, useCallback, useEffect } from "react";
-import { Bot, User, Sparkles, ArrowRight, RotateCcw, ShoppingCart, Globe, Target, Megaphone, Zap, Send, MessageCircle } from "lucide-react";
+import { User, Sparkles, ArrowRight, RotateCcw, ShoppingCart, Globe, Target, Megaphone, Zap, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import botAvatar from "@/assets/bot-avatar.jpg";
 
 type Message = {
   id: number;
@@ -168,10 +169,10 @@ const STEP_FLOW: Step[] = ["welcome", "nome", "segmento", "objetivo", "presenca_
 
 const TypingIndicator = () => (
   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex items-center gap-3 px-2">
-    <div className="w-9 h-9 rounded-full bg-primary/15 border border-primary/20 flex items-center justify-center shrink-0">
-      <Bot className="w-4 h-4 text-primary" />
+    <div className="w-9 h-9 rounded-full overflow-hidden shrink-0">
+      <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
     </div>
-    <div className="flex items-center gap-1.5 bg-secondary/40 border border-border/30 rounded-2xl px-4 py-3">
+    <div className="flex items-center gap-1.5 bg-accent border border-border/30 rounded-2xl px-4 py-3">
       {[0, 1, 2].map((i) => (
         <motion.div key={i} className="w-2 h-2 rounded-full bg-primary/50" animate={{ y: [0, -4, 0], opacity: [0.4, 1, 0.4] }} transition={{ duration: 0.6, delay: i * 0.15, repeat: Infinity }} />
       ))}
@@ -187,7 +188,7 @@ const ProgressBar = ({ step }: { step: Step }) => {
   if (step === "welcome") return null;
 
   return (
-    <div className="px-6 py-3 bg-secondary/20 border-b border-border/20">
+    <div className="px-6 py-3 bg-accent/50 border-b border-border/20">
       <div className="flex items-center justify-between mb-1.5">
         <span className="text-xs text-muted-foreground font-medium tracking-wide">
           {step === "resultado" ? "✅ Diagnóstico completo" : "📊 Diagnóstico em andamento"}
@@ -258,11 +259,11 @@ const ChatMessage = memo(({ message }: { message: Message }) => {
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }} className={cn("flex gap-3", isBot ? "justify-start" : "justify-end")}>
       {isBot && (
-        <div className="w-9 h-9 rounded-full bg-primary/15 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-          <Bot className="w-4 h-4 text-primary" />
+        <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 mt-0.5">
+          <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
         </div>
       )}
-      <div className={cn("max-w-[75%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-line", isBot ? "bg-secondary/40 border border-border/40 text-foreground rounded-tl-md" : "bg-primary text-primary-foreground rounded-tr-md")}>
+      <div className={cn("max-w-[75%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-line", isBot ? "bg-accent border border-border/30 text-foreground rounded-tl-md" : "bg-primary text-primary-foreground rounded-tr-md")}>
         {message.text}
       </div>
       {!isBot && (
@@ -394,11 +395,11 @@ const Diagnostico = () => {
           {/* Chat container */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="rounded-2xl border border-border/50 bg-card shadow-xl overflow-hidden">
             {/* Chat header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-border/30 bg-gradient-to-r from-primary/8 via-primary/4 to-transparent">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-border/30 bg-card">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/25 flex items-center justify-center">
-                    <Bot className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/20">
+                    <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
                   </div>
                   <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-whatsapp border-2 border-card" />
                 </div>
@@ -430,7 +431,7 @@ const Diagnostico = () => {
             </div>
 
             {/* Input area */}
-            <div className="border-t border-border/30 bg-secondary/10 px-6 py-4">
+            <div className="border-t border-border/30 bg-card px-6 py-4">
               {currentStep === "welcome" && !isTyping && messages.length > 0 && (
                 <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
                   <Button onClick={handleStartClick} size="xl" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow-sm">

@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
 import ServicesSection from "@/components/ServicesSection";
-import ComparisonSection from "@/components/ComparisonSection";
 import SocialProofSection from "@/components/SocialProofSection";
 import CTASection from "@/components/CTASection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -17,8 +16,6 @@ const Index = () => {
       <StatsSection />
       <div className="line-glow" />
       <ServicesSection />
-      <div className="line-glow" />
-      <ComparisonSection />
       <div className="line-glow" />
       <SocialProofSection />
       <div className="line-glow" />

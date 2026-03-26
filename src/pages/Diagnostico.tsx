@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import botAvatar from "@/assets/bot-avatar.jpg";
+import botAvatar from "@/assets/kubo-icon.png";
 
 type Message = {
   id: number;

@@ -14,6 +14,21 @@ const notifications = [
   { name: "Juliana", city: "Florianópolis", action: "contratou manutenção mensal" },
   { name: "Rafael", city: "Campinas", action: "solicitou um orçamento" },
   { name: "Camila", city: "Recife", action: "contratou anúncios online" },
+  { name: "Thiago", city: "Goiânia", action: "contratou um site institucional" },
+  { name: "Larissa", city: "Manaus", action: "solicitou um orçamento" },
+  { name: "Bruno", city: "Fortaleza", action: "contratou uma landing page" },
+  { name: "Patrícia", city: "Vitória", action: "solicitou um diagnóstico gratuito" },
+  { name: "Gustavo", city: "Belém", action: "contratou uma loja virtual" },
+  { name: "Isabela", city: "Santos", action: "solicitou um orçamento" },
+  { name: "Diego", city: "Natal", action: "contratou manutenção mensal" },
+  { name: "Mariana", city: "São Luís", action: "contratou anúncios online" },
+  { name: "Felipe", city: "Joinville", action: "solicitou um orçamento" },
+  { name: "Beatriz", city: "Ribeirão Preto", action: "contratou um site institucional" },
+  { name: "André", city: "Sorocaba", action: "solicitou um diagnóstico gratuito" },
+  { name: "Tatiane", city: "Uberlândia", action: "contratou uma landing page" },
+  { name: "Rodrigo", city: "Aracaju", action: "solicitou um orçamento" },
+  { name: "Priscila", city: "Londrina", action: "contratou uma loja virtual" },
+  { name: "Marcelo", city: "João Pessoa", action: "contratou manutenção mensal" },
 ];
 
 function getRandomTime() {

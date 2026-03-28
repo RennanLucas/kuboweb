@@ -193,6 +193,7 @@ const ServicesSection = () => {
       </motion.div>
     </div>
   </section>
-);
+  );
+};
 
 export default memo(ServicesSection);

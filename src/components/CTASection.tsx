@@ -1,7 +1,7 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
 import { MessageCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const floatingParticles = Array.from({ length: 8 }, (_, i) => ({
   id: i,

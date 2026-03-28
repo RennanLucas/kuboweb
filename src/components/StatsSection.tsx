@@ -78,22 +78,31 @@ const StatBlock = ({ label, icon, numericValue, prefix, suffix, value, decimals 
   </div>
 );
 
-const StatsSection = () => (
-  <section className="py-10 md:py-14 relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-primary/3 to-transparent pointer-events-none" />
-    <div className="relative">
-      <div className="flex w-max animate-marquee-stats will-change-transform" style={{ contain: "layout paint" }}>
-        {[...Array(4)].map((_, setIndex) =>
-          stats.map((stat, i) => (
-            <div key={`${setIndex}-${i}`} className="flex items-center">
-              <StatBlock {...stat} />
-              <div className="w-px h-6 bg-primary/15 shrink-0" />
-            </div>
-          ))
-        )}
+const StatsSection = () => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-30%", "30%"]);
+
+  return (
+    <section ref={ref} className="py-10 md:py-14 relative overflow-hidden">
+      <motion.div
+        style={{ y: bgY }}
+        className="absolute inset-0 bg-gradient-to-b from-card/30 via-primary/3 to-transparent pointer-events-none"
+      />
+      <div className="relative">
+        <div className="flex w-max animate-marquee-stats will-change-transform" style={{ contain: "layout paint" }}>
+          {[...Array(4)].map((_, setIndex) =>
+            stats.map((stat, i) => (
+              <div key={`${setIndex}-${i}`} className="flex items-center">
+                <StatBlock {...stat} />
+                <div className="w-px h-6 bg-primary/15 shrink-0" />
+              </div>
+            ))
+          )}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default memo(StatsSection);

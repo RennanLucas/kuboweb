@@ -23,6 +23,7 @@ const Index = () => {
       <CTASection />
       <Footer />
       <FloatingWhatsApp />
+      <SocialProofPopup />
     </main>
   );
 };

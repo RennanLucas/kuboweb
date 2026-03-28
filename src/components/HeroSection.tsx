@@ -451,7 +451,7 @@ const HeroSection = () => {
             </motion.div>
 
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-5xl xl:text-[3.75rem] font-heading font-extrabold leading-[1.08] text-foreground tracking-[-0.03em]">
+              <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.12] text-foreground tracking-[-0.02em]">
                 <span className="block">Não tenha apenas</span>
                 <span className="block">um site. Tenha uma</span>
                 <AnimatePresence mode="wait">

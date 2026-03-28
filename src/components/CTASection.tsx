@@ -13,13 +13,18 @@ const floatingParticles = Array.from({ length: 8 }, (_, i) => ({
 }));
 
 const CTASection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const blobY1 = useTransform(scrollYProgress, [0, 1], ["-60px", "60px"]);
+  const blobY2 = useTransform(scrollYProgress, [0, 1], ["40px", "-50px"]);
+
   return (
-    <section className="py-28 md:py-40 px-4 relative overflow-hidden">
+    <section ref={sectionRef} className="py-28 md:py-40 px-4 relative overflow-hidden">
       {/* Rich gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-primary/4 to-background" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-primary/6 rounded-full blur-[200px]" />
-      <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] bg-primary/4 rounded-full blur-[150px] hidden md:block" />
-      <div className="absolute top-1/3 right-0 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[120px] hidden md:block" />
+      <motion.div style={{ y: blobY1 }} className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-primary/6 rounded-full blur-[200px]" />
+      <motion.div style={{ y: blobY2 }} className="absolute bottom-0 left-1/4 w-[400px] h-[300px] bg-primary/4 rounded-full blur-[150px] hidden md:block" />
+      <motion.div style={{ y: blobY1 }} className="absolute top-1/3 right-0 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[120px] hidden md:block" />
 
       {/* Floating particles - desktop only */}
       <div className="hidden md:block">

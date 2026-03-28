@@ -155,26 +155,28 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
       <div className="absolute -inset-8 bg-primary/8 rounded-[2rem] blur-3xl -z-10 animate-glow-pulse" />
       <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-xl -z-10" />
 
-      {/* Floating badges */}
-      {floatingFeatures.map((feat) => (
-        <motion.div
-          key={feat.label}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
-          transition={{
-            opacity: { delay: feat.delay, duration: 0.5 },
-            scale: { delay: feat.delay, duration: 0.5, type: "spring", stiffness: 180, damping: 15 },
-            y: { delay: feat.delay + 0.5, duration: 4, repeat: Infinity, ease: "easeInOut" },
-          }}
-          className="absolute z-20 flex items-center gap-2.5 pl-2.5 pr-4 py-2 rounded-2xl bg-card/90 border border-border/40 shadow-lg shadow-primary/5 text-[11px] font-semibold text-foreground backdrop-blur-xl"
-          style={{ left: feat.x, top: feat.y }}
-        >
-          <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/15">
-            <feat.icon className="w-3.5 h-3.5 text-primary" />
-          </div>
-          {feat.label}
-        </motion.div>
-      ))}
+      {/* Floating badges - desktop only */}
+      <div className="hidden lg:block">
+        {floatingFeatures.map((feat) => (
+          <motion.div
+            key={feat.label}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
+            transition={{
+              opacity: { delay: feat.delay, duration: 0.5 },
+              scale: { delay: feat.delay, duration: 0.5, type: "spring", stiffness: 180, damping: 15 },
+              y: { delay: feat.delay + 0.5, duration: 4, repeat: Infinity, ease: "easeInOut" },
+            }}
+            className="absolute z-20 flex items-center gap-2.5 pl-2.5 pr-4 py-2 rounded-2xl bg-card/90 border border-border/40 shadow-lg shadow-primary/5 text-[11px] font-semibold text-foreground backdrop-blur-xl"
+            style={{ left: feat.x, top: feat.y }}
+          >
+            <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/15">
+              <feat.icon className="w-3.5 h-3.5 text-primary" />
+            </div>
+            {feat.label}
+          </motion.div>
+        ))}
+      </div>
 
       {/* Browser window */}
       <div className="relative overflow-hidden rounded-2xl border border-border/30 bg-card shadow-2xl shadow-primary/5">

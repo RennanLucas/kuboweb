@@ -25,7 +25,7 @@ const Index = () => {
       <Footer />
       <FloatingWhatsApp />
       <SocialProofPopup />
-      <ExitIntentPopup />
+      
     </main>
   );
 };

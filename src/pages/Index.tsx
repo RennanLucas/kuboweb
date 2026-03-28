@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import SocialProofPopup from "@/components/SocialProofPopup";
+
 
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
 const SocialProofSection = lazy(() => import("@/components/SocialProofSection"));
@@ -35,7 +35,7 @@ const Index = () => {
         <Footer />
       </Suspense>
       <FloatingWhatsApp />
-      <SocialProofPopup />
+      
     </main>
   );
 };

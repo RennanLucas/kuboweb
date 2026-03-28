@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2 } from "lucide-react";
-import botAvatar from "@/assets/kubo-icon.png";
 
 const notifications = [
   { name: "João", city: "São Paulo", action: "solicitou um orçamento" },
@@ -33,7 +32,7 @@ const notifications = [
 
 function getRandomTime() {
   const minutes = Math.floor(Math.random() * 55) + 2;
-  return `${minutes} min atrás`;
+  return `${minutes}min`;
 }
 
 const SocialProofPopup = () => {
@@ -49,7 +48,7 @@ const SocialProofPopup = () => {
       setTimeout(() => {
         setCurrent((prev) => (prev + 1) % notifications.length);
       }, 500);
-    }, 5000);
+    }, 4000);
     return () => clearTimeout(hideTimer);
   }, [dismissed]);
 
@@ -76,41 +75,29 @@ const SocialProofPopup = () => {
     <AnimatePresence>
       {visible && !dismissed && (
         <motion.div
-          initial={{ x: -100, opacity: 0, scale: 0.9 }}
-          animate={{ x: 0, opacity: 1, scale: 1 }}
-          exit={{ x: -100, opacity: 0, scale: 0.9 }}
-          transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="fixed bottom-36 sm:bottom-24 left-4 z-50 max-w-[280px] sm:max-w-xs"
+          initial={{ y: -60, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -60, opacity: 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 25 }}
+          className="fixed top-4 left-1/2 -translate-x-1/2 z-50"
         >
-          <div className="relative bg-card/95 backdrop-blur-xl border border-border/60 rounded-2xl p-4 shadow-xl shadow-primary/5">
+          <div className="flex items-center gap-2.5 pl-3 pr-2 py-2 rounded-full bg-card/95 backdrop-blur-xl border border-border/50 shadow-lg shadow-primary/5">
+            <CheckCircle2 className="w-4 h-4 text-success flex-shrink-0" />
+            <span className="text-sm text-foreground whitespace-nowrap">
+              <span className="font-semibold">{notification.name}</span>
+              <span className="text-muted-foreground"> de {notification.city} </span>
+              <span className="text-muted-foreground">{notification.action}</span>
+            </span>
+            <span className="text-[10px] text-muted/60 whitespace-nowrap">
+              {getRandomTime()}
+            </span>
             <button
               onClick={() => { setVisible(false); setDismissed(true); }}
-              className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-muted/80 flex items-center justify-center hover:bg-muted transition-colors"
+              className="ml-1 w-5 h-5 rounded-full bg-muted/40 flex items-center justify-center hover:bg-muted transition-colors flex-shrink-0"
               aria-label="Fechar"
             >
               <X className="w-3 h-3 text-muted-foreground" />
             </button>
-
-            <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center overflow-hidden">
-                <img src={botAvatar} alt="Kubo" className="w-7 h-7 object-contain" />
-              </div>
-
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-1.5 mb-0.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-success flex-shrink-0" />
-                  <span className="text-sm font-semibold text-foreground truncate">
-                    {notification.name} de {notification.city}
-                  </span>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {notification.action}
-                </p>
-                <p className="text-[10px] text-muted/70 mt-1">
-                  {getRandomTime()}
-                </p>
-              </div>
-            </div>
           </div>
         </motion.div>
       )}

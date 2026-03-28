@@ -1,13 +1,16 @@
+import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
-import ServicesSection from "@/components/ServicesSection";
-import SocialProofSection from "@/components/SocialProofSection";
-import CTASection from "@/components/CTASection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SocialProofPopup from "@/components/SocialProofPopup";
 
-import Footer from "@/components/Footer";
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const SocialProofSection = lazy(() => import("@/components/SocialProofSection"));
+const CTASection = lazy(() => import("@/components/CTASection"));
+const Footer = lazy(() => import("@/components/Footer"));
+
+const SectionFallback = () => <div className="py-24" />;
 
 const Index = () => {
   return (
@@ -17,15 +20,22 @@ const Index = () => {
       <div className="line-glow" />
       <StatsSection />
       <div className="line-glow" />
-      <ServicesSection />
+      <Suspense fallback={<SectionFallback />}>
+        <ServicesSection />
+      </Suspense>
       <div className="line-glow" />
-      <SocialProofSection />
+      <Suspense fallback={<SectionFallback />}>
+        <SocialProofSection />
+      </Suspense>
       <div className="line-glow" />
-      <CTASection />
-      <Footer />
+      <Suspense fallback={<SectionFallback />}>
+        <CTASection />
+      </Suspense>
+      <Suspense fallback={<SectionFallback />}>
+        <Footer />
+      </Suspense>
       <FloatingWhatsApp />
       <SocialProofPopup />
-      
     </main>
   );
 };

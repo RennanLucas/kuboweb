@@ -80,7 +80,7 @@ const SocialProofPopup = () => {
           animate={{ x: 0, opacity: 1, scale: 1 }}
           exit={{ x: -100, opacity: 0, scale: 0.9 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="fixed bottom-24 left-4 z-50 max-w-xs"
+          className="fixed bottom-36 sm:bottom-24 left-4 z-50 max-w-[280px] sm:max-w-xs"
         >
           <div className="relative bg-card/95 backdrop-blur-xl border border-border/60 rounded-2xl p-4 shadow-xl shadow-primary/5">
             <button

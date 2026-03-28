@@ -1,7 +1,7 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
 import { FileText, Building2, ShoppingCart, Megaphone, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const services = [
@@ -49,12 +49,18 @@ const cardVariants = {
   }),
 };
 
-const ServicesSection = () => (
-  <section id="servicos" className="py-24 md:py-36 px-4 relative overflow-hidden">
+const ServicesSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
+  const blobY1 = useTransform(scrollYProgress, [0, 1], ["-50px", "80px"]);
+  const blobY2 = useTransform(scrollYProgress, [0, 1], ["60px", "-40px"]);
+
+  return (
+  <section ref={sectionRef} id="servicos" className="py-24 md:py-36 px-4 relative overflow-hidden">
     {/* Background effects */}
     <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-card/20" />
-    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[150px] hidden md:block" />
-    <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px] hidden md:block" />
+    <motion.div style={{ y: blobY1 }} className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[150px] hidden md:block" />
+    <motion.div style={{ y: blobY2 }} className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px] hidden md:block" />
 
     <div className="container mx-auto max-w-6xl relative z-10">
       <div className="text-center mb-12 md:mb-20 space-y-4">
@@ -187,6 +193,7 @@ const ServicesSection = () => (
       </motion.div>
     </div>
   </section>
-);
+  );
+};
 
 export default memo(ServicesSection);

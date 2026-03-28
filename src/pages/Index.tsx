@@ -6,6 +6,7 @@ import SocialProofSection from "@/components/SocialProofSection";
 import CTASection from "@/components/CTASection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SocialProofPopup from "@/components/SocialProofPopup";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -24,6 +25,7 @@ const Index = () => {
       <Footer />
       <FloatingWhatsApp />
       <SocialProofPopup />
+      <ExitIntentPopup />
     </main>
   );
 };

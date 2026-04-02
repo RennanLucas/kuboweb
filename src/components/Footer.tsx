@@ -2,7 +2,7 @@ import { memo } from "react";
 import { MessageCircle, Mail, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import logoKuboweb from "@/assets/logo-kuboweb.png";
+import logoKuboweb from "@/assets/logo-kuboweb-opt.png";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,6 +35,10 @@ const Footer = () => {
                 src={logoKuboweb}
                 alt="KuboWeb"
                 className="h-32 w-auto object-contain"
+                width={128}
+                height={128}
+                loading="lazy"
+                decoding="async"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               />

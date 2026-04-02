@@ -3,7 +3,7 @@ import { MessageCircle, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import logoKuboweb from "@/assets/logo-kuboweb.png";
+import logoKuboweb from "@/assets/logo-kuboweb-opt.png";
 
 const serviceSubLinks = [
   { label: "Sites Institucionais", href: "/servicos/sites-institucionais" },
@@ -84,6 +84,9 @@ const Header = () => {
               alt="KuboWeb"
               className="h-44 md:h-40 w-auto object-contain"
               src={logoKuboweb}
+              width={160}
+              height={160}
+              decoding="async"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />

@@ -1,7 +1,7 @@
 import { memo, useState, useEffect } from "react";
 import { MessageCircle, ArrowDown, CheckCircle2, Search, Globe, Shield, Smartphone, Palette, Zap, BarChart3, Star, Lock, ChevronRight, TrendingUp, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];
 const whatsappUrl =
@@ -366,10 +366,6 @@ const RotatingWord = () => {
 };
 
 const HeroSection = () => {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 80]);
-  const opacity = useTransform(scrollY, [0, 400], [1, 0.3]);
-
   const scrollToServicos = () => {
     document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -388,7 +384,7 @@ const HeroSection = () => {
         backgroundSize: '32px 32px'
       }} />
 
-      <motion.div style={{ y, opacity }} className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
+      <div className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
         {/* Mobile */}
         <div className="md:hidden flex flex-col min-h-[calc(100dvh-5rem)] justify-center px-5 py-6 gap-5">
           <motion.div
@@ -510,7 +506,7 @@ const HeroSection = () => {
             <HeroVisual />
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

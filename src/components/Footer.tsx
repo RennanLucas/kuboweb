@@ -35,6 +35,10 @@ const Footer = () => {
                 src={logoKuboweb}
                 alt="KuboWeb"
                 className="h-32 w-auto object-contain"
+                width={128}
+                height={128}
+                loading="lazy"
+                decoding="async"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               />

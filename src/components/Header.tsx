@@ -84,6 +84,9 @@ const Header = () => {
               alt="KuboWeb"
               className="h-44 md:h-40 w-auto object-contain"
               src={logoKuboweb}
+              width={160}
+              height={160}
+              decoding="async"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />

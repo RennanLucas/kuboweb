@@ -506,7 +506,7 @@ const HeroSection = () => {
             <HeroVisual />
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

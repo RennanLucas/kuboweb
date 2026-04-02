@@ -68,19 +68,29 @@
       "serviceType": ["Web Design", "Landing Pages", "E-commerce", "SEO", "Google Ads"]
     }
     </script>
-    
-  
-  
-  
-  <meta property="og:title" content="Kubo Web | Sites Profissionais para Negócios">
-  <meta name="twitter:title" content="Kubo Web | Sites Profissionais para Negócios">
-  <meta property="og:description" content="Criação de sites profissionais em São Paulo. Sites que vendem, landing pages de alta conversão, lojas virtuais e Google Ads. Atendimento direto no WhatsApp.">
-  <meta name="twitter:description" content="Criação de sites profissionais em São Paulo. Sites que vendem, landing pages de alta conversão, lojas virtuais e Google Ads. Atendimento direto no WhatsApp.">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-</head>
+
+    <!-- Non-blocking font loading: preload critical font, defer rest -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
+    <meta property="og:title" content="Kubo Web | Sites Profissionais para Negócios">
+    <meta name="twitter:title" content="Kubo Web | Sites Profissionais para Negócios">
+    <meta property="og:description" content="Criação de sites profissionais em São Paulo. Sites que vendem, landing pages de alta conversão, lojas virtuais e Google Ads. Atendimento direto no WhatsApp.">
+    <meta name="twitter:description" content="Criação de sites profissionais em São Paulo. Sites que vendem, landing pages de alta conversão, lojas virtuais e Google Ads. Atendimento direto no WhatsApp.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Defer secondary fonts after page load -->
+    <script>
+      window.addEventListener('load', function() {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap';
+        document.head.appendChild(link);
+      });
+    </script>
   </body>
 </html>

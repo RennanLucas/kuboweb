@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+const FloatingWhatsApp = lazy(() => import("@/components/FloatingWhatsApp"));
 
 
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
@@ -34,7 +34,9 @@ const Index = () => {
       <Suspense fallback={<SectionFallback />}>
         <Footer />
       </Suspense>
-      <FloatingWhatsApp />
+      <Suspense fallback={null}>
+        <FloatingWhatsApp />
+      </Suspense>
       
     </main>
   );

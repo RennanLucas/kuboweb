@@ -1,7 +1,7 @@
 import { memo, useState, useEffect } from "react";
 import { MessageCircle, ArrowDown, CheckCircle2, Search, Globe, Shield, Smartphone, Palette, Zap, BarChart3, Star, Lock, ChevronRight, TrendingUp, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];
 const whatsappUrl =

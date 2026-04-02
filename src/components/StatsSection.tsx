@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef, useState } from "react";
 import { Clock } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface StatItem {
   value: string;

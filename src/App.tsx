@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { MotionConfig } from "framer-motion";
 import { useEffect, useState, lazy, Suspense } from "react";
 import Index from "./pages/Index";
-import Chatbot from "./components/Chatbot";
+const Chatbot = lazy(() => import("./components/Chatbot"));
 
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Servicos = lazy(() => import("./pages/Servicos"));

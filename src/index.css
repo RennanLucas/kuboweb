@@ -21,8 +21,8 @@
     --primary: 190 100% 50%;
     --primary-foreground: 210 100% 98%;
 
-    /* Secondary */
-    --secondary: 220 28% 22%;
+    /* Secondary - Navy matching logo */
+    --secondary: 220 50% 15%;
     --secondary-foreground: 220 20% 97%;
 
     /* Muted */

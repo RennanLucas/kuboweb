@@ -394,7 +394,7 @@ const HeroSection = () => {
 
       <div className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
         {/* Mobile */}
-        <div className="md:hidden flex flex-col min-h-[calc(100dvh-4rem)] justify-center px-5 py-4 gap-4 relative">
+        <div className="md:hidden flex flex-col px-5 pt-6 pb-6 gap-5 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

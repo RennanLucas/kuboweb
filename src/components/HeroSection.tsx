@@ -374,7 +374,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-16 pb-4 md:py-24 px-0 md:px-4">
+    <section className="relative flex items-center justify-center overflow-hidden pt-16 pb-4 md:min-h-[100dvh] md:py-24 px-0 md:px-4">
       {/* Premium background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-accent/20" />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/4 rounded-full blur-[180px] hidden md:block" />
@@ -394,7 +394,7 @@ const HeroSection = () => {
 
       <div className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
         {/* Mobile */}
-        <div className="md:hidden flex flex-col min-h-[calc(100dvh-4rem)] justify-center px-5 py-4 gap-4 relative">
+        <div className="md:hidden flex flex-col px-5 pt-6 pb-6 gap-5 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

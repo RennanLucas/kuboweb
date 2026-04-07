@@ -17,9 +17,9 @@
     --popover: 220 18% 93%;
     --popover-foreground: 224 50% 10%;
 
-    /* Primary - Deep Indigo Navy (matching logo) */
-    --primary: 235 85% 45%;
-    --primary-foreground: 235 100% 98%;
+    /* Primary - Deep Navy Indigo (logo cube) */
+    --primary: 242 96% 12%;
+    --primary-foreground: 0 0% 100%;
 
     /* Secondary */
     --secondary: 240 30% 18%;

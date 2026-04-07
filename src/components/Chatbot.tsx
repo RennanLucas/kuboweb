@@ -497,11 +497,11 @@ const Chatbot = () => {
             <AnimatePresence>
               {showTooltip && (
                 <motion.div
-                  initial={{ opacity: 0, x: 10, scale: 0.9 }}
+                  initial={{ opacity: 0, x: -10, scale: 0.9 }}
                   animate={{ opacity: 1, x: 0, scale: 1 }}
-                  exit={{ opacity: 0, x: 10, scale: 0.9 }}
+                  exit={{ opacity: 0, x: -10, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-card border border-border/40 rounded-xl rounded-br-sm px-3 py-2.5 shadow-lg cursor-pointer max-w-[170px]"
+                  className="bg-card border border-border/40 rounded-xl rounded-bl-sm px-3 py-2.5 shadow-lg cursor-pointer max-w-[170px] order-2"
                   onClick={handleOpen}
                 >
                   <p className="text-[11px] font-semibold text-foreground">🚀 Consultoria grátis</p>

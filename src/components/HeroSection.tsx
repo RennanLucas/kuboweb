@@ -1,7 +1,9 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, lazy, Suspense } from "react";
 import { MessageCircle, ArrowDown, CheckCircle2, Search, Globe, Shield, Smartphone, Palette, Zap, BarChart3, Star, Lock, ChevronRight, TrendingUp, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+
+const AnimatedCube = lazy(() => import("@/components/AnimatedCube"));
 
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];
 const whatsappUrl =

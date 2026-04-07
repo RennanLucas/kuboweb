@@ -29,9 +29,9 @@
     --muted: 220 16% 62%;
     --muted-foreground: 224 30% 35%;
 
-    /* Accent - Indigo tint */
-    --accent: 245 60% 96%;
-    --accent-foreground: 245 40% 30%;
+    /* Accent - Light indigo tint */
+    --accent: 240 50% 96%;
+    --accent-foreground: 242 60% 20%;
 
     /* Success Green */
     --success: 152 68% 42%;

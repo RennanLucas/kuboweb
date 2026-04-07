@@ -387,13 +387,51 @@
   animation: marqueeStats 30s linear infinite;
 }
 
+/* Ripple effect for buttons */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, hsl(0 0% 100% / 0.25) 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.8s;
+}
+
+.btn-ripple:active::after {
+  transform: scale(0);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* Mobile scroll reveal animations */
 @media (max-width: 767px) {
+  .mobile-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  
+  .mobile-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .animate-marquee-stats {
     animation-duration: 40s;
   }
-}
-
-@media (max-width: 767px) {
+  
   .animate-fade-in,
   .animate-fade-in-up,
   .animate-fade-in-delay-1,

@@ -17,21 +17,21 @@
     --popover: 220 18% 93%;
     --popover-foreground: 224 50% 10%;
 
-    /* Primary - Deep Indigo Navy (matching logo) */
-    --primary: 235 85% 45%;
-    --primary-foreground: 235 100% 98%;
+    /* Primary - Deep Navy Indigo (logo cube) */
+    --primary: 242 96% 12%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary */
-    --secondary: 240 30% 18%;
-    --secondary-foreground: 240 20% 97%;
+    /* Secondary - Logo cyan accent */
+    --secondary: 204 96% 44%;
+    --secondary-foreground: 0 0% 100%;
 
     /* Muted */
     --muted: 220 16% 62%;
     --muted-foreground: 224 30% 35%;
 
-    /* Accent - Indigo tint */
-    --accent: 245 60% 96%;
-    --accent-foreground: 245 40% 30%;
+    /* Accent - Light indigo tint */
+    --accent: 240 50% 96%;
+    --accent-foreground: 242 60% 20%;
 
     /* Success Green */
     --success: 152 68% 42%;
@@ -48,24 +48,24 @@
     /* Border and input */
     --border: 220 20% 86%;
     --input: 220 20% 86%;
-    --ring: 235 85% 45%;
+    --ring: 204 96% 44%;
 
     --radius: 0.5rem;
 
-    --chart-1: 235 85% 50%;
-    --chart-2: 250 80% 60%;
-    --chart-3: 220 16% 62%;
-    --chart-4: 220 14% 46%;
-    --chart-5: 220 18% 30%;
+    --chart-1: 242 96% 15%;
+    --chart-2: 204 96% 44%;
+    --chart-3: 212 96% 33%;
+    --chart-4: 222 93% 22%;
+    --chart-5: 240 93% 12%;
 
     --sidebar: 220 20% 99%;
     --sidebar-foreground: 224 50% 10%;
-    --sidebar-primary: 235 85% 45%;
-    --sidebar-primary-foreground: 235 100% 98%;
-    --sidebar-accent: 220 28% 22%;
-    --sidebar-accent-foreground: 220 20% 97%;
+    --sidebar-primary: 242 96% 12%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 204 96% 44%;
+    --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 220 20% 86%;
-    --sidebar-ring: 235 85% 45%;
+    --sidebar-ring: 204 96% 44%;
 
     --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
     --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -84,42 +84,42 @@
     --spacing: 0.25rem;
   }
   .dark {
-    /* Premium Dark - Deep Navy */
-    --background: 225 45% 7%;
-    --foreground: 215 30% 92%;
-    --card: 225 38% 12%;
-    --card-foreground: 215 30% 92%;
-    --popover: 225 35% 16%;
-    --popover-foreground: 215 30% 92%;
+    /* Premium Dark - Deep Indigo Navy (logo) */
+    --background: 242 80% 5%;
+    --foreground: 210 30% 92%;
+    --card: 242 60% 9%;
+    --card-foreground: 210 30% 92%;
+    --popover: 242 50% 12%;
+    --popover-foreground: 210 30% 92%;
 
-    /* Primary - Electric Indigo */
-    --primary: 235 90% 70%;
-    --primary-foreground: 240 60% 8%;
+    /* Primary - Cyan accent from logo */
+    --primary: 204 96% 50%;
+    --primary-foreground: 242 80% 5%;
 
-    --secondary: 220 25% 80%;
-    --secondary-foreground: 225 45% 7%;
-    --muted: 220 18% 40%;
-    --muted-foreground: 215 20% 70%;
-    --accent: 225 40% 10%;
-    --accent-foreground: 220 25% 75%;
+    --secondary: 242 60% 20%;
+    --secondary-foreground: 210 30% 92%;
+    --muted: 240 20% 35%;
+    --muted-foreground: 210 20% 70%;
+    --accent: 242 50% 10%;
+    --accent-foreground: 204 70% 70%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 85% 97%;
-    --border: 225 30% 20%;
-    --input: 225 30% 20%;
-    --ring: 235 90% 70%;
-    --chart-1: 235 90% 65%;
-    --chart-2: 250 90% 70%;
-    --chart-3: 220 18% 55%;
-    --chart-4: 220 16% 40%;
-    --chart-5: 225 30% 25%;
-    --sidebar: 225 38% 12%;
-    --sidebar-foreground: 215 30% 92%;
-    --sidebar-primary: 235 90% 70%;
-    --sidebar-primary-foreground: 240 60% 8%;
-    --sidebar-accent: 220 18% 55%;
-    --sidebar-accent-foreground: 225 45% 7%;
-    --sidebar-border: 225 30% 20%;
-    --sidebar-ring: 235 90% 70%;
+    --border: 242 40% 18%;
+    --input: 242 40% 18%;
+    --ring: 204 96% 50%;
+    --chart-1: 204 96% 55%;
+    --chart-2: 212 90% 60%;
+    --chart-3: 230 40% 50%;
+    --chart-4: 240 30% 35%;
+    --chart-5: 242 40% 20%;
+    --sidebar: 242 60% 9%;
+    --sidebar-foreground: 210 30% 92%;
+    --sidebar-primary: 204 96% 50%;
+    --sidebar-primary-foreground: 242 80% 5%;
+    --sidebar-accent: 242 40% 15%;
+    --sidebar-accent-foreground: 210 30% 92%;
+    --sidebar-border: 242 40% 18%;
+    --sidebar-ring: 204 96% 50%;
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.15);
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.15);
     --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.2), 0 1px 2px -1px hsl(0 0% 0% / 0.2);
@@ -152,18 +152,18 @@
 @layer components {
   .text-gradient-primary {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(200 80% 70%));
+    background-image: linear-gradient(135deg, hsl(242 96% 15%), hsl(204 96% 44%));
   }
 
   .text-gradient-hero {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(230 80% 65%), hsl(var(--primary)));
+    background-image: linear-gradient(135deg, hsl(242 96% 15%), hsl(204 96% 44%), hsl(242 96% 15%));
     background-size: 200% 100%;
     animation: shimmerText 4s ease-in-out infinite;
   }
 
   .bg-gradient-primary {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(220 80% 50%));
+    background: linear-gradient(135deg, hsl(242 96% 12%), hsl(204 96% 44%));
   }
 
   .bg-gradient-subtle {

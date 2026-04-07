@@ -439,10 +439,10 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          <div className="flex flex-col gap-2 text-xs text-muted-foreground">
+          <div className="flex items-center justify-center gap-4 text-[11px] text-muted-foreground">
             {trustItems.map((item) => (
-              <div key={item} className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
+              <div key={item} className="flex items-center gap-1">
+                <CheckCircle2 className="w-3 h-3 text-success shrink-0" />
                 <span className="font-medium">{item}</span>
               </div>
             ))}

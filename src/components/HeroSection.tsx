@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import ParticleField from "@/components/ui/ParticleField";
 import MagneticButton from "@/components/ui/MagneticButton";
+import GyroParticles from "@/components/ui/GyroParticles";
 
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];
 const whatsappUrl =
@@ -393,7 +394,8 @@ const HeroSection = () => {
 
       <div className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
         {/* Mobile */}
-        <div className="md:hidden flex flex-col min-h-[calc(100dvh-5rem)] justify-center px-5 py-6 gap-5">
+        <div className="md:hidden flex flex-col min-h-[calc(100dvh-5rem)] justify-center px-5 py-6 gap-5 relative">
+          <GyroParticles count={15} />
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

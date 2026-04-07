@@ -3,6 +3,7 @@ import { MessageCircle, ArrowDown, CheckCircle2, Search, Globe, Shield, Smartpho
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import ParticleField from "@/components/ui/ParticleField";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];
 const whatsappUrl =
@@ -477,25 +478,29 @@ const HeroSection = () => {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="flex flex-row items-center justify-center gap-3"
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm">
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="w-5 h-5" />
-                    Falar no WhatsApp
-                  </a>
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                <Button
-                  variant="outline"
-                  size="xl"
-                  onClick={scrollToServicos}
-                  className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30"
-                >
-                  Ver Serviços
-                  <ArrowDown className="w-4 h-4" />
-                </Button>
-              </motion.div>
+              <MagneticButton>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                  <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm">
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="w-5 h-5" />
+                      Falar no WhatsApp
+                    </a>
+                  </Button>
+                </motion.div>
+              </MagneticButton>
+              <MagneticButton>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                  <Button
+                    variant="outline"
+                    size="xl"
+                    onClick={scrollToServicos}
+                    className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30"
+                  >
+                    Ver Serviços
+                    <ArrowDown className="w-4 h-4" />
+                  </Button>
+                </motion.div>
+              </MagneticButton>
             </motion.div>
 
             <TrustIndicators />

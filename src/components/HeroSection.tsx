@@ -450,8 +450,8 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop */}
-        <div className="hidden md:flex flex-row min-h-[580px] items-center justify-center max-w-6xl mx-auto">
-          <div className="flex-1 pr-8 lg:pr-16 relative z-10 flex flex-col justify-center items-center text-center space-y-8">
+        <div className="hidden md:flex flex-row min-h-[580px] items-center justify-between max-w-6xl mx-auto gap-8 lg:gap-16">
+          <div className="flex-1 relative z-10 flex flex-col justify-center items-start text-left space-y-7">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -462,7 +462,7 @@ const HeroSection = () => {
               Agência de Web Design Premium
             </motion.div>
 
-            <div className="space-y-6">
+            <div className="space-y-5">
               <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.12] text-foreground tracking-[-0.02em]">
                 <span className="block">Não tenha apenas</span>
                 <span className="block">um site. Tenha uma</span>
@@ -474,7 +474,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-lg text-muted-foreground max-w-xl leading-relaxed mx-auto"
+                className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed"
               >
                 Criamos sites estratégicos que transformam visitantes em clientes — com design premium, SEO avançado e atendimento humanizado.
               </motion.p>
@@ -484,7 +484,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="flex flex-row items-center justify-center gap-3"
+              className="flex flex-row items-center gap-3"
             >
               <MagneticButton>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
@@ -512,9 +512,16 @@ const HeroSection = () => {
             </motion.div>
 
             <TrustIndicators />
-
           </div>
 
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex-1 flex justify-center"
+          >
+            <HeroVisual />
+          </motion.div>
         </div>
       </div>
     </section>

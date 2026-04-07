@@ -1,7 +1,9 @@
-import { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect, lazy, Suspense } from "react";
 import { MessageCircle, ArrowDown, CheckCircle2, Search, Globe, Shield, Smartphone, Palette, Zap, BarChart3, Star, Lock, ChevronRight, TrendingUp, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+
+const AnimatedCube = lazy(() => import("@/components/AnimatedCube"));
 
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];
 const whatsappUrl =
@@ -501,9 +503,11 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex-1 flex justify-center"
+            className="flex-1 flex justify-center items-center min-h-[400px] lg:min-h-[500px]"
           >
-            <HeroVisual />
+            <Suspense fallback={<div className="w-full h-[400px]" />}>
+              <AnimatedCube className="w-full h-[400px] lg:h-[500px]" />
+            </Suspense>
           </motion.div>
         </div>
       </div>

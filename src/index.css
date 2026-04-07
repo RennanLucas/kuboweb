@@ -17,12 +17,12 @@
     --popover: 220 18% 93%;
     --popover-foreground: 224 50% 10%;
 
-    /* Primary - Deep Navy Indigo (logo cube) */
-    --primary: 242 96% 12%;
+    /* Primary - Teal/Cyan from logo cube highlight */
+    --primary: 204 96% 38%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Logo cyan accent */
-    --secondary: 204 96% 44%;
+    /* Secondary - Deep Navy from logo cube body */
+    --secondary: 242 80% 14%;
     --secondary-foreground: 0 0% 100%;
 
     /* Muted */

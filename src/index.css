@@ -6,32 +6,32 @@
 
 @layer base {
   :root {
-    /* Premium Light Theme */
-    --background: 220 20% 97%;
-    --foreground: 220 30% 20%;
+    /* Elegant Dark-Toned Light Theme */
+    --background: 228 30% 10%;
+    --foreground: 215 25% 88%;
 
-    --card: 220 20% 99%;
-    --card-foreground: 224 50% 10%;
-    --card-elevated: 0 0% 8%;
+    --card: 228 28% 13%;
+    --card-foreground: 215 25% 90%;
+    --card-elevated: 228 30% 8%;
 
-    --popover: 220 18% 93%;
-    --popover-foreground: 224 50% 10%;
+    --popover: 228 26% 15%;
+    --popover-foreground: 215 25% 90%;
 
-    /* Primary - Deep Ocean Blue */
-    --primary: 210 100% 40%;
-    --primary-foreground: 210 100% 98%;
+    /* Primary - Refined Cyan */
+    --primary: 200 90% 48%;
+    --primary-foreground: 225 50% 6%;
 
     /* Secondary */
-    --secondary: 220 28% 22%;
-    --secondary-foreground: 220 20% 97%;
+    --secondary: 225 25% 18%;
+    --secondary-foreground: 215 20% 85%;
 
     /* Muted */
-    --muted: 220 16% 62%;
-    --muted-foreground: 224 30% 35%;
+    --muted: 225 18% 28%;
+    --muted-foreground: 215 18% 60%;
 
-    /* Accent - Indigo tint */
-    --accent: 230 60% 96%;
-    --accent-foreground: 230 40% 30%;
+    /* Accent - Deep Indigo */
+    --accent: 230 35% 16%;
+    --accent-foreground: 215 22% 78%;
 
     /* Success Green */
     --success: 152 68% 42%;
@@ -42,43 +42,43 @@
     --whatsapp-foreground: 0 0% 100%;
 
     /* Destructive */
-    --destructive: 0 72% 50%;
+    --destructive: 0 72% 55%;
     --destructive-foreground: 0 85% 97%;
 
     /* Border and input */
-    --border: 220 20% 86%;
-    --input: 220 20% 86%;
-    --ring: 210 100% 40%;
+    --border: 225 25% 18%;
+    --input: 225 25% 18%;
+    --ring: 200 90% 48%;
 
     --radius: 0.5rem;
 
-    --chart-1: 210 100% 50%;
+    --chart-1: 200 90% 55%;
     --chart-2: 230 80% 60%;
-    --chart-3: 220 16% 62%;
-    --chart-4: 220 14% 46%;
-    --chart-5: 220 18% 30%;
+    --chart-3: 220 18% 45%;
+    --chart-4: 220 16% 35%;
+    --chart-5: 225 20% 22%;
 
-    --sidebar: 220 20% 99%;
-    --sidebar-foreground: 224 50% 10%;
-    --sidebar-primary: 210 100% 40%;
-    --sidebar-primary-foreground: 210 100% 98%;
-    --sidebar-accent: 220 28% 22%;
-    --sidebar-accent-foreground: 220 20% 97%;
-    --sidebar-border: 220 20% 86%;
-    --sidebar-ring: 210 100% 40%;
+    --sidebar: 228 28% 13%;
+    --sidebar-foreground: 215 25% 90%;
+    --sidebar-primary: 200 90% 48%;
+    --sidebar-primary-foreground: 225 50% 6%;
+    --sidebar-accent: 225 25% 18%;
+    --sidebar-accent-foreground: 215 20% 85%;
+    --sidebar-border: 225 25% 18%;
+    --sidebar-ring: 200 90% 48%;
 
     --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
     --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
     --font-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.2);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.2);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.25), 0 1px 2px -1px hsl(0 0% 0% / 0.2);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.25), 0 1px 2px -1px hsl(0 0% 0% / 0.2);
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.25), 0 2px 4px -1px hsl(0 0% 0% / 0.2);
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.3), 0 4px 6px -1px hsl(0 0% 0% / 0.2);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.35), 0 8px 10px -1px hsl(0 0% 0% / 0.25);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.5);
 
     --tracking-normal: 0em;
     --spacing: 0.25rem;

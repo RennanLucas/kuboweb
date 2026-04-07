@@ -73,7 +73,9 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-foreground text-sm tracking-wide">Informações</h4>
             <nav className="flex flex-col gap-2.5">
               {[
-                { label: "Preços", href: "/precos" },
+                { label: "Manutenção", href: "/manutencao" },
+                { label: "Calculadora", href: "/calculadora" },
+                { label: "Consultoria", href: "/diagnostico" },
                 { label: "FAQ", href: "/faq" },
                 { label: "Contato", href: "/contato" },
               ].map((link) => (

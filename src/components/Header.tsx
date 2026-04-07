@@ -17,10 +17,6 @@ const navLinks = [
   { label: "Sobre", href: "/sobre" },
   { label: "Serviços", href: "/servicos", hasDropdown: true },
   { label: "Portfólio", href: "/portfolio" },
-  { label: "Manutenção", href: "/manutencao" },
-  { label: "Calculadora", href: "/calculadora" },
-  { label: "Consultoria", href: "/diagnostico" },
-  { label: "FAQ", href: "/faq" },
   { label: "Contato", href: "/contato" },
 ];
 

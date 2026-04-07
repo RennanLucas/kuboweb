@@ -1,20 +1,16 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo } from "react";
 import { Clock } from "lucide-react";
 
 interface StatItem {
   value: string;
   label: string;
-  numericValue?: number;
-  prefix?: string;
-  suffix?: string;
-  decimals?: number;
   icon?: string;
 }
 
 const stats: StatItem[] = [
-  { value: "+150", label: "Projetos Entregues", numericValue: 150, prefix: "+" },
-  { value: "98%", label: "Clientes Satisfeitos", numericValue: 98, suffix: "%" },
-  { value: "7-15", label: "Dias Úteis de Entrega", numericValue: 15, prefix: "", suffix: " dias" },
+  { value: "+150", label: "Projetos Entregues" },
+  { value: "98%", label: "Clientes Satisfeitos" },
+  { value: "7-15", label: "Dias Úteis de Entrega" },
   { value: "", label: "Suporte Direto no WhatsApp", icon: "whatsapp" },
 ];
 
@@ -24,51 +20,15 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-const AnimatedNumber = ({ value, prefix = "", suffix = "", decimals = 0 }: { value: number; prefix?: string; suffix?: string; decimals?: number }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const animated = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !animated.current) {
-          animated.current = true;
-          const duration = 1500;
-          const start = performance.now();
-          const step = (now: number) => {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(eased * value);
-            if (progress < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [value]);
-
-  return (
-    <span ref={ref} className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold whitespace-nowrap text-primary">
-      {prefix}{decimals > 0 ? count.toFixed(decimals) : Math.round(count)}{suffix}
-    </span>
-  );
-};
-
-const StatBlock = ({ label, icon, numericValue, prefix, suffix, value, decimals }: StatItem) => (
+const StatBlock = ({ label, icon, value }: StatItem) => (
   <div className="flex-shrink-0 flex items-center gap-3 px-8 md:px-12">
     {icon === "whatsapp" ? (
       <WhatsAppIcon />
     ) : icon === "clock" ? (
       <Clock className="w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 text-primary shrink-0" />
-    ) : numericValue !== undefined ? (
-      <AnimatedNumber value={numericValue} prefix={prefix} suffix={suffix} decimals={decimals} />
     ) : (
-      <span className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold whitespace-nowrap">
-        <span className="text-primary">{value}</span>
+      <span className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold whitespace-nowrap text-primary">
+        {value}
       </span>
     )}
     <span className="text-xs md:text-sm text-muted-foreground font-medium tracking-wide uppercase whitespace-nowrap">

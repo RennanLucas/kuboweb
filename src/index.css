@@ -92,9 +92,9 @@
     --popover: 225 35% 16%;
     --popover-foreground: 215 30% 92%;
 
-    /* Primary - Electric Cyan Blue */
-    --primary: 200 95% 55%;
-    --primary-foreground: 220 60% 8%;
+    /* Primary - Cyan matching logo */
+    --primary: 190 100% 50%;
+    --primary-foreground: 220 50% 8%;
 
     --secondary: 220 25% 80%;
     --secondary-foreground: 225 45% 7%;

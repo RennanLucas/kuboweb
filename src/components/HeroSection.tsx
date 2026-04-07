@@ -2,8 +2,7 @@ import { memo, useState, useEffect, lazy, Suspense } from "react";
 import { MessageCircle, ArrowDown, CheckCircle2, Search, Globe, Shield, Smartphone, Palette, Zap, BarChart3, Star, Lock, ChevronRight, TrendingUp, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-
-const AnimatedCube = lazy(() => import("@/components/AnimatedCube"));
+import ParticleField from "@/components/ui/ParticleField";
 
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];
 const whatsappUrl =
@@ -380,6 +379,11 @@ const HeroSection = () => {
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/3 rounded-full blur-[150px] hidden md:block" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[700px] bg-primary/2 rounded-full blur-[250px] hidden md:block" />
       
+      {/* Interactive particle field - desktop only */}
+      <div className="absolute inset-0 hidden md:block">
+        <ParticleField count={35} connectDistance={100} speed={0.2} />
+      </div>
+
       {/* Refined dot pattern overlay - desktop */}
       <div className="absolute inset-0 hidden md:block opacity-[0.025]" style={{
         backgroundImage: `radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)`,

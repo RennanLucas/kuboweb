@@ -492,7 +492,7 @@ const Chatbot = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="fixed bottom-24 right-4 sm:right-6 z-50 flex items-end gap-2"
+            className="fixed bottom-6 left-4 sm:left-6 z-50 flex items-end gap-2"
           >
             <AnimatePresence>
               {showTooltip && (
@@ -530,7 +530,7 @@ const Chatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] h-[560px] max-h-[75vh] rounded-2xl border border-border/30 bg-card shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-24 left-4 sm:left-6 z-50 w-[calc(100vw-2rem)] sm:w-[420px] h-[560px] max-h-[75vh] rounded-2xl border border-border/30 bg-card shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3.5 border-b border-border/30 bg-card">

@@ -434,9 +434,6 @@ const HeroSection = () => {
           </div>
 
           <TrustIndicators className="flex-wrap gap-y-2 gap-x-4" />
-          <Suspense fallback={<div className="w-full h-[250px]" />}>
-            <AnimatedCube className="w-full h-[250px]" />
-          </Suspense>
         </div>
 
         {/* Desktop */}
@@ -501,16 +498,6 @@ const HeroSection = () => {
 
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="flex-1 flex justify-center items-center min-h-[400px] lg:min-h-[500px]"
-          >
-            <Suspense fallback={<div className="w-full h-[400px]" />}>
-              <AnimatedCube className="w-full h-[400px] lg:h-[500px]" />
-            </Suspense>
-          </motion.div>
         </div>
       </div>
     </section>

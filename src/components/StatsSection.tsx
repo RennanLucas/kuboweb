@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { Clock } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface StatItem {
   value: string;
@@ -39,7 +40,13 @@ const StatBlock = ({ label, icon, value }: StatItem) => (
 
 const StatsSection = () => {
   return (
-    <section className="py-10 md:py-14 relative overflow-hidden">
+    <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className="py-10 md:py-14 relative overflow-hidden"
+    >
       <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-primary/3 to-transparent pointer-events-none" />
       <div className="relative" style={{ contain: "layout paint", isolation: "isolate" }}>
         <div
@@ -61,7 +68,7 @@ const StatsSection = () => {
           )}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

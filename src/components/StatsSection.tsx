@@ -81,8 +81,16 @@ const StatsSection = () => {
   return (
     <section className="py-10 md:py-14 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-primary/3 to-transparent pointer-events-none" />
-      <div className="relative">
-        <div className="flex w-max animate-marquee-stats will-change-transform" style={{ contain: "layout paint" }}>
+      <div className="relative" style={{ contain: "layout paint", isolation: "isolate" }}>
+        <div
+          className="flex w-max animate-marquee-stats"
+          style={{
+            willChange: "transform",
+            backfaceVisibility: "hidden",
+            perspective: 1000,
+            transform: "translateZ(0)",
+          }}
+        >
           {[...Array(4)].map((_, setIndex) =>
             stats.map((stat, i) => (
               <div key={`${setIndex}-${i}`} className="flex items-center">

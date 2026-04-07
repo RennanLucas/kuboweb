@@ -1,7 +1,7 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
 import { FileText, Building2, ShoppingCart, Megaphone, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import TiltCard from "@/components/ui/TiltCard";
 

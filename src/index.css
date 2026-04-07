@@ -21,9 +21,9 @@
     --primary: 242 96% 12%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary */
-    --secondary: 240 30% 18%;
-    --secondary-foreground: 240 20% 97%;
+    /* Secondary - Logo cyan accent */
+    --secondary: 204 96% 44%;
+    --secondary-foreground: 0 0% 100%;
 
     /* Muted */
     --muted: 220 16% 62%;

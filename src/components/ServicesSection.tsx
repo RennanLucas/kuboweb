@@ -37,13 +37,14 @@ const services = [
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 40, scale: 0.96 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
+    scale: 1,
     transition: {
-      delay: i * 0.08,
-      duration: 0.4,
+      delay: i * 0.12,
+      duration: 0.5,
       ease: [0.16, 1, 0.3, 1] as const,
     },
   }),

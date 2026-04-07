@@ -17,12 +17,12 @@
     --popover: 220 18% 93%;
     --popover-foreground: 224 50% 10%;
 
-    /* Primary - Deep Navy Indigo (logo cube) */
-    --primary: 242 96% 12%;
+    /* Primary - Teal/Cyan from logo cube highlight */
+    --primary: 204 96% 38%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Logo cyan accent */
-    --secondary: 204 96% 44%;
+    /* Secondary - Deep Navy from logo cube body */
+    --secondary: 242 80% 14%;
     --secondary-foreground: 0 0% 100%;
 
     /* Muted */
@@ -48,24 +48,24 @@
     /* Border and input */
     --border: 220 20% 86%;
     --input: 220 20% 86%;
-    --ring: 204 96% 44%;
+    --ring: 204 96% 38%;
 
     --radius: 0.5rem;
 
-    --chart-1: 242 96% 15%;
-    --chart-2: 204 96% 44%;
-    --chart-3: 212 96% 33%;
-    --chart-4: 222 93% 22%;
-    --chart-5: 240 93% 12%;
+    --chart-1: 204 96% 38%;
+    --chart-2: 242 80% 20%;
+    --chart-3: 212 70% 45%;
+    --chart-4: 225 50% 35%;
+    --chart-5: 240 60% 25%;
 
     --sidebar: 220 20% 99%;
     --sidebar-foreground: 224 50% 10%;
-    --sidebar-primary: 242 96% 12%;
+    --sidebar-primary: 204 96% 38%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 204 96% 44%;
+    --sidebar-accent: 242 80% 14%;
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 220 20% 86%;
-    --sidebar-ring: 204 96% 44%;
+    --sidebar-ring: 204 96% 38%;
 
     --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
     --font-serif: 'Lora', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
@@ -152,18 +152,18 @@
 @layer components {
   .text-gradient-primary {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(242 96% 15%), hsl(204 96% 44%));
+    background-image: linear-gradient(135deg, hsl(242 80% 18%), hsl(204 96% 42%));
   }
 
   .text-gradient-hero {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(242 96% 15%), hsl(204 96% 44%), hsl(242 96% 15%));
+    background-image: linear-gradient(135deg, hsl(242 80% 18%), hsl(204 96% 42%), hsl(242 80% 18%));
     background-size: 200% 100%;
     animation: shimmerText 4s ease-in-out infinite;
   }
 
   .bg-gradient-primary {
-    background: linear-gradient(135deg, hsl(242 96% 12%), hsl(204 96% 44%));
+    background: linear-gradient(135deg, hsl(242 80% 18%), hsl(204 96% 42%));
   }
 
   .bg-gradient-subtle {

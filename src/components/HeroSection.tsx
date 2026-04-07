@@ -2,8 +2,8 @@ import { memo, useState, useEffect, lazy, Suspense } from "react";
 import { MessageCircle, ArrowDown, CheckCircle2, Search, Globe, Shield, Smartphone, Palette, Zap, BarChart3, Star, Lock, ChevronRight, TrendingUp, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-
-const AnimatedCube = lazy(() => import("@/components/AnimatedCube"));
+import ParticleField from "@/components/ui/ParticleField";
+import MagneticButton from "@/components/ui/MagneticButton";
 
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];
 const whatsappUrl =
@@ -380,6 +380,11 @@ const HeroSection = () => {
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/3 rounded-full blur-[150px] hidden md:block" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[700px] bg-primary/2 rounded-full blur-[250px] hidden md:block" />
       
+      {/* Interactive particle field - desktop only */}
+      <div className="absolute inset-0 hidden md:block">
+        <ParticleField count={35} connectDistance={100} speed={0.2} />
+      </div>
+
       {/* Refined dot pattern overlay - desktop */}
       <div className="absolute inset-0 hidden md:block opacity-[0.025]" style={{
         backgroundImage: `radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)`,
@@ -473,25 +478,29 @@ const HeroSection = () => {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="flex flex-row items-center justify-center gap-3"
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm">
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="w-5 h-5" />
-                    Falar no WhatsApp
-                  </a>
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                <Button
-                  variant="outline"
-                  size="xl"
-                  onClick={scrollToServicos}
-                  className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30"
-                >
-                  Ver Serviços
-                  <ArrowDown className="w-4 h-4" />
-                </Button>
-              </motion.div>
+              <MagneticButton>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                  <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm">
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="w-5 h-5" />
+                      Falar no WhatsApp
+                    </a>
+                  </Button>
+                </motion.div>
+              </MagneticButton>
+              <MagneticButton>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                  <Button
+                    variant="outline"
+                    size="xl"
+                    onClick={scrollToServicos}
+                    className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30"
+                  >
+                    Ver Serviços
+                    <ArrowDown className="w-4 h-4" />
+                  </Button>
+                </motion.div>
+              </MagneticButton>
             </motion.div>
 
             <TrustIndicators />

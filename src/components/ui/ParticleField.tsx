@@ -34,6 +34,7 @@ const ParticleField = memo(({
   const mouseRef = useRef({ x: -1000, y: -1000 });
   const particlesRef = useRef<Particle[]>([]);
   const rafRef = useRef<number>(0);
+  const sizeRef = useRef({ w: 0, h: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -44,16 +45,17 @@ const ParticleField = memo(({
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio, 2);
       const rect = canvas.getBoundingClientRect();
+      sizeRef.current = { w: rect.width, h: rect.height };
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
       ctx.scale(dpr, dpr);
     };
 
     const initParticles = () => {
-      const rect = canvas.getBoundingClientRect();
+      const { w, h } = sizeRef.current;
       particlesRef.current = Array.from({ length: count }, () => ({
-        x: Math.random() * rect.width,
-        y: Math.random() * rect.height,
+        x: Math.random() * w,
+        y: Math.random() * h,
         vx: (Math.random() - 0.5) * speed,
         vy: (Math.random() - 0.5) * speed,
         size: 1 + Math.random() * maxSize,
@@ -63,40 +65,38 @@ const ParticleField = memo(({
       }));
     };
 
+    const connectDistSq = connectDistance * connectDistance;
+
     const draw = () => {
-      const rect = canvas.getBoundingClientRect();
-      ctx.clearRect(0, 0, rect.width, rect.height);
+      const { w, h } = sizeRef.current;
+      ctx.clearRect(0, 0, w, h);
       const particles = particlesRef.current;
       const mouse = mouseRef.current;
 
       for (const p of particles) {
-        // Mouse repulsion
         if (interactive && mouse.x > 0) {
           const dx = p.x - mouse.x;
           const dy = p.y - mouse.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
+          const distSq = dx * dx + dy * dy;
+          if (distSq < 10000) {
+            const dist = Math.sqrt(distSq);
             const force = (100 - dist) / 100 * 0.5;
             p.vx += (dx / dist) * force;
             p.vy += (dy / dist) * force;
           }
         }
 
-        // Damping
         p.vx *= 0.99;
         p.vy *= 0.99;
-
         p.x += p.vx;
         p.y += p.vy;
         p.life++;
 
-        // Wrap around
-        if (p.x < 0) p.x = rect.width;
-        if (p.x > rect.width) p.x = 0;
-        if (p.y < 0) p.y = rect.height;
-        if (p.y > rect.height) p.y = 0;
+        if (p.x < 0) p.x = w;
+        if (p.x > w) p.x = 0;
+        if (p.y < 0) p.y = h;
+        if (p.y > h) p.y = 0;
 
-        // Pulse opacity
         const lifeFraction = p.life / p.maxLife;
         const pulse = Math.sin(lifeFraction * Math.PI) * 0.5 + 0.5;
         const alpha = p.opacity * pulse;
@@ -107,13 +107,14 @@ const ParticleField = memo(({
         ctx.fill();
       }
 
-      // Connection lines
+      // Connection lines — use squared distance to avoid sqrt
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < connectDistance) {
+          const distSq = dx * dx + dy * dy;
+          if (distSq < connectDistSq) {
+            const dist = Math.sqrt(distSq);
             const alpha = (1 - dist / connectDistance) * 0.15;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);

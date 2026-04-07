@@ -11,6 +11,7 @@ const GyroParticles = memo(({ className = "", count = 20, color = "0, 102, 204" 
   const gyroRef = useRef({ x: 0, y: 0 });
   const particlesRef = useRef<{ x: number; y: number; size: number; baseX: number; baseY: number; opacity: number; speed: number }[]>([]);
   const rafRef = useRef<number>(0);
+  const sizeRef = useRef({ w: 0, h: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -21,16 +22,17 @@ const GyroParticles = memo(({ className = "", count = 20, color = "0, 102, 204" 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio, 2);
       const rect = canvas.getBoundingClientRect();
+      sizeRef.current = { w: rect.width, h: rect.height };
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
       ctx.scale(dpr, dpr);
     };
 
     const initParticles = () => {
-      const rect = canvas.getBoundingClientRect();
+      const { w, h } = sizeRef.current;
       particlesRef.current = Array.from({ length: count }, () => {
-        const x = Math.random() * rect.width;
-        const y = Math.random() * rect.height;
+        const x = Math.random() * w;
+        const y = Math.random() * h;
         return {
           x, y,
           baseX: x,
@@ -43,12 +45,11 @@ const GyroParticles = memo(({ className = "", count = 20, color = "0, 102, 204" 
     };
 
     const handleOrientation = (e: DeviceOrientationEvent) => {
-      const beta = Math.max(-30, Math.min(30, e.beta || 0)); // front-back tilt
-      const gamma = Math.max(-30, Math.min(30, e.gamma || 0)); // left-right tilt
+      const beta = Math.max(-30, Math.min(30, e.beta || 0));
+      const gamma = Math.max(-30, Math.min(30, e.gamma || 0));
       gyroRef.current = { x: gamma / 30, y: beta / 30 };
     };
 
-    // Fallback: gentle random drift for devices without gyroscope
     let fallbackTimer: number;
     let hasGyro = false;
 
@@ -66,21 +67,18 @@ const GyroParticles = memo(({ className = "", count = 20, color = "0, 102, 204" 
     };
 
     const draw = () => {
-      const rect = canvas.getBoundingClientRect();
-      ctx.clearRect(0, 0, rect.width, rect.height);
+      const { w, h } = sizeRef.current;
+      ctx.clearRect(0, 0, w, h);
       const gyro = gyroRef.current;
       const maxShift = 30;
 
       for (const p of particlesRef.current) {
         p.x = p.baseX + gyro.x * maxShift * p.speed;
         p.y = p.baseY + gyro.y * maxShift * p.speed;
-
-        // Gentle floating
         p.baseY += Math.sin(Date.now() * 0.001 * p.speed) * 0.1;
 
-        // Wrap
-        if (p.baseY < -10) p.baseY = rect.height + 10;
-        if (p.baseY > rect.height + 10) p.baseY = -10;
+        if (p.baseY < -10) p.baseY = h + 10;
+        if (p.baseY > h + 10) p.baseY = -10;
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
@@ -94,7 +92,6 @@ const GyroParticles = memo(({ className = "", count = 20, color = "0, 102, 204" 
     resize();
     initParticles();
 
-    // Try gyroscope
     if (typeof DeviceOrientationEvent !== "undefined") {
       const handler = (e: DeviceOrientationEvent) => {
         if (e.beta !== null || e.gamma !== null) {
@@ -104,8 +101,6 @@ const GyroParticles = memo(({ className = "", count = 20, color = "0, 102, 204" 
         handleOrientation(e);
       };
       window.addEventListener("deviceorientation", handler);
-
-      // Start fallback after a short delay if no gyro data
       setTimeout(() => {
         if (!hasGyro) startFallback();
       }, 500);

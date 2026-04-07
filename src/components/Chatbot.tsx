@@ -376,13 +376,13 @@ const Chatbot = () => {
       setMessages((prev) => [...prev, { id: Date.now(), text, sender: "bot" }]);
       scrollToBottom();
       onDone?.();
-    }, 600 + Math.random() * 400);
+    }, 300 + Math.random() * 200);
   }, []);
 
   const handleOpen = () => {
     setIsOpen(true);
     if (messages.length === 0) {
-      setTimeout(() => addBotMessage(QUESTIONS.welcome), 300);
+      setTimeout(() => addBotMessage(QUESTIONS.welcome), 150);
     }
   };
 

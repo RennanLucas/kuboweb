@@ -439,7 +439,14 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          <TrustIndicators className="flex-wrap gap-y-2 gap-x-4" />
+          <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
+            {trustItems.map((item) => (
+              <div key={item} className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-success shrink-0" />
+                <span className="font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Desktop */}

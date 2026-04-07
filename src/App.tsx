@@ -83,6 +83,7 @@ const App = () => {
             <Suspense fallback={null}>
               <CursorGlow />
             </Suspense>
+          </BrowserRouter>
         </TooltipProvider>
       </MotionConfig>
     </QueryClientProvider>

@@ -50,12 +50,20 @@ const cardVariants = {
 };
 
 const ServicesSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const blob1Y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
+
   return (
-  <section id="servicos" className="py-24 md:py-36 px-4 relative overflow-hidden">
-    {/* Background effects — static, no parallax */}
+  <section ref={sectionRef} id="servicos" className="py-24 md:py-36 px-4 relative overflow-hidden">
+    {/* Background effects with parallax */}
     <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-card/20" />
-    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[150px] hidden md:block" />
-    <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px] hidden md:block" />
+    <motion.div style={{ y: blob1Y }} className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[150px] hidden md:block will-change-transform" />
+    <motion.div style={{ y: blob2Y }} className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px] hidden md:block will-change-transform" />
 
     <div className="container mx-auto max-w-6xl relative z-10">
       <div className="text-center mb-12 md:mb-20 space-y-4">

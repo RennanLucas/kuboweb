@@ -434,7 +434,9 @@ const HeroSection = () => {
           </div>
 
           <TrustIndicators className="flex-wrap gap-y-2 gap-x-4" />
-          <HeroVisual mobile />
+          <Suspense fallback={<div className="w-full h-[250px]" />}>
+            <AnimatedCube className="w-full h-[250px]" />
+          </Suspense>
         </div>
 
         {/* Desktop */}

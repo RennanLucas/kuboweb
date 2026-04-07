@@ -80,7 +80,9 @@ const App = () => {
               </Routes>
             </Suspense>
             <Chatbot />
-          </BrowserRouter>
+            <Suspense fallback={null}>
+              <CursorGlow />
+            </Suspense>
         </TooltipProvider>
       </MotionConfig>
     </QueryClientProvider>

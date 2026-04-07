@@ -470,10 +470,10 @@ const HeroSection = () => {
                   <RotatingWord />
                 </AnimatePresence>
               </h1>
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
+            <motion.p
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
+                transition={{ delay: 0.15, duration: 0.35 }}
                 className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed"
               >
                 Criamos sites estratégicos que transformam visitantes em clientes — com design premium, SEO avançado e atendimento humanizado.
@@ -481,9 +481,9 @@ const HeroSection = () => {
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+              transition={{ delay: 0.2, duration: 0.35 }}
               className="flex flex-row items-center gap-3"
             >
               <MagneticButton>
@@ -515,9 +515,9 @@ const HeroSection = () => {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="flex-1 flex justify-center"
           >
             <HeroVisual />

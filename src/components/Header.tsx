@@ -67,11 +67,10 @@ const Header = () => {
   const isServicosActive = location.pathname.startsWith("/servicos");
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: hidden && !mobileOpen ? -100 : 0, opacity: hidden && !mobileOpen ? 0 : 1 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 will-change-transform ${
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 will-change-transform transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        hidden && !mobileOpen ? "-translate-y-full" : "translate-y-0"
+      } ${
         scrolled
           ? "bg-background/95 backdrop-blur-2xl border-b border-border/20 shadow-lg"
           : "bg-transparent"
@@ -80,25 +79,20 @@ const Header = () => {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center shrink-0">
-            <motion.img
+            <img
               alt="KuboWeb"
-              className="h-44 md:h-40 w-auto object-contain"
+              className="h-44 md:h-40 w-auto object-contain hover:scale-105 transition-transform duration-200"
               src={logoKuboweb}
               width={160}
               height={160}
               decoding="async"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />
           </Link>
 
           <nav className="hidden md:flex items-center gap-0.5">
-            {navLinks.map((link, i) => (
-              <motion.div
+            {navLinks.map((link) => (
+              <div
                 key={link.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + i * 0.05, duration: 0.4 }}
                 className="relative"
                 {...(link.hasDropdown
                   ? { onMouseEnter: handleDropdownEnter, onMouseLeave: handleDropdownLeave }
@@ -106,7 +100,7 @@ const Header = () => {
               >
                 <Link
                   to={link.href}
-                  className={`px-3.5 py-2 text-[13px] font-medium transition-colors rounded-lg relative inline-flex items-center gap-1 ${
+                  className={`px-3.5 py-2 text-[13px] font-medium transition-colors duration-150 rounded-lg relative inline-flex items-center gap-1 ${
                     link.hasDropdown
                       ? isServicosActive
                         ? "text-primary bg-primary/8"
@@ -118,7 +112,7 @@ const Header = () => {
                 >
                   {link.label}
                   {link.hasDropdown && (
-                    <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-3 h-3 transition-transform duration-150 ${dropdownOpen ? "rotate-180" : ""}`} />
                   )}
                   {(link.hasDropdown ? isServicosActive : location.pathname === link.href) && (
                     <motion.div
@@ -130,45 +124,33 @@ const Header = () => {
                 </Link>
 
                 {/* Dropdown */}
-                {link.hasDropdown && (
-                  <AnimatePresence>
-                    {dropdownOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute top-full left-0 pt-2 z-50"
-                      >
-                        <div className="bg-card/98 backdrop-blur-xl border border-border/50 rounded-xl shadow-xl py-2 min-w-[200px]">
-                          {serviceSubLinks.map((sub) => (
-                            <Link
-                              key={sub.href}
-                              to={sub.href}
-                              className={`block px-4 py-2.5 text-[13px] font-medium transition-colors ${
-                                location.pathname === sub.href
-                                  ? "text-primary bg-primary/8"
-                                  : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                              }`}
-                            >
-                              {sub.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                {link.hasDropdown && dropdownOpen && (
+                  <div
+                    className="absolute top-full left-0 pt-2 z-50 animate-fade-in"
+                    style={{ animationDuration: "150ms" }}
+                  >
+                    <div className="bg-card/98 backdrop-blur-xl border border-border/50 rounded-xl shadow-xl py-2 min-w-[200px]">
+                      {serviceSubLinks.map((sub) => (
+                        <Link
+                          key={sub.href}
+                          to={sub.href}
+                          className={`block px-4 py-2.5 text-[13px] font-medium transition-colors duration-150 ${
+                            location.pathname === sub.href
+                              ? "text-primary bg-primary/8"
+                              : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                          }`}
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 )}
-              </motion.div>
+              </div>
             ))}
           </nav>
 
-          <motion.div
-            className="hidden md:block"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
-          >
+          <div className="hidden md:block">
             <Button variant="whatsapp" size="sm" asChild>
               <a
                 href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F"
@@ -179,127 +161,103 @@ const Header = () => {
                 WhatsApp
               </a>
             </Button>
-          </motion.div>
+          </div>
 
-          <motion.button
+          <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
+            className="md:hidden p-2 text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-150 active:scale-90"
             aria-label="Menu"
-            whileTap={{ scale: 0.9 }}
           >
-            <AnimatePresence mode="wait">
-              {mobileOpen ? (
-                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  <X className="w-5 h-5" />
-                </motion.div>
-              ) : (
-                <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                  <Menu className="w-5 h-5" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden bg-background/98 backdrop-blur-2xl border-t border-border/30 overflow-hidden"
-          >
-            <nav className="container mx-auto px-4 py-3 flex flex-col gap-0.5">
-              {navLinks.map((link, i) => (
-                <motion.div
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05, duration: 0.3 }}
-                >
-                  {link.hasDropdown ? (
-                    <div>
-                      <button
-                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                        className={`w-full px-4 py-3 text-left text-[15px] rounded-xl transition-colors flex items-center justify-between ${
-                          isServicosActive
-                            ? "text-primary bg-primary/8"
-                            : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
-                        }`}
-                      >
-                        {link.label}
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
-                      </button>
-                      <AnimatePresence>
-                        {mobileServicesOpen && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="overflow-hidden"
-                          >
-                            <Link
-                              to={link.href}
-                              className="block px-8 py-2.5 text-[14px] text-muted-foreground hover:text-foreground transition-colors"
-                            >
-                              Todos os Serviços
-                            </Link>
-                            {serviceSubLinks.map((sub) => (
-                              <Link
-                                key={sub.href}
-                                to={sub.href}
-                                className={`block px-8 py-2.5 text-[14px] transition-colors ${
-                                  location.pathname === sub.href
-                                    ? "text-primary"
-                                    : "text-muted-foreground hover:text-foreground"
-                                }`}
-                              >
-                                {sub.label}
-                              </Link>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  ) : (
-                    <Link
-                      to={link.href}
-                      className={`px-4 py-3 text-left text-[15px] rounded-xl transition-colors block ${
-                        location.pathname === link.href
+      {/* Mobile menu — CSS grid for smooth height animation */}
+      <div
+        className={`md:hidden bg-background/98 backdrop-blur-2xl border-t border-border/30 overflow-hidden transition-[grid-template-rows] duration-250 ease-[cubic-bezier(0.16,1,0.3,1)]`}
+        style={{
+          display: "grid",
+          gridTemplateRows: mobileOpen ? "1fr" : "0fr",
+        }}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <nav className="container mx-auto px-4 py-3 flex flex-col gap-0.5">
+            {navLinks.map((link) => (
+              <div key={link.href}>
+                {link.hasDropdown ? (
+                  <div>
+                    <button
+                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                      className={`w-full px-4 py-3 text-left text-[15px] rounded-xl transition-colors duration-150 flex items-center justify-between ${
+                        isServicosActive
                           ? "text-primary bg-primary/8"
                           : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                       }`}
                     >
                       {link.label}
-                    </Link>
-                  )}
-                </motion.div>
-              ))}
-              <motion.div
-                className="pt-3 mt-2 border-t border-border/30"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35, duration: 0.3 }}
-              >
-                <Button variant="whatsapp" size="lg" className="w-full" asChild>
-                  <a
-                    href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-150 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    <div
+                      className="overflow-hidden transition-[grid-template-rows] duration-200 ease-out"
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: mobileServicesOpen ? "1fr" : "0fr",
+                      }}
+                    >
+                      <div className="min-h-0 overflow-hidden">
+                        <Link
+                          to={link.href}
+                          className="block px-8 py-2.5 text-[14px] text-muted-foreground hover:text-foreground transition-colors duration-150"
+                        >
+                          Todos os Serviços
+                        </Link>
+                        {serviceSubLinks.map((sub) => (
+                          <Link
+                            key={sub.href}
+                            to={sub.href}
+                            className={`block px-8 py-2.5 text-[14px] transition-colors duration-150 ${
+                              location.pathname === sub.href
+                                ? "text-primary"
+                                : "text-muted-foreground hover:text-foreground"
+                            }`}
+                          >
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    to={link.href}
+                    className={`px-4 py-3 text-left text-[15px] rounded-xl transition-colors duration-150 block ${
+                      location.pathname === link.href
+                        ? "text-primary bg-primary/8"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                    }`}
                   >
-                    <MessageCircle className="w-5 h-5" />
-                    Falar no WhatsApp
-                  </a>
-                </Button>
-              </motion.div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+                    {link.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+            <div className="pt-3 mt-2 border-t border-border/30">
+              <Button variant="whatsapp" size="lg" className="w-full" asChild>
+                <a
+                  href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Falar no WhatsApp
+                </a>
+              </Button>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
   );
 };
 

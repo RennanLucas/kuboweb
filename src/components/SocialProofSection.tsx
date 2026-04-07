@@ -20,34 +20,33 @@ const thirdColumn = testimonials.slice(6, 9);
 
 const SocialProofSection = () => (
   <section id="depoimentos" className="py-24 md:py-36 px-4 relative overflow-hidden">
-    {/* Background */}
     <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-primary/3 rounded-full blur-[180px] hidden md:block" />
 
     <div className="container mx-auto max-w-6xl relative z-10">
       <div className="text-center mb-12 md:mb-20 space-y-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
         >
           <p className="section-label justify-center">Depoimentos</p>
         </motion.div>
         <motion.h2
-          initial={{ opacity: 0, y: 25, scale: 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.4, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
           className="section-title"
         >
           Quem confia, <span className="text-gradient-primary">recomenda</span>
         </motion.h2>
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
           className="section-subtitle"
         >
           Mais de 150 projetos entregues e uma avaliação de 98% de satisfação.
@@ -55,10 +54,10 @@ const SocialProofSection = () => (
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         className="flex justify-center gap-4 md:gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] max-h-[600px] md:max-h-[700px] overflow-hidden"
       >
         <TestimonialsColumn testimonials={firstColumn} duration={15} />

@@ -103,75 +103,76 @@ const ServicesSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
-            <Link
-              to={service.href}
-              className="card-premium border-glow flex flex-col p-6 sm:p-7 md:p-8 group cursor-pointer h-full relative overflow-hidden"
-            >
-              {/* Animated gradient overlay */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-primary/8 via-primary/3 to-transparent"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileHover={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-              />
-              
-              {/* Shimmer effect - desktop only */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -skew-x-12 hidden md:block"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "200%" }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-              />
-              
-              <div className="relative z-10">
+            <TiltCard className="h-full group" tiltAmount={8}>
+              <Link
+                to={service.href}
+                className="card-premium border-glow flex flex-col p-6 sm:p-7 md:p-8 cursor-pointer h-full relative overflow-hidden"
+              >
+                {/* Animated gradient overlay */}
                 <motion.div
-                  whileHover={{ rotate: [0, -10, 10, 0], scale: 1.15 }}
-                  transition={{ duration: 0.5 }}
-                  className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/25 group-hover:shadow-lg group-hover:shadow-primary/15 transition-all duration-300"
-                >
-                  <service.icon className="w-5 h-5 text-primary" />
-                </motion.div>
+                  className="absolute inset-0 bg-gradient-to-br from-primary/8 via-primary/3 to-transparent"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileHover={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4 }}
+                />
                 
-                <h3 className="text-lg md:text-xl font-heading font-semibold mb-2.5 text-foreground group-hover:text-primary transition-colors duration-300">
-                  {service.title}
-                </h3>
+                {/* Shimmer effect - desktop only */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -skew-x-12 hidden md:block"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "200%" }}
+                  transition={{ duration: 0.8, ease: "easeInOut" }}
+                />
                 
-                <p className="text-muted-foreground mb-5 flex-grow text-sm leading-relaxed">
-                  {service.description}
-                </p>
-                
-                <ul className="space-y-2 mb-5">
-                  {service.features.map((feature, fi) => (
-                    <motion.li
-                      key={feature}
-                      className="flex items-center gap-2 text-sm text-muted-foreground"
-                      initial={{ opacity: 0, x: -15 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.15 + fi * 0.08 + 0.3, duration: 0.4 }}
-                    >
-                      <motion.span
-                        className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"
-                        whileHover={{ scale: 2 }}
-                        transition={{ type: "spring", stiffness: 300 }}
-                      />
-                      {feature}
-                    </motion.li>
-                  ))}
-                </ul>
+                <div className="relative z-10">
+                  <motion.div
+                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.15 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/25 group-hover:shadow-lg group-hover:shadow-primary/15 transition-all duration-300"
+                  >
+                    <service.icon className="w-5 h-5 text-primary" />
+                  </motion.div>
+                  
+                  <h3 className="text-lg md:text-xl font-heading font-semibold mb-2.5 text-foreground group-hover:text-primary transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground mb-5 flex-grow text-sm leading-relaxed">
+                    {service.description}
+                  </p>
+                  
+                  <ul className="space-y-2 mb-5">
+                    {service.features.map((feature, fi) => (
+                      <motion.li
+                        key={feature}
+                        className="flex items-center gap-2 text-sm text-muted-foreground"
+                        initial={{ opacity: 0, x: -15 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.15 + fi * 0.08 + 0.3, duration: 0.4 }}
+                      >
+                        <motion.span
+                          className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"
+                          whileHover={{ scale: 2 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                        />
+                        {feature}
+                      </motion.li>
+                    ))}
+                  </ul>
 
-                <motion.span
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary mt-auto"
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  Saiba mais
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </motion.span>
-              </div>
-            </Link>
+                  <motion.span
+                    className="inline-flex items-center gap-2 text-sm font-medium text-primary mt-auto"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    Saiba mais
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </motion.span>
+                </div>
+              </Link>
+            </TiltCard>
           </motion.div>
         ))}
       </div>

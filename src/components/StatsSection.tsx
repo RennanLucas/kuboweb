@@ -68,7 +68,7 @@ const StatsSection = () => {
           )}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

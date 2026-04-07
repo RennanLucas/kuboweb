@@ -7,6 +7,7 @@ import { MotionConfig } from "framer-motion";
 import { useEffect, useState, lazy, Suspense } from "react";
 import Index from "./pages/Index";
 const Chatbot = lazy(() => import("./components/Chatbot"));
+const CursorGlow = lazy(() => import("./components/ui/CursorGlow"));
 
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Servicos = lazy(() => import("./pages/Servicos"));

@@ -2,7 +2,7 @@ import { memo } from "react";
 import { MessageCircle, Mail, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import logoKuboweb from "@/assets/logo-kuboweb-opt.png";
+import logoKuboweb from "@/assets/logo-kuboweb-icon.png";
 
 const containerVariants = {
   hidden: { opacity: 0 },

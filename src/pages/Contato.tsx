@@ -57,8 +57,8 @@ const Contato = () => {
                   rel="noopener noreferrer"
                   className="card-premium flex items-start gap-4 p-6 hover:border-primary/30 transition-all group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[hsl(142,70%,45%)]/10 flex items-center justify-center shrink-0">
-                    <MessageCircle className="w-6 h-6 text-[hsl(142,70%,45%)]" />
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <MessageCircle className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-foreground mb-1">WhatsApp</h3>

@@ -52,15 +52,17 @@ const Portfolio = () => {
               Cada projeto nasce de um diagnóstico estratégico. Confira entregas
               recentes e os resultados que alcançamos juntos.
             </motion.p>
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.4 }}
-              className="text-xs text-muted-foreground italic max-w-lg mx-auto"
+              className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-primary/5 border border-primary/15 backdrop-blur-sm"
             >
-              🔒 Os nomes de empresas foram alterados para preservar a
-              confidencialidade dos nossos clientes.
-            </motion.p>
+              <span className="text-base">🔒</span>
+              <p className="text-sm text-foreground/80 font-medium">
+                Os nomes de empresas foram alterados para preservar a <span className="text-primary font-semibold">confidencialidade</span> dos nossos clientes.
+              </p>
+            </motion.div>
           </div>
 
           {/* Filter tabs */}

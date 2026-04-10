@@ -4,6 +4,10 @@ import imgModa from "@/assets/portfolio/moda.jpg";
 import imgFinanceira from "@/assets/portfolio/financeira.jpg";
 import imgConstrutora from "@/assets/portfolio/construtora.jpg";
 import imgCurso from "@/assets/portfolio/curso.jpg";
+import imgRestaurante from "@/assets/portfolio/restaurante.jpg";
+import imgImobiliaria from "@/assets/portfolio/imobiliaria.jpg";
+import imgAcademia from "@/assets/portfolio/academia.jpg";
+import imgPetshop from "@/assets/portfolio/petshop.jpg";
 
 export interface Project {
   slug: string;

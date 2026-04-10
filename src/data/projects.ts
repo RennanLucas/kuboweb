@@ -200,7 +200,6 @@ export const projects: Project[] = [
       },
     },
   },
-  },
   {
     slug: "restaurante-gastronomia",
     title: "Restaurante Gastronômico — RJ",

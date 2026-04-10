@@ -3,7 +3,7 @@ import { MessageCircle, User, Sparkles, ArrowRight, X, RotateCcw, Zap, TrendingU
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import botAvatar from "@/assets/logo-kuboweb-icon.png";
+import botAvatar from "@/assets/bot-avatar.png";
 
 type Message = {
   id: number;

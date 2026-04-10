@@ -511,12 +511,34 @@ const Chatbot = () => {
             </AnimatePresence>
             <motion.button
               onClick={handleOpen}
-              className="w-14 h-14 rounded-full overflow-hidden shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shrink-0 border-2 border-primary/30 bg-white"
+              className="w-14 h-14 rounded-full overflow-hidden shadow-lg flex items-center justify-center shrink-0 border-2 border-primary/30 bg-white relative group cursor-pointer"
               aria-label="Abrir consultor digital"
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              animate={{
+                scale: [1, 1.06, 1],
+                rotate: [0, -3, 3, -2, 0],
+              }}
+              transition={{
+                scale: { repeat: Infinity, duration: 2.5, ease: "easeInOut" },
+                rotate: { repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 },
+              }}
+              whileHover={{
+                scale: 1.18,
+                rotate: [0, -8, 8, -4, 0],
+                transition: { rotate: { duration: 0.5 }, scale: { duration: 0.2 } },
+              }}
+              whileTap={{ scale: 0.9 }}
             >
-              <img src={botAvatar} alt="Bot" className="w-full h-full object-contain p-1" />
+              <motion.div
+                className="absolute inset-0 rounded-full bg-primary/15"
+                animate={{ scale: [1, 1.6, 1.8], opacity: [0.5, 0.2, 0] }}
+                transition={{ repeat: Infinity, duration: 2.5, ease: "easeOut" }}
+              />
+              <motion.div
+                className="absolute inset-0 rounded-full bg-primary/10"
+                animate={{ scale: [1, 1.4, 1.6], opacity: [0.4, 0.15, 0] }}
+                transition={{ repeat: Infinity, duration: 2.5, ease: "easeOut", delay: 0.4 }}
+              />
+              <img src={botAvatar} alt="Bot" className="w-full h-full object-contain p-1 relative z-10" />
             </motion.button>
           </motion.div>
         )}
@@ -536,9 +558,14 @@ const Chatbot = () => {
             <div className="flex items-center justify-between px-4 py-3.5 border-b border-border/30 bg-card">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-full overflow-hidden border border-primary/20 bg-white">
+                  <motion.div
+                    className="w-10 h-10 rounded-full overflow-hidden border border-primary/20 bg-white"
+                    animate={{ rotate: [0, -5, 5, 0] }}
+                    transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                    whileHover={{ scale: 1.1 }}
+                  >
                     <img src={botAvatar} alt="Bot" className="w-full h-full object-contain p-1" />
-                  </div>
+                  </motion.div>
                   <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-whatsapp border-2 border-card" />
                 </div>
                 <div>

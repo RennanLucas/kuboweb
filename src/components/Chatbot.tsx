@@ -218,8 +218,8 @@ const TypingIndicator = () => (
     exit={{ opacity: 0 }}
     className="flex items-center gap-2 px-4 py-3"
   >
-    <div className="w-7 h-7 rounded-full overflow-hidden shrink-0">
-      <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
+    <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 bg-white">
+      <img src={botAvatar} alt="Bot" className="w-full h-full object-contain p-0.5" />
     </div>
     <div className="flex items-center gap-1.5 bg-accent border border-border/30 rounded-2xl px-4 py-2.5">
       {[0, 1, 2].map((i) => (
@@ -327,8 +327,8 @@ const ChatMessage = memo(({ message }: { message: Message }) => {
       className={cn("flex gap-2 px-4", isBot ? "justify-start" : "justify-end")}
     >
       {isBot && (
-        <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 mt-0.5">
-          <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
+        <div className="w-7 h-7 rounded-full overflow-hidden shrink-0 mt-0.5 bg-white">
+          <img src={botAvatar} alt="Bot" className="w-full h-full object-contain p-0.5" />
         </div>
       )}
       <div
@@ -511,12 +511,12 @@ const Chatbot = () => {
             </AnimatePresence>
             <motion.button
               onClick={handleOpen}
-              className="w-14 h-14 rounded-full overflow-hidden shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shrink-0 border-2 border-primary/30"
+              className="w-14 h-14 rounded-full overflow-hidden shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform shrink-0 border-2 border-primary/30 bg-white"
               aria-label="Abrir consultor digital"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
             >
-              <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
+              <img src={botAvatar} alt="Bot" className="w-full h-full object-contain p-1" />
             </motion.button>
           </motion.div>
         )}
@@ -536,8 +536,8 @@ const Chatbot = () => {
             <div className="flex items-center justify-between px-4 py-3.5 border-b border-border/30 bg-card">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
-                    <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
+                  <div className="w-10 h-10 rounded-full overflow-hidden border border-primary/20 bg-white">
+                    <img src={botAvatar} alt="Bot" className="w-full h-full object-contain p-1" />
                   </div>
                   <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-whatsapp border-2 border-card" />
                 </div>

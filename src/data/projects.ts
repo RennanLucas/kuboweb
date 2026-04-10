@@ -4,6 +4,10 @@ import imgModa from "@/assets/portfolio/moda.jpg";
 import imgFinanceira from "@/assets/portfolio/financeira.jpg";
 import imgConstrutora from "@/assets/portfolio/construtora.jpg";
 import imgCurso from "@/assets/portfolio/curso.jpg";
+import imgRestaurante from "@/assets/portfolio/restaurante.jpg";
+import imgImobiliaria from "@/assets/portfolio/imobiliaria.jpg";
+import imgAcademia from "@/assets/portfolio/academia.jpg";
+import imgPetshop from "@/assets/portfolio/petshop.jpg";
 
 export interface Project {
   slug: string;
@@ -193,6 +197,122 @@ export const projects: Project[] = [
         text: "A página de vendas converteu muito acima da média. Foram 320 matrículas na primeira semana. O checkout integrado eliminou toda a fricção.",
         author: "Fundador",
         role: "Curso Online de Tecnologia",
+      },
+    },
+  },
+  {
+    slug: "restaurante-gastronomia",
+    title: "Restaurante Gastronômico — RJ",
+    category: "Site Institucional",
+    image: imgRestaurante,
+    description:
+      "Criamos um site elegante para o restaurante com cardápio digital interativo, sistema de reservas online, galeria de pratos com fotografia profissional e integração com Google Maps e avaliações — elevando a experiência digital à altura da gastronomia.",
+    tags: ["Cardápio Digital", "Reservas Online", "Galeria", "Responsivo"],
+    result: "+140% de reservas online em 2 meses",
+    details: {
+      challenge:
+        "O restaurante dependia exclusivamente de ligações telefônicas para reservas e não tinha presença digital além das redes sociais. Perdia clientes que buscavam opções no Google.",
+      solution:
+        "Desenvolvemos um site institucional premium com cardápio digital categorizado, sistema de reservas integrado, galeria de pratos com fotos profissionais e otimização para buscas locais.",
+      features: [
+        "Cardápio digital interativo com categorias e preços",
+        "Sistema de reservas online com confirmação automática",
+        "Galeria de pratos com fotografia profissional",
+        "Integração com Google Maps e Google Meu Negócio",
+        "Design responsivo com foco em experiência mobile",
+        "SEO local para aparecer nas buscas da região",
+      ],
+      testimonial: {
+        text: "As reservas online triplicaram e os clientes elogiam o cardápio digital. O site elevou a percepção da marca.",
+        author: "Chef proprietário",
+        role: "Restaurante Gastronômico, Rio de Janeiro",
+      },
+    },
+  },
+  {
+    slug: "imobiliaria-premium",
+    title: "Imobiliária Premium — SP",
+    category: "Site Institucional",
+    image: imgImobiliaria,
+    description:
+      "Desenvolvemos uma plataforma imobiliária completa com busca avançada por filtros, páginas detalhadas para cada imóvel com tour virtual, calculadora de financiamento e integração com CRM para gestão de leads qualificados.",
+    tags: ["Busca Avançada", "Tour Virtual", "CRM", "Financiamento"],
+    result: "+85 leads qualificados/mês",
+    details: {
+      challenge:
+        "A imobiliária utilizava apenas portais terceiros para anunciar imóveis, pagando comissões altas e sem construir marca própria. Não tinha um canal digital independente para captar clientes.",
+      solution:
+        "Criamos um site próprio com sistema de busca avançada, páginas individuais para cada imóvel com galeria e tour virtual, calculadora de financiamento e integração com CRM para acompanhamento de leads.",
+      features: [
+        "Busca avançada com filtros por localização, preço e tipo",
+        "Páginas individuais com galeria e tour virtual",
+        "Calculadora de financiamento integrada",
+        "Integração com CRM para gestão de leads",
+        "Design premium que transmite confiança",
+        "Painel administrativo para gestão de imóveis",
+      ],
+      testimonial: {
+        text: "Saímos da dependência dos portais e hoje geramos nossos próprios leads. O site profissional fez toda a diferença na captação.",
+        author: "Diretor comercial",
+        role: "Imobiliária Premium, São Paulo",
+      },
+    },
+  },
+  {
+    slug: "academia-fitness",
+    title: "Academia & Fitness — Landing Page",
+    category: "Landing Page",
+    image: imgAcademia,
+    description:
+      "Projetamos uma landing page de alta conversão para captação de novos alunos, com planos de matrícula interativos, grade de horários das aulas, depoimentos de alunos e formulário de agendamento de aula experimental gratuita.",
+    tags: ["Alta Conversão", "Planos", "Agendamento", "Depoimentos"],
+    result: "+210 matrículas em 45 dias",
+    details: {
+      challenge:
+        "A academia enfrentava alta concorrência na região e dependia de panfletagem e indicações para captar novos alunos. Não tinha presença digital efetiva.",
+      solution:
+        "Desenvolvemos uma landing page focada em conversão com planos de matrícula comparativos, grade de horários interativa, depoimentos reais de alunos e um formulário de agendamento de aula experimental.",
+      features: [
+        "Planos de matrícula com comparação interativa",
+        "Grade de horários das aulas por modalidade",
+        "Depoimentos de alunos com fotos e resultados",
+        "Formulário de aula experimental gratuita",
+        "Contador de vagas para criar urgência",
+        "Design energético e motivacional",
+      ],
+      testimonial: {
+        text: "A landing page foi um divisor de águas. Em 45 dias, conseguimos 210 novas matrículas. O formulário de aula grátis converte muito.",
+        author: "Proprietário",
+        role: "Academia & Fitness",
+      },
+    },
+  },
+  {
+    slug: "petshop-ecommerce",
+    title: "Pet Shop Online — E-commerce",
+    category: "E-commerce",
+    image: imgPetshop,
+    description:
+      "Estruturamos uma loja virtual completa para o pet shop com catálogo de produtos por categoria e animal, sistema de assinatura mensal para ração, checkout otimizado e painel administrativo para gestão autônoma de estoque e pedidos.",
+    tags: ["E-commerce", "Assinatura", "Catálogo", "Pix"],
+    result: "R$ 63 mil em vendas no 2º mês",
+    details: {
+      challenge:
+        "O pet shop tinha apenas loja física e perdia vendas para concorrentes online. Clientes pediam opção de compra pela internet e entrega, mas não havia canal digital.",
+      solution:
+        "Criamos um e-commerce completo com catálogo categorizado por tipo de animal, sistema de assinatura mensal para ração e produtos recorrentes, checkout com Pix e cartão, e painel para gestão autônoma.",
+      features: [
+        "Catálogo categorizado por tipo de animal e produto",
+        "Sistema de assinatura mensal para ração e acessórios",
+        "Checkout otimizado com Pix e cartão de crédito",
+        "Painel administrativo para gestão de estoque",
+        "Carrinho inteligente com sugestões de produtos",
+        "Integração com transportadoras para cálculo de frete",
+      ],
+      testimonial: {
+        text: "A loja online abriu um canal de vendas que não existia. O sistema de assinatura fidelizou clientes e já faturamos R$ 63 mil no segundo mês.",
+        author: "Fundadora",
+        role: "Pet Shop Online",
       },
     },
   },

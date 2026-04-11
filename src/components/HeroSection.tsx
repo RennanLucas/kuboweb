@@ -519,10 +519,11 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex-1 flex flex-col items-center justify-center gap-6"
+            className="flex-1 flex flex-col items-center justify-center"
           >
-            {/* 3D Animated Cube */}
-            <div className="w-[280px] h-[280px] lg:w-[340px] lg:h-[340px]">
+            {/* 3D Animated Cube with glow */}
+            <div className="relative w-[320px] h-[320px] lg:w-[400px] lg:h-[400px]">
+              <div className="absolute inset-0 bg-primary/10 rounded-full blur-[80px] animate-glow-pulse" />
               <AnimatedCube />
             </div>
           </motion.div>

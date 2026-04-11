@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
 import SEO from "@/components/SEO";
-import StatsSection from "@/components/StatsSection";
 const FloatingWhatsApp = lazy(() => import("@/components/FloatingWhatsApp"));
 
 

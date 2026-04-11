@@ -71,7 +71,9 @@ const App = () => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
-            <Chatbot />
+            <Suspense fallback={null}>
+              <Chatbot />
+            </Suspense>
             <Suspense fallback={null}>
               <CursorGlow />
             </Suspense>

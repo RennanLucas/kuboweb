@@ -53,6 +53,7 @@ const App = () => {
   }, []);
 
   return (
+    <HelmetProvider>
     <QueryClientProvider client={queryClient}>
       <MotionConfig reducedMotion="user">
         <TooltipProvider>
@@ -88,6 +89,7 @@ const App = () => {
         </TooltipProvider>
       </MotionConfig>
     </QueryClientProvider>
+    </HelmetProvider>
   );
 };
 

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import SEO from "@/components/SEO";
 
 const benefits = [
   {
@@ -76,6 +77,7 @@ const itemVariants = {
 
 const Manutencao = () => (
   <div className="min-h-screen bg-background">
+    <SEO title="Manutenção de Sites" description="Planos de manutenção de sites com hospedagem, SSL, backups e suporte. Mantenha seu site sempre atualizado e seguro com a Kubo Web." path="/manutencao" />
     <Header />
 
     {/* Hero */}

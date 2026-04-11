@@ -6,10 +6,12 @@ import ProcessSection from "@/components/ProcessSection";
 import CTASection from "@/components/CTASection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Servicos = () => {
   return (
     <main className="min-h-screen bg-background">
+      <SEO title="Serviços" description="Sites institucionais, landing pages, lojas virtuais e Google Ads. Soluções digitais sob medida para transformar sua presença online." path="/servicos" />
       <Header />
       <PageHero
         title="Nossos Serviços"

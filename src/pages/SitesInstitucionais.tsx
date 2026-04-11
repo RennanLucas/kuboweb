@@ -4,6 +4,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2, Building2, Globe, Users, BarChart3, Shield, Palette } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const benefits = [
   { icon: Globe, text: "Presença digital profissional 24 horas por dia" },
@@ -34,6 +35,7 @@ const examples = [
 
 const SitesInstitucionais = () => (
   <main className="min-h-screen bg-background">
+    <SEO title="Sites Institucionais" description="Criação de sites institucionais profissionais em São Paulo. Design moderno, SEO otimizado e responsivo para sua empresa." path="/servicos/sites-institucionais" />
     <Header />
     <div className="pt-24 md:pt-32" />
 

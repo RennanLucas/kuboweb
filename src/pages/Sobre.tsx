@@ -4,6 +4,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Users, Target, Heart, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const values = [
   {
@@ -30,6 +31,7 @@ const values = [
 
 const Sobre = () => (
   <main className="min-h-screen bg-background">
+    <SEO title="Sobre Nós" description="Conheça a Kubo Web: equipe dedicada à criação de sites profissionais em São Paulo. Foco em resultados, atendimento humanizado e parceria de crescimento." path="/sobre" />
     <Header />
     <div className="pt-24 md:pt-32" />
 

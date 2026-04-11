@@ -7,6 +7,7 @@ import { MessageCircle, ArrowRight, TrendingUp, ExternalLink } from "lucide-reac
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
+import SEO from "@/components/SEO";
 
 const categories = ["Todos", ...Array.from(new Set(projects.map((p) => p.category)))];
 
@@ -20,6 +21,7 @@ const Portfolio = () => {
 
   return (
     <main className="min-h-screen bg-background bg-gradient-mesh bg-noise">
+      <SEO title="Portfólio" description="Veja projetos reais de sites, landing pages e lojas virtuais criados pela Kubo Web. Resultados comprovados para negócios em São Paulo." path="/portfolio" />
       <Header />
       <div className="pt-24 md:pt-32" />
 

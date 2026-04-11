@@ -4,6 +4,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2, Megaphone, Target, TrendingUp, Eye, Palette } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const benefits = [
   { icon: Target, text: "Alcance clientes que já estão procurando pelo seu serviço" },
@@ -30,6 +31,7 @@ const examples = [
 
 const Anuncios = () => (
   <main className="min-h-screen bg-background">
+    <SEO title="Google Ads" description="Gestão de Google Ads profissional. Apareça no topo do Google, atraia clientes qualificados e aumente suas vendas com a Kubo Web." path="/servicos/anuncios" />
     <Header />
     <div className="pt-24 md:pt-32" />
 

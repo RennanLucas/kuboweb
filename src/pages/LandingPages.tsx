@@ -4,6 +4,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2, FileText, Target, Zap, TrendingUp, Palette } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const benefits = [
   { icon: Target, text: "Focada 100% em conversão e captação de leads" },
@@ -32,6 +33,7 @@ const examples = [
 
 const LandingPages = () => (
   <main className="min-h-screen bg-background">
+    <SEO title="Landing Pages" description="Landing pages de alta conversão para captar leads e vender mais. Design persuasivo, carregamento rápido e integração com WhatsApp." path="/servicos/landing-pages" />
     <Header />
     <div className="pt-24 md:pt-32" />
 

@@ -4,6 +4,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2, ShoppingCart, CreditCard, Package, BarChart3, Palette } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const benefits = [
   { icon: ShoppingCart, text: "Venda seus produtos 24 horas por dia, 7 dias por semana" },
@@ -34,6 +35,7 @@ const examples = [
 
 const LojaVirtual = () => (
   <main className="min-h-screen bg-background">
+    <SEO title="Loja Virtual" description="Criação de loja virtual profissional com pagamento online, gestão de produtos e design personalizado. Venda 24h por dia." path="/servicos/loja-virtual" />
     <Header />
     <div className="pt-24 md:pt-32" />
 

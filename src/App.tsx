@@ -5,8 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { MotionConfig } from "framer-motion";
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useState, useCallback, lazy, Suspense } from "react";
 import Index from "./pages/Index";
+import CubeLoader from "./components/CubeLoader";
 const Chatbot = lazy(() => import("./components/Chatbot"));
 const CursorGlow = lazy(() => import("./components/ui/CursorGlow"));
 
@@ -43,6 +44,7 @@ const ScrollToTop = () => {
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
@@ -52,8 +54,11 @@ const App = () => {
     return () => mql.removeEventListener("change", onChange);
   }, []);
 
+  const handleLoaded = useCallback(() => setLoaded(true), []);
+
   return (
     <HelmetProvider>
+    {!loaded && <CubeLoader onComplete={handleLoaded} />}
     <QueryClientProvider client={queryClient}>
       <MotionConfig reducedMotion="user">
         <TooltipProvider>

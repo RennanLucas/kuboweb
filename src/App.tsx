@@ -5,9 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { MotionConfig } from "framer-motion";
-import { useEffect, useState, useCallback, lazy, Suspense } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import Index from "./pages/Index";
-import CubeLoader from "./components/CubeLoader";
 const Chatbot = lazy(() => import("./components/Chatbot"));
 const CursorGlow = lazy(() => import("./components/ui/CursorGlow"));
 

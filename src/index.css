@@ -417,6 +417,67 @@
   transition: 0s;
 }
 
+/* 3D CSS Cube - Loading Screen */
+.cube-scene {
+  width: 60px;
+  height: 60px;
+  perspective: 200px;
+}
+
+.cube-spinner {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: cubeRotate 2s ease-in-out infinite;
+}
+
+.cube-face {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px solid hsl(var(--primary) / 0.6);
+  background: hsl(var(--primary) / 0.08);
+  border-radius: 6px;
+}
+
+.cube-front  { transform: translateZ(30px); }
+.cube-back   { transform: rotateY(180deg) translateZ(30px); }
+.cube-right  { transform: rotateY(90deg) translateZ(30px); }
+.cube-left   { transform: rotateY(-90deg) translateZ(30px); }
+.cube-top    { transform: rotateX(90deg) translateZ(30px); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(30px); }
+
+@keyframes cubeRotate {
+  0%   { transform: rotateX(-20deg) rotateY(0deg); }
+  50%  { transform: rotateX(-20deg) rotateY(180deg); }
+  100% { transform: rotateX(-20deg) rotateY(360deg); }
+}
+
+/* Mini Cube - Header/Logo */
+.mini-cube-scene {
+  perspective: 100px;
+  display: inline-block;
+}
+
+.mini-cube-spinner {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: miniCubeRotate 4s linear infinite;
+}
+
+.mini-cube-face {
+  position: absolute;
+  border: 1.5px solid hsl(var(--primary) / 0.7);
+  background: hsl(var(--primary) / 0.12);
+  border-radius: 3px;
+}
+
+@keyframes miniCubeRotate {
+  0%   { transform: rotateX(-15deg) rotateY(0deg); }
+  100% { transform: rotateX(-15deg) rotateY(360deg); }
+}
+
 /* Mobile scroll reveal animations */
 @media (max-width: 767px) {
   .mobile-reveal {

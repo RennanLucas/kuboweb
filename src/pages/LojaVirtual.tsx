@@ -35,6 +35,7 @@ const examples = [
 
 const LojaVirtual = () => (
   <main className="min-h-screen bg-background">
+    <SEO title="Loja Virtual" description="Criação de loja virtual profissional com pagamento online, gestão de produtos e design personalizado. Venda 24h por dia." path="/servicos/loja-virtual" />
     <Header />
     <div className="pt-24 md:pt-32" />
 

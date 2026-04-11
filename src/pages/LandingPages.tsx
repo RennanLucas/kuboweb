@@ -33,6 +33,7 @@ const examples = [
 
 const LandingPages = () => (
   <main className="min-h-screen bg-background">
+    <SEO title="Landing Pages" description="Landing pages de alta conversão para captar leads e vender mais. Design persuasivo, carregamento rápido e integração com WhatsApp." path="/servicos/landing-pages" />
     <Header />
     <div className="pt-24 md:pt-32" />
 

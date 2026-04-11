@@ -376,6 +376,7 @@ const Diagnostico = () => {
 
   return (
     <main className="min-h-screen bg-background bg-gradient-mesh bg-noise">
+      <SEO title="Diagnóstico Digital Gratuito" description="Descubra a solução digital ideal para seu negócio. Diagnóstico gratuito com recomendação personalizada da Kubo Web." path="/diagnostico" />
       <Header />
       <section className="pt-24 pb-16 px-4">
         <div className="max-w-3xl mx-auto">

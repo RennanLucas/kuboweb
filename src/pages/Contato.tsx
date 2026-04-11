@@ -9,6 +9,7 @@ import SEO from "@/components/SEO";
 const Contato = () => {
   return (
     <main className="min-h-screen bg-background">
+      <SEO title="Contato" description="Entre em contato com a Kubo Web. WhatsApp, e-mail ou Instagram. Orçamento gratuito e resposta rápida para seu projeto web." path="/contato" />
       <Header />
       <div className="pt-20" />
 

@@ -61,6 +61,7 @@ const Calculadora = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Calculadora de ROI" description="Calcule o retorno do investimento em um site profissional. Simule ganhos com landing pages, sites e lojas virtuais." path="/calculadora" />
       <Header />
 
       <section className="pt-28 md:pt-36 pb-16 md:pb-24 px-4 relative overflow-hidden">

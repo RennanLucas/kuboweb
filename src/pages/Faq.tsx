@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 const Faq = () => {
   return (
     <main className="min-h-screen bg-background">
+      <SEO title="Perguntas Frequentes" description="Tire suas dúvidas sobre criação de sites, prazos, preços e processo de trabalho da Kubo Web. FAQ completo." path="/faq" />
       <Header />
       <div className="pt-20" />
       <FAQSection />

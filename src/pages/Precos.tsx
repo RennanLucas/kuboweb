@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 const Precos = () => {
   return (
     <main className="min-h-screen bg-background">
+      <SEO title="Preços" description="Confira os preços de criação de sites, landing pages e lojas virtuais da Kubo Web. Planos acessíveis com qualidade profissional." path="/precos" />
       <Header />
       <div className="pt-20" />
       <PricingSection />

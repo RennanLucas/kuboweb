@@ -31,6 +31,7 @@ const examples = [
 
 const Anuncios = () => (
   <main className="min-h-screen bg-background">
+    <SEO title="Google Ads" description="Gestão de Google Ads profissional. Apareça no topo do Google, atraia clientes qualificados e aumente suas vendas com a Kubo Web." path="/servicos/anuncios" />
     <Header />
     <div className="pt-24 md:pt-32" />
 

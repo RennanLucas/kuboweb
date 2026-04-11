@@ -21,6 +21,7 @@ const Portfolio = () => {
 
   return (
     <main className="min-h-screen bg-background bg-gradient-mesh bg-noise">
+      <SEO title="Portfólio" description="Veja projetos reais de sites, landing pages e lojas virtuais criados pela Kubo Web. Resultados comprovados para negócios em São Paulo." path="/portfolio" />
       <Header />
       <div className="pt-24 md:pt-32" />
 

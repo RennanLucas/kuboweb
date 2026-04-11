@@ -35,6 +35,7 @@ const examples = [
 
 const SitesInstitucionais = () => (
   <main className="min-h-screen bg-background">
+    <SEO title="Sites Institucionais" description="Criação de sites institucionais profissionais em São Paulo. Design moderno, SEO otimizado e responsivo para sua empresa." path="/servicos/sites-institucionais" />
     <Header />
     <div className="pt-24 md:pt-32" />
 

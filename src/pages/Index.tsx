@@ -6,8 +6,6 @@ import SEO from "@/components/SEO";
 const FloatingWhatsApp = lazy(() => import("@/components/FloatingWhatsApp"));
 
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
-const ClientLogosSection = lazy(() => import("@/components/ClientLogosSection"));
-const SocialProofSection = lazy(() => import("@/components/SocialProofSection"));
 const QuoteFormSection = lazy(() => import("@/components/QuoteFormSection"));
 const CTASection = lazy(() => import("@/components/CTASection"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -28,15 +26,7 @@ const Index = () => {
       <StatsSection />
       <div className="line-glow" />
       <Suspense fallback={<SectionFallback />}>
-        <ClientLogosSection />
-      </Suspense>
-      <div className="line-glow" />
-      <Suspense fallback={<SectionFallback />}>
         <ServicesSection />
-      </Suspense>
-      <div className="line-glow" />
-      <Suspense fallback={<SectionFallback />}>
-        <SocialProofSection />
       </Suspense>
       <div className="line-glow" />
       <Suspense fallback={<SectionFallback />}>

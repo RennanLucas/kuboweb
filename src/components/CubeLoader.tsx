@@ -42,7 +42,7 @@ const CubeLoader = ({ onComplete }: { onComplete: () => void }) => {
             <img
               src={logoKuboweb}
               alt="KuboWeb"
-              className="h-20 w-auto object-contain"
+              className="h-36 w-auto object-contain"
             />
           </motion.div>
         </motion.div>

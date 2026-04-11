@@ -42,15 +42,6 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
-
-  useEffect(() => {
-    const mql = window.matchMedia("(max-width: 767px)");
-    const onChange = () => setIsMobile(mql.matches);
-    onChange();
-    mql.addEventListener("change", onChange);
-    return () => mql.removeEventListener("change", onChange);
-  }, []);
-
   return (
     <HelmetProvider>
     <QueryClientProvider client={queryClient}>

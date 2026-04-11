@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { MessageCircle, Mail, MapPin, Send, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const Contato = () => {
   return (

@@ -4,6 +4,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2, Building2, Globe, Users, BarChart3, Shield, Palette } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const benefits = [
   { icon: Globe, text: "Presença digital profissional 24 horas por dia" },

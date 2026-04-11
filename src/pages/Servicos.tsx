@@ -6,6 +6,7 @@ import ProcessSection from "@/components/ProcessSection";
 import CTASection from "@/components/CTASection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Servicos = () => {
   return (

@@ -3,6 +3,7 @@ import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Faq = () => {
   return (

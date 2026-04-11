@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
+import SEO from "@/components/SEO";
+import StatsSection from "@/components/StatsSection";
 const FloatingWhatsApp = lazy(() => import("@/components/FloatingWhatsApp"));
 
 
@@ -15,6 +17,11 @@ const SectionFallback = () => <div className="py-24" />;
 const Index = () => {
   return (
     <main className="min-h-screen bg-background bg-gradient-mesh bg-noise">
+      <SEO
+        title="Kubo Web | Sites Profissionais para Negócios"
+        description="Criação de sites profissionais em São Paulo. Sites que vendem, landing pages de alta conversão, lojas virtuais e Google Ads. Atendimento direto no WhatsApp."
+        path="/"
+      />
       <Header />
       <HeroSection />
       <div className="line-glow" />

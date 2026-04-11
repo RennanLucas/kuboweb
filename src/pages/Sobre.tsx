@@ -4,6 +4,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Users, Target, Heart, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 const values = [
   {

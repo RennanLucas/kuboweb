@@ -7,6 +7,7 @@ import { MessageCircle, ArrowRight, TrendingUp, ExternalLink } from "lucide-reac
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { projects } from "@/data/projects";
+import SEO from "@/components/SEO";
 
 const categories = ["Todos", ...Array.from(new Set(projects.map((p) => p.category)))];
 

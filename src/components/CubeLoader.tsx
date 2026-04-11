@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import logoKuboweb from "@/assets/logo-kuboweb-horizontal.png";
 
 const CubeLoader = ({ onComplete }: { onComplete: () => void }) => {
   const [visible, setVisible] = useState(true);
@@ -37,10 +38,12 @@ const CubeLoader = ({ onComplete }: { onComplete: () => void }) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex items-center gap-1.5"
           >
-            <span className="text-lg font-heading font-bold text-foreground tracking-tight">Kubo</span>
-            <span className="text-lg font-heading font-bold text-primary tracking-tight">Web</span>
+            <img
+              src={logoKuboweb}
+              alt="KuboWeb"
+              className="h-20 w-auto object-contain"
+            />
           </motion.div>
         </motion.div>
       )}

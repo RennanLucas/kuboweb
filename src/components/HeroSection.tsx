@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ParticleField from "@/components/ui/ParticleField";
 import MagneticButton from "@/components/ui/MagneticButton";
 import GyroParticles from "@/components/ui/GyroParticles";
-import AnimatedCube from "@/components/AnimatedCube";
+import HeroCube from "@/components/HeroCube";
 
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];
 const whatsappUrl =
@@ -521,10 +521,10 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="flex-1 flex flex-col items-center justify-center"
           >
-            {/* 3D Animated Cube with glow */}
-            <div className="relative w-[320px] h-[320px] lg:w-[400px] lg:h-[400px]">
-              <div className="absolute inset-0 bg-primary/10 rounded-full blur-[80px] animate-glow-pulse" />
-              <AnimatedCube />
+            {/* 3D CSS Cube */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/8 rounded-full blur-[100px] scale-150 animate-glow-pulse" />
+              <HeroCube />
             </div>
           </motion.div>
         </div>

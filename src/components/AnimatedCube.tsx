@@ -24,18 +24,18 @@ const Cube = () => {
         <MeshTransmissionMaterial
           backside
           samples={6}
-          thickness={0.5}
-          chromaticAberration={0.3}
+          thickness={0.6}
+          chromaticAberration={0.4}
           anisotropy={0.3}
-          distortion={0.2}
-          distortionScale={0.3}
+          distortion={0.15}
+          distortionScale={0.2}
           temporalDistortion={0.1}
-          iridescence={1}
+          iridescence={1.2}
           iridescenceIOR={1}
           iridescenceThicknessRange={[0, 1400]}
-          color="#0066CC"
-          transmission={0.95}
-          roughness={0.05}
+          color="#1a8cff"
+          transmission={0.97}
+          roughness={0.03}
           ior={1.5}
         />
       </RoundedBox>
@@ -60,7 +60,7 @@ const EdgesCube = () => {
         <meshBasicMaterial transparent opacity={0} />
         <lineSegments>
           <edgesGeometry args={[new THREE.BoxGeometry(2.05, 2.05, 2.05)]} />
-          <lineBasicMaterial color="#0066CC" opacity={0.15} transparent />
+          <lineBasicMaterial color="#1a8cff" opacity={0.2} transparent />
         </lineSegments>
       </mesh>
     </Float>
@@ -81,7 +81,7 @@ const AnimatedCube = ({ className = "" }: AnimatedCubeProps) => {
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
-        <pointLight position={[-3, -3, 2]} intensity={0.5} color="#0066CC" />
+        <pointLight position={[-3, -3, 2]} intensity={0.8} color="#1a8cff" />
         <Cube />
         <EdgesCube />
         <Environment preset="city" />

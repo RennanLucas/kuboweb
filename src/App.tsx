@@ -42,8 +42,6 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 767px)");
@@ -53,11 +51,8 @@ const App = () => {
     return () => mql.removeEventListener("change", onChange);
   }, []);
 
-  const handleLoaded = useCallback(() => setLoaded(true), []);
-
   return (
     <HelmetProvider>
-    {!loaded && <CubeLoader onComplete={handleLoaded} />}
     <QueryClientProvider client={queryClient}>
       <MotionConfig reducedMotion="user">
         <TooltipProvider>

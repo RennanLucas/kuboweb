@@ -406,7 +406,7 @@ const HeroSection = () => {
           </motion.div>
 
           <div className="space-y-3">
-            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.12] text-foreground tracking-tight">
+            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight">
               Não tenha apenas um site. Tenha uma{" "}
               <AnimatePresence mode="wait">
                 <RotatingWord />
@@ -463,7 +463,7 @@ const HeroSection = () => {
             </motion.div>
 
             <div className="space-y-5">
-              <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.12] text-foreground tracking-[-0.02em]">
+              <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.25] text-foreground tracking-[-0.02em]">
                 <span className="block">Não tenha apenas</span>
                 <span className="block">um site. Tenha uma</span>
                 <AnimatePresence mode="wait">

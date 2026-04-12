@@ -151,12 +151,12 @@ const QuoteFormSection = () => {
                   type="submit"
                   variant="whatsapp"
                   size="lg"
-                  className="w-full shadow-lg shadow-whatsapp/20 hover:shadow-xl hover:shadow-whatsapp/30 hover:scale-[1.01] transition-all duration-300 h-14 text-base font-bold"
+                  className="w-full shadow-lg shadow-whatsapp/20 hover:shadow-xl hover:shadow-whatsapp/30 hover:scale-[1.01] transition-all duration-300 h-14 text-sm sm:text-base font-bold whitespace-normal"
                   disabled={!selected}
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  Quero mais clientes pelo WhatsApp
-                  <Send className="w-4 h-4 ml-1" />
+                  <MessageCircle className="w-5 h-5 shrink-0" />
+                  <span>Quero mais clientes pelo WhatsApp</span>
+                  <Send className="w-4 h-4 ml-1 shrink-0" />
                 </Button>
 
                 <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground">

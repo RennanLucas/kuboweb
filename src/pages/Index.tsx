@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
-import ScrollProgress from "@/components/ScrollProgress";
 import SEO from "@/components/SEO";
 const FloatingWhatsApp = lazy(() => import("@/components/FloatingWhatsApp"));
 
@@ -21,7 +20,6 @@ const Index = () => {
         description="Criação de sites profissionais em São Paulo. Sites que vendem, landing pages de alta conversão, lojas virtuais e Google Ads. Atendimento direto no WhatsApp."
         path="/"
       />
-      <ScrollProgress />
       <Header />
       <HeroSection />
       <div className="line-glow" />

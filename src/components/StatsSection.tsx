@@ -1,7 +1,6 @@
 import { memo } from "react";
 import { Clock } from "lucide-react";
 import { motion } from "framer-motion";
-import AnimatedCounter from "@/components/AnimatedCounter";
 
 interface StatItem {
   value: string;
@@ -29,10 +28,9 @@ const StatBlock = ({ label, icon, value }: StatItem) => (
     ) : icon === "clock" ? (
       <Clock className="w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 text-primary shrink-0" />
     ) : (
-      <AnimatedCounter
-        value={value}
-        className="text-xl md:text-3xl lg:text-4xl font-heading font-bold whitespace-nowrap text-primary"
-      />
+      <span className="text-xl md:text-3xl lg:text-4xl font-heading font-bold whitespace-nowrap text-primary">
+        {value}
+      </span>
     )}
     <span className="text-[10px] md:text-sm text-muted-foreground font-medium tracking-wide uppercase whitespace-nowrap">
       {label}

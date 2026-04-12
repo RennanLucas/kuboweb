@@ -34,7 +34,7 @@ const Footer = () => {
               <motion.img
                 src={logoKuboweb}
                 alt="KuboWeb"
-                className="h-32 w-auto object-contain"
+                className="h-40 w-auto object-contain"
                 width={128}
                 height={128}
                 loading="lazy"

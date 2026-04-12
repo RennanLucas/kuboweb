@@ -3,7 +3,7 @@ import { MessageCircle, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import logoKuboweb from "@/assets/logo-kuboweb-v2.png";
+import logoKuboweb from "@/assets/logo-kuboweb-new.png";
 
 
 const serviceSubLinks = [

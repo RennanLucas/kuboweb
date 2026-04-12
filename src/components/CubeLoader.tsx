@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logoKuboweb from "@/assets/logo-kuboweb-v2.png";
+import logoKuboweb from "@/assets/logo-kuboweb-new.png";
 
 const CubeLoader = ({ onComplete }: { onComplete: () => void }) => {
   const [visible, setVisible] = useState(true);

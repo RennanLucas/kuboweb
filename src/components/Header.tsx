@@ -82,7 +82,7 @@ const Header = () => {
           <Link to="/" className="flex items-center shrink-0">
             <img
               alt="KuboWeb"
-              className="h-32 md:h-36 w-auto object-contain hover:scale-105 transition-transform duration-200"
+              className="h-40 md:h-44 w-auto object-contain hover:scale-105 transition-transform duration-200"
               src={logoKuboweb}
               width={160}
               height={48}

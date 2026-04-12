@@ -515,18 +515,9 @@ const HeroSection = () => {
             <TrustIndicators />
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="flex-1 flex flex-col items-center justify-center"
-          >
-            {/* 3D CSS Cube */}
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/8 rounded-full blur-[100px] scale-150 animate-glow-pulse" />
-              <HeroCube />
-            </div>
-          </motion.div>
+          <div className="flex-1 flex flex-col items-center justify-center">
+            <HeroVisual />
+          </div>
         </div>
       </div>
     </section>

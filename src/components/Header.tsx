@@ -83,10 +83,10 @@ const Header = () => {
             <MiniCube size={22} />
             <img
               alt="KuboWeb"
-              className="h-36 md:h-40 w-auto object-contain hover:scale-105 transition-transform duration-200"
+              className="h-8 md:h-10 w-auto object-contain hover:scale-105 transition-transform duration-200"
               src={logoKuboweb}
-              width={160}
-              height={160}
+              width={120}
+              height={40}
               decoding="async"
             />
           </Link>

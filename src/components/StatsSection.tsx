@@ -22,17 +22,17 @@ const WhatsAppIcon = () => (
 );
 
 const StatBlock = ({ label, icon, value }: StatItem) => (
-  <div className="flex-shrink-0 flex items-center gap-3 px-8 md:px-12">
+  <div className="flex-shrink-0 flex items-center gap-2 px-5 md:gap-3 md:px-12">
     {icon === "whatsapp" ? (
       <WhatsAppIcon />
     ) : icon === "clock" ? (
       <Clock className="w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 text-primary shrink-0" />
     ) : (
-      <span className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold whitespace-nowrap text-primary">
+      <span className="text-xl md:text-3xl lg:text-4xl font-heading font-bold whitespace-nowrap text-primary">
         {value}
       </span>
     )}
-    <span className="text-xs md:text-sm text-muted-foreground font-medium tracking-wide uppercase whitespace-nowrap">
+    <span className="text-[10px] md:text-sm text-muted-foreground font-medium tracking-wide uppercase whitespace-nowrap">
       {label}
     </span>
   </div>

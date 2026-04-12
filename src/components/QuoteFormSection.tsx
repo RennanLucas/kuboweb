@@ -104,13 +104,19 @@ const QuoteFormSection = () => {
                 <div className="space-y-3">
                   <label className="text-sm font-semibold text-foreground">O que você está buscando?</label>
                   <div className="grid grid-cols-2 gap-3">
-                    {serviceTypes.map(s => {
+                    {serviceTypes.map((s, i) => {
                       const Icon = s.icon;
                       const isSelected = selected === s.id;
                       return (
-                        <button
+                        <motion.button
                           key={s.id}
                           type="button"
+                          initial={{ opacity: 0, y: 15 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.1, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.97 }}
                           onClick={() => setSelected(s.id)}
                           className={`group flex flex-col items-center gap-2 p-4 rounded-xl border text-center transition-all duration-300 ${
                             isSelected
@@ -128,7 +134,7 @@ const QuoteFormSection = () => {
                           <span className={`text-xs font-medium leading-tight transition-colors duration-200 ${isSelected ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}`}>
                             {s.label}
                           </span>
-                        </button>
+                        </motion.button>
                       );
                     })}
                   </div>

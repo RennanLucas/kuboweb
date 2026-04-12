@@ -6,10 +6,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { MessageCircle, Send, Globe, ShoppingBag, Megaphone, FileText, CheckCircle2 } from "lucide-react";
 
 const serviceTypes = [
-  { id: "site", label: "Site Institucional", icon: Globe },
-  { id: "loja", label: "Loja Virtual", icon: ShoppingBag },
-  { id: "landing", label: "Landing Page", icon: FileText },
-  { id: "anuncios", label: "Google Ads", icon: Megaphone },
+  { id: "site", label: "Site para gerar autoridade", icon: Globe },
+  { id: "loja", label: "Loja virtual para vender online", icon: ShoppingBag },
+  { id: "landing", label: "Página focada em vendas", icon: FileText },
+  { id: "anuncios", label: "Tráfego pago (Google Ads)", icon: Megaphone },
 ] as const;
 
 type ServiceType = typeof serviceTypes[number]["id"];
@@ -58,7 +58,7 @@ const QuoteFormSection = () => {
             transition={{ duration: 0.4, delay: 0.05 }}
             className="section-title"
           >
-            Solicite seu <span className="text-gradient-primary">orçamento</span>
+            O que você <span className="text-gradient-primary">precisa?</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -67,7 +67,7 @@ const QuoteFormSection = () => {
             transition={{ duration: 0.3, delay: 0.1 }}
             className="section-subtitle"
           >
-            Selecione o serviço, preencha seus dados e fale direto no WhatsApp.
+            Escolha o que faz sentido para o seu negócio e fale direto com a gente.
           </motion.p>
         </div>
 
@@ -102,7 +102,7 @@ const QuoteFormSection = () => {
               >
                 {/* Service type selection */}
                 <div className="space-y-3">
-                  <label className="text-sm font-medium text-foreground">Tipo de serviço</label>
+                  <label className="text-sm font-semibold text-foreground">O que você está buscando?</label>
                   <div className="grid grid-cols-2 gap-3">
                     {serviceTypes.map(s => {
                       const Icon = s.icon;
@@ -112,14 +112,20 @@ const QuoteFormSection = () => {
                           key={s.id}
                           type="button"
                           onClick={() => setSelected(s.id)}
-                          className={`flex items-center gap-3 p-4 rounded-xl border text-left transition-all duration-200 ${
+                          className={`group flex items-center gap-3 p-4 rounded-xl border text-left transition-all duration-300 ${
                             isSelected
-                              ? "border-primary/50 bg-primary/5 shadow-glow-sm"
-                              : "border-border/50 bg-card/50 hover:border-primary/30"
+                              ? "border-primary bg-primary/8 shadow-md shadow-primary/10 scale-[1.02]"
+                              : "border-border/50 bg-card/50 hover:border-primary/40 hover:bg-primary/3 hover:shadow-sm"
                           }`}
                         >
-                          <Icon className={`w-5 h-5 ${isSelected ? "text-primary" : "text-muted-foreground"}`} />
-                          <span className={`text-sm font-medium ${isSelected ? "text-foreground" : "text-muted-foreground"}`}>
+                          <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${
+                            isSelected
+                              ? "bg-primary text-primary-foreground shadow-sm shadow-primary/20"
+                              : "bg-muted/40 text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary"
+                          }`}>
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <span className={`text-sm font-medium leading-tight transition-colors duration-200 ${isSelected ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}`}>
                             {s.label}
                           </span>
                         </button>
@@ -130,14 +136,14 @@ const QuoteFormSection = () => {
 
                 {/* Name */}
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-foreground">Seu nome</label>
-                  <Input id="name" name="name" placeholder="Como podemos te chamar?" required maxLength={100} />
+                  <label htmlFor="name" className="text-sm font-semibold text-foreground">Seu nome</label>
+                  <Input id="name" name="name" placeholder="Como você gostaria de ser chamado?" required maxLength={100} className="h-12 text-sm" />
                 </div>
 
                 {/* Details */}
                 <div className="space-y-2">
-                  <label htmlFor="details" className="text-sm font-medium text-foreground">Conte um pouco sobre o projeto <span className="text-muted-foreground">(opcional)</span></label>
-                  <Textarea id="details" name="details" placeholder="Ex: Preciso de um site para minha clínica com agendamento online..." rows={3} maxLength={500} />
+                  <label htmlFor="details" className="text-sm font-semibold text-foreground">Conte um pouco sobre o projeto <span className="text-muted-foreground font-normal">(opcional)</span></label>
+                  <Textarea id="details" name="details" placeholder="Ex: Tenho uma loja de roupas e quero vender online com entrega em SP..." rows={3} maxLength={500} className="text-sm" />
                 </div>
 
                 {/* Submit */}
@@ -145,17 +151,19 @@ const QuoteFormSection = () => {
                   type="submit"
                   variant="whatsapp"
                   size="lg"
-                  className="w-full shadow-glow-sm"
+                  className="w-full shadow-lg shadow-whatsapp/20 hover:shadow-xl hover:shadow-whatsapp/30 hover:scale-[1.01] transition-all duration-300 h-14 text-base font-bold"
                   disabled={!selected}
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Enviar pelo WhatsApp
+                  Quero mais clientes pelo WhatsApp
                   <Send className="w-4 h-4 ml-1" />
                 </Button>
 
-                <p className="text-xs text-center text-muted-foreground">
-                  Atendimento humanizado · Resposta em até 2h · Sem compromisso
-                </p>
+                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-success" />Resposta em até 2h</span>
+                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-success" />Sem compromisso</span>
+                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-success" />Atendimento humano</span>
+                </div>
               </motion.form>
             )}
           </AnimatePresence>

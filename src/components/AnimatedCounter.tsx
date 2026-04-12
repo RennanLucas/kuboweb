@@ -14,6 +14,12 @@ const AnimatedCounter = ({ value, className = "" }: AnimatedCounterProps) => {
   useEffect(() => {
     if (!isInView) return;
 
+    // If value contains a dash (range like "7-15"), don't animate — just show it
+    if (value.includes("-")) {
+      setDisplay(value);
+      return;
+    }
+
     const prefix = value.match(/^[+<]*/)?.[0] || "";
     const suffix = value.match(/[%+]*$/)?.[0] || "";
     const numStr = value.replace(/[^0-9.]/g, "");

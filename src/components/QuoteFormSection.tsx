@@ -112,20 +112,20 @@ const QuoteFormSection = () => {
                           key={s.id}
                           type="button"
                           onClick={() => setSelected(s.id)}
-                          className={`group flex items-center gap-3 p-4 rounded-xl border text-left transition-all duration-300 ${
+                          className={`group flex flex-col items-center gap-2 p-4 rounded-xl border text-center transition-all duration-300 ${
                             isSelected
                               ? "border-primary bg-primary/8 shadow-md shadow-primary/10 scale-[1.02]"
                               : "border-border/50 bg-card/50 hover:border-primary/40 hover:bg-primary/3 hover:shadow-sm"
                           }`}
                         >
-                          <div className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${
+                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${
                             isSelected
                               ? "bg-primary text-primary-foreground shadow-sm shadow-primary/20"
                               : "bg-muted/40 text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary"
                           }`}>
-                            <Icon className="w-4 h-4" />
+                            <Icon className="w-5 h-5" />
                           </div>
-                          <span className={`text-sm font-medium leading-tight transition-colors duration-200 ${isSelected ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}`}>
+                          <span className={`text-xs font-medium leading-tight transition-colors duration-200 ${isSelected ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"}`}>
                             {s.label}
                           </span>
                         </button>

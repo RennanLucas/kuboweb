@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logoKuboweb from "@/assets/logo-kuboweb-new.png";
-import MiniCube from "@/components/MiniCube";
+
 
 const serviceSubLinks = [
   { label: "Sites Institucionais", href: "/servicos/sites-institucionais" },
@@ -79,14 +79,13 @@ const Header = () => {
     >
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            <MiniCube size={22} />
+          <Link to="/" className="flex items-center shrink-0">
             <img
               alt="KuboWeb"
-              className="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-200"
+              className="h-12 md:h-16 w-auto object-contain hover:scale-105 transition-transform duration-200"
               src={logoKuboweb}
-              width={120}
-              height={40}
+              width={160}
+              height={48}
               decoding="async"
             />
           </Link>

@@ -155,7 +155,8 @@ const QuoteFormSection = () => {
                   disabled={!selected}
                 >
                   <MessageCircle className="w-5 h-5 shrink-0" />
-                  <span>Quero mais clientes pelo WhatsApp</span>
+                  <span className="hidden sm:inline">Quero mais clientes pelo WhatsApp</span>
+                  <span className="sm:hidden">Falar pelo WhatsApp</span>
                   <Send className="w-4 h-4 ml-1 shrink-0" />
                 </Button>
 

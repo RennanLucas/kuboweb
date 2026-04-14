@@ -58,14 +58,13 @@ const Footer = () => {
                 { label: "Portfólio", href: "/portfolio" },
                 { label: "Manutenção", href: "/manutencao" },
               ].map((link) => (
-                <motion.div key={link.href} whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors w-fit inline-block"
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 w-fit inline-block"
+                >
+                  {link.label}
+                </Link>
               ))}
             </nav>
           </motion.div>
@@ -78,14 +77,13 @@ const Footer = () => {
                 { label: "FAQ", href: "/faq" },
                 { label: "Contato", href: "/contato" },
               ].map((link) => (
-                <motion.div key={link.href} whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors w-fit inline-block"
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 w-fit inline-block"
+                >
+                  {link.label}
+                </Link>
               ))}
             </nav>
           </motion.div>

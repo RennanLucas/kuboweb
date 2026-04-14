@@ -20,8 +20,8 @@ const itemVariants = {
 const Footer = () => {
   return (
     <footer className="py-14 md:py-16 px-4 border-t border-border/20 bg-card/30 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-primary/3 rounded-full blur-[120px] hidden md:block" />
-      <div className="container mx-auto max-w-6xl">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-primary/3 rounded-full blur-[120px] hidden md:block pointer-events-none" />
+      <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -58,14 +58,13 @@ const Footer = () => {
                 { label: "Portfólio", href: "/portfolio" },
                 { label: "Manutenção", href: "/manutencao" },
               ].map((link) => (
-                <motion.div key={link.href} whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors w-fit inline-block"
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 w-fit inline-block"
+                >
+                  {link.label}
+                </Link>
               ))}
             </nav>
           </motion.div>
@@ -78,14 +77,13 @@ const Footer = () => {
                 { label: "FAQ", href: "/faq" },
                 { label: "Contato", href: "/contato" },
               ].map((link) => (
-                <motion.div key={link.href} whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors w-fit inline-block"
-                  >
-                    {link.label}
-                  </Link>
-                </motion.div>
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 w-fit inline-block"
+                >
+                  {link.label}
+                </Link>
               ))}
             </nav>
           </motion.div>

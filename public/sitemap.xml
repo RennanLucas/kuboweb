@@ -1,72 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://kuboweb.lovable.app/</loc>
+    <loc>https://www.kuboweb.com.br/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://kuboweb.lovable.app/sobre</loc>
+    <loc>https://www.kuboweb.com.br/sobre</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kuboweb.lovable.app/servicos</loc>
+    <loc>https://www.kuboweb.com.br/servicos</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://kuboweb.lovable.app/portfolio</loc>
+    <loc>https://www.kuboweb.com.br/portfolio</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kuboweb.lovable.app/precos</loc>
+    <loc>https://www.kuboweb.com.br/diagnostico</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://kuboweb.lovable.app/contato</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://kuboweb.lovable.app/faq</loc>
+    <loc>https://www.kuboweb.com.br/faq</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://kuboweb.lovable.app/diagnostico</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://kuboweb.lovable.app/manutencao</loc>
+    <loc>https://www.kuboweb.com.br/contato</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kuboweb.lovable.app/calculadora</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://kuboweb.lovable.app/servicos/sites-institucionais</loc>
+    <loc>https://www.kuboweb.com.br/manutencao</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kuboweb.lovable.app/servicos/landing-pages</loc>
+    <loc>https://www.kuboweb.com.br/servicos/sites-institucionais</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kuboweb.lovable.app/servicos/loja-virtual</loc>
+    <loc>https://www.kuboweb.com.br/servicos/landing-pages</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://kuboweb.lovable.app/servicos/anuncios</loc>
+    <loc>https://www.kuboweb.com.br/servicos/loja-virtual</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.kuboweb.com.br/servicos/anuncios</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

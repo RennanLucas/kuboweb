@@ -56,6 +56,7 @@ const Footer = () => {
                 { label: "Sobre", href: "/sobre" },
                 { label: "Serviços", href: "/servicos" },
                 { label: "Portfólio", href: "/portfolio" },
+                { label: "Manutenção", href: "/manutencao" },
               ].map((link) => (
                 <motion.div key={link.href} whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 300 }}>
                   <Link
@@ -73,7 +74,7 @@ const Footer = () => {
             <h4 className="font-heading font-semibold text-foreground text-sm tracking-wide">Informações</h4>
             <nav className="flex flex-col gap-2.5">
               {[
-                { label: "Preços", href: "/precos" },
+                { label: "Consultoria", href: "/diagnostico" },
                 { label: "FAQ", href: "/faq" },
                 { label: "Contato", href: "/contato" },
               ].map((link) => (

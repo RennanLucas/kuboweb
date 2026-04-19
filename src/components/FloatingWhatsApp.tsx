@@ -35,6 +35,13 @@ const FloatingWhatsApp = () => {
         rel="noopener noreferrer"
         className="flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg shadow-whatsapp/30 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_3]"
         aria-label="Falar no WhatsApp"
+        onClick={(e) => {
+          const w = window as unknown as { gtagSendEvent?: (u: string) => boolean };
+          if (typeof w.gtagSendEvent === "function") {
+            e.preventDefault();
+            w.gtagSendEvent(e.currentTarget.href);
+          }
+        }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         initial={{ scale: 0, opacity: 0 }}

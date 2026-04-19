@@ -40,6 +40,14 @@ export const cidades: Cidade[] = [
   { slug: "niteroi", nome: "Niterói", estado: "Rio de Janeiro", uf: "RJ", regiao: "Sudeste", contexto: "cidade vizinha ao Rio com alto poder de compra e mercado de serviços em forte expansão" },
   { slug: "joinville", nome: "Joinville", estado: "Santa Catarina", uf: "SC", regiao: "Sul", contexto: "maior cidade catarinense e polo industrial e tecnológico do Sul do Brasil" },
   { slug: "ribeirao-preto", nome: "Ribeirão Preto", estado: "São Paulo", uf: "SP", regiao: "Sudeste", contexto: "capital do agronegócio paulista, com economia aquecida e empresários investindo em digital" },
+  { slug: "sorocaba", nome: "Sorocaba", estado: "São Paulo", uf: "SP", regiao: "Sudeste", contexto: "polo industrial e tecnológico do interior paulista, com forte presença de indústrias e startups" },
+  { slug: "uberlandia", nome: "Uberlândia", estado: "Minas Gerais", uf: "MG", regiao: "Sudeste", contexto: "principal centro econômico do Triângulo Mineiro, com agronegócio, logística e comércio em alta" },
+  { slug: "caxias-do-sul", nome: "Caxias do Sul", estado: "Rio Grande do Sul", uf: "RS", regiao: "Sul", contexto: "polo industrial da Serra Gaúcha, com forte presença de metalurgia, vinícolas e turismo" },
+  { slug: "londrina", nome: "Londrina", estado: "Paraná", uf: "PR", regiao: "Sul", contexto: "segunda maior cidade do Paraná, com economia diversificada em agronegócio, comércio e serviços" },
+  { slug: "maringa", nome: "Maringá", estado: "Paraná", uf: "PR", regiao: "Sul", contexto: "referência em qualidade de vida no Sul, com setor de comércio, serviços e construção em expansão" },
+  { slug: "sao-jose-dos-campos", nome: "São José dos Campos", estado: "São Paulo", uf: "SP", regiao: "Sudeste", contexto: "polo aeroespacial e tecnológico do Vale do Paraíba, com forte presença de empresas de inovação" },
+  { slug: "feira-de-santana", nome: "Feira de Santana", estado: "Bahia", uf: "BA", regiao: "Nordeste", contexto: "principal entroncamento rodoviário do Nordeste, com comércio aquecido e mercado em expansão" },
+  { slug: "vila-velha", nome: "Vila Velha", estado: "Espírito Santo", uf: "ES", regiao: "Sudeste", contexto: "maior cidade capixaba em população, com mercado de serviços, turismo e comércio em crescimento" },
 ];
 
 export const getCidadeBySlug = (slug: string): Cidade | undefined =>

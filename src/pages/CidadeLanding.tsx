@@ -1,6 +1,13 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MessageCircle, CheckCircle2, MapPin, Rocket, Search, ShoppingBag, Megaphone, ArrowRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+import { MessageCircle, CheckCircle2, MapPin, Rocket, Search, ShoppingBag, Megaphone, ArrowRight, HelpCircle } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";

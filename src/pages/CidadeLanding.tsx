@@ -1,6 +1,13 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MessageCircle, CheckCircle2, MapPin, Rocket, Search, ShoppingBag, Megaphone, ArrowRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+import { MessageCircle, CheckCircle2, MapPin, Rocket, Search, ShoppingBag, Megaphone, ArrowRight, HelpCircle } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
@@ -55,9 +62,45 @@ const CidadeLanding = () => {
     url: `https://www.kuboweb.com.br${path}`,
   };
 
+  const faqs = [
+    {
+      q: `Quanto custa criar um site em ${cidade.nome}?`,
+      a: `O investimento para criar um site profissional em ${cidade.nome}/${cidade.uf} varia conforme o escopo: site institucional, landing page ou loja virtual. A Kubo Web trabalha com orçamentos personalizados — fale com um especialista pelo WhatsApp e receba uma proposta sob medida.`,
+    },
+    {
+      q: `A Kubo Web atende empresas de ${cidade.nome} sendo 100% online?`,
+      a: `Sim. Atendemos empresas de ${cidade.nome} e de toda a região ${cidade.regiao} de forma 100% online, via WhatsApp, e-mail e videochamadas, com processo estruturado para entregar sites profissionais sem reuniões presenciais.`,
+    },
+    {
+      q: `Em quanto tempo o site da minha empresa em ${cidade.nome} fica pronto?`,
+      a: `Sites institucionais e landing pages são entregues em até 7 dias úteis. Lojas virtuais e projetos maiores levam de 15 a 30 dias, conforme a complexidade. Todo o cronograma é alinhado no início do projeto.`,
+    },
+    {
+      q: `O site será otimizado para aparecer no Google em buscas de ${cidade.nome}?`,
+      a: `Sim. Todos os sites já saem com SEO técnico aplicado: estrutura semântica, meta tags, schema, performance otimizada e responsividade mobile. Para acelerar resultados, oferecemos campanhas de Google Ads segmentadas para ${cidade.nome} e região.`,
+    },
+    {
+      q: `Vocês oferecem manutenção do site após a entrega em ${cidade.nome}?`,
+      a: `Sim. Oferecemos planos de manutenção mensal com atualizações de conteúdo, correções, backups, monitoramento e suporte técnico — para que seu site continue performando ao longo do tempo.`,
+    },
+  ];
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <main className="min-h-screen bg-background">
       <SEO title={title} description={description} path={path} jsonLd={jsonLd} />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+      </Helmet>
       <Header />
       <div className="pt-24 md:pt-32" />
 
@@ -150,6 +193,33 @@ const CidadeLanding = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <div className="line-glow" />
+
+      {/* FAQ */}
+      <section className="px-4 py-16 md:py-24">
+        <div className="container mx-auto max-w-3xl">
+          <div className="text-center mb-10 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/15 text-xs text-primary font-medium">
+              <HelpCircle className="w-3.5 h-3.5" />
+              Perguntas frequentes
+            </div>
+            <h2 className="section-title">Dúvidas sobre criação de sites em {cidade.nome}</h2>
+          </div>
+          <Accordion type="single" collapsible className="card-premium px-5 md:px-7">
+            {faqs.map((f, i) => (
+              <AccordionItem key={i} value={`item-${i}`} className="border-border/40 last:border-0">
+                <AccordionTrigger className="text-left text-base font-heading font-medium hover:no-underline">
+                  {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
 

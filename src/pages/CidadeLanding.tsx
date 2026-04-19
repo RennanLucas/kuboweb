@@ -198,6 +198,33 @@ const CidadeLanding = () => {
 
       <div className="line-glow" />
 
+      {/* FAQ */}
+      <section className="px-4 py-16 md:py-24">
+        <div className="container mx-auto max-w-3xl">
+          <div className="text-center mb-10 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/15 text-xs text-primary font-medium">
+              <HelpCircle className="w-3.5 h-3.5" />
+              Perguntas frequentes
+            </div>
+            <h2 className="section-title">Dúvidas sobre criação de sites em {cidade.nome}</h2>
+          </div>
+          <Accordion type="single" collapsible className="card-premium px-5 md:px-7">
+            {faqs.map((f, i) => (
+              <AccordionItem key={i} value={`item-${i}`} className="border-border/40 last:border-0">
+                <AccordionTrigger className="text-left text-base font-heading font-medium hover:no-underline">
+                  {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      <div className="line-glow" />
+
       {/* CTA Final */}
       <section className="px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-3xl text-center space-y-6">

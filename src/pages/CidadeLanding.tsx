@@ -62,9 +62,45 @@ const CidadeLanding = () => {
     url: `https://www.kuboweb.com.br${path}`,
   };
 
+  const faqs = [
+    {
+      q: `Quanto custa criar um site em ${cidade.nome}?`,
+      a: `O investimento para criar um site profissional em ${cidade.nome}/${cidade.uf} varia conforme o escopo: site institucional, landing page ou loja virtual. A Kubo Web trabalha com orçamentos personalizados — fale com um especialista pelo WhatsApp e receba uma proposta sob medida.`,
+    },
+    {
+      q: `A Kubo Web atende empresas de ${cidade.nome} sendo 100% online?`,
+      a: `Sim. Atendemos empresas de ${cidade.nome} e de toda a região ${cidade.regiao} de forma 100% online, via WhatsApp, e-mail e videochamadas, com processo estruturado para entregar sites profissionais sem reuniões presenciais.`,
+    },
+    {
+      q: `Em quanto tempo o site da minha empresa em ${cidade.nome} fica pronto?`,
+      a: `Sites institucionais e landing pages são entregues em até 7 dias úteis. Lojas virtuais e projetos maiores levam de 15 a 30 dias, conforme a complexidade. Todo o cronograma é alinhado no início do projeto.`,
+    },
+    {
+      q: `O site será otimizado para aparecer no Google em buscas de ${cidade.nome}?`,
+      a: `Sim. Todos os sites já saem com SEO técnico aplicado: estrutura semântica, meta tags, schema, performance otimizada e responsividade mobile. Para acelerar resultados, oferecemos campanhas de Google Ads segmentadas para ${cidade.nome} e região.`,
+    },
+    {
+      q: `Vocês oferecem manutenção do site após a entrega em ${cidade.nome}?`,
+      a: `Sim. Oferecemos planos de manutenção mensal com atualizações de conteúdo, correções, backups, monitoramento e suporte técnico — para que seu site continue performando ao longo do tempo.`,
+    },
+  ];
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <main className="min-h-screen bg-background">
       <SEO title={title} description={description} path={path} jsonLd={jsonLd} />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+      </Helmet>
       <Header />
       <div className="pt-24 md:pt-32" />
 

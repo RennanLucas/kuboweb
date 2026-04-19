@@ -22,6 +22,8 @@ const LandingPages = lazy(() => import("./pages/LandingPages"));
 const LojaVirtual = lazy(() => import("./pages/LojaVirtual"));
 const Anuncios = lazy(() => import("./pages/Anuncios"));
 const Manutencao = lazy(() => import("./pages/Manutencao"));
+const Atendimento = lazy(() => import("./pages/Atendimento"));
+const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -67,6 +69,8 @@ const App = () => {
                 <Route path="/servicos/loja-virtual" element={<LojaVirtual />} />
                 <Route path="/servicos/anuncios" element={<Anuncios />} />
                 <Route path="/manutencao" element={<Manutencao />} />
+                <Route path="/atendimento" element={<Atendimento />} />
+                <Route path="/criacao-de-sites-:slug" element={<CidadeLanding />} />
                 
                 <Route path="*" element={<NotFound />} />
               </Routes>

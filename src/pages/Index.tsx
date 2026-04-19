@@ -16,8 +16,8 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-background bg-gradient-mesh bg-noise">
       <SEO
-        title="Kubo Web | Sites Profissionais para Negócios"
-        description="Criação de sites profissionais em São Paulo. Sites que vendem, landing pages de alta conversão, lojas virtuais e Google Ads. Atendimento direto no WhatsApp."
+        title="Kubo Web | Criação de Sites Profissionais no Brasil"
+        description="Criação de sites profissionais em todo o Brasil. Sites institucionais, landing pages que convertem, lojas virtuais e Google Ads. Atendimento 100% online via WhatsApp."
         path="/"
       />
       <Header />

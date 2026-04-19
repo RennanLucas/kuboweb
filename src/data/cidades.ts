@@ -35,6 +35,11 @@ export const cidades: Cidade[] = [
   { slug: "rio-branco", nome: "Rio Branco", estado: "Acre", uf: "AC", regiao: "Norte", contexto: "capital acreana com mercado local em desenvolvimento e necessidade de presença digital" },
   { slug: "boa-vista", nome: "Boa Vista", estado: "Roraima", uf: "RR", regiao: "Norte", contexto: "capital de Roraima com comércio e serviços em crescimento e mercado digital pouco explorado" },
   { slug: "macapa", nome: "Macapá", estado: "Amapá", uf: "AP", regiao: "Norte", contexto: "capital amapaense com setor de comércio e serviços em expansão e baixa concorrência digital" },
+  { slug: "campinas", nome: "Campinas", estado: "São Paulo", uf: "SP", regiao: "Sudeste", contexto: "polo de tecnologia e inovação do interior paulista, com forte presença de empresas de alto padrão" },
+  { slug: "santos", nome: "Santos", estado: "São Paulo", uf: "SP", regiao: "Sudeste", contexto: "principal porto da América Latina, com economia diversificada em logística, turismo e serviços" },
+  { slug: "niteroi", nome: "Niterói", estado: "Rio de Janeiro", uf: "RJ", regiao: "Sudeste", contexto: "cidade vizinha ao Rio com alto poder de compra e mercado de serviços em forte expansão" },
+  { slug: "joinville", nome: "Joinville", estado: "Santa Catarina", uf: "SC", regiao: "Sul", contexto: "maior cidade catarinense e polo industrial e tecnológico do Sul do Brasil" },
+  { slug: "ribeirao-preto", nome: "Ribeirão Preto", estado: "São Paulo", uf: "SP", regiao: "Sudeste", contexto: "capital do agronegócio paulista, com economia aquecida e empresários investindo em digital" },
 ];
 
 export const getCidadeBySlug = (slug: string): Cidade | undefined =>

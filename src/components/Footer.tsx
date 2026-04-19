@@ -76,6 +76,7 @@ const Footer = () => {
                 { label: "Consultoria", href: "/diagnostico" },
                 { label: "FAQ", href: "/faq" },
                 { label: "Contato", href: "/contato" },
+                { label: "Atendemos no Brasil", href: "/atendimento" },
               ].map((link) => (
                 <Link
                   key={link.href}

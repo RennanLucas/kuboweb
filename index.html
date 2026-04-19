@@ -39,6 +39,18 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-17979954388');
+
+      // Helper: dispara evento de conversão e abre URL após callback
+      window.gtagSendEvent = function(url) {
+        var callback = function () {
+          if (typeof url === 'string') { window.open(url, '_blank', 'noopener,noreferrer'); }
+        };
+        gtag('event', 'ads_conversion_Solicitar_cota_o_1', {
+          'event_callback': callback,
+          'event_timeout': 2000,
+        });
+        return false;
+      };
     </script>
 
     <!-- Verification -->

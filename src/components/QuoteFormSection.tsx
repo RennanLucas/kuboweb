@@ -31,7 +31,13 @@ const QuoteFormSection = () => {
     const details = (fd.get("details") as string) || "";
     const service = serviceTypes.find(s => s.id === selected)?.label || "serviços";
 
-    window.open(whatsappUrl(name, service, details), "_blank", "noopener,noreferrer");
+    const url = whatsappUrl(name, service, details);
+    const w = window as unknown as { gtagSendEvent?: (u: string) => boolean };
+    if (typeof w.gtagSendEvent === "function") {
+      w.gtagSendEvent(url);
+    } else {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
   };

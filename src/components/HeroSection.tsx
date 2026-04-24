@@ -408,13 +408,15 @@ const HeroSection = () => {
 
           <div className="space-y-3">
             <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight">
-              Não tenha apenas um site. Tenha uma{" "}
-              <AnimatePresence mode="wait">
-                <RotatingWord />
-              </AnimatePresence>
+              Site profissional pronto em até{" "}
+              <span className="text-gradient-hero inline-block">30 dias</span>, sem dor de cabeça técnica.
             </h1>
             <p className="text-[14px] text-muted-foreground leading-relaxed">
-              Sites estratégicos que transformam visitantes em clientes — com design premium, SEO e atendimento direto.
+              Para empresas que precisam de uma{" "}
+              <AnimatePresence mode="wait">
+                <RotatingWord />
+              </AnimatePresence>{" "}
+              — com design premium, SEO e atendimento direto comigo, sem terceirizar.
             </p>
           </div>
 
@@ -423,10 +425,14 @@ const HeroSection = () => {
               <Button variant="whatsapp" size="xl" asChild className="w-full shadow-glow-sm">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
-                  Falar no WhatsApp
+                  Sim, quero meu site
                 </a>
               </Button>
             </motion.div>
+            <p className="text-[11px] text-center text-muted-foreground -mt-1">
+              <Lock className="w-2.5 h-2.5 inline mr-1 -mt-0.5" />
+              Resposta em até 1h · Orçamento sem compromisso
+            </p>
             <motion.div whileTap={{ scale: 0.98 }}>
               <Button
                 variant="outline"
@@ -465,11 +471,9 @@ const HeroSection = () => {
 
             <div className="space-y-5">
               <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.25] text-foreground tracking-[-0.02em]">
-                <span className="block">Não tenha apenas</span>
-                <span className="block">um site. Tenha uma</span>
-                <AnimatePresence mode="wait">
-                  <RotatingWord />
-                </AnimatePresence>
+                <span className="block">Site profissional pronto em</span>
+                <span className="block">até <span className="text-gradient-hero">30 dias</span>, sem dor</span>
+                <span className="block">de cabeça técnica.</span>
               </h1>
             <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -477,7 +481,11 @@ const HeroSection = () => {
                 transition={{ delay: 0.15, duration: 0.35 }}
                 className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed"
               >
-                Criamos sites estratégicos que transformam visitantes em clientes — com design premium, SEO avançado e atendimento humanizado.
+                Para empresas que precisam de uma{" "}
+                <AnimatePresence mode="wait">
+                  <RotatingWord />
+                </AnimatePresence>{" "}
+                — com design premium, SEO avançado e atendimento direto comigo, sem terceirizar.
               </motion.p>
             </div>
 
@@ -485,31 +493,37 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.35 }}
-              className="flex flex-row items-center gap-3"
+              className="flex flex-col items-start gap-3"
             >
-              <MagneticButton>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                  <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm">
-                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                      <MessageCircle className="w-5 h-5" />
-                      Falar no WhatsApp
-                    </a>
-                  </Button>
-                </motion.div>
-              </MagneticButton>
-              <MagneticButton>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                  <Button
-                    variant="outline"
-                    size="xl"
-                    onClick={scrollToServicos}
-                    className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30"
-                  >
-                    Ver Serviços
-                    <ArrowDown className="w-4 h-4" />
-                  </Button>
-                </motion.div>
-              </MagneticButton>
+              <div className="flex flex-row items-center gap-3">
+                <MagneticButton>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                    <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm">
+                      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                        <MessageCircle className="w-5 h-5" />
+                        Sim, quero meu site
+                      </a>
+                    </Button>
+                  </motion.div>
+                </MagneticButton>
+                <MagneticButton>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                    <Button
+                      variant="outline"
+                      size="xl"
+                      onClick={scrollToServicos}
+                      className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30"
+                    >
+                      Ver Serviços
+                      <ArrowDown className="w-4 h-4" />
+                    </Button>
+                  </motion.div>
+                </MagneticButton>
+              </div>
+              <p className="text-xs text-muted-foreground flex items-center gap-1.5">
+                <Lock className="w-3 h-3 text-success" />
+                Resposta em até 1h · Orçamento sem compromisso · Sem fidelidade
+              </p>
             </motion.div>
 
             <TrustIndicators />

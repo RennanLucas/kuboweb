@@ -30,10 +30,11 @@ const CTASection = () => {
               transition={{ duration: 0.4, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
               className="section-title"
             >
-              Seu próximo cliente está te{" "}
+              Comece seu site hoje. Receba o seu{" "}
               <span className="text-gradient-hero inline-block">
-                procurando agora
+                pronto em até 30 dias
               </span>
+              .
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 15 }}
@@ -42,7 +43,7 @@ const CTASection = () => {
               transition={{ delay: 0.1, duration: 0.3 }}
               className="section-subtitle"
             >
-              Não perca oportunidades. Fale comigo no WhatsApp e tenha um site que trabalha por você 24h.
+              Me chama no WhatsApp, te respondo em até 1 hora com um orçamento sob medida — sem formulário longo, sem robô, sem compromisso.
             </motion.p>
           </div>
 
@@ -56,7 +57,7 @@ const CTASection = () => {
               <Button variant="whatsapp" size="xl" asChild className="shadow-glow">
                 <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20come%C3%A7ar%20meu%20projeto.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-6 h-6" />
-                  Falar no WhatsApp
+                  Sim, quero começar agora
                 </a>
               </Button>
             </div>
@@ -69,7 +70,7 @@ const CTASection = () => {
             transition={{ delay: 0.2, duration: 0.3 }}
             className="text-xs text-muted-foreground tracking-wide"
           >
-            Atendimento direto · Resposta rápida · Sem compromisso
+            Resposta em até 1h · Orçamento sem compromisso · Sem fidelidade
           </motion.p>
         </div>
       </div>

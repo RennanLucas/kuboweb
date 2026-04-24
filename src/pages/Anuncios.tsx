@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2, Megaphone, Target, TrendingUp, Eye, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
-import heroImage from "@/assets/service-anuncios.jpg";
+import heroImage from "@/assets/service-anuncios.webp";
 
 const benefits = [
   { icon: Target, text: "Alcance clientes que já estão procurando pelo seu serviço" },

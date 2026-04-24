@@ -1,6 +1,6 @@
 import { Zap, MessageCircle, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import benefitsImage from "@/assets/benefits-cubes.jpg";
+import benefitsImage from "@/assets/benefits-cubes.webp";
 
 const benefits = [
   {

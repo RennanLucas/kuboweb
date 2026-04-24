@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2, Building2, Globe, Users, BarChart3, Shield, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
-import heroImage from "@/assets/service-sites.jpg";
+import heroImage from "@/assets/service-sites.webp";
 
 const benefits = [
   { icon: Globe, text: "Presença digital profissional 24 horas por dia" },

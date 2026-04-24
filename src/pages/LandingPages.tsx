@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2, FileText, Target, Zap, TrendingUp, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
-import heroImage from "@/assets/service-landing.jpg";
+import heroImage from "@/assets/service-landing.webp";
 
 const benefits = [
   { icon: Target, text: "Focada 100% em conversão e captação de leads" },

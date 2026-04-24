@@ -134,10 +134,11 @@ const ServicesSection = () => {
                     loading="lazy"
                     width={1280}
                     height={720}
-                    className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-[2400ms] ease-out will-change-transform"
+                    className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-all duration-[2400ms] ease-out will-change-transform brightness-110 saturate-125 contrast-105 group-hover:brightness-125 group-hover:saturate-150"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* Soft fade only at the bottom edge for text separation */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-card/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
                 {/* Gradient overlay on hover — CSS only */}

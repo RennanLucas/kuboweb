@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Users, Target, Heart, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
+import sobreWorkspace from "@/assets/sobre-workspace.jpg";
 
 const values = [
   {
@@ -63,6 +64,23 @@ const Sobre = () => (
             Somos uma empresa especializada em criação de sites profissionais, focada em ajudar pequenas e médias empresas a conquistarem presença digital de verdade — com design moderno, performance e foco em conversão.
           </motion.p>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.18, duration: 0.5 }}
+          className="relative rounded-2xl overflow-hidden mb-10 md:mb-14 border border-border/50 shadow-lg"
+        >
+          <img
+            src={sobreWorkspace}
+            alt="Workspace da KuboWeb com site profissional em desenvolvimento"
+            width={1280}
+            height={800}
+            loading="lazy"
+            className="w-full h-auto object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

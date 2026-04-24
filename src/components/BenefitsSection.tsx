@@ -1,5 +1,6 @@
 import { Zap, MessageCircle, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import benefitsImage from "@/assets/benefits-cubes.jpg";
 
 const benefits = [
   {
@@ -42,6 +43,15 @@ const BenefitsSection = () => {
           >
             O que você ganha com um site profissional
           </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="mx-auto w-full max-w-2xl aspect-[16/9] rounded-3xl overflow-hidden mt-8"
+          >
+            <img src={benefitsImage} alt="Soluções digitais profissionais" width={1280} height={896} loading="lazy" className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-screen" />
+          </motion.div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-5 md:gap-6">

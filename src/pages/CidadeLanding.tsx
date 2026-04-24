@@ -141,7 +141,7 @@ const CidadeLanding = () => {
             <Button variant="whatsapp" size="xl" asChild>
               <a href={`https://wa.me/5511932197334?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-5 h-5" />
-                Sim, quero meu orçamento
+                Falar no WhatsApp
               </a>
             </Button>
             <p className="text-xs text-muted-foreground mt-3">Consultoria sem custo · Retorno em até 1 hora útil</p>
@@ -235,7 +235,7 @@ const CidadeLanding = () => {
           <Button variant="whatsapp" size="xl" asChild>
             <a href={`https://wa.me/5511932197334?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer">
               <MessageCircle className="w-5 h-5" />
-              Falar no WhatsApp agora
+              Falar no WhatsApp
             </a>
           </Button>
           <div className="pt-6">

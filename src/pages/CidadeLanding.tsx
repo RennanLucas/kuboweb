@@ -141,10 +141,10 @@ const CidadeLanding = () => {
             <Button variant="whatsapp" size="xl" asChild>
               <a href={`https://wa.me/5511932197334?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="w-5 h-5" />
-                Solicitar orçamento
+                Sim, quero meu orçamento
               </a>
             </Button>
-            <p className="text-xs text-muted-foreground mt-3">Atendimento direto · Sem compromisso</p>
+            <p className="text-xs text-muted-foreground mt-3">Resposta em até 1h · Sem compromisso · Sem fidelidade</p>
           </motion.div>
         </div>
       </section>

@@ -431,7 +431,7 @@ const HeroSection = () => {
             </motion.div>
             <p className="text-[11px] text-center text-muted-foreground -mt-1">
               <Lock className="w-2.5 h-2.5 inline mr-1 -mt-0.5" />
-              Resposta em até 1h · Orçamento sem compromisso
+              Resposta em até 1h · Sem compromisso · Sem fidelidade
             </p>
             <motion.div whileTap={{ scale: 0.98 }}>
               <Button
@@ -522,7 +522,7 @@ const HeroSection = () => {
               </div>
               <p className="text-xs text-muted-foreground flex items-center gap-1.5">
                 <Lock className="w-3 h-3 text-success" />
-                Resposta em até 1h · Orçamento sem compromisso · Sem fidelidade
+                Resposta em até 1h · Sem compromisso · Sem fidelidade
               </p>
             </motion.div>
 

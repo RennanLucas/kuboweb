@@ -144,7 +144,7 @@ const CidadeLanding = () => {
                 Sim, quero meu orçamento
               </a>
             </Button>
-            <p className="text-xs text-muted-foreground mt-3">Resposta em até 1h · Sem compromisso · Sem fidelidade</p>
+            <p className="text-xs text-muted-foreground mt-3">Consultoria sem custo · Retorno em até 1 hora útil</p>
           </motion.div>
         </div>
       </section>

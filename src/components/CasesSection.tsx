@@ -225,7 +225,7 @@ const CasesSection = () => (
       >
         <Button variant="whatsapp" size="lg" className="shadow-glow-sm" asChild>
           <a
-            href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vi%20os%20cases%20no%20site%20e%20quero%20resultados%20assim%20para%20meu%20neg%C3%B3cio.%20Pode%20me%20ajudar%3F"
+            href="https://wa.me/5511932197334"
             target="_blank"
             rel="noopener noreferrer"
           >

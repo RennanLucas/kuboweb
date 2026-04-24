@@ -129,7 +129,7 @@ const Contato = () => {
               <Button variant="whatsapp" size="xl" asChild>
                 <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
-                  Sim, quero falar agora
+                  Falar no WhatsApp
                 </a>
               </Button>
               <p className="text-xs text-muted-foreground">

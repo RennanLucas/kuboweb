@@ -9,7 +9,7 @@ const servicePlans = [
     tier: "Site Profissional",
     price: "R$ 760",
     bestFor: "Presença online completa para seu negócio",
-    CTA: "Quero Meu Site",
+    CTA: "Falar no WhatsApp",
     href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20quero%20criar%20um%20site%20profissional.%20Meu%20nicho%20%C3%A9%20_____%20e%20quero%20come%C3%A7ar%20o%20quanto%20antes.%20Pode%20me%20passar%20os%20pr%C3%B3ximos%20passos%3F",
     popular: true,
     benefits: [
@@ -25,7 +25,7 @@ const servicePlans = [
     tier: "Landing Page",
     price: "R$ 560",
     bestFor: "Página única focada em conversão",
-    CTA: "Quero Minha Landing Page",
+    CTA: "Falar no WhatsApp",
     href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20criar%20minha%20Landing%20Page%20de%20R%24%20560.%20Pode%20me%20explicar%20como%20funciona%20e%20como%20come%C3%A7amos%3F",
     benefits: [
       { text: "Design profissional", checked: true },
@@ -40,7 +40,7 @@ const servicePlans = [
     tier: "Loja Virtual",
     price: "R$ 1.200",
     bestFor: "Para quem quer vender produtos online",
-    CTA: "Criar Minha Loja",
+    CTA: "Falar no WhatsApp",
     href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Loja%20Virtual%20de%20R%24%201200%20que%20vi%20no%20site.%20Quero%20saber%20prazo%2C%20forma%20de%20pagamento%20e%20o%20que%20preciso%20enviar%20para%20come%C3%A7ar.",
     benefits: [
       { text: "Tudo do plano Site", checked: true },
@@ -55,7 +55,7 @@ const servicePlans = [
     tier: "Anúncios",
     price: "R$ 280",
     bestFor: "Ideal para quem quer tráfego rápido",
-    CTA: "Solicitar Orçamento",
+    CTA: "Falar no WhatsApp",
     href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20An%C3%BAncios%20Google%20Ads%20de%20R%24%20280.%20Pode%20me%20explicar%20como%20funciona%20e%20quando%20podemos%20iniciar%3F",
     benefits: [
       { text: "Campanha Google Ads", checked: true },

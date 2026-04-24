@@ -200,7 +200,7 @@ const Portfolio = () => {
                   rel="noopener noreferrer"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  Solicitar orçamento
+                  Falar no WhatsApp
                 </a>
               </Button>
             </div>

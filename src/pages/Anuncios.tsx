@@ -128,7 +128,7 @@ const Anuncios = () => (
           <Button variant="whatsapp" size="xl" asChild>
             <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20An%C3%BAncios%20Google%20Ads.%20Pode%20me%20explicar%20como%20funciona%3F" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="w-5 h-5" />
-              Sim, quero atrair mais clientes
+              Falar no WhatsApp
             </a>
           </Button>
           <p className="text-xs text-muted-foreground">Consultoria sem custo · Retorno em até 1 hora útil</p>

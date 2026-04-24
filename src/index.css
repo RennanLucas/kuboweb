@@ -131,6 +131,7 @@
 @layer base {
   * {
     @apply border-border;
+    min-width: 0;
   }
 
   html {
@@ -141,6 +142,24 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  /* Prevent long words/URLs from breaking the layout on mobile */
+  p, span, a, li, h1, h2, h3, h4, h5, h6, label, button {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  /* Constrain media to its container by default */
+  img, video, canvas, svg, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  iframe, video, canvas {
+    display: block;
   }
 
   h1, h2, h3, h4, h5, h6 {

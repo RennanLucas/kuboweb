@@ -173,9 +173,9 @@ const QuoteFormSection = () => {
                 </Button>
 
                 <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center sm:justify-center gap-y-1.5 gap-x-4 text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-success" />Resposta em até 2h</span>
+                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-success" />Resposta em até 1h</span>
                   <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-success" />Sem compromisso</span>
-                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-success" />Atendimento humano</span>
+                  <span className="flex items-center gap-1"><CheckCircle2 className="w-3.5 h-3.5 text-success" />Sem fidelidade</span>
                 </div>
               </motion.form>
             )}

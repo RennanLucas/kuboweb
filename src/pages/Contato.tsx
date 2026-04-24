@@ -129,11 +129,11 @@ const Contato = () => {
               <Button variant="whatsapp" size="xl" asChild>
                 <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
-                  Falar no WhatsApp
+                  Sim, quero falar agora
                 </a>
               </Button>
               <p className="text-xs text-muted-foreground">
-                Sem compromisso • Resposta rápida
+                Resposta em até 1h · Sem compromisso · Sem fidelidade
               </p>
             </motion.div>
           </div>

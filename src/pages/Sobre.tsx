@@ -114,9 +114,10 @@ const Sobre = () => (
               rel="noopener noreferrer"
             >
               <MessageCircle className="w-5 h-5" />
-              Falar no WhatsApp
+              Sim, quero conhecer o trabalho
             </a>
           </Button>
+          <p className="text-xs text-muted-foreground">Resposta em até 1h · Sem compromisso · Sem fidelidade</p>
         </motion.div>
       </div>
     </section>

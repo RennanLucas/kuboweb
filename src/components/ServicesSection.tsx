@@ -196,7 +196,7 @@ const ServicesSection = () => {
           </Button>
         </div>
         <p className="text-xs text-muted-foreground mt-3">
-          Resposta em até 1h · Sem compromisso
+          Resposta em até 1h · Sem compromisso · Sem fidelidade
         </p>
       </motion.div>
     </div>

@@ -4,10 +4,15 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import TiltCard from "@/components/ui/TiltCard";
+import imgSites from "@/assets/services/sites-institucionais.jpg";
+import imgLandings from "@/assets/services/landing-pages.jpg";
+import imgLoja from "@/assets/services/loja-virtual.jpg";
+import imgAnuncios from "@/assets/services/anuncios.jpg";
 
 const services = [
   {
     icon: Building2,
+    image: imgSites,
     title: "Sites Institucionais",
     description: "Presença digital completa para sua empresa. Múltiplas páginas com informações sobre seu negócio.",
     features: ["Várias páginas", "SEO otimizado", "Gestão de conteúdo"],
@@ -15,6 +20,7 @@ const services = [
   },
   {
     icon: FileText,
+    image: imgLandings,
     title: "Landing Pages",
     description: "Páginas de alta conversão para capturar leads e vender serviços. Ideal para campanhas de marketing.",
     features: ["Foco em conversão", "Integração WhatsApp", "Design persuasivo"],
@@ -22,6 +28,7 @@ const services = [
   },
   {
     icon: ShoppingCart,
+    image: imgLoja,
     title: "Loja Virtual",
     description: "Venda seus produtos online com uma loja profissional, segura e fácil de gerenciar.",
     features: ["Catálogo de produtos", "Pagamento integrado", "Painel de gestão"],
@@ -29,6 +36,7 @@ const services = [
   },
   {
     icon: Megaphone,
+    image: imgAnuncios,
     title: "Anúncios",
     description: "Campanhas de tráfego pago no Google e redes sociais para atrair clientes qualificados.",
     features: ["Google Ads", "Relatórios de performance"],
@@ -116,12 +124,26 @@ const ServicesSection = () => {
             <TiltCard className="h-full group" tiltAmount={8}>
               <Link
                 to={service.href}
-                className="card-premium border-glow flex flex-col p-6 sm:p-7 md:p-8 cursor-pointer h-full relative overflow-hidden"
+                className="card-premium border-glow flex flex-col cursor-pointer h-full relative overflow-hidden"
               >
+                {/* Visual header with subtle Ken Burns motion on hover */}
+                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-t-[inherit]">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    loading="lazy"
+                    width={1280}
+                    height={720}
+                    className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-[2400ms] ease-out will-change-transform"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+
                 {/* Gradient overlay on hover — CSS only */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-primary/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="relative z-10">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-primary/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+                <div className="relative z-10 flex flex-col flex-grow p-6 sm:p-7 md:p-8 pt-5 md:pt-6">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/25 group-hover:shadow-lg group-hover:shadow-primary/15 transition-all duration-300">
                     <service.icon className="w-5 h-5 text-primary" />
                   </div>

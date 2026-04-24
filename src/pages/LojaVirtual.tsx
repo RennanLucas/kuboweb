@@ -131,10 +131,10 @@ const LojaVirtual = () => (
           <Button variant="whatsapp" size="xl" asChild>
             <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Loja%20Virtual.%20Pode%20me%20explicar%20como%20funciona%3F" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="w-5 h-5" />
-              Falar no WhatsApp
+              Sim, quero minha loja virtual
             </a>
           </Button>
-          <p className="text-xs text-muted-foreground">Atendimento direto · Resposta rápida · Sem compromisso</p>
+          <p className="text-xs text-muted-foreground">Resposta em até 1h · Sem compromisso · Sem fidelidade</p>
         </motion.div>
       </div>
     </section>

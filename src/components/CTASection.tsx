@@ -70,7 +70,7 @@ const CTASection = () => {
             transition={{ delay: 0.2, duration: 0.3 }}
             className="text-xs text-muted-foreground tracking-wide"
           >
-            Resposta em até 1h · Sem compromisso · Sem fidelidade
+            Consultoria sem custo · Retorno em até 1 hora útil
           </motion.p>
         </div>
       </div>

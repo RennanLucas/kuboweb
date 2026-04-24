@@ -252,7 +252,7 @@ const Manutencao = () => (
                 Sim, quero contratar agora
               </a>
             </Button>
-            <p className="text-xs text-muted-foreground mt-4">Resposta em até 1h · Sem compromisso · Sem fidelidade</p>
+            <p className="text-xs text-muted-foreground mt-4">Consultoria sem custo · Retorno em até 1 hora útil</p>
           </div>
         </motion.div>
       </div>

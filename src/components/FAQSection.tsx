@@ -10,6 +10,21 @@ import { motion } from "framer-motion";
 
 const faqs = [
   {
+    question: "O site funciona no celular?",
+    answer:
+      "Sim, 100%. Todos os sites são desenvolvidos com abordagem mobile-first, ou seja, pensados primeiro para o celular e adaptados para tablet e desktop. Você terá uma experiência impecável em qualquer tela — algo essencial, já que mais de 70% dos acessos hoje vêm de dispositivos móveis.",
+  },
+  {
+    question: "Preciso saber de tecnologia?",
+    answer:
+      "Não precisa saber nada de tecnologia. Eu cuido de absolutamente tudo: design, desenvolvimento, hospedagem, domínio e publicação. Você só precisa enviar as informações do seu negócio (ou eu te ajudo a estruturar) e acompanhar a evolução pelo WhatsApp. É um processo simples, direto e sem complicação técnica.",
+  },
+  {
+    question: "Você coloca o site no ar pra mim?",
+    answer:
+      "Sim, eu cuido de tudo: registro de domínio (caso ainda não tenha), configuração da hospedagem, publicação e ajustes finais para garantir que o site esteja online, rápido e seguro. Você recebe o site pronto, funcionando e pronto para receber visitas.",
+  },
+  {
     question: "Quanto custa criar um site profissional?",
     answer:
       "Google Ads a partir de R$ 250/mês + verba de anúncios, Landing Pages a partir de R$ 697, Sites Institucionais a partir de R$ 997 e Lojas Virtuais a partir de R$ 1.497. Envie uma mensagem no WhatsApp para um orçamento personalizado.",
@@ -18,11 +33,6 @@ const faqs = [
     question: "Em quanto tempo o site fica pronto?",
     answer:
       "Landing Pages são entregues em 5 a 10 dias úteis. Sites Institucionais e Lojas Virtuais têm prazo de 7 a 15 dias úteis. Campanhas de Google Ads ficam prontas em 3 a 5 dias úteis. O prazo exato depende da complexidade e dos materiais fornecidos.",
-  },
-  {
-    question: "O site fica otimizado para celular?",
-    answer:
-      "Sim! Todos os sites são desenvolvidos com abordagem mobile-first, garantindo uma experiência perfeita em smartphones, tablets e desktops.",
   },
   {
     question: "O site aparece no Google?",

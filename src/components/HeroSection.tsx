@@ -358,11 +358,11 @@ const RotatingWord = () => {
   return (
     <motion.span
       key={word}
-      initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
-      transition={{ duration: 0.5 }}
-      className="text-gradient-hero inline-block"
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -8 }}
+      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+      className="inline-block font-semibold text-foreground"
     >
       {word}
     </motion.span>

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Users, Target, Heart, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
-import sobreWorkspace from "@/assets/sobre-workspace.jpg";
+import HeroCube from "@/components/HeroCube";
 
 const values = [
   {

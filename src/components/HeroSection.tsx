@@ -408,15 +408,12 @@ const HeroSection = () => {
 
           <div className="space-y-3">
             <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight">
-              Site profissional pronto em até{" "}
-              <span className="text-gradient-hero inline-block">30 dias</span>, sem dor de cabeça técnica.
+              Transforme sua marca em uma{" "}
+              <span className="text-gradient-hero inline-block">referência digital</span>{" "}
+              com um site de alto padrão.
             </h1>
             <p className="text-[14px] text-muted-foreground leading-relaxed">
-              Para empresas que precisam de uma{" "}
-              <AnimatePresence mode="wait">
-                <RotatingWord />
-              </AnimatePresence>{" "}
-              — com design premium, SEO e atendimento direto comigo, sem terceirizar.
+              Design exclusivo, performance impecável e acompanhamento individual em cada etapa. O próximo nível do seu negócio começa em <span className="font-semibold text-foreground">30 dias</span>.
             </p>
           </div>
 
@@ -470,10 +467,10 @@ const HeroSection = () => {
             </motion.div>
 
             <div className="space-y-5">
-              <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.25] text-foreground tracking-[-0.02em]">
-                <span className="block">Site profissional pronto em</span>
-                <span className="block">até <span className="text-gradient-hero">30 dias</span>, sem dor</span>
-                <span className="block">de cabeça técnica.</span>
+              <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.2] text-foreground tracking-[-0.02em]">
+                Transforme sua marca em uma{" "}
+                <span className="text-gradient-hero">referência digital</span>{" "}
+                com um site de alto padrão.
               </h1>
             <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -481,11 +478,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.15, duration: 0.35 }}
                 className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed"
               >
-                Para empresas que precisam de uma{" "}
-                <AnimatePresence mode="wait">
-                  <RotatingWord />
-                </AnimatePresence>{" "}
-                — com design premium, SEO avançado e atendimento direto comigo, sem terceirizar.
+                Design exclusivo, performance impecável e acompanhamento individual em cada etapa. O próximo nível do seu negócio começa em <span className="font-semibold text-foreground">30 dias</span>.
               </motion.p>
             </div>
 

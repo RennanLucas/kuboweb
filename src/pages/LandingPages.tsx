@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2, FileText, Target, Zap, TrendingUp, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
-import heroImage from "@/assets/service-landing.jpg";
+import heroImage from "@/assets/service-landing.webp";
 
 const benefits = [
   { icon: Target, text: "Focada 100% em conversão e captação de leads" },
@@ -47,7 +47,7 @@ const LandingPages = () => (
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto w-full max-w-md md:max-w-lg aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-primary/5 to-accent/20 border border-border/40 shadow-xl"
           >
-            <img src={heroImage} alt="Landing page de alta conversão" width={1280} height={896} className="w-full h-full object-cover" />
+            <img src={heroImage} alt="Landing page de alta conversão" width={1280} height={896} loading="eager" decoding="async" fetchPriority="high" className="w-full h-full object-cover" />
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 15 }}

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2, ShoppingCart, CreditCard, Package, BarChart3, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
-import heroImage from "@/assets/service-loja.jpg";
+import heroImage from "@/assets/service-loja.webp";
 
 const benefits = [
   { icon: ShoppingCart, text: "Venda seus produtos 24 horas por dia, 7 dias por semana" },
@@ -49,7 +49,7 @@ const LojaVirtual = () => (
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto w-full max-w-md md:max-w-lg aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-primary/5 to-accent/20 border border-border/40 shadow-xl"
           >
-            <img src={heroImage} alt="Loja virtual com pagamento online" width={1280} height={896} className="w-full h-full object-cover" />
+            <img src={heroImage} alt="Loja virtual com pagamento online" width={1280} height={896} loading="eager" decoding="async" fetchPriority="high" className="w-full h-full object-cover" />
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 15 }}

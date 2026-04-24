@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle2, Building2, Globe, Users, BarChart3, Shield, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
-import heroImage from "@/assets/service-sites.jpg";
+import heroImage from "@/assets/service-sites.webp";
 
 const benefits = [
   { icon: Globe, text: "Presença digital profissional 24 horas por dia" },
@@ -49,7 +49,7 @@ const SitesInstitucionais = () => (
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="mx-auto w-full max-w-md md:max-w-lg aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-primary/5 to-accent/20 border border-border/40 shadow-xl"
           >
-            <img src={heroImage} alt="Site institucional profissional" width={1280} height={896} className="w-full h-full object-cover" />
+            <img src={heroImage} alt="Site institucional profissional" width={1280} height={896} loading="eager" decoding="async" fetchPriority="high" className="w-full h-full object-cover" />
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 15 }}

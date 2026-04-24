@@ -135,10 +135,10 @@ const SitesInstitucionais = () => (
           <Button variant="whatsapp" size="xl" asChild>
             <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20quero%20criar%20um%20site%20institucional%20profissional.%20Pode%20me%20passar%20os%20pr%C3%B3ximos%20passos%3F" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="w-5 h-5" />
-              Falar no WhatsApp
+              Sim, quero meu site
             </a>
           </Button>
-          <p className="text-xs text-muted-foreground">Atendimento direto · Resposta rápida · Sem compromisso</p>
+          <p className="text-xs text-muted-foreground">Resposta em até 1h · Sem compromisso · Sem fidelidade</p>
         </motion.div>
       </div>
     </section>

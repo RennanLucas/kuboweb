@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, Users, Target, Heart, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "@/components/SEO";
-import sobreWorkspace from "@/assets/sobre-workspace.jpg";
+import HeroCube from "@/components/HeroCube";
 
 const values = [
   {
@@ -66,20 +66,27 @@ const Sobre = () => (
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.18, duration: 0.5 }}
-          className="relative rounded-2xl overflow-hidden mb-10 md:mb-14 border border-border/50 shadow-lg"
+          className="card-premium p-6 md:p-10 mb-10 md:mb-14 overflow-hidden"
         >
-          <img
-            src={sobreWorkspace}
-            alt="Workspace da KuboWeb com site profissional em desenvolvimento"
-            width={1280}
-            height={800}
-            loading="lazy"
-            className="w-full h-auto object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
+          <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
+            <div className="flex items-center justify-center">
+              <div className="scale-75 md:scale-100">
+                <HeroCube />
+              </div>
+            </div>
+            <div className="space-y-4">
+              <p className="section-label">O que é a KuboWeb</p>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground leading-tight">
+                Cada site é um <span className="text-gradient-primary">cubo</span> sólido do seu negócio
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                A KuboWeb é um estúdio digital que constrói sites profissionais com a mesma lógica de um cubo: estrutura sólida, faces perfeitamente alinhadas e uma base estável para o seu negócio crescer no digital. Unimos design premium, performance e estratégia de conversão em um único bloco — feito sob medida para a sua marca.
+              </p>
+            </div>
+          </div>
         </motion.div>
 
         <motion.div

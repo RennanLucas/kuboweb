@@ -395,7 +395,7 @@ const HeroSection = () => {
 
       <div className="w-full md:container md:mx-auto md:max-w-7xl relative z-10">
         {/* Mobile + Tablet */}
-        <div className="lg:hidden flex flex-col px-5 md:px-8 pt-6 md:pt-8 pb-6 md:pb-10 gap-4 md:gap-5 relative">
+        <div className="lg:hidden flex flex-col items-center text-center px-5 md:px-8 pt-6 md:pt-8 pb-6 md:pb-10 gap-4 md:gap-5 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -406,7 +406,7 @@ const HeroSection = () => {
             Solução completa para vender mais online
           </motion.div>
 
-          <div className="space-y-3 max-w-[58ch]">
+          <div className="space-y-3 max-w-[58ch] mx-auto">
             <h1 className="text-[1.5rem] sm:text-[1.75rem] md:text-[1.875rem] font-heading font-bold leading-[1.18] text-foreground tracking-[-0.02em] text-balance">
               Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
             </h1>

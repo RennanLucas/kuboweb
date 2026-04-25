@@ -467,7 +467,7 @@ const HeroSection = () => {
             </motion.div>
 
             <div className="space-y-3.5 lg:space-y-4 w-full">
-              <h1 className="text-[1.75rem] lg:text-[2.125rem] xl:text-[2.5rem] font-heading font-extrabold leading-[1.12] text-foreground tracking-[-0.02em] text-balance max-w-[15ch] xl:max-w-[14ch]">
+              <h1 className="text-[1.75rem] lg:text-[2.125rem] xl:text-[2.5rem] font-heading font-extrabold leading-[1.12] text-foreground tracking-[-0.02em] text-balance max-w-[20ch] xl:max-w-[18ch]">
                 Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
               </h1>
               <motion.p

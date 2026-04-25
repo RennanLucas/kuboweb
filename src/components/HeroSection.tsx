@@ -479,8 +479,8 @@ const HeroSection = () => {
             </motion.div>
 
             <div className="space-y-5">
-              <h1 className="text-[1.625rem] md:text-[1.75rem] lg:text-[2rem] xl:text-[2.5rem] font-heading font-extrabold leading-[1.15] text-foreground tracking-[-0.02em] text-balance">
-                Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
+              <h1 className="text-[2rem] md:text-[2.25rem] lg:text-[2.5rem] xl:text-[3rem] font-heading font-extrabold leading-[1.1] text-foreground tracking-[-0.02em] text-balance">
+                Mais <span className="text-gradient-hero">clientes</span> para o seu negócio.
               </h1>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -488,7 +488,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.15, duration: 0.35 }}
                 className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed"
               >
-                Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
+                Site, loja virtual e anúncios — tudo em um só lugar para você vender mais.
               </motion.p>
 
               {/* Resultado escaneável — 3 bullets */}
@@ -496,15 +496,15 @@ const HeroSection = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.18, duration: 0.35 }}
-                className="space-y-2 pt-1"
+                className="space-y-2.5 pt-1"
               >
                 {[
-                  "Site, loja virtual ou página de vendas no ar em até 30 dias",
-                  "Anúncios no Google atraindo clientes prontos para comprar",
-                  "Estratégia, criação e tráfego sob medida para o seu negócio",
+                  "Pronto em até 30 dias",
+                  "Anúncios que trazem clientes",
+                  "Atendimento direto com quem cria",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-foreground">
-                    <CheckCircle2 className="w-[18px] h-[18px] text-success shrink-0 mt-0.5" />
+                  <li key={item} className="flex items-center gap-2.5 text-[15px] text-foreground">
+                    <CheckCircle2 className="w-[18px] h-[18px] text-success shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}

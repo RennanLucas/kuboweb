@@ -27,7 +27,7 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid md:grid-cols-4 gap-10 md:gap-8 mb-10"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8 mb-10"
         >
           <motion.div variants={itemVariants} className="space-y-4">
             <Link to="/" className="inline-block">
@@ -106,8 +106,8 @@ const Footer = () => {
                   whileHover={{ x: 4, scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <item.icon className="w-4 h-4" />
-                  {item.text}
+                  <item.icon className="w-4 h-4 shrink-0" />
+                  <span className="break-all">{item.text}</span>
                 </motion.a>
               ))}
             </div>

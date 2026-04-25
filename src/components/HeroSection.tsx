@@ -403,32 +403,46 @@ const HeroSection = () => {
             className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wider uppercase shadow-sm"
           >
             <Lock className="w-3 h-3 text-primary" />
-            Especialistas em Conversão
+            Sites para empresas que querem vender
           </motion.div>
 
           <div className="space-y-3">
-            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight">
-              Transforme sua marca em uma{" "}
-              <span className="text-gradient-hero inline-block">referência digital</span>{" "}
-              com um site de alto padrão.
+            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.2] text-foreground tracking-tight">
+              Sites profissionais que{" "}
+              <span className="text-gradient-hero inline-block">geram clientes</span>{" "}
+              em até 30 dias.
             </h1>
             <p className="text-[14px] text-muted-foreground leading-relaxed">
-              Design exclusivo, performance impecável e acompanhamento individual em cada etapa. O próximo nível do seu negócio começa em <span className="font-semibold text-foreground">30 dias</span>.
+              Para pequenas e médias empresas que precisam de um site bonito, rápido e que <span className="font-semibold text-foreground">realmente traz resultado</span> — sem enrolação, sem mensalidade escondida.
             </p>
           </div>
+
+          {/* Resultado em bullets — escaneável */}
+          <ul className="space-y-2 -mt-1">
+            {[
+              "Site no ar em até 30 dias",
+              "Otimizado para Google e celular",
+              "Atendimento direto com quem cria",
+            ].map((item) => (
+              <li key={item} className="flex items-center gap-2 text-[13px] text-foreground">
+                <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
 
           <div className="flex flex-col gap-3">
             <motion.div whileTap={{ scale: 0.98 }}>
               <Button variant="whatsapp" size="xl" asChild className="w-full shadow-glow-sm">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
-                  Falar no WhatsApp
+                  Quero meu orçamento grátis
                 </a>
               </Button>
             </motion.div>
             <p className="text-[11px] text-center text-muted-foreground -mt-1">
               <Lock className="w-2.5 h-2.5 inline mr-1 -mt-0.5" />
-              Consultoria sem custo · Retorno em até 1 hora útil
+              Resposta em até 1 hora útil · Sem compromisso
             </p>
             <motion.div whileTap={{ scale: 0.98 }}>
               <Button
@@ -463,23 +477,42 @@ const HeroSection = () => {
               className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wider uppercase shadow-sm"
             >
               <Lock className="w-3 h-3 text-primary" />
-              Especialistas em Conversão
+              Sites para empresas que querem vender
             </motion.div>
 
             <div className="space-y-5">
-              <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.2] text-foreground tracking-[-0.02em]">
-                Transforme sua marca em uma{" "}
-                <span className="text-gradient-hero">referência digital</span>{" "}
-                com um site de alto padrão.
+              <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.15] text-foreground tracking-[-0.02em]">
+                Sites profissionais que{" "}
+                <span className="text-gradient-hero">geram clientes</span>{" "}
+                em até 30 dias.
               </h1>
-            <motion.p
+              <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.35 }}
                 className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed"
               >
-                Design exclusivo, performance impecável e acompanhamento individual em cada etapa. O próximo nível do seu negócio começa em <span className="font-semibold text-foreground">30 dias</span>.
+                Para pequenas e médias empresas que precisam de um site bonito, rápido e que <span className="font-semibold text-foreground">realmente traz resultado</span> — sem enrolação e com atendimento direto com quem cria.
               </motion.p>
+
+              {/* Resultado escaneável — 3 bullets */}
+              <motion.ul
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.18, duration: 0.35 }}
+                className="space-y-2 pt-1"
+              >
+                {[
+                  "Site no ar em até 30 dias, sem dor de cabeça",
+                  "Otimizado para Google, celular e velocidade máxima",
+                  "Estratégia de conversão pensada para seu negócio",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm text-foreground">
+                    <CheckCircle2 className="w-[18px] h-[18px] text-success shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </motion.ul>
             </div>
 
             <motion.div
@@ -494,7 +527,7 @@ const HeroSection = () => {
                     <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm">
                       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="w-5 h-5" />
-                        Falar no WhatsApp
+                        Quero meu orçamento grátis
                       </a>
                     </Button>
                   </motion.div>
@@ -515,7 +548,7 @@ const HeroSection = () => {
               </div>
               <p className="text-xs text-muted-foreground flex items-center gap-1.5">
                 <Lock className="w-3 h-3 text-success" />
-                Consultoria sem custo · Retorno em até 1 hora útil
+                Resposta em até 1 hora útil · Sem compromisso
               </p>
             </motion.div>
 

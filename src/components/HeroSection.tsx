@@ -415,19 +415,7 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Resultado em bullets — escaneável */}
-          <ul className="space-y-2 -mt-1">
-            {[
-              "Site, loja virtual ou página de vendas pronta em até 30 dias",
-              "Anúncios no Google trazendo clientes prontos para comprar",
-              "Estratégia, criação e tráfego com quem entende do seu negócio",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-[13px] text-foreground">
-                <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+
 
           <div className="flex flex-col gap-3">
             <motion.div whileTap={{ scale: 0.98 }}>

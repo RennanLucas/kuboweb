@@ -23,10 +23,10 @@ const useRotatingText = (words: string[], interval = 3000) => {
 };
 
 const floatingFeatures = [
-  { icon: Shield, label: "SSL Seguro", x: "-12%", y: "18%", delay: 1.8 },
-  { icon: Zap, label: "PageSpeed 99", x: "88%", y: "8%", delay: 2.0 },
-  { icon: TrendingUp, label: "+340% Leads", x: "90%", y: "62%", delay: 2.2 },
-  { icon: Award, label: "5.0 ★★★★★", x: "-14%", y: "78%", delay: 2.4 },
+  { icon: Shield, label: "SSL Seguro", x: "-16%", y: "8%", delay: 1.8 },
+  { icon: Zap, label: "PageSpeed 99", x: "100%", y: "15%", delay: 2.0 },
+  { icon: TrendingUp, label: "+340% Leads", x: "-14%", y: "78%", delay: 2.2 },
+  { icon: Award, label: "5.0 ★★★★★", x: "102%", y: "72%", delay: 2.4 },
 ];
 
 const navItems = ["Início", "Serviços", "Portfólio", "Contato"];
@@ -153,14 +153,14 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
       initial={{ opacity: 0, y: 30, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-      className="relative w-full max-w-full lg:max-w-[460px] xl:max-w-[560px] 2xl:max-w-[620px]"
+      className="relative mx-auto w-full max-w-[520px]"
     >
       {/* Ambient glow */}
       <div className="absolute -inset-8 bg-primary/8 rounded-[2rem] blur-3xl -z-10 animate-glow-pulse" />
       <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-xl -z-10" />
 
       {/* Floating badges - desktop only */}
-      <div className="hidden xl:block">
+      <div className="hidden lg:block">
         {floatingFeatures.map((feat) => (
           <motion.div
             key={feat.label}
@@ -171,7 +171,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
               scale: { delay: feat.delay, duration: 0.5, type: "spring", stiffness: 180, damping: 15 },
               y: { delay: feat.delay + 0.5, duration: 4, repeat: Infinity, ease: "easeInOut" },
             }}
-            className="absolute z-20 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2.5 pl-2.5 pr-4 py-2 rounded-2xl bg-card/90 border border-border/40 shadow-lg shadow-primary/5 text-[11px] font-semibold text-foreground backdrop-blur-xl whitespace-nowrap"
+            className="absolute z-20 flex items-center gap-2.5 pl-2.5 pr-4 py-2 rounded-2xl bg-card/90 border border-border/40 shadow-lg shadow-primary/5 text-[11px] font-semibold text-foreground backdrop-blur-xl"
             style={{ left: feat.x, top: feat.y }}
           >
             <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/15">
@@ -375,7 +375,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden pt-16 pb-4 md:pt-8 md:pb-10 lg:pt-10 lg:pb-12 px-0 md:px-6">
+    <section className="relative flex items-center justify-center overflow-hidden pt-16 pb-4 md:min-h-[100dvh] md:py-24 px-0 md:px-4">
       {/* Premium background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-accent/20" />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/4 rounded-full blur-[180px] hidden md:block" />
@@ -393,9 +393,9 @@ const HeroSection = () => {
         backgroundSize: '32px 32px'
       }} />
 
-      <div className="w-full md:container md:mx-auto md:max-w-7xl relative z-10">
-        {/* Mobile + Tablet */}
-        <div className="lg:hidden flex flex-col items-center text-center px-5 md:px-8 pt-6 md:pt-8 pb-6 md:pb-10 gap-4 md:gap-5 relative">
+      <div className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
+        {/* Mobile */}
+        <div className="md:hidden flex flex-col px-5 pt-6 pb-6 gap-5 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -403,32 +403,32 @@ const HeroSection = () => {
             className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wider uppercase shadow-sm"
           >
             <Lock className="w-3 h-3 text-primary" />
-            Solução completa para vender mais online
+            Especialistas em Conversão
           </motion.div>
 
-          <div className="space-y-3 mx-auto text-center flex flex-col items-center">
-            <h1 className="text-[1.5rem] sm:text-[1.75rem] md:text-[1.875rem] font-heading font-bold leading-[1.18] text-foreground tracking-[-0.02em] text-center max-w-[20ch]">
-              Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
+          <div className="space-y-3">
+            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight">
+              Transforme sua marca em uma{" "}
+              <span className="text-gradient-hero inline-block">referência digital</span>{" "}
+              com um site de alto padrão.
             </h1>
-            <p className="text-[14px] md:text-[15px] text-muted-foreground leading-[1.55] text-center max-w-[58ch]">
-              Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
+            <p className="text-[14px] text-muted-foreground leading-relaxed">
+              Design exclusivo, performance impecável e acompanhamento individual em cada etapa. O próximo nível do seu negócio começa em <span className="font-semibold text-foreground">30 dias</span>.
             </p>
           </div>
-
-
 
           <div className="flex flex-col gap-3">
             <motion.div whileTap={{ scale: 0.98 }}>
               <Button variant="whatsapp" size="xl" asChild className="w-full shadow-glow-sm">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
-                  Quero atrair mais clientes
+                  Falar no WhatsApp
                 </a>
               </Button>
             </motion.div>
             <p className="text-[11px] text-center text-muted-foreground -mt-1">
               <Lock className="w-2.5 h-2.5 inline mr-1 -mt-0.5" />
-              Resposta em até 1 hora útil · Sem compromisso
+              Consultoria sem custo · Retorno em até 1 hora útil
             </p>
             <motion.div whileTap={{ scale: 0.98 }}>
               <Button
@@ -453,58 +453,59 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Desktop (lg+) */}
-        <div className="hidden lg:grid py-14 xl:py-20 max-w-7xl mx-auto grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-center gap-8 xl:gap-14">
-          <div className="relative z-10 flex flex-col items-start text-left space-y-5 lg:space-y-5 min-w-0">
+        {/* Desktop */}
+        <div className="hidden md:flex flex-row min-h-[580px] items-center justify-between max-w-6xl mx-auto gap-8 lg:gap-16">
+          <div className="flex-1 relative z-10 flex flex-col justify-center items-start text-left space-y-7">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-4 lg:px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-[11px] lg:text-xs font-semibold w-fit tracking-wider uppercase shadow-sm whitespace-nowrap"
+              className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wider uppercase shadow-sm"
             >
               <Lock className="w-3 h-3 text-primary" />
-              Solução completa para vender mais online
+              Especialistas em Conversão
             </motion.div>
 
-            <div className="space-y-3.5 lg:space-y-4 w-full">
-              <h1 className="text-[1.75rem] lg:text-[2.125rem] xl:text-[2.5rem] font-heading font-extrabold leading-[1.12] text-foreground tracking-[-0.02em] text-balance max-w-[20ch] xl:max-w-[18ch]">
-                Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
+            <div className="space-y-5">
+              <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.2] text-foreground tracking-[-0.02em]">
+                Transforme sua marca em uma{" "}
+                <span className="text-gradient-hero">referência digital</span>{" "}
+                com um site de alto padrão.
               </h1>
-              <motion.p
+            <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.35 }}
-                className="text-[15px] lg:text-base text-muted-foreground max-w-[52ch] leading-[1.6]"
+                className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed"
               >
-                Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
+                Design exclusivo, performance impecável e acompanhamento individual em cada etapa. O próximo nível do seu negócio começa em <span className="font-semibold text-foreground">30 dias</span>.
               </motion.p>
-
             </div>
 
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.35 }}
-              className="flex flex-col items-start gap-3 w-full"
+              className="flex flex-col items-start gap-3"
             >
-              <div className="flex flex-wrap items-center gap-3 w-full">
+              <div className="flex flex-row items-center gap-3">
                 <MagneticButton>
-                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                    <Button variant="whatsapp" size="lg" asChild className="shadow-glow-sm whitespace-nowrap text-sm px-5">
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                    <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm">
                       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                        <MessageCircle className="w-4 h-4" />
-                        Quero atrair mais clientes
+                        <MessageCircle className="w-5 h-5" />
+                        Falar no WhatsApp
                       </a>
                     </Button>
                   </motion.div>
                 </MagneticButton>
                 <MagneticButton>
-                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
                     <Button
                       variant="outline"
-                      size="lg"
+                      size="xl"
                       onClick={scrollToServicos}
-                      className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 whitespace-nowrap text-sm px-5"
+                      className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30"
                     >
                       Ver Serviços
                       <ArrowDown className="w-4 h-4" />
@@ -514,14 +515,14 @@ const HeroSection = () => {
               </div>
               <p className="text-xs text-muted-foreground flex items-center gap-1.5">
                 <Lock className="w-3 h-3 text-success" />
-                Resposta em até 1 hora útil · Sem compromisso
+                Consultoria sem custo · Retorno em até 1 hora útil
               </p>
             </motion.div>
 
             <TrustIndicators />
           </div>
 
-          <div className="min-w-0 flex items-center justify-end">
+          <div className="flex-1 flex flex-col items-center justify-center">
             <HeroVisual />
           </div>
         </div>

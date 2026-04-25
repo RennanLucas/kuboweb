@@ -1,19 +1,17 @@
 import { memo, useState, useEffect } from "react";
 import { MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useFooterVisible } from "@/hooks/use-footer-visible";
 
 const FloatingWhatsApp = () => {
   const [hovered, setHovered] = useState(false);
   const [visible, setVisible] = useState(false);
-  const footerVisible = useFooterVisible();
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  if (!visible || footerVisible) return null;
+  if (!visible) return null;
 
   return (
     <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex items-center gap-2">
@@ -35,7 +33,7 @@ const FloatingWhatsApp = () => {
         href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg shadow-whatsapp/30 transition-all duration-200 hover:bg-whatsapp/90 hover:shadow-xl hover:shadow-whatsapp/40 active:scale-95 active:bg-whatsapp/80 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-whatsapp/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_3]"
+        className="flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg shadow-whatsapp/30 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_3]"
         aria-label="Falar no WhatsApp"
         onClick={(e) => {
           const w = window as unknown as { gtagSendEvent?: (u: string) => boolean };

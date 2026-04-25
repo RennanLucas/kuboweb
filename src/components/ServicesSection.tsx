@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import TiltCard from "@/components/ui/TiltCard";
-import imgSites from "@/assets/services/sites-institucionais.jpg";
-import imgLandings from "@/assets/services/landing-pages.jpg";
-import imgLoja from "@/assets/services/loja-virtual.jpg";
-import imgAnuncios from "@/assets/services/anuncios.jpg";
+import imgSites from "@/assets/services/sites-institucionais.webp";
+import imgLandings from "@/assets/services/landing-pages.webp";
+import imgLoja from "@/assets/services/loja-virtual.webp";
+import imgAnuncios from "@/assets/services/anuncios.webp";
 
 const services = [
   {

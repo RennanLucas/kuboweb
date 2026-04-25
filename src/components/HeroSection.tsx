@@ -395,7 +395,7 @@ const HeroSection = () => {
 
       <div className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
         {/* Mobile */}
-        <div className="md:hidden flex flex-col px-5 pt-6 pb-6 gap-5 relative">
+        <div className="lg:hidden flex flex-col px-5 pt-6 pb-6 gap-5 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -454,7 +454,7 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop */}
-        <div className="hidden md:flex flex-row min-h-[580px] items-center justify-between max-w-6xl mx-auto gap-8 lg:gap-16">
+        <div className="hidden lg:flex flex-row min-h-[580px] items-center justify-between max-w-6xl mx-auto gap-8 lg:gap-16">
           <div className="flex-1 relative z-10 flex flex-col justify-center items-start text-left space-y-7">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}

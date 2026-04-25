@@ -153,7 +153,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
       initial={{ opacity: 0, y: 30, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-      className="relative mx-auto w-full max-w-[440px] lg:max-w-[520px] xl:max-w-[640px]"
+      className="relative mx-auto w-full max-w-[420px] lg:max-w-[480px] xl:max-w-[560px]"
     >
       {/* Ambient glow */}
       <div className="absolute -inset-8 bg-primary/8 rounded-[2rem] blur-3xl -z-10 animate-glow-pulse" />

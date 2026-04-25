@@ -394,8 +394,8 @@ const HeroSection = () => {
       }} />
 
       <div className="w-full md:container md:mx-auto md:max-w-7xl relative z-10">
-        {/* Mobile */}
-        <div className="md:hidden flex flex-col px-5 pt-6 pb-6 gap-5 relative">
+        {/* Mobile + Tablet */}
+        <div className="lg:hidden flex flex-col px-5 md:px-8 pt-6 md:pt-10 pb-6 md:pb-12 gap-5 md:gap-7 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -407,7 +407,7 @@ const HeroSection = () => {
           </motion.div>
 
           <div className="space-y-3">
-            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.15] text-foreground tracking-tight text-balance">
+            <h1 className="text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] font-heading font-bold leading-[1.15] text-foreground tracking-tight text-balance">
               Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
             </h1>
             <p className="text-[14px] text-muted-foreground leading-relaxed">
@@ -453,8 +453,8 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Desktop */}
-        <div className="hidden md:grid min-h-[calc(100dvh-80px)] max-w-7xl mx-auto grid-cols-[minmax(0,0.9fr)_minmax(420px,1.1fr)] lg:grid-cols-[minmax(0,0.95fr)_minmax(520px,1.05fr)] items-center gap-8 lg:gap-12 xl:gap-16">
+        {/* Desktop (lg+) */}
+        <div className="hidden lg:grid min-h-[calc(100dvh-80px)] max-w-7xl mx-auto grid-cols-[minmax(0,0.95fr)_minmax(520px,1.05fr)] items-center gap-12 xl:gap-16">
           <div className="relative z-10 flex flex-col justify-center items-start text-left space-y-6 lg:space-y-7 min-w-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}

@@ -33,6 +33,10 @@ const Index = () => {
       </Suspense>
       <div className="line-glow" />
       <Suspense fallback={<SectionFallback />}>
+        <ImpactStatsSection />
+      </Suspense>
+      <div className="line-glow" />
+      <Suspense fallback={<SectionFallback />}>
         <QuoteFormSection />
       </Suspense>
       <div className="line-glow" />

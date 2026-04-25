@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import TiltCard from "@/components/ui/TiltCard";
-import imgSites from "@/assets/services/sites-institucionais.jpg";
-import imgLandings from "@/assets/services/landing-pages.jpg";
-import imgLoja from "@/assets/services/loja-virtual.jpg";
-import imgAnuncios from "@/assets/services/anuncios.jpg";
+import imgSites from "@/assets/services/sites-institucionais.webp";
+import imgLandings from "@/assets/services/landing-pages.webp";
+import imgLoja from "@/assets/services/loja-virtual.webp";
+import imgAnuncios from "@/assets/services/anuncios.webp";
 
 const services = [
   {
@@ -127,14 +127,17 @@ const ServicesSection = () => {
                 className="card-premium border-glow flex flex-col cursor-pointer h-full relative overflow-hidden"
               >
                 {/* Visual header with subtle Ken Burns motion on hover */}
-                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-t-[inherit]">
+                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-t-[inherit] bg-muted/40">
                   <img
                     src={service.image}
                     alt={service.title}
-                    loading="lazy"
+                    loading={index < 2 ? "eager" : "lazy"}
+                    decoding="async"
+                    fetchPriority={index === 0 ? "high" : "auto"}
                     width={1280}
                     height={720}
-                    className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-all duration-[2400ms] ease-out will-change-transform brightness-110 saturate-125 contrast-105 group-hover:brightness-125 group-hover:saturate-150"
+                    onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
+                    className="opacity-0 transition-opacity duration-300 absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 [transition:opacity_300ms_ease,transform_2400ms_ease-out,filter_300ms_ease] will-change-transform brightness-110 saturate-125 contrast-105 group-hover:brightness-125 group-hover:saturate-150"
                   />
                   {/* Soft fade only at the bottom edge for text separation */}
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-card/80 to-transparent" />

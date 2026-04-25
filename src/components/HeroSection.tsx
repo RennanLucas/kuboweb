@@ -160,7 +160,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
       <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-xl -z-10" />
 
       {/* Floating badges - desktop only */}
-      <div className="hidden xl:block">
+      <div className="hidden 2xl:block">
         {floatingFeatures.map((feat) => (
           <motion.div
             key={feat.label}

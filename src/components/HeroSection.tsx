@@ -436,7 +436,7 @@ const HeroSection = () => {
               <Button variant="whatsapp" size="xl" asChild className="w-full shadow-glow-sm">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
-                  Quero meu orçamento grátis
+                  Quero atrair mais clientes
                 </a>
               </Button>
             </motion.div>

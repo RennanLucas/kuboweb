@@ -454,27 +454,27 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop */}
-        <div className="hidden md:flex flex-row min-h-[580px] items-center justify-between max-w-6xl mx-auto gap-8 lg:gap-16">
-          <div className="flex-1 relative z-10 flex flex-col justify-center items-start text-left space-y-7">
+        <div className="hidden md:grid min-h-[calc(100dvh-80px)] max-w-7xl mx-auto grid-cols-[minmax(0,0.9fr)_minmax(420px,1.1fr)] lg:grid-cols-[minmax(0,0.95fr)_minmax(520px,1.05fr)] items-center gap-8 lg:gap-12 xl:gap-16">
+          <div className="relative z-10 flex flex-col justify-center items-start text-left space-y-6 lg:space-y-7 min-w-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wider uppercase shadow-sm"
+              className="inline-flex items-center gap-2.5 px-4 lg:px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-[11px] lg:text-xs font-semibold w-fit tracking-wider uppercase shadow-sm whitespace-nowrap"
             >
               <Lock className="w-3 h-3 text-primary" />
               Solução completa para vender mais online
             </motion.div>
 
-            <div className="space-y-5">
-              <h1 className="text-[1.375rem] md:text-[1.5rem] lg:text-[1.75rem] xl:text-[2.25rem] font-heading font-extrabold leading-[1.2] text-foreground tracking-[-0.02em] text-balance">
+            <div className="space-y-4 lg:space-y-5 w-full">
+              <h1 className="text-[2rem] lg:text-[2.75rem] xl:text-[3.25rem] font-heading font-extrabold leading-[1.1] text-foreground tracking-[-0.02em] text-balance max-w-[13.5ch] lg:max-w-[14ch] xl:max-w-[14.5ch]">
                 Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
               </h1>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.35 }}
-                className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed"
+                className="text-base lg:text-lg text-muted-foreground max-w-[40rem] leading-relaxed"
               >
                 Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
               </motion.p>
@@ -485,12 +485,12 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.35 }}
-              className="flex flex-col items-start gap-3"
+              className="flex flex-col items-start gap-3 w-full"
             >
-              <div className="flex flex-row items-center gap-3">
+              <div className="grid grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] gap-3 w-full max-w-[45rem]">
                 <MagneticButton>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                    <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm">
+                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                    <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm w-full min-h-[64px] text-base lg:text-lg">
                       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="w-5 h-5" />
                         Quero atrair mais clientes
@@ -499,12 +499,12 @@ const HeroSection = () => {
                   </motion.div>
                 </MagneticButton>
                 <MagneticButton>
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                     <Button
                       variant="outline"
                       size="xl"
                       onClick={scrollToServicos}
-                      className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30"
+                      className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 w-full min-h-[64px] text-base lg:text-lg"
                     >
                       Ver Serviços
                       <ArrowDown className="w-4 h-4" />
@@ -521,7 +521,7 @@ const HeroSection = () => {
             <TrustIndicators />
           </div>
 
-          <div className="flex-1 flex flex-col items-center justify-center">
+          <div className="min-w-0 flex items-center justify-end">
             <HeroVisual />
           </div>
         </div>

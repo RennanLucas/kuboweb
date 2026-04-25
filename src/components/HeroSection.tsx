@@ -23,10 +23,10 @@ const useRotatingText = (words: string[], interval = 3000) => {
 };
 
 const floatingFeatures = [
-  { icon: Shield, label: "SSL Seguro", x: "-22%", y: "22%", delay: 1.8 },
-  { icon: Zap, label: "PageSpeed 99", x: "104%", y: "10%", delay: 2.0 },
-  { icon: TrendingUp, label: "+340% Leads", x: "104%", y: "55%", delay: 2.2 },
-  { icon: Award, label: "5.0 ★★★★★", x: "-24%", y: "75%", delay: 2.4 },
+  { icon: Shield, label: "SSL Seguro", x: "-12%", y: "18%", delay: 1.8 },
+  { icon: Zap, label: "PageSpeed 99", x: "88%", y: "8%", delay: 2.0 },
+  { icon: TrendingUp, label: "+340% Leads", x: "90%", y: "62%", delay: 2.2 },
+  { icon: Award, label: "5.0 ★★★★★", x: "-14%", y: "78%", delay: 2.4 },
 ];
 
 const navItems = ["Início", "Serviços", "Portfólio", "Contato"];
@@ -171,7 +171,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
               scale: { delay: feat.delay, duration: 0.5, type: "spring", stiffness: 180, damping: 15 },
               y: { delay: feat.delay + 0.5, duration: 4, repeat: Infinity, ease: "easeInOut" },
             }}
-            className="absolute z-20 flex items-center gap-2.5 pl-2.5 pr-4 py-2 rounded-2xl bg-card/90 border border-border/40 shadow-lg shadow-primary/5 text-[11px] font-semibold text-foreground backdrop-blur-xl"
+            className="absolute z-20 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2.5 pl-2.5 pr-4 py-2 rounded-2xl bg-card/90 border border-border/40 shadow-lg shadow-primary/5 text-[11px] font-semibold text-foreground backdrop-blur-xl whitespace-nowrap"
             style={{ left: feat.x, top: feat.y }}
           >
             <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/15">

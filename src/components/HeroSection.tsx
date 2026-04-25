@@ -487,10 +487,10 @@ const HeroSection = () => {
               transition={{ delay: 0.2, duration: 0.35 }}
               className="flex flex-col items-start gap-3 w-full"
             >
-              <div className="grid grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] gap-3 w-full max-w-[45rem]">
+              <div className="flex flex-wrap items-center gap-3 w-full">
                 <MagneticButton>
                   <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                    <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm w-full min-h-[64px] text-base lg:text-lg">
+                    <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm whitespace-nowrap text-sm lg:text-base px-6">
                       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="w-5 h-5" />
                         Quero atrair mais clientes
@@ -504,7 +504,7 @@ const HeroSection = () => {
                       variant="outline"
                       size="xl"
                       onClick={scrollToServicos}
-                      className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 w-full min-h-[64px] text-base lg:text-lg"
+                      className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 whitespace-nowrap text-sm lg:text-base px-6"
                     >
                       Ver Serviços
                       <ArrowDown className="w-4 h-4" />

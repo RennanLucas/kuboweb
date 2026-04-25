@@ -23,10 +23,10 @@ const useRotatingText = (words: string[], interval = 3000) => {
 };
 
 const floatingFeatures = [
-  { icon: Shield, label: "SSL Seguro", x: "-16%", y: "8%", delay: 1.8 },
-  { icon: Zap, label: "PageSpeed 99", x: "100%", y: "15%", delay: 2.0 },
-  { icon: TrendingUp, label: "+340% Leads", x: "-14%", y: "78%", delay: 2.2 },
-  { icon: Award, label: "5.0 ★★★★★", x: "102%", y: "72%", delay: 2.4 },
+  { icon: Shield, label: "SSL Seguro", x: "-22%", y: "8%", delay: 1.8 },
+  { icon: Zap, label: "PageSpeed 99", x: "108%", y: "15%", delay: 2.0 },
+  { icon: TrendingUp, label: "+340% Leads", x: "-20%", y: "78%", delay: 2.2 },
+  { icon: Award, label: "5.0 ★★★★★", x: "110%", y: "72%", delay: 2.4 },
 ];
 
 const navItems = ["Início", "Serviços", "Portfólio", "Contato"];
@@ -160,7 +160,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
       <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-xl -z-10" />
 
       {/* Floating badges - desktop only */}
-      <div className="hidden lg:block">
+      <div className="hidden xl:block">
         {floatingFeatures.map((feat) => (
           <motion.div
             key={feat.label}

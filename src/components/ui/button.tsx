@@ -11,11 +11,11 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg shadow-primary/25",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-border bg-transparent hover:bg-secondary hover:border-primary/50 text-foreground",
+        outline: "border border-border bg-transparent hover:bg-secondary hover:border-primary/50 hover:text-foreground active:bg-secondary/80 focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:border-primary text-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border",
         ghost: "hover:bg-secondary hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        whatsapp: "bg-whatsapp text-whatsapp-foreground font-bold shadow-lg shadow-whatsapp/25 hover:bg-whatsapp/90 hover:shadow-xl hover:shadow-whatsapp/30 hover:scale-[1.02]",
+        whatsapp: "bg-whatsapp text-whatsapp-foreground font-bold shadow-lg shadow-whatsapp/25 hover:bg-whatsapp/90 hover:shadow-xl hover:shadow-whatsapp/30 hover:scale-[1.02] active:scale-[0.98] active:bg-whatsapp/80 focus-visible:ring-whatsapp focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-whatsapp/60",
       },
       size: {
         default: "h-11 px-6 py-2",

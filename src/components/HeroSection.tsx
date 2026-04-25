@@ -171,7 +171,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
               scale: { delay: feat.delay, duration: 0.5, type: "spring", stiffness: 180, damping: 15 },
               y: { delay: feat.delay + 0.5, duration: 4, repeat: Infinity, ease: "easeInOut" },
             }}
-            className="absolute z-20 flex items-center gap-2.5 pl-2.5 pr-4 py-2 rounded-2xl bg-card/90 border border-border/40 shadow-lg shadow-primary/5 text-[11px] font-semibold text-foreground backdrop-blur-xl"
+            className="absolute z-20 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2.5 pl-2.5 pr-4 py-2 rounded-2xl bg-card/90 border border-border/40 shadow-lg shadow-primary/5 text-[11px] font-semibold text-foreground backdrop-blur-xl whitespace-nowrap"
             style={{ left: feat.x, top: feat.y }}
           >
             <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-primary/15">

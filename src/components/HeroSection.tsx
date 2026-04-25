@@ -415,19 +415,7 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Resultado em bullets — escaneável */}
-          <ul className="space-y-2 -mt-1">
-            {[
-              "Site, loja virtual ou página de vendas pronta em até 30 dias",
-              "Anúncios no Google trazendo clientes prontos para comprar",
-              "Estratégia, criação e tráfego com quem entende do seu negócio",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-[13px] text-foreground">
-                <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+
 
           <div className="flex flex-col gap-3">
             <motion.div whileTap={{ scale: 0.98 }}>
@@ -491,24 +479,6 @@ const HeroSection = () => {
                 Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
               </motion.p>
 
-              {/* Resultado escaneável — 3 bullets */}
-              <motion.ul
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.18, duration: 0.35 }}
-                className="space-y-2 pt-1"
-              >
-                {[
-                  "Site, loja virtual ou página de vendas no ar em até 30 dias",
-                  "Anúncios no Google atraindo clientes prontos para comprar",
-                  "Estratégia, criação e tráfego sob medida para o seu negócio",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm text-foreground">
-                    <CheckCircle2 className="w-[18px] h-[18px] text-success shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </motion.ul>
             </div>
 
             <motion.div

@@ -7,6 +7,7 @@ import PreloadLcpImages from "@/components/PreloadLcpImages";
 const FloatingWhatsApp = lazy(() => import("@/components/FloatingWhatsApp"));
 
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const ImpactStatsSection = lazy(() => import("@/components/ImpactStatsSection"));
 const QuoteFormSection = lazy(() => import("@/components/QuoteFormSection"));
 const CTASection = lazy(() => import("@/components/CTASection"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -29,6 +30,10 @@ const Index = () => {
       <div className="line-glow" />
       <Suspense fallback={<SectionFallback />}>
         <ServicesSection />
+      </Suspense>
+      <div className="line-glow" />
+      <Suspense fallback={<SectionFallback />}>
+        <ImpactStatsSection />
       </Suspense>
       <div className="line-glow" />
       <Suspense fallback={<SectionFallback />}>

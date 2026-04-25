@@ -407,22 +407,22 @@ const HeroSection = () => {
           </motion.div>
 
           <div className="space-y-3">
-            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.15] text-foreground tracking-tight text-balance">
-              Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
+            <h1 className="text-[1.875rem] sm:text-[2rem] font-heading font-bold leading-[1.1] text-foreground tracking-tight text-balance">
+              Mais <span className="text-gradient-hero">clientes</span> para o seu negócio.
             </h1>
-            <p className="text-[14px] text-muted-foreground leading-relaxed">
-              Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
+            <p className="text-[15px] text-muted-foreground leading-relaxed">
+              Site, loja virtual e anúncios — tudo em um só lugar para você vender mais.
             </p>
           </div>
 
           {/* Resultado em bullets — escaneável */}
-          <ul className="space-y-2 -mt-1">
+          <ul className="space-y-2.5">
             {[
-              "Site, loja virtual ou página de vendas pronta em até 30 dias",
-              "Anúncios no Google trazendo clientes prontos para comprar",
-              "Estratégia, criação e tráfego com quem entende do seu negócio",
+              "Pronto em até 30 dias",
+              "Anúncios que trazem clientes",
+              "Atendimento direto com quem cria",
             ].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-[13px] text-foreground">
+              <li key={item} className="flex items-center gap-2.5 text-[14px] text-foreground">
                 <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
                 <span>{item}</span>
               </li>

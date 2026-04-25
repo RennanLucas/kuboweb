@@ -490,9 +490,9 @@ const HeroSection = () => {
               <div className="flex flex-wrap items-center gap-3 w-full">
                 <MagneticButton>
                   <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                    <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm whitespace-nowrap text-sm lg:text-base px-6">
+                    <Button variant="whatsapp" size="lg" asChild className="shadow-glow-sm whitespace-nowrap text-sm px-5">
                       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                        <MessageCircle className="w-5 h-5" />
+                        <MessageCircle className="w-4 h-4" />
                         Quero atrair mais clientes
                       </a>
                     </Button>
@@ -502,9 +502,9 @@ const HeroSection = () => {
                   <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                     <Button
                       variant="outline"
-                      size="xl"
+                      size="lg"
                       onClick={scrollToServicos}
-                      className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 whitespace-nowrap text-sm lg:text-base px-6"
+                      className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 whitespace-nowrap text-sm px-5"
                     >
                       Ver Serviços
                       <ArrowDown className="w-4 h-4" />

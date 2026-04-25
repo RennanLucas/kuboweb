@@ -153,14 +153,14 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
       initial={{ opacity: 0, y: 30, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-      className="relative mx-auto w-full max-w-[520px]"
+      className="relative mx-auto w-full max-w-[440px] lg:max-w-[520px] xl:max-w-[640px]"
     >
       {/* Ambient glow */}
       <div className="absolute -inset-8 bg-primary/8 rounded-[2rem] blur-3xl -z-10 animate-glow-pulse" />
       <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-xl -z-10" />
 
       {/* Floating badges - desktop only */}
-      <div className="hidden lg:block">
+      <div className="hidden xl:block">
         {floatingFeatures.map((feat) => (
           <motion.div
             key={feat.label}
@@ -375,7 +375,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative flex items-center justify-center overflow-hidden pt-16 pb-4 md:min-h-[100dvh] md:py-24 px-0 md:px-4">
+    <section className="relative flex items-center justify-center overflow-hidden pt-16 pb-4 md:pt-8 md:pb-10 lg:pt-10 lg:pb-12 px-0 md:px-6">
       {/* Premium background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-accent/20" />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/4 rounded-full blur-[180px] hidden md:block" />
@@ -393,7 +393,7 @@ const HeroSection = () => {
         backgroundSize: '32px 32px'
       }} />
 
-      <div className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
+      <div className="w-full md:container md:mx-auto md:max-w-7xl relative z-10">
         {/* Mobile */}
         <div className="md:hidden flex flex-col px-5 pt-6 pb-6 gap-5 relative">
           <motion.div

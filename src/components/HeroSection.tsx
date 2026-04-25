@@ -403,26 +403,26 @@ const HeroSection = () => {
             className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wider uppercase shadow-sm"
           >
             <Lock className="w-3 h-3 text-primary" />
-            Sites para empresas que querem vender
+            Solução completa para vender mais online
           </motion.div>
 
           <div className="space-y-3">
             <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.2] text-foreground tracking-tight">
-              Sites profissionais que{" "}
-              <span className="text-gradient-hero inline-block">geram clientes</span>{" "}
-              em até 30 dias.
+              Mais{" "}
+              <span className="text-gradient-hero inline-block">clientes para o seu negócio</span>{" "}
+              — do site ao anúncio, tudo em um só lugar.
             </h1>
             <p className="text-[14px] text-muted-foreground leading-relaxed">
-              Para pequenas e médias empresas que precisam de um site bonito, rápido e que <span className="font-semibold text-foreground">realmente traz resultado</span> — sem enrolação, sem mensalidade escondida.
+              Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
             </p>
           </div>
 
           {/* Resultado em bullets — escaneável */}
           <ul className="space-y-2 -mt-1">
             {[
-              "Site no ar em até 30 dias",
-              "Otimizado para Google e celular",
-              "Atendimento direto com quem cria",
+              "Site, loja virtual ou página de vendas pronta em até 30 dias",
+              "Anúncios no Google trazendo clientes prontos para comprar",
+              "Estratégia, criação e tráfego com quem entende do seu negócio",
             ].map((item) => (
               <li key={item} className="flex items-center gap-2 text-[13px] text-foreground">
                 <CheckCircle2 className="w-4 h-4 text-success shrink-0" />
@@ -436,7 +436,7 @@ const HeroSection = () => {
               <Button variant="whatsapp" size="xl" asChild className="w-full shadow-glow-sm">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="w-5 h-5" />
-                  Quero meu orçamento grátis
+                  Quero atrair mais clientes
                 </a>
               </Button>
             </motion.div>
@@ -477,14 +477,14 @@ const HeroSection = () => {
               className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wider uppercase shadow-sm"
             >
               <Lock className="w-3 h-3 text-primary" />
-              Sites para empresas que querem vender
+              Solução completa para vender mais online
             </motion.div>
 
             <div className="space-y-5">
               <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.15] text-foreground tracking-[-0.02em]">
-                Sites profissionais que{" "}
-                <span className="text-gradient-hero">geram clientes</span>{" "}
-                em até 30 dias.
+                Mais{" "}
+                <span className="text-gradient-hero">clientes para o seu negócio</span>{" "}
+                — do site ao anúncio, tudo em um só lugar.
               </h1>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -492,7 +492,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.15, duration: 0.35 }}
                 className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed"
               >
-                Para pequenas e médias empresas que precisam de um site bonito, rápido e que <span className="font-semibold text-foreground">realmente traz resultado</span> — sem enrolação e com atendimento direto com quem cria.
+                Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
               </motion.p>
 
               {/* Resultado escaneável — 3 bullets */}
@@ -503,9 +503,9 @@ const HeroSection = () => {
                 className="space-y-2 pt-1"
               >
                 {[
-                  "Site no ar em até 30 dias, sem dor de cabeça",
-                  "Otimizado para Google, celular e velocidade máxima",
-                  "Estratégia de conversão pensada para seu negócio",
+                  "Site, loja virtual ou página de vendas no ar em até 30 dias",
+                  "Anúncios no Google atraindo clientes prontos para comprar",
+                  "Estratégia, criação e tráfego sob medida para o seu negócio",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-foreground">
                     <CheckCircle2 className="w-[18px] h-[18px] text-success shrink-0 mt-0.5" />
@@ -527,7 +527,7 @@ const HeroSection = () => {
                     <Button variant="whatsapp" size="xl" asChild className="shadow-glow-sm">
                       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="w-5 h-5" />
-                        Quero meu orçamento grátis
+                        Quero atrair mais clientes
                       </a>
                     </Button>
                   </motion.div>

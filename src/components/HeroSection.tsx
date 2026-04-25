@@ -23,10 +23,10 @@ const useRotatingText = (words: string[], interval = 3000) => {
 };
 
 const floatingFeatures = [
-  { icon: Shield, label: "SSL Seguro", x: "-16%", y: "8%", delay: 1.8 },
-  { icon: Zap, label: "PageSpeed 99", x: "100%", y: "15%", delay: 2.0 },
-  { icon: TrendingUp, label: "+340% Leads", x: "-14%", y: "78%", delay: 2.2 },
-  { icon: Award, label: "5.0 ★★★★★", x: "102%", y: "72%", delay: 2.4 },
+  { icon: Shield, label: "SSL Seguro", x: "-22%", y: "8%", delay: 1.8 },
+  { icon: Zap, label: "PageSpeed 99", x: "108%", y: "15%", delay: 2.0 },
+  { icon: TrendingUp, label: "+340% Leads", x: "-20%", y: "78%", delay: 2.2 },
+  { icon: Award, label: "5.0 ★★★★★", x: "110%", y: "72%", delay: 2.4 },
 ];
 
 const navItems = ["Início", "Serviços", "Portfólio", "Contato"];
@@ -160,7 +160,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
       <div className="absolute -inset-4 bg-primary/5 rounded-3xl blur-xl -z-10" />
 
       {/* Floating badges - desktop only */}
-      <div className="hidden lg:block">
+      <div className="hidden xl:block">
         {floatingFeatures.map((feat) => (
           <motion.div
             key={feat.label}
@@ -491,7 +491,7 @@ const HeroSection = () => {
               <div className="flex flex-row items-center gap-3">
                 <MagneticButton>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                    <Button variant="whatsapp" size="lg" asChild className="shadow-glow-sm">
+                    <Button variant="whatsapp" size="lg" asChild className="shadow-glow-sm whitespace-nowrap">
                       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="w-4 h-4" />
                         Falar no WhatsApp
@@ -505,7 +505,7 @@ const HeroSection = () => {
                       variant="outline"
                       size="lg"
                       onClick={scrollToServicos}
-                      className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30"
+                      className="border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/30 whitespace-nowrap"
                     >
                       Ver Serviços
                       <ArrowDown className="w-4 h-4" />

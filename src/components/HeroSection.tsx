@@ -407,10 +407,8 @@ const HeroSection = () => {
           </motion.div>
 
           <div className="space-y-3">
-            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.2] text-foreground tracking-tight">
-              Mais{" "}
-              <span className="text-gradient-hero inline-block">clientes para o seu negócio</span>{" "}
-              — do site ao anúncio, tudo em um só lugar.
+            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.15] text-foreground tracking-tight text-balance">
+              Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
             </h1>
             <p className="text-[14px] text-muted-foreground leading-relaxed">
               Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
@@ -482,9 +480,7 @@ const HeroSection = () => {
 
             <div className="space-y-5">
               <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.15] text-foreground tracking-[-0.02em]">
-                Mais{" "}
-                <span className="text-gradient-hero">clientes para o seu negócio</span>{" "}
-                — do site ao anúncio, tudo em um só lugar.
+                Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
               </h1>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}

@@ -454,8 +454,8 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop (lg+) */}
-        <div className="hidden lg:grid min-h-[calc(100dvh-80px)] max-w-7xl mx-auto grid-cols-[minmax(0,0.95fr)_minmax(520px,1.05fr)] items-center gap-10 xl:gap-14">
-          <div className="relative z-10 flex flex-col justify-center items-start text-left space-y-5 lg:space-y-5 min-w-0">
+        <div className="hidden lg:grid py-16 xl:py-20 max-w-7xl mx-auto grid-cols-[minmax(0,0.95fr)_minmax(520px,1.05fr)] items-start gap-10 xl:gap-14">
+          <div className="relative z-10 flex flex-col items-start text-left space-y-5 lg:space-y-5 min-w-0 pt-2">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}

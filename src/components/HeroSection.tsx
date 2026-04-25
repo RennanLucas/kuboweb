@@ -406,7 +406,7 @@ const HeroSection = () => {
             Solução completa para vender mais online
           </motion.div>
 
-          <div className="space-y-3 max-w-[58ch]">
+          <div className="space-y-3 max-w-[58ch] mx-auto">
             <h1 className="text-[1.5rem] sm:text-[1.75rem] md:text-[1.875rem] font-heading font-bold leading-[1.18] text-foreground tracking-[-0.02em] text-balance">
               Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
             </h1>

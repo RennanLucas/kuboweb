@@ -477,14 +477,14 @@ const HeroSection = () => {
               className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/15 text-primary text-xs font-semibold w-fit tracking-wider uppercase shadow-sm"
             >
               <Lock className="w-3 h-3 text-primary" />
-              Sites para empresas que querem vender
+              Solução completa para vender mais online
             </motion.div>
 
             <div className="space-y-5">
               <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.15] text-foreground tracking-[-0.02em]">
-                Sites profissionais que{" "}
-                <span className="text-gradient-hero">geram clientes</span>{" "}
-                em até 30 dias.
+                Mais{" "}
+                <span className="text-gradient-hero">clientes para o seu negócio</span>{" "}
+                — do site ao anúncio, tudo em um só lugar.
               </h1>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
@@ -492,7 +492,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.15, duration: 0.35 }}
                 className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed"
               >
-                Para pequenas e médias empresas que precisam de um site bonito, rápido e que <span className="font-semibold text-foreground">realmente traz resultado</span> — sem enrolação e com atendimento direto com quem cria.
+                Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
               </motion.p>
 
               {/* Resultado escaneável — 3 bullets */}
@@ -503,9 +503,9 @@ const HeroSection = () => {
                 className="space-y-2 pt-1"
               >
                 {[
-                  "Site no ar em até 30 dias, sem dor de cabeça",
-                  "Otimizado para Google, celular e velocidade máxima",
-                  "Estratégia de conversão pensada para seu negócio",
+                  "Site, loja virtual ou página de vendas no ar em até 30 dias",
+                  "Anúncios no Google atraindo clientes prontos para comprar",
+                  "Estratégia, criação e tráfego sob medida para o seu negócio",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2.5 text-sm text-foreground">
                     <CheckCircle2 className="w-[18px] h-[18px] text-success shrink-0 mt-0.5" />

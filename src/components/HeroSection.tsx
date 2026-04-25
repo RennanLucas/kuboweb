@@ -454,8 +454,8 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop (lg+) */}
-        <div className="hidden lg:grid min-h-[calc(100dvh-80px)] max-w-7xl mx-auto grid-cols-[minmax(0,0.95fr)_minmax(520px,1.05fr)] items-center gap-12 xl:gap-16">
-          <div className="relative z-10 flex flex-col justify-center items-start text-left space-y-6 lg:space-y-7 min-w-0">
+        <div className="hidden lg:grid min-h-[calc(100dvh-80px)] max-w-7xl mx-auto grid-cols-[minmax(0,0.95fr)_minmax(520px,1.05fr)] items-center gap-10 xl:gap-14">
+          <div className="relative z-10 flex flex-col justify-center items-start text-left space-y-5 lg:space-y-5 min-w-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -466,15 +466,15 @@ const HeroSection = () => {
               Solução completa para vender mais online
             </motion.div>
 
-            <div className="space-y-4 lg:space-y-5 w-full">
-              <h1 className="text-[1.5rem] lg:text-[2rem] xl:text-[2.5rem] font-heading font-extrabold leading-[1.15] text-foreground tracking-[-0.02em] text-balance max-w-[16ch] lg:max-w-[15ch] xl:max-w-[14.5ch]">
+            <div className="space-y-3.5 lg:space-y-4 w-full">
+              <h1 className="text-[1.75rem] lg:text-[2.125rem] xl:text-[2.5rem] font-heading font-extrabold leading-[1.12] text-foreground tracking-[-0.02em] text-balance max-w-[15ch] xl:max-w-[14ch]">
                 Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
               </h1>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.35 }}
-                className="text-base lg:text-lg text-muted-foreground max-w-[40rem] leading-relaxed"
+                className="text-[15px] lg:text-base text-muted-foreground max-w-[52ch] leading-[1.6]"
               >
                 Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
               </motion.p>

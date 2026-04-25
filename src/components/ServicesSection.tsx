@@ -131,7 +131,9 @@ const ServicesSection = () => {
                   <img
                     src={service.image}
                     alt={service.title}
-                    loading="lazy"
+                    loading={index < 2 ? "eager" : "lazy"}
+                    fetchPriority={index < 2 ? "high" : "auto"}
+                    decoding="async"
                     width={1280}
                     height={720}
                     className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-all duration-[2400ms] ease-out will-change-transform brightness-110 saturate-125 contrast-105 group-hover:brightness-125 group-hover:saturate-150"

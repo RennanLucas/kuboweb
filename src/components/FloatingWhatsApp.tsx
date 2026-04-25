@@ -1,17 +1,19 @@
 import { memo, useState, useEffect } from "react";
 import { MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useFooterVisible } from "@/hooks/use-footer-visible";
 
 const FloatingWhatsApp = () => {
   const [hovered, setHovered] = useState(false);
   const [visible, setVisible] = useState(false);
+  const footerVisible = useFooterVisible();
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 3000);
     return () => clearTimeout(timer);
   }, []);
 
-  if (!visible) return null;
+  if (!visible || footerVisible) return null;
 
   return (
     <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex items-center gap-2">

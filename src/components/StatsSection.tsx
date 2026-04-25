@@ -48,7 +48,17 @@ const StatsSection = () => {
       className="py-10 md:py-14 relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-primary/3 to-transparent pointer-events-none" />
-      <div className="relative" style={{ contain: "layout paint", isolation: "isolate" }}>
+      <div
+        className="relative"
+        style={{
+          contain: "layout paint",
+          isolation: "isolate",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          maskImage:
+            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        }}
+      >
         <div
           className="flex w-max animate-marquee-stats"
           style={{

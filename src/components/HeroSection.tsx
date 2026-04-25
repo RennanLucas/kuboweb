@@ -23,10 +23,10 @@ const useRotatingText = (words: string[], interval = 3000) => {
 };
 
 const floatingFeatures = [
-  { icon: Shield, label: "SSL Seguro", x: "-16%", y: "8%", delay: 1.8 },
-  { icon: Zap, label: "PageSpeed 99", x: "100%", y: "15%", delay: 2.0 },
-  { icon: TrendingUp, label: "+340% Leads", x: "-14%", y: "78%", delay: 2.2 },
-  { icon: Award, label: "5.0 ★★★★★", x: "102%", y: "72%", delay: 2.4 },
+  { icon: Shield, label: "SSL Seguro", x: "-22%", y: "22%", delay: 1.8 },
+  { icon: Zap, label: "PageSpeed 99", x: "104%", y: "10%", delay: 2.0 },
+  { icon: TrendingUp, label: "+340% Leads", x: "104%", y: "55%", delay: 2.2 },
+  { icon: Award, label: "5.0 ★★★★★", x: "-24%", y: "75%", delay: 2.4 },
 ];
 
 const navItems = ["Início", "Serviços", "Portfólio", "Contato"];

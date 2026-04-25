@@ -90,7 +90,7 @@ const Header = () => {
             />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-0.5">
+          <nav className="hidden lg:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <div
                 key={link.href}
@@ -151,7 +151,7 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Button variant="whatsapp" size="sm" asChild>
               <a
                 href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F"
@@ -166,7 +166,7 @@ const Header = () => {
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-150 active:scale-90"
+            className="lg:hidden p-2 text-foreground hover:bg-secondary/50 rounded-lg transition-colors duration-150 active:scale-90"
             aria-label="Menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -176,7 +176,7 @@ const Header = () => {
 
       {/* Mobile menu — CSS grid for smooth height animation */}
       <div
-        className={`md:hidden bg-background/98 backdrop-blur-2xl border-t border-border/30 overflow-hidden transition-[grid-template-rows] duration-250 ease-[cubic-bezier(0.16,1,0.3,1)]`}
+        className={`lg:hidden bg-background/98 backdrop-blur-2xl border-t border-border/30 overflow-hidden transition-[grid-template-rows] duration-250 ease-[cubic-bezier(0.16,1,0.3,1)]`}
         style={{
           display: "grid",
           gridTemplateRows: mobileOpen ? "1fr" : "0fr",

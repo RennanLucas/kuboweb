@@ -3,6 +3,7 @@ import { MessageCircle, User, Sparkles, ArrowRight, X, RotateCcw, Zap, TrendingU
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useFooterVisible } from "@/hooks/use-footer-visible";
 import botAvatar from "@/assets/bot-avatar.webp";
 
 type Message = {
@@ -361,6 +362,7 @@ const Chatbot = () => {
   const [showResult, setShowResult] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const footerVisible = useFooterVisible();
 
   const scrollToBottom = () => {
     setTimeout(() => {
@@ -486,7 +488,7 @@ const Chatbot = () => {
     <>
       {/* Toggle button */}
       <AnimatePresence>
-        {!isOpen && (
+        {!isOpen && !footerVisible && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

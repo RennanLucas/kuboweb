@@ -153,7 +153,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
       initial={{ opacity: 0, y: 30, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-      className="relative mx-auto w-full max-w-[440px] lg:max-w-[520px] xl:max-w-[640px]"
+      className="relative mx-auto w-full max-w-[420px] lg:max-w-[480px] xl:max-w-[560px]"
     >
       {/* Ambient glow */}
       <div className="absolute -inset-8 bg-primary/8 rounded-[2rem] blur-3xl -z-10 animate-glow-pulse" />
@@ -454,8 +454,8 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop (lg+) */}
-        <div className="hidden lg:grid py-16 xl:py-20 max-w-7xl mx-auto grid-cols-[minmax(0,0.95fr)_minmax(520px,1.05fr)] items-start gap-10 xl:gap-14">
-          <div className="relative z-10 flex flex-col items-start text-left space-y-5 lg:space-y-5 min-w-0 pt-2">
+        <div className="hidden lg:grid py-16 xl:py-20 max-w-7xl mx-auto grid-cols-[minmax(0,0.95fr)_minmax(480px,1fr)] items-center gap-10 xl:gap-14">
+          <div className="relative z-10 flex flex-col items-start text-left space-y-5 lg:space-y-5 min-w-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}

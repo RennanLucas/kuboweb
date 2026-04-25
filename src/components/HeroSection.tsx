@@ -480,9 +480,7 @@ const HeroSection = () => {
 
             <div className="space-y-5">
               <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.15] text-foreground tracking-[-0.02em]">
-                Mais{" "}
-                <span className="text-gradient-hero">clientes para o seu negócio</span>{" "}
-                — do site ao anúncio, tudo em um só lugar.
+                Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
               </h1>
               <motion.p
                 initial={{ opacity: 0, y: 10 }}

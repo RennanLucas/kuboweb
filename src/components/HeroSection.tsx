@@ -406,11 +406,11 @@ const HeroSection = () => {
             Solução completa para vender mais online
           </motion.div>
 
-          <div className="space-y-3">
-            <h1 className="text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] font-heading font-bold leading-[1.15] text-foreground tracking-tight text-balance">
+          <div className="space-y-2.5">
+            <h1 className="text-[1.625rem] sm:text-[1.875rem] md:text-[2.25rem] font-heading font-bold leading-[1.15] text-foreground tracking-[-0.02em] text-balance max-w-[22ch]">
               Mais <span className="text-gradient-hero">clientes</span> para o seu negócio — do site ao anúncio, tudo em um só lugar.
             </h1>
-            <p className="text-[14px] text-muted-foreground leading-relaxed">
+            <p className="text-[14px] md:text-[15px] text-muted-foreground leading-[1.55] max-w-[58ch]">
               Criamos a presença digital completa que sua empresa precisa para <span className="font-semibold text-foreground">atrair, converter e vender todos os dias</span> — site, loja virtual e anúncios no Google trabalhando juntos pelo seu crescimento.
             </p>
           </div>

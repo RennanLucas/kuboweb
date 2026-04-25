@@ -19,7 +19,7 @@ const itemVariants = {
 
 const Footer = () => {
   return (
-    <footer className="py-14 md:py-16 px-4 border-t border-border/20 bg-card/30 relative overflow-hidden">
+    <footer className="pt-14 pb-24 md:pt-16 md:pb-16 px-4 border-t border-border/20 bg-card/30 relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-primary/3 rounded-full blur-[120px] hidden md:block pointer-events-none" />
       <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
@@ -34,7 +34,7 @@ const Footer = () => {
               <motion.img
                 src={logoKuboweb}
                 alt="KuboWeb"
-                className="h-40 w-auto object-contain"
+                className="h-24 md:h-28 w-auto object-contain"
                 width={128}
                 height={128}
                 loading="lazy"

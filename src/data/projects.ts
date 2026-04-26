@@ -1,13 +1,13 @@
-import imgAdvocacia from "@/assets/portfolio/advocacia.jpg";
-import imgClinica from "@/assets/portfolio/clinica.jpg";
-import imgModa from "@/assets/portfolio/moda.jpg";
-import imgFinanceira from "@/assets/portfolio/financeira.jpg";
-import imgConstrutora from "@/assets/portfolio/construtora.jpg";
-import imgCurso from "@/assets/portfolio/curso.jpg";
-import imgRestaurante from "@/assets/portfolio/restaurante.jpg";
-import imgImobiliaria from "@/assets/portfolio/imobiliaria.jpg";
-import imgAcademia from "@/assets/portfolio/academia.jpg";
-import imgPetshop from "@/assets/portfolio/petshop.jpg";
+import imgAdvocacia from "@/assets/portfolio/advocacia.webp";
+import imgClinica from "@/assets/portfolio/clinica.webp";
+import imgModa from "@/assets/portfolio/moda.webp";
+import imgFinanceira from "@/assets/portfolio/financeira.webp";
+import imgConstrutora from "@/assets/portfolio/construtora.webp";
+import imgCurso from "@/assets/portfolio/curso.webp";
+import imgRestaurante from "@/assets/portfolio/restaurante.webp";
+import imgImobiliaria from "@/assets/portfolio/imobiliaria.webp";
+import imgAcademia from "@/assets/portfolio/academia.webp";
+import imgPetshop from "@/assets/portfolio/petshop.webp";
 
 export interface Project {
   slug: string;

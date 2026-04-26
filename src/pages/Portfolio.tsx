@@ -108,17 +108,18 @@ const Portfolio = () => {
                   >
                     <article className="card-premium overflow-hidden flex flex-col h-full cursor-pointer relative">
                       {/* Image container */}
-                      <BlurImage
-                        src={project.image}
-                        alt={`Projeto ${project.title}`}
-                        containerClassName="w-full h-56 md:h-64"
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                        loading={index < 4 ? "eager" : "lazy"}
-                        fetchPriority={index < 4 ? "high" : "auto"}
-                        decoding="async"
-                        width={1000}
-                        height={750}
-                      />
+                      <div className="relative overflow-hidden">
+                        <BlurImage
+                          src={project.image}
+                          alt={`Projeto ${project.title}`}
+                          containerClassName="w-full h-56 md:h-64"
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                          loading={index < 4 ? "eager" : "lazy"}
+                          fetchPriority={index < 4 ? "high" : "auto"}
+                          decoding="async"
+                          width={1000}
+                          height={750}
+                        />
                         {/* Overlay gradient */}
                         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 

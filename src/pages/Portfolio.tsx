@@ -112,7 +112,11 @@ const Portfolio = () => {
                           src={project.image}
                           alt={`Projeto ${project.title}`}
                           className="w-full h-56 md:h-64 object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                          loading="lazy"
+                          loading={index < 4 ? "eager" : "lazy"}
+                          fetchPriority={index < 4 ? "high" : "auto"}
+                          decoding="async"
+                          width={1000}
+                          height={750}
                         />
                         {/* Overlay gradient */}
                         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

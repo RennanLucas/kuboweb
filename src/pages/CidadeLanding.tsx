@@ -1,4 +1,4 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useLocation, Navigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { MessageCircle, CheckCircle2, MapPin, Rocket, Search, ShoppingBag, Megaphone, ArrowRight, HelpCircle } from "lucide-react";
@@ -32,7 +32,8 @@ const beneficios = [
 ];
 
 const CidadeLanding = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { pathname } = useLocation();
+  const slug = pathname.replace(/^\/criacao-de-sites-/, "").replace(/\/$/, "");
   const cidade = slug ? getCidadeBySlug(slug) : undefined;
 
   if (!cidade) return <Navigate to="/atendimento" replace />;

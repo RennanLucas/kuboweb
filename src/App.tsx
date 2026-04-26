@@ -70,7 +70,8 @@ const App = () => {
                 <Route path="/servicos/anuncios" element={<Anuncios />} />
                 <Route path="/manutencao" element={<Manutencao />} />
                 <Route path="/atendimento" element={<Atendimento />} />
-                <Route path="/criacao-de-sites-:slug" element={<CidadeLanding />} />
+                <Route path="/criacao-de-sites-:slug/*" element={<CidadeLanding />} />
+                <Route path="/criacao-de-sites-*" element={<CidadeLanding />} />
                 
                 <Route path="*" element={<NotFound />} />
               </Routes>

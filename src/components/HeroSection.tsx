@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ParticleField from "@/components/ui/ParticleField";
 import MagneticButton from "@/components/ui/MagneticButton";
 import GyroParticles from "@/components/ui/GyroParticles";
+import heroMockup from "@/assets/hero-mockup.webp";
 
 
 const trustItems = ["Resposta rápida", "Sem burocracia", "Atendimento direto"];

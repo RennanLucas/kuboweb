@@ -145,23 +145,14 @@
     }
     </script>
 
-    <!-- Preload critical fonts (Inter for body, Manrope for headings) to avoid FOUT -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"></noscript>
+    <!-- Preload critical fonts (Inter for body, Manrope for headings, Space Mono for code) to avoid FOUT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap"></noscript>
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script src="https://mgiwqgmgipyysbgmhyrh.supabase.co/functions/v1/tracker-script?pid=b1b2c3d4-0001-4000-8000-000000000001" defer></script>
-    <!-- Defer secondary fonts after page load -->
-    <script>
-      window.addEventListener('load', function() {
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Lora:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap';
-        document.head.appendChild(link);
-      });
-    </script>
   </body>
 </html>

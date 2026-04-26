@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import TiltCard from "@/components/ui/TiltCard";
-import imgSites from "@/assets/services/sites-institucionais.jpg";
-import imgLandings from "@/assets/services/landing-pages.jpg";
-import imgLoja from "@/assets/services/loja-virtual.jpg";
-import imgAnuncios from "@/assets/services/anuncios.jpg";
+import imgSites from "@/assets/services/sites-institucionais.webp";
+import imgLandings from "@/assets/services/landing-pages.webp";
+import imgLoja from "@/assets/services/loja-virtual.webp";
+import imgAnuncios from "@/assets/services/anuncios.webp";
 
 const services = [
   {
@@ -131,11 +131,11 @@ const ServicesSection = () => {
                   <img
                     src={service.image}
                     alt={service.title}
-                    loading={index < 2 ? "eager" : "lazy"}
-                    fetchPriority={index < 2 ? "high" : "auto"}
+                    loading="eager"
+                    fetchPriority="high"
                     decoding="async"
-                    width={1280}
-                    height={720}
+                    width={960}
+                    height={540}
                     className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-all duration-[2400ms] ease-out will-change-transform brightness-110 saturate-125 contrast-105 group-hover:brightness-125 group-hover:saturate-150"
                   />
                   {/* Soft fade only at the bottom edge for text separation */}

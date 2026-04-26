@@ -32,7 +32,8 @@ const beneficios = [
 ];
 
 const CidadeLanding = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { pathname } = useLocation();
+  const slug = pathname.replace(/^\/criacao-de-sites-/, "").replace(/\/$/, "");
   const cidade = slug ? getCidadeBySlug(slug) : undefined;
 
   if (!cidade) return <Navigate to="/atendimento" replace />;

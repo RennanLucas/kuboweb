@@ -395,7 +395,7 @@ const HeroSection = () => {
 
       <div className="w-full md:container md:mx-auto md:max-w-6xl relative z-10">
         {/* Mobile */}
-        <div className="md:hidden flex flex-col px-5 pt-6 pb-6 gap-5 relative">
+        <div className="md:hidden flex flex-col items-center text-center px-5 pt-6 pb-6 gap-5 relative">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -407,12 +407,12 @@ const HeroSection = () => {
           </motion.div>
 
           <div className="space-y-3">
-            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight">
+            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight text-center">
               Eleve sua presença digital e{" "}
               <span className="text-gradient-hero inline-block">venda mais online</span>{" "}
               com soluções sob medida.
             </h1>
-            <p className="text-[14px] text-muted-foreground leading-relaxed">
+            <p className="text-[14px] text-muted-foreground leading-relaxed text-center">
               Design exclusivo, performance impecável e acompanhamento individual em cada etapa. O próximo nível do seu negócio começa em <span className="font-semibold text-foreground">30 dias</span>.
             </p>
           </div>

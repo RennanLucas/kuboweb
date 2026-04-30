@@ -426,10 +426,6 @@ const HeroSection = () => {
                 </a>
               </Button>
             </motion.div>
-            <p className="text-[11px] text-center text-muted-foreground -mt-1">
-              <Lock className="w-2.5 h-2.5 inline mr-1 -mt-0.5" />
-              Consultoria sem custo · Retorno em até 1 hora útil
-            </p>
             <motion.div whileTap={{ scale: 0.98 }}>
               <Button
                 variant="outline"
@@ -513,10 +509,6 @@ const HeroSection = () => {
                   </motion.div>
                 </MagneticButton>
               </div>
-              <p className="text-xs text-muted-foreground flex items-center gap-1.5">
-                <Lock className="w-3 h-3 text-success" />
-                Consultoria sem custo · Retorno em até 1 hora útil
-              </p>
             </motion.div>
 
             <TrustIndicators />

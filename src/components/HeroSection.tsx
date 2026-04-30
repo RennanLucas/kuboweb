@@ -410,7 +410,7 @@ const HeroSection = () => {
             <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight text-center">
               Eleve sua presença digital e{" "}
               <span className="text-gradient-hero inline-block">venda mais online</span>{" "}
-              com soluções sob medida.
+              com soluções sob medida
             </h1>
             <p className="text-[14px] text-muted-foreground leading-relaxed text-center">
               Design exclusivo, performance impecável e acompanhamento individual em cada etapa. O próximo nível do seu negócio começa em <span className="font-semibold text-foreground">30 dias</span>.
@@ -470,7 +470,7 @@ const HeroSection = () => {
               <h1 className="text-3xl lg:text-4xl xl:text-[2.75rem] font-heading font-extrabold leading-[1.2] text-foreground tracking-[-0.02em]">
                 Eleve sua presença digital e{" "}
                 <span className="text-gradient-hero">venda mais online</span>{" "}
-                com soluções sob medida.
+                com soluções sob medida
               </h1>
             <motion.p
                 initial={{ opacity: 0, y: 10 }}

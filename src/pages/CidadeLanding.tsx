@@ -1,7 +1,7 @@
 import { useLocation, Navigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { MessageCircle, CheckCircle2, MapPin, Rocket, Search, ShoppingBag, Megaphone, ArrowRight, HelpCircle } from "lucide-react";
+import { MessageCircle, CheckCircle2, MapPin, Rocket, Search, ShoppingBag, Megaphone, ArrowRight, HelpCircle, Building2, TrendingUp } from "lucide-react";
 import {
   Accordion,
   AccordionContent,

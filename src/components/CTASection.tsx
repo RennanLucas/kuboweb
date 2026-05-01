@@ -30,11 +30,7 @@ const CTASection = () => {
               transition={{ duration: 0.4, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
               className="section-title"
             >
-              Comece seu site hoje. Receba o seu{" "}
-              <span className="text-gradient-hero inline-block">
-                pronto em até 30 dias
-              </span>
-              .
+              Comece seu site hoje
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 15 }}

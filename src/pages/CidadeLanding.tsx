@@ -199,6 +199,67 @@ const CidadeLanding = () => {
 
       <div className="line-glow" />
 
+      {/* Mercado Local */}
+      <section className="px-4 py-16 md:py-24">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/15 text-xs text-primary font-medium">
+              <TrendingUp className="w-3.5 h-3.5" />
+              Mercado de {cidade.nome}
+            </div>
+            <h2 className="section-title">Por que ter um site profissional em {cidade.nome}</h2>
+          </div>
+          <div className="card-premium p-7 md:p-10 space-y-6">
+            <p className="text-base text-muted-foreground leading-relaxed">
+              {cidade.diferencial}
+            </p>
+            <div>
+              <h3 className="font-heading font-semibold text-foreground mb-3">Setores que mais demandam sites em {cidade.nome}</h3>
+              <div className="flex flex-wrap gap-2">
+                {cidade.setores.map((s) => (
+                  <span key={s} className="px-3 py-1.5 rounded-full bg-secondary/40 border border-border/40 text-sm text-foreground/80 capitalize">
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="line-glow" />
+
+      {/* Bairros Atendidos */}
+      <section className="px-4 py-16 md:py-24">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/15 text-xs text-primary font-medium">
+              <Building2 className="w-3.5 h-3.5" />
+              Cobertura local
+            </div>
+            <h2 className="section-title">Atendemos empresas em todos os bairros de {cidade.nome}</h2>
+            <p className="section-subtitle max-w-2xl mx-auto">
+              Criação de sites para negócios de {cidade.nome}/{cidade.uf}, incluindo bairros como:
+            </p>
+          </div>
+          <div className="card-premium p-7 md:p-10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {cidade.bairros.map((b) => (
+                <div key={b} className="flex items-center gap-2">
+                  <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                  <span className="text-sm text-foreground/80">{b}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-xs text-muted-foreground mt-6 leading-relaxed">
+              Atendimento 100% online — entregamos sites profissionais para empresas de qualquer bairro de {cidade.nome} e cidades vizinhas da região {cidade.regiao}, sem necessidade de reuniões presenciais.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div className="line-glow" />
+
       {/* FAQ */}
       <section className="px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-3xl">

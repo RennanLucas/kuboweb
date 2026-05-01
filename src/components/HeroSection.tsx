@@ -474,7 +474,7 @@ const HeroSection = () => {
                 transition={{ delay: 0.15, duration: 0.35 }}
                 className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed"
               >
-                Design exclusivo, performance impecável e acompanhamento individual em cada etapa. O próximo nível do seu negócio começa em <span className="font-semibold text-foreground">30 dias</span>.
+                Design exclusivo, performance impecável e acompanhamento individual em cada etapa do seu projeto.
               </motion.p>
             </div>
 

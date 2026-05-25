@@ -1,0 +1,35 @@
+# Kubo Web
+
+> Agência digital premium especializada em criação de sites profissionais, landing pages de alta conversão, lojas virtuais e campanhas de Google Ads em todo o Brasil. Atendimento 100% online via WhatsApp.
+
+Kubo Web entrega soluções digitais sob medida com estética clean e foco em conversão. Trabalhamos com sites institucionais, landing pages, e-commerce e tráfego pago no Google Ads. Orçamento via consultoria — sem pacotes engessados.
+
+## Páginas
+
+- [Início](/): Apresentação da agência, serviços e diferenciais.
+- [Sobre](/sobre): Quem somos, posicionamento e processo de trabalho.
+- [Serviços](/servicos): Visão geral dos serviços oferecidos.
+- [Portfólio](/portfolio): Cases reais de projetos entregues.
+- [Diagnóstico](/diagnostico): Diagnóstico gratuito da presença digital do seu negócio.
+- [FAQ](/faq): Perguntas frequentes sobre prazos, escopo e atendimento.
+- [Contato](/contato): Canais de atendimento e formulário de orçamento.
+- [Atendimento](/atendimento): Como funciona o atendimento online via WhatsApp.
+
+## Serviços
+
+- [Sites Institucionais](/servicos/sites-institucionais): Sites profissionais para empresas, com design clean e SEO.
+- [Landing Pages](/servicos/landing-pages): Landing pages otimizadas para conversão e campanhas pagas.
+- [Loja Virtual](/servicos/loja-virtual): E-commerce sob medida com integração de pagamentos e gestão.
+- [Google Ads](/servicos/anuncios): Gestão de campanhas no Google Ads com foco em ROI.
+- [Manutenção](/manutencao): Plano de manutenção mensal para sites em produção.
+
+## Cases do portfólio
+
+- [Escritório de Advocacia](/portfolio/escritorio-advocacia): Site institucional para escritório jurídico.
+- [Clínica Odontológica](/portfolio/clinica-odontologica): Site de captação de pacientes para clínica.
+- [Loja de Moda Feminina](/portfolio/loja-moda-feminina): E-commerce de moda com checkout otimizado.
+- [Restaurante](/portfolio/restaurante-gastronomia): Site gastronômico com cardápio digital.
+
+## Opcional
+
+- [Criação de Sites em São Paulo](/criacao-de-sites-sao-paulo): Páginas regionais cobrem 40 capitais e grandes cidades brasileiras (mesmo padrão em /criacao-de-sites-[cidade]).

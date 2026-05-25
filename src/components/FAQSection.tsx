@@ -8,7 +8,7 @@ import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
-const faqs = [
+export const faqs = [
   {
     question: "O site funciona no celular?",
     answer:

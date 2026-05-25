@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, MessageCircle, CheckCircle2, Quote } from "lucide-react";
@@ -15,6 +16,7 @@ const ProjectDetail = () => {
   if (!project) {
     return (
       <main className="min-h-screen bg-background">
+        <SEO title="Projeto não encontrado" description="O projeto solicitado não foi encontrado no portfólio da Kubo Web." path="/portfolio" noindex />
         <Header />
         <div className="pt-32 pb-20 text-center container mx-auto max-w-3xl px-4">
           <h1 className="text-2xl font-heading font-bold text-foreground mb-4">
@@ -36,6 +38,11 @@ const ProjectDetail = () => {
 
   return (
     <main className="min-h-screen bg-background">
+      <SEO
+        title={`${project.title} — ${project.category}`}
+        description={project.description.length > 160 ? `${project.description.slice(0, 157)}...` : project.description}
+        path={`/portfolio/${project.slug}`}
+      />
       <Header />
       <div className="pt-24 md:pt-32" />
 

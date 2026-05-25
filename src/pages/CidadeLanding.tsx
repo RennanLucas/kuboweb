@@ -40,7 +40,7 @@ const CidadeLanding = () => {
 
   const path = `/criacao-de-sites-${cidade.slug}`;
   const title = `Criação de Sites em ${cidade.nome} ${cidade.uf}`;
-  const description = `Criação de sites profissionais em ${cidade.nome} (${cidade.uf}). Sites institucionais, landing pages, lojas virtuais e Google Ads para empresas de ${cidade.nome} e região. Atendimento 100% online.`;
+  const description = `Sites profissionais, landing pages, lojas virtuais e Google Ads para empresas de ${cidade.nome}/${cidade.uf}. Atendimento 100% online.`;
   const whatsappMsg = encodeURIComponent(`Olá! Sou de ${cidade.nome}/${cidade.uf} e tenho interesse em criar um site profissional.`);
 
   const jsonLd = {

@@ -2,7 +2,6 @@
 import { writeFileSync } from "fs";
 import { resolve } from "path";
 import { cidades } from "../src/data/cidades";
-import { projects } from "../src/data/projects";
 
 const BASE_URL = "https://www.kuboweb.com.br";
 const today = new Date().toISOString().split("T")[0];
@@ -29,14 +28,27 @@ const staticEntries: SitemapEntry[] = [
   { path: "/servicos/anuncios", changefreq: "monthly", priority: "0.7" },
 ];
 
+const portfolioSlugs = [
+  "escritorio-advocacia",
+  "clinica-odontologica",
+  "loja-moda-feminina",
+  "consultoria-financeira",
+  "construtora-engenharia",
+  "curso-online-tecnologia",
+  "restaurante-gastronomia",
+  "imobiliaria-premium",
+  "academia-fitness",
+  "petshop-ecommerce",
+];
+
 const cidadeEntries: SitemapEntry[] = cidades.map((c) => ({
   path: `/criacao-de-sites-${c.slug}`,
   changefreq: "monthly",
   priority: "0.6",
 }));
 
-const portfolioEntries: SitemapEntry[] = (projects ?? []).map((p: { slug: string }) => ({
-  path: `/portfolio/${p.slug}`,
+const portfolioEntries: SitemapEntry[] = portfolioSlugs.map((slug) => ({
+  path: `/portfolio/${slug}`,
   changefreq: "monthly",
   priority: "0.6",
 }));

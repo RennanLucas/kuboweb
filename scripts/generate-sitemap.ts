@@ -1,7 +1,10 @@
 // Runs before `vite dev` and `vite build` (predev/prebuild hooks); writes public/sitemap.xml.
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync } from "fs";
 import { resolve } from "path";
-import { cidades } from "../src/data/cidades";
+
+const cidadesSrc = readFileSync(resolve("src/data/cidades.ts"), "utf8");
+const cidadeSlugs = Array.from(cidadesSrc.matchAll(/slug:\s*"([a-z0-9-]+)"/g)).map((m) => m[1]);
+
 
 const BASE_URL = "https://www.kuboweb.com.br";
 const today = new Date().toISOString().split("T")[0];
@@ -41,8 +44,8 @@ const portfolioSlugs = [
   "petshop-ecommerce",
 ];
 
-const cidadeEntries: SitemapEntry[] = cidades.map((c) => ({
-  path: `/criacao-de-sites-${c.slug}`,
+const cidadeEntries: SitemapEntry[] = cidadeSlugs.map((slug) => ({
+  path: `/criacao-de-sites-${slug}`,
   changefreq: "monthly",
   priority: "0.6",
 }));

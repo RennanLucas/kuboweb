@@ -69,7 +69,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 will-change-transform transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`fixed top-0 left-0 right-0 z-50 will-change-transform transition-transform duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] ${
         hidden && !mobileOpen ? "-translate-y-full" : "translate-y-0"
       } ${
         scrolled

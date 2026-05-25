@@ -135,7 +135,7 @@ const ServicesSection = () => {
                     decoding="async"
                     width={960}
                     height={540}
-                    className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-all duration-[2400ms] ease-out will-change-transform brightness-110 saturate-125 contrast-105 group-hover:brightness-125 group-hover:saturate-150"
+                    className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-all [transition-duration:2400ms] ease-out will-change-transform brightness-110 saturate-125 contrast-105 group-hover:brightness-125 group-hover:saturate-150"
                   />
                   {/* Soft fade only at the bottom edge for text separation */}
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-card/80 to-transparent" />

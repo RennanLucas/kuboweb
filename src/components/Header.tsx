@@ -176,7 +176,7 @@ const Header = () => {
 
       {/* Mobile menu — CSS grid for smooth height animation */}
       <div
-        className={`lg:hidden bg-background/98 backdrop-blur-2xl border-t border-border/30 overflow-hidden transition-[grid-template-rows] duration-250 ease-[cubic-bezier(0.16,1,0.3,1)]`}
+        className={`lg:hidden bg-background/98 backdrop-blur-2xl border-t border-border/30 overflow-hidden transition-[grid-template-rows] duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]`}
         style={{
           display: "grid",
           gridTemplateRows: mobileOpen ? "1fr" : "0fr",

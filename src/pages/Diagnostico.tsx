@@ -171,7 +171,8 @@ const STEP_FLOW: Step[] = ["welcome", "nome", "segmento", "objetivo", "presenca_
 const TypingIndicator = () => (
   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex items-center gap-3 px-2">
     <div className="w-9 h-9 rounded-full overflow-hidden shrink-0">
-      <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
+      <img src={botAvatar} alt="Avatar do consultor digital KuboWeb" className="w-full h-full object-cover" />
+
     </div>
     <div className="flex items-center gap-1.5 bg-accent border border-border/30 rounded-2xl px-4 py-3">
       {[0, 1, 2].map((i) => (
@@ -261,7 +262,8 @@ const ChatMessage = memo(({ message }: { message: Message }) => {
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }} className={cn("flex gap-3", isBot ? "justify-start" : "justify-end")}>
       {isBot && (
         <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 mt-0.5">
-          <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
+          <img src={botAvatar} alt="Avatar do consultor digital KuboWeb" className="w-full h-full object-cover" />
+
         </div>
       )}
       <div className={cn("max-w-[75%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-line", isBot ? "bg-accent border border-border/30 text-foreground rounded-tl-md" : "bg-primary text-primary-foreground rounded-tr-md")}>
@@ -401,7 +403,7 @@ const Diagnostico = () => {
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/20">
-                    <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
+                    <img src={botAvatar} alt="Avatar do consultor digital KuboWeb" className="w-full h-full object-cover" />
                   </div>
                   <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-whatsapp border-2 border-card" />
                 </div>
@@ -453,8 +455,9 @@ const Diagnostico = () => {
                     placeholder="Digite seu nome..."
                     className="flex-1 bg-background border border-border/50 rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40"
                   />
-                  <Button type="submit" size="lg" className="rounded-xl px-5">
+                  <Button type="submit" size="lg" aria-label="Enviar" className="rounded-xl px-5">
                     <Send className="w-4 h-4" />
+                    <span className="sr-only">Enviar</span>
                   </Button>
                 </motion.form>
               )}

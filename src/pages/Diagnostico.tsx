@@ -262,7 +262,8 @@ const ChatMessage = memo(({ message }: { message: Message }) => {
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }} className={cn("flex gap-3", isBot ? "justify-start" : "justify-end")}>
       {isBot && (
         <div className="w-9 h-9 rounded-full overflow-hidden shrink-0 mt-0.5">
-          <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
+          <img src={botAvatar} alt="Avatar do consultor digital KuboWeb" className="w-full h-full object-cover" />
+
         </div>
       )}
       <div className={cn("max-w-[75%] rounded-2xl px-4 py-3 text-sm leading-relaxed whitespace-pre-line", isBot ? "bg-accent border border-border/30 text-foreground rounded-tl-md" : "bg-primary text-primary-foreground rounded-tr-md")}>

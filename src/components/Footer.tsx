@@ -33,7 +33,7 @@ const Footer = () => {
             <Link to="/" className="inline-block">
               <motion.img
                 src={logoKuboweb}
-                alt="KuboWeb"
+                alt="Kubo Web - Criação de Sites Profissionais"
                 className="h-24 md:h-28 w-auto object-contain"
                 width={128}
                 height={128}

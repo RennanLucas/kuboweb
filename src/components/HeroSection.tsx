@@ -407,11 +407,11 @@ const HeroSection = () => {
           </motion.div>
 
           <div className="space-y-3">
-            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight text-center">
+            <p className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight text-center">
               Eleve sua presença digital e{" "}
               <span className="text-gradient-hero inline-block">venda mais online</span>{" "}
               com soluções sob medida
-            </h1>
+            </p>
             <p className="text-[14px] text-muted-foreground leading-relaxed text-center">
               Design exclusivo, performance impecável e acompanhamento individual em cada etapa do seu projeto.
             </p>

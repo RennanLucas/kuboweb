@@ -81,7 +81,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center shrink-0">
             <img
-              alt="KuboWeb"
+              alt="Kubo Web - Criação de Sites Profissionais"
               className="h-36 md:h-44 lg:h-56 w-auto object-contain hover:scale-105 transition-transform duration-200"
               src={logoKuboweb}
               width={160}

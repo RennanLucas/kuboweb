@@ -453,8 +453,9 @@ const Diagnostico = () => {
                     placeholder="Digite seu nome..."
                     className="flex-1 bg-background border border-border/50 rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/40"
                   />
-                  <Button type="submit" size="lg" className="rounded-xl px-5">
+                  <Button type="submit" size="lg" aria-label="Enviar" className="rounded-xl px-5">
                     <Send className="w-4 h-4" />
+                    <span className="sr-only">Enviar</span>
                   </Button>
                 </motion.form>
               )}

@@ -24,6 +24,7 @@ const Anuncios = lazy(() => import("./pages/Anuncios"));
 const Manutencao = lazy(() => import("./pages/Manutencao"));
 const Atendimento = lazy(() => import("./pages/Atendimento"));
 const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
+const GuiaInvestimentoSite = lazy(() => import("./pages/GuiaInvestimentoSite"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -72,6 +73,8 @@ const App = () => {
                 <Route path="/atendimento" element={<Atendimento />} />
                 <Route path="/criacao-de-sites-:slug/*" element={<CidadeLanding />} />
                 <Route path="/criacao-de-sites-*" element={<CidadeLanding />} />
+                <Route path="/guia/investimento-site-profissional" element={<GuiaInvestimentoSite />} />
+                
                 
                 <Route path="*" element={<NotFound />} />
               </Routes>

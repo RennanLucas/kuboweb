@@ -403,7 +403,7 @@ const Diagnostico = () => {
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-12 h-12 rounded-full overflow-hidden border border-primary/20">
-                    <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
+                    <img src={botAvatar} alt="Avatar do consultor digital KuboWeb" className="w-full h-full object-cover" />
                   </div>
                   <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-whatsapp border-2 border-card" />
                 </div>

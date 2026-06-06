@@ -171,7 +171,8 @@ const STEP_FLOW: Step[] = ["welcome", "nome", "segmento", "objetivo", "presenca_
 const TypingIndicator = () => (
   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex items-center gap-3 px-2">
     <div className="w-9 h-9 rounded-full overflow-hidden shrink-0">
-      <img src={botAvatar} alt="Bot" className="w-full h-full object-cover" />
+      <img src={botAvatar} alt="Avatar do consultor digital KuboWeb" className="w-full h-full object-cover" />
+
     </div>
     <div className="flex items-center gap-1.5 bg-accent border border-border/30 rounded-2xl px-4 py-3">
       {[0, 1, 2].map((i) => (

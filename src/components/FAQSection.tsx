@@ -47,7 +47,7 @@ export const faqs = [
   {
     question: "O que está incluso no valor?",
     answer:
-      "Design personalizado, desenvolvimento responsivo, otimização básica para SEO e integração com WhatsApp.\n\nO suporte é oferecido durante todo o processo de criação do site.\n\nApós a entrega, a manutenção é opcional e custa R$ 70 por mês, incluindo hospedagem, backups, atualizações de segurança e suporte via WhatsApp.",
+      "Design personalizado, desenvolvimento responsivo, otimização básica para SEO e integração com WhatsApp.\n\nO suporte é oferecido durante todo o processo de criação do site.\n\nApós a entrega, a manutenção é opcional e custa de R$ 49 a R$ 149/mês, incluindo hospedagem, backups, atualizações de segurança e suporte via WhatsApp.",
   },
 ];
 

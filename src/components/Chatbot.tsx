@@ -120,7 +120,7 @@ function getRecommendation(answers: Answers) {
         "Otimizada para Google Ads",
         "Carregamento ultra-rápido",
       ],
-      investimento: "A partir de R$ 697",
+      investimento: "A partir de R$ 297",
       prazo: "5 a 10 dias úteis",
       whatsappMsg: `Olá! Sou ${answers.nome || "cliente"} do segmento de ${segmento || "negócios"}. Fiz o diagnóstico no site e quero criar uma Landing Page para captar leads. Pode me ajudar?`,
     };
@@ -140,7 +140,7 @@ function getRecommendation(answers: Answers) {
         "Relatórios mensais detalhados",
         "Otimização contínua de campanhas",
       ],
-      investimento: "A partir de R$ 250/mês + verba de anúncios",
+      investimento: "R$ 297 a R$ 997/mês",
       prazo: "Setup em 3 a 5 dias úteis",
       whatsappMsg: `Olá! Sou ${answers.nome || "cliente"} do segmento de ${segmento || "negócios"}. Fiz o diagnóstico e quero investir em Google Ads. Pode me ajudar?`,
     };
@@ -160,7 +160,7 @@ function getRecommendation(answers: Answers) {
         "Painel de gestão fácil",
         "Hospedagem e domínio inclusos",
       ],
-      investimento: "A partir de R$ 997",
+      investimento: "A partir de R$ 697",
       prazo: "7 a 15 dias úteis",
       whatsappMsg: `Olá! Sou ${answers.nome || "cliente"} do segmento de ${segmento || "negócios"}. Fiz o diagnóstico e quero criar um Site Institucional. Pode me ajudar?`,
     };

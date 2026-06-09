@@ -58,7 +58,7 @@ const cases = [
     depois: {
       volume: "30+ contatos qualificados/mês",
       presenca: "Site + Blog + SEO jurídico",
-      investimento: "R$ 997 (único)",
+      investimento: "R$ 697 (único)",
     },
     metricas: [
       { icon: Users, label: "Contatos orgânicos", valor: "+180%", cor: "text-primary" },
@@ -79,7 +79,7 @@ const cases = [
     depois: {
       volume: "Taxa de conversão de 12,3%",
       presenca: "Landing Page + Calculadora + Vídeo",
-      investimento: "R$ 697 (único)",
+      investimento: "R$ 297 (único)",
     },
     metricas: [
       { icon: TrendingUp, label: "Conversão", valor: "12,3%", cor: "text-primary" },
@@ -100,7 +100,7 @@ const cases = [
     depois: {
       volume: "+320 matrículas na 1ª semana",
       presenca: "Página de vendas + Checkout integrado",
-      investimento: "R$ 697 (único)",
+      investimento: "R$ 297 (único)",
     },
     metricas: [
       { icon: ShoppingCart, label: "Matrículas", valor: "320+", cor: "text-primary" },

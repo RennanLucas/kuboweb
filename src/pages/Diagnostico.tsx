@@ -110,7 +110,7 @@ function getRecommendation(answers: Answers) {
       subtitle: "Transforme visitantes em clientes",
       description: "Uma página focada 100% em conversão, perfeita para campanhas. Design estratégico e integração direta com seu WhatsApp.",
       benefits: ["Design focado em conversão", "Formulário de captação inteligente", "Integração com WhatsApp", "Otimizada para Google Ads", "Carregamento ultra-rápido"],
-      investimento: "A partir de R$ 697",
+      investimento: "A partir de R$ 297",
       prazo: "5 a 10 dias úteis",
       whatsappMsg: `Olá! Sou ${answers.nome || "cliente"} do segmento de ${segmento || "negócios"}. Fiz o diagnóstico e quero criar uma Landing Page. Pode me ajudar?`,
     };
@@ -123,7 +123,7 @@ function getRecommendation(answers: Answers) {
       subtitle: "Apareça para quem está procurando agora",
       description: "Seu negócio aparece no topo das buscas exatamente quando o cliente procura pelo que você oferece.",
       benefits: ["Apareça no topo do Google", "Alcance clientes prontos para comprar", "Orçamento controlado por você", "Relatórios mensais detalhados", "Otimização contínua"],
-      investimento: "A partir de R$ 497/mês + verba",
+      investimento: "R$ 297 a R$ 997/mês",
       prazo: "Setup em 3 a 5 dias úteis",
       whatsappMsg: `Olá! Sou ${answers.nome || "cliente"} do segmento de ${segmento || "negócios"}. Fiz o diagnóstico e quero investir em Google Ads!`,
     };
@@ -136,7 +136,7 @@ function getRecommendation(answers: Answers) {
       subtitle: "Sua vitrine digital profissional",
       description: "Um site moderno que transmite credibilidade. Seus clientes encontram você no Google e entram em contato facilmente.",
       benefits: ["Design moderno e responsivo", "Otimizado para Google (SEO)", "Integração com WhatsApp e redes", "Painel de gestão fácil", "Hospedagem e domínio inclusos"],
-      investimento: "A partir de R$ 997",
+      investimento: "A partir de R$ 697",
       prazo: "7 a 15 dias úteis",
       whatsappMsg: `Olá! Sou ${answers.nome || "cliente"} do segmento de ${segmento || "negócios"}. Fiz o diagnóstico e quero criar um Site Institucional!`,
     };

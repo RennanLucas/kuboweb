@@ -209,7 +209,7 @@ const ServicesSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 auto-rows-[minmax(320px,auto)] mb-14"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 auto-rows-[minmax(420px,auto)] mb-14"
         >
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} />

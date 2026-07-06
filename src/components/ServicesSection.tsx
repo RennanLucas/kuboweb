@@ -87,16 +87,16 @@ const ServiceCard = ({
   const isWide = service.layout === "wide";
 
   const baseClasses = `
-    group relative overflow-hidden rounded-3xl p-7 md:p-8
+    group relative block overflow-hidden rounded-3xl p-7 md:p-8 h-full
     transition-all duration-300 ease-out
     hover:shadow-xl hover:-translate-y-1
     ${isDark ? "bg-primary text-primary-foreground border border-primary/10" : "bg-card border border-border shadow-sm"}
-    ${isWide ? "md:col-span-2" : ""}
   `;
 
   return (
-    <motion.div variants={itemVariants} className={isWide ? "md:col-span-2" : ""}>
+    <motion.div variants={itemVariants} className={`h-full ${isWide ? "md:col-span-2" : ""}`}>
       <Link to={service.href} className={baseClasses}>
+
         <div className="flex flex-col h-full">
           <div className="flex justify-between items-start mb-6">
             <div

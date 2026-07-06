@@ -187,7 +187,7 @@ const ServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3 }}
-            className="section-label justify-center text-primary font-bold tracking-wider uppercase"
+            className="text-primary font-bold tracking-wider uppercase text-sm"
           >
             Nossos Serviços
           </motion.p>
@@ -201,6 +201,7 @@ const ServicesSection = () => {
             Soluções desenhadas para o seu crescimento
           </motion.h2>
         </div>
+
 
         <motion.div
           variants={containerVariants}

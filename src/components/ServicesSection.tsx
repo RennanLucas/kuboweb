@@ -3,6 +3,10 @@ import { FileText, Building2, ShoppingCart, Megaphone, MessageCircle, ArrowRight
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import serviceSitesImg from "@/assets/service-sites.jpg";
+import serviceLandingImg from "@/assets/service-landing.jpg";
+import serviceLojaImg from "@/assets/service-loja.jpg";
+import serviceAnunciosImg from "@/assets/service-anuncios.jpg";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -39,6 +43,7 @@ const services = [
     href: "/servicos/sites-institucionais",
     layout: "wide",
     theme: "light",
+    image: serviceSitesImg,
   },
   {
     id: "landing",
@@ -49,6 +54,7 @@ const services = [
     href: "/servicos/landing-pages",
     layout: "tall",
     theme: "dark",
+    image: serviceLandingImg,
   },
   {
     id: "loja",
@@ -59,6 +65,7 @@ const services = [
     href: "/servicos/loja-virtual",
     layout: "tall",
     theme: "light",
+    image: serviceLojaImg,
   },
   {
     id: "anuncios",
@@ -74,6 +81,7 @@ const services = [
     href: "/servicos/anuncios",
     layout: "wide",
     theme: "light",
+    image: serviceAnunciosImg,
   },
 ];
 
@@ -87,7 +95,7 @@ const ServiceCard = ({
   const isWide = service.layout === "wide";
 
   const baseClasses = `
-    group relative block overflow-hidden rounded-3xl p-7 md:p-8 h-full
+    group relative block overflow-hidden rounded-3xl h-full
     transition-all duration-300 ease-out
     hover:shadow-xl hover:-translate-y-1
     ${isDark ? "bg-primary text-primary-foreground border border-primary/10" : "bg-card border border-border shadow-sm"}
@@ -96,78 +104,71 @@ const ServiceCard = ({
   return (
     <motion.div variants={itemVariants} className={`h-full ${isWide ? "md:col-span-2" : ""}`}>
       <Link to={service.href} className={baseClasses}>
-
-        <div className="flex flex-col h-full">
-          <div className="flex justify-between items-start mb-6">
+        <div className={`flex h-full ${isWide ? "flex-col md:flex-row" : "flex-col"}`}>
+          {/* Content */}
+          <div className={`flex flex-col p-7 md:p-8 ${isWide ? "md:flex-1 md:max-w-md" : "flex-1"}`}>
             <div
-              className={`p-3 rounded-2xl transition-colors duration-300 ${
+              className={`p-3 rounded-2xl w-fit mb-6 transition-colors duration-300 ${
                 isDark ? "bg-primary-foreground/10 text-primary-foreground" : "bg-primary/10 text-primary"
               }`}
             >
               <Icon className="w-7 h-7 md:w-8 md:h-8" strokeWidth={1.5} />
             </div>
 
-            {service.id === "sites" && (
-              <div className="hidden md:block bg-muted rounded-xl p-4">
-                <div className="w-32 h-2 bg-primary/20 rounded-full mb-2 overflow-hidden">
-                  <div className="w-3/4 h-full bg-primary rounded-full" />
-                </div>
-                <div className="w-24 h-2 bg-muted-foreground/20 rounded-full" />
-              </div>
-            )}
+            <h3
+              className={`text-xl md:text-2xl font-bold font-heading mb-3 ${
+                isDark ? "text-primary-foreground" : "text-foreground"
+              }`}
+            >
+              {service.title}
+            </h3>
 
-            {service.id === "anuncios" && (
-              <div className="hidden md:flex gap-2 items-end">
-                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-1/2 bg-primary rounded-full" />
-                </div>
-                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-3/4 bg-primary rounded-full" />
-                </div>
-                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-full bg-primary rounded-full" />
-                </div>
-              </div>
-            )}
+            <p
+              className={`mb-6 ${isDark ? "text-primary-foreground/70" : "text-muted-foreground"}`}
+            >
+              {service.description}
+            </p>
+
+            <ul
+              className={`grid gap-y-3 mb-8 text-sm grid-cols-1 ${
+                isDark ? "text-primary-foreground/60" : "text-muted-foreground"
+              }`}
+            >
+              {service.features.map((feature) => (
+                <li key={feature} className="flex items-center gap-2">
+                  <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isDark ? "bg-primary-foreground/50" : "bg-primary"}`} />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            <span
+              className={`mt-auto inline-flex items-center gap-2 text-sm font-bold transition-transform duration-200 group-hover:translate-x-1 ${
+                isDark ? "text-primary-foreground" : "text-primary"
+              }`}
+            >
+              Saiba mais
+              <ArrowRight className="w-4 h-4" />
+            </span>
           </div>
 
-          <h3
-            className={`text-xl md:text-2xl font-bold font-heading mb-3 ${
-              isDark ? "text-primary-foreground" : "text-foreground"
-            }`}
+          {/* Image */}
+          <div
+            className={`relative overflow-hidden ${
+              isWide
+                ? "md:flex-1 min-h-[220px] md:min-h-0"
+                : "mt-2 mx-4 mb-4 rounded-2xl min-h-[180px]"
+            } ${isDark ? "bg-primary-foreground/5" : "bg-muted/40"}`}
           >
-            {service.title}
-          </h3>
-
-          <p
-            className={`mb-6 ${isDark ? "text-primary-foreground/70" : "text-muted-foreground"} ${
-              isWide ? "max-w-md" : ""
-            }`}
-          >
-            {service.description}
-          </p>
-
-          <ul
-            className={`grid gap-y-3 mb-8 text-sm ${
-              isWide ? "grid-cols-2" : "grid-cols-1"
-            } ${isDark ? "text-primary-foreground/60" : "text-muted-foreground"}`}
-          >
-            {service.features.map((feature) => (
-              <li key={feature} className="flex items-center gap-2">
-                <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isDark ? "bg-primary-foreground/50" : "bg-primary"}`} />
-                {feature}
-              </li>
-            ))}
-          </ul>
-
-          <span
-            className={`mt-auto inline-flex items-center gap-2 text-sm font-bold transition-transform duration-200 group-hover:translate-x-1 ${
-              isDark ? "text-primary-foreground" : "text-primary"
-            }`}
-          >
-            Saiba mais
-            <ArrowRight className="w-4 h-4" />
-          </span>
+            <img
+              src={service.image}
+              alt={service.title}
+              loading="lazy"
+              width={1024}
+              height={1024}
+              className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
         </div>
       </Link>
     </motion.div>
@@ -208,7 +209,7 @@ const ServicesSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 auto-rows-[minmax(320px,auto)] mb-14"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 auto-rows-[minmax(420px,auto)] mb-14"
         >
           {services.map((service) => (
             <ServiceCard key={service.id} service={service} />

@@ -1,207 +1,245 @@
-import { memo, useRef } from "react";
+import { memo } from "react";
 import { FileText, Building2, ShoppingCart, Megaphone, MessageCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import TiltCard from "@/components/ui/TiltCard";
-import imgSites from "@/assets/services/sites-institucionais.webp";
-import imgLandings from "@/assets/services/landing-pages.webp";
-import imgLoja from "@/assets/services/loja-virtual.webp";
-import imgAnuncios from "@/assets/services/anuncios.webp";
 
-const services = [
-  {
-    icon: Building2,
-    image: imgSites,
-    title: "Sites Institucionais",
-    description: "Presença digital completa para sua empresa. Múltiplas páginas com informações sobre seu negócio.",
-    features: ["Várias páginas", "SEO otimizado", "Gestão de conteúdo"],
-    href: "/servicos/sites-institucionais",
-  },
-  {
-    icon: FileText,
-    image: imgLandings,
-    title: "Landing Pages",
-    description: "Páginas de alta conversão para capturar leads e vender serviços. Ideal para campanhas de marketing.",
-    features: ["Foco em conversão", "Integração WhatsApp", "Design persuasivo"],
-    href: "/servicos/landing-pages",
-  },
-  {
-    icon: ShoppingCart,
-    image: imgLoja,
-    title: "Loja Virtual",
-    description: "Venda seus produtos online com uma loja profissional, segura e fácil de gerenciar.",
-    features: ["Catálogo de produtos", "Pagamento integrado", "Painel de gestão"],
-    href: "/servicos/loja-virtual",
-  },
-  {
-    icon: Megaphone,
-    image: imgAnuncios,
-    title: "Anúncios",
-    description: "Campanhas de tráfego pago no Google e redes sociais para atrair clientes qualificados.",
-    features: ["Google Ads", "Relatórios de performance"],
-    href: "/servicos/anuncios",
-  },
-];
-
-const cardVariants = {
-  hidden: (i: number) => ({
-    opacity: 0,
-    x: i % 2 === 0 ? -40 : 40,
-    y: 20,
-    scale: 0.95,
-  }),
-  visible: (i: number) => ({
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
     opacity: 1,
-    x: 0,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24, scale: 0.98 },
+  visible: {
+    opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      delay: i * 0.15,
-      duration: 0.6,
+      duration: 0.5,
       ease: [0.16, 1, 0.3, 1] as const,
     },
-  }),
+  },
+};
+
+const services = [
+  {
+    id: "sites",
+    icon: Building2,
+    title: "Sites Institucionais",
+    description:
+      "Presença digital profissional que transmite autoridade e converte visitantes em clientes qualificados.",
+    features: ["SEO Otimizado", "Design Exclusivo", "Ultra Velocidade", "Painel Administrativo"],
+    href: "/servicos/sites-institucionais",
+    layout: "wide",
+    theme: "light",
+  },
+  {
+    id: "landing",
+    icon: FileText,
+    title: "Landing Pages",
+    description: "Focadas 100% em conversão para maximizar o ROI das suas campanhas.",
+    features: ["Copywriting Persuasivo", "Testes A/B"],
+    href: "/servicos/landing-pages",
+    layout: "tall",
+    theme: "dark",
+  },
+  {
+    id: "loja",
+    icon: ShoppingCart,
+    title: "Loja Virtual",
+    description: "E-commerce completo e escalável com as melhores tecnologias do mercado.",
+    features: ["Checkout Fluido", "Gestão de Estoque"],
+    href: "/servicos/loja-virtual",
+    layout: "tall",
+    theme: "light",
+  },
+  {
+    id: "anuncios",
+    icon: Megaphone,
+    title: "Gestão de Anúncios",
+    description: "Estratégias avançadas de tráfego pago no Google Ads para escala imediata.",
+    features: [
+      "Google Ads",
+      "Dashboards em Tempo Real",
+      "Análise de Público Alvo",
+      "Otimização de Funil",
+    ],
+    href: "/servicos/anuncios",
+    layout: "wide",
+    theme: "light",
+  },
+];
+
+const ServiceCard = ({
+  service,
+}: {
+  service: (typeof services)[number];
+}) => {
+  const Icon = service.icon;
+  const isDark = service.theme === "dark";
+  const isWide = service.layout === "wide";
+
+  const baseClasses = `
+    group relative block overflow-hidden rounded-3xl p-7 md:p-8 h-full
+    transition-all duration-300 ease-out
+    hover:shadow-xl hover:-translate-y-1
+    ${isDark ? "bg-primary text-primary-foreground border border-primary/10" : "bg-card border border-border shadow-sm"}
+  `;
+
+  return (
+    <motion.div variants={itemVariants} className={`h-full ${isWide ? "md:col-span-2" : ""}`}>
+      <Link to={service.href} className={baseClasses}>
+
+        <div className="flex flex-col h-full">
+          <div className="flex justify-between items-start mb-6">
+            <div
+              className={`p-3 rounded-2xl transition-colors duration-300 ${
+                isDark ? "bg-primary-foreground/10 text-primary-foreground" : "bg-primary/10 text-primary"
+              }`}
+            >
+              <Icon className="w-7 h-7 md:w-8 md:h-8" strokeWidth={1.5} />
+            </div>
+
+            {service.id === "sites" && (
+              <div className="hidden md:block bg-muted rounded-xl p-4">
+                <div className="w-32 h-2 bg-primary/20 rounded-full mb-2 overflow-hidden">
+                  <div className="w-3/4 h-full bg-primary rounded-full" />
+                </div>
+                <div className="w-24 h-2 bg-muted-foreground/20 rounded-full" />
+              </div>
+            )}
+
+            {service.id === "anuncios" && (
+              <div className="hidden md:flex gap-2 items-end">
+                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
+                  <div className="w-full h-1/2 bg-primary rounded-full" />
+                </div>
+                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
+                  <div className="w-full h-3/4 bg-primary rounded-full" />
+                </div>
+                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
+                  <div className="w-full h-full bg-primary rounded-full" />
+                </div>
+              </div>
+            )}
+          </div>
+
+          <h3
+            className={`text-xl md:text-2xl font-bold font-heading mb-3 ${
+              isDark ? "text-primary-foreground" : "text-foreground"
+            }`}
+          >
+            {service.title}
+          </h3>
+
+          <p
+            className={`mb-6 ${isDark ? "text-primary-foreground/70" : "text-muted-foreground"} ${
+              isWide ? "max-w-md" : ""
+            }`}
+          >
+            {service.description}
+          </p>
+
+          <ul
+            className={`grid gap-y-3 mb-8 text-sm ${
+              isWide ? "grid-cols-2" : "grid-cols-1"
+            } ${isDark ? "text-primary-foreground/60" : "text-muted-foreground"}`}
+          >
+            {service.features.map((feature) => (
+              <li key={feature} className="flex items-center gap-2">
+                <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isDark ? "bg-primary-foreground/50" : "bg-primary"}`} />
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <span
+            className={`mt-auto inline-flex items-center gap-2 text-sm font-bold transition-transform duration-200 group-hover:translate-x-1 ${
+              isDark ? "text-primary-foreground" : "text-primary"
+            }`}
+          >
+            Saiba mais
+            <ArrowRight className="w-4 h-4" />
+          </span>
+        </div>
+      </Link>
+    </motion.div>
+  );
 };
 
 const ServicesSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-  const blob1Y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-  const blob2Y = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
-
   return (
-  <section ref={sectionRef} id="servicos" className="py-24 md:py-36 px-4 relative overflow-hidden">
-    {/* Background effects with parallax */}
-    <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-card/20" />
-    <motion.div style={{ y: blob1Y }} className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary/4 rounded-full blur-[150px] hidden md:block will-change-transform" />
-    <motion.div style={{ y: blob2Y }} className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px] hidden md:block will-change-transform" />
+    <section id="servicos" className="py-24 md:py-36 px-4 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-card/20" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-3xl hidden md:block" />
 
-    <div className="container mx-auto max-w-6xl relative z-10">
-      <div className="text-center mb-12 md:mb-20 space-y-4">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3 }}
-          className="section-label justify-center"
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="text-center mb-12 md:mb-16 space-y-4">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3 }}
+            className="text-primary font-bold tracking-wider uppercase text-sm"
+          >
+            Nossos Serviços
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.05, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="section-title"
+          >
+            Soluções desenhadas para o seu crescimento
+          </motion.h2>
+        </div>
+
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 auto-rows-[minmax(320px,auto)] mb-14"
         >
-          Serviços
-        </motion.p>
-        <motion.h2
+          {services.map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.05, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="section-title"
+          transition={{ duration: 0.4 }}
+          className="text-center"
         >
-          Soluções desenhadas para o seu crescimento
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.3 }}
-          className="section-subtitle"
-        >
-          Cada projeto é pensado para gerar resultado real — mais visibilidade, mais contatos, mais vendas.
-        </motion.p>
-      </div>
-
-      <div className="grid sm:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto mb-14">
-        {services.map((service, index) => (
-          <motion.div
-            key={service.title}
-            custom={index}
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            <TiltCard className="h-full group" tiltAmount={8}>
-              <Link
-                to={service.href}
-                className="card-premium border-glow flex flex-col cursor-pointer h-full relative overflow-hidden"
+          <div className="inline-block hover:scale-105 active:scale-95 transition-transform duration-200">
+            <Button variant="whatsapp" size="lg" asChild className="shadow-glow-sm">
+              <a
+                href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {/* Visual header with subtle Ken Burns motion on hover */}
-                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-t-[inherit]">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    loading="lazy"
-                    decoding="async"
-                    width={960}
-                    height={540}
-                    className="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-110 transition-all [transition-duration:2400ms] ease-out will-change-transform brightness-110 saturate-125 contrast-105 group-hover:brightness-125 group-hover:saturate-150"
-                  />
-                  {/* Soft fade only at the bottom edge for text separation */}
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-card/80 to-transparent" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-
-                {/* Gradient overlay on hover — CSS only */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-primary/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-
-                <div className="relative z-10 flex flex-col flex-grow p-6 sm:p-7 md:p-8 pt-5 md:pt-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-primary/5 border border-primary/20 flex items-center justify-center mb-5 group-hover:bg-primary/25 group-hover:shadow-lg group-hover:shadow-primary/15 transition-all duration-300">
-                    <service.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  
-                  <h3 className="text-lg md:text-xl font-heading font-semibold mb-2.5 text-foreground group-hover:text-primary transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground mb-5 flex-grow text-sm leading-relaxed">
-                    {service.description}
-                  </p>
-                  
-                  <ul className="space-y-2 mb-5">
-                    {service.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-center gap-2 text-sm text-muted-foreground"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <span className="inline-flex items-center gap-2 text-sm font-medium text-primary mt-auto group-hover:translate-x-1 transition-transform duration-200">
-                    Saiba mais
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              </Link>
-            </TiltCard>
-          </motion.div>
-        ))}
+                <MessageCircle className="w-5 h-5" />
+                Falar no WhatsApp
+              </a>
+            </Button>
+          </div>
+          <p className="text-xs text-muted-foreground mt-3">
+            Consultoria sem custo · Retorno em até 1 hora útil
+          </p>
+        </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4 }}
-        className="text-center"
-      >
-        <div className="inline-block hover:scale-105 active:scale-95 transition-transform duration-200">
-          <Button variant="whatsapp" size="lg" asChild className="shadow-glow-sm">
-            <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-5 h-5" />
-              Falar no WhatsApp
-            </a>
-          </Button>
-        </div>
-        <p className="text-xs text-muted-foreground mt-3">
-          Consultoria sem custo · Retorno em até 1 hora útil
-        </p>
-      </motion.div>
-    </div>
-  </section>
+    </section>
   );
 };
 

@@ -1,144 +1,217 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { Button } from "@/components/ui/button";
-import { MessageCircle, CheckCircle2, Megaphone, Target, TrendingUp, Eye, Palette } from "lucide-react";
-import { motion } from "framer-motion";
-import SEO from "@/components/SEO";
+import {
+  Target,
+  TrendingUp,
+  Eye,
+  Megaphone,
+  UserCheck,
+  Rocket,
+  MapPin,
+  ShoppingBag,
+} from "lucide-react";
+import ServicePageTemplate, { type ServicePageContent } from "@/components/ServicePageTemplate";
 import heroImage from "@/assets/service-anuncios.webp";
 
-const benefits = [
-  { icon: Target, text: "Alcance clientes que já estão procurando pelo seu serviço" },
-  { icon: TrendingUp, text: "Resultados mensuráveis com relatórios detalhados" },
-  { icon: Eye, text: "Sua empresa aparece no topo do Google imediatamente" },
-  { icon: Megaphone, text: "Investimento controlado — você define o orçamento" },
-];
+const content: ServicePageContent = {
+  seo: {
+    title: "Google Ads",
+    description:
+      "Gestão profissional de Google Ads em São Paulo. Apareça no topo do Google, atraia clientes qualificados e escale suas vendas com estratégia e dados.",
+    path: "/servicos/anuncios",
+  },
+  hero: {
+    badge: "Google Ads",
+    title: "Google Ads com",
+    highlight: "estratégia e retorno",
+    subtitle:
+      "Campanhas de tráfego pago no Google gerenciadas por especialistas — para colocar sua empresa na frente de clientes prontos para comprar, com resultados mensuráveis e escalabilidade real.",
+    image: heroImage,
+    imageAlt: "Dashboard de Google Ads com métricas de performance",
+    whatsappHref:
+      "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20An%C3%BAncios%20Google%20Ads.%20Pode%20me%20explicar%20como%20funciona%3F",
+    quickFacts: [
+      { label: "Setup", value: "5 dias" },
+      { label: "Otimização", value: "Semanal" },
+      { label: "Relatórios", value: "Mensais" },
+    ],
+  },
+  benefits: [
+    {
+      icon: Target,
+      title: "Intenção de compra",
+      text: "Alcance quem já está buscando ativamente pelo seu serviço no Google — o lead mais quente do mercado.",
+    },
+    {
+      icon: Eye,
+      title: "Topo do Google",
+      text: "Sua empresa nas primeiras posições do Google desde o primeiro dia — sem esperar meses por SEO orgânico.",
+    },
+    {
+      icon: TrendingUp,
+      title: "ROI mensurável",
+      text: "Cada real investido é rastreado. Você sabe exatamente quantos leads e vendas cada campanha gerou.",
+    },
+    {
+      icon: Megaphone,
+      title: "Orçamento sob controle",
+      text: "Você define quanto quer investir por dia. Ajustamos e escalamos conforme os resultados aparecem.",
+    },
+  ],
+  process: [
+    {
+      title: "Auditoria e estratégia",
+      description:
+        "Analisamos seu mercado, concorrentes e público. Mapeamos as palavras-chave estratégicas e definimos os tipos de campanha (Pesquisa, Display, YouTube, Performance Max).",
+    },
+    {
+      title: "Estrutura da conta",
+      description:
+        "Configuramos a conta Google Ads, campanhas, grupos de anúncios, extensões e segmentações. Instalamos tags de conversão e integração com Google Analytics.",
+    },
+    {
+      title: "Criação de anúncios",
+      description:
+        "Escrevemos títulos e descrições persuasivos, criamos variações para testes A/B e configuramos as extensões (sitelinks, chamadas, avaliações).",
+    },
+    {
+      title: "Lançamento e monitoramento",
+      description:
+        "Colocamos as campanhas no ar com monitoramento diário nas duas primeiras semanas — ajustando lances, palavras negativas e horários.",
+    },
+    {
+      title: "Otimização contínua",
+      description:
+        "Reuniões e relatórios mensais. Otimização semanal de lances, orçamentos, criativos e segmentações baseada em dados reais.",
+    },
+  ],
+  deliverables: [
+    {
+      title: "Auditoria & Estratégia",
+      items: [
+        "Análise da conta atual (se existir)",
+        "Análise de concorrentes",
+        "Pesquisa profunda de palavras-chave",
+        "Definição de tipos de campanha",
+        "Planejamento de orçamento e metas",
+      ],
+    },
+    {
+      title: "Configuração técnica",
+      items: [
+        "Criação/reestruturação da conta",
+        "Instalação de tag de conversão",
+        "Integração com Google Analytics 4",
+        "Configuração de públicos",
+        "Extensões de anúncio completas",
+      ],
+    },
+    {
+      title: "Campanhas criadas",
+      items: [
+        "Campanhas de Pesquisa (busca)",
+        "Campanhas de Display",
+        "Campanhas de Performance Max",
+        "Remarketing dinâmico",
+        "Google Shopping (para e-commerce)",
+      ],
+    },
+    {
+      title: "Criativos & Copy",
+      items: [
+        "Múltiplas variações de anúncio",
+        "Testes A/B contínuos",
+        "Extensões (sitelinks, chamadas)",
+        "Anúncios responsivos",
+        "Criativos para Display (opcional)",
+      ],
+    },
+    {
+      title: "Gestão contínua",
+      items: [
+        "Otimização semanal de lances",
+        "Ajuste de palavras negativas",
+        "Testes de novos anúncios",
+        "Reajuste de orçamentos",
+        "Monitoramento de concorrentes",
+      ],
+    },
+    {
+      title: "Relatórios & Reuniões",
+      items: [
+        "Dashboard em tempo real (Looker Studio)",
+        "Relatório mensal detalhado",
+        "Reunião mensal de resultados",
+        "Análise de ROI por campanha",
+        "Recomendações estratégicas",
+      ],
+    },
+  ],
+  examples: [
+    {
+      icon: UserCheck,
+      title: "Profissionais liberais",
+      description:
+        "Advogados, médicos, dentistas e consultores que precisam de agenda cheia rapidamente.",
+    },
+    {
+      icon: Rocket,
+      title: "Empresas em lançamento",
+      description:
+        "Novos produtos, serviços ou marcas que precisam de tração imediata no mercado.",
+    },
+    {
+      icon: MapPin,
+      title: "Negócios locais",
+      description:
+        "Restaurantes, clínicas e prestadores de serviço que querem dominar buscas na sua região.",
+    },
+    {
+      icon: ShoppingBag,
+      title: "E-commerces",
+      description:
+        "Lojas virtuais que precisam de tráfego qualificado com Google Shopping e Performance Max.",
+    },
+  ],
+  faq: [
+    {
+      question: "Qual o orçamento mínimo de mídia para começar?",
+      answer:
+        "Recomendamos um mínimo de R$ 30/dia (R$ 900/mês) em mídia paga para gerar dados suficientes para otimização. Esse valor é pago diretamente ao Google, separado da nossa gestão.",
+    },
+    {
+      question: "Quanto tempo até ver resultados?",
+      answer:
+        "As primeiras impressões e cliques aparecem em 24-48h. Leads qualificados costumam aparecer nas primeiras 2 semanas. O período de otimização e escala completa é de 60 a 90 dias.",
+    },
+    {
+      question: "A conta do Google Ads fica no meu nome?",
+      answer:
+        "Sim. A conta é criada no seu nome/CNPJ e você tem acesso total como proprietário. Nós temos acesso de gerente. Se um dia você quiser sair, leva a conta inteira com histórico e dados.",
+    },
+    {
+      question: "Qual a diferença entre setup e gestão mensal?",
+      answer:
+        "O setup é a configuração inicial (auditoria, estrutura, primeiras campanhas). A gestão mensal é a otimização contínua, testes, ajustes e relatórios — indispensável para bons resultados.",
+    },
+    {
+      question: "Vocês trabalham com quais tipos de campanha?",
+      answer:
+        "Google Ads em todas as suas modalidades: Pesquisa, Display, YouTube, Performance Max, Shopping e Remarketing. Focamos em Google porque é onde está a intenção de compra mais qualificada.",
+    },
+    {
+      question: "Tem contrato de fidelidade?",
+      answer:
+        "Não. Trabalhamos com renovação mensal e transparência total. Você fica porque os resultados justificam.",
+    },
+  ],
+  finalCta: {
+    title: "Pronto para escalar suas vendas no Google?",
+    description:
+      "Faça uma análise gratuita da sua conta ou do seu mercado. Mostramos o potencial real do Google Ads para o seu negócio antes de qualquer contratação.",
+    whatsappHref:
+      "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20An%C3%BAncios%20Google%20Ads.%20Pode%20me%20explicar%20como%20funciona%3F",
+  },
+};
 
-const includes = [
-  "Criação e configuração da campanha no Google Ads",
-  "Pesquisa e seleção de palavras-chave",
-  "Segmentação de público-alvo",
-  "Criação de anúncios persuasivos",
-  "Configuração de conversões",
-  "Relatório de resultados",
-];
-
-const examples = [
-  "Profissionais liberais que precisam de clientes rapidamente",
-  "Empresas lançando novos serviços no mercado",
-  "Negócios locais que querem dominar a região no Google",
-  "E-commerces que precisam de tráfego qualificado",
-];
-
-const Anuncios = () => (
-  <main className="min-h-screen bg-background">
-    <SEO title="Google Ads" description="Gestão de Google Ads profissional. Apareça no topo do Google, atraia clientes qualificados e aumente suas vendas com a Kubo Web." path="/servicos/anuncios" />
-    <Header />
-    <div className="pt-24 md:pt-32" />
-
-    <section className="px-4 pb-20 md:pb-28">
-      <div className="container mx-auto max-w-4xl">
-        <div className="text-center mb-14 md:mb-20 space-y-5">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto w-full max-w-md md:max-w-lg aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-primary/5 to-accent/20 border border-border/40 shadow-xl"
-          >
-            <img src={heroImage} alt="Campanhas de Google Ads com resultados" width={1280} height={896} loading="eager" decoding="async" fetchPriority="high" className="w-full h-full object-cover" />
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-            className="section-title"
-          >
-            Anúncios Google Ads
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.4 }}
-            className="section-subtitle"
-          >
-            Campanhas de tráfego pago no Google para colocar sua empresa na frente dos clientes certos, na hora certa — com resultados rápidos e mensuráveis.
-          </motion.p>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-          className="grid sm:grid-cols-2 gap-4 md:gap-5 mb-14"
-        >
-          {benefits.map(({ icon: Icon, text }) => (
-            <div key={text} className="card-premium p-5 md:p-6 flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0">
-                <Icon className="w-5 h-5 text-primary" />
-              </div>
-              <p className="text-sm text-foreground leading-relaxed">{text}</p>
-            </div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.4 }}
-          className="card-premium p-7 md:p-10 mb-14"
-        >
-          <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-6">O que está incluído</h2>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {includes.map((item) => (
-              <div key={item} className="flex items-start gap-3">
-                <CheckCircle2 className="w-4 h-4 text-success shrink-0 mt-0.5" />
-                <span className="text-sm text-muted-foreground">{item}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.4 }}
-          className="card-premium p-7 md:p-10 mb-14"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Palette className="w-5 h-5 text-primary" />
-            <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground">Ideal para</h2>
-          </div>
-          <div className="space-y-3">
-            {examples.map((item) => (
-              <div key={item} className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2" />
-                <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.4 }}
-          className="text-center space-y-5"
-        >
-          <p className="text-lg text-foreground font-heading font-semibold">Pronto para atrair mais clientes?</p>
-          <Button variant="whatsapp" size="xl" asChild>
-            <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20An%C3%BAncios%20Google%20Ads.%20Pode%20me%20explicar%20como%20funciona%3F" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-5 h-5" />
-              Falar no WhatsApp
-            </a>
-          </Button>
-          <p className="text-xs text-muted-foreground">Consultoria sem custo · Retorno em até 1 hora útil</p>
-        </motion.div>
-      </div>
-    </section>
-
-    <Footer />
-    <FloatingWhatsApp />
-  </main>
-);
+const Anuncios = () => <ServicePageTemplate content={content} />;
 
 export default Anuncios;

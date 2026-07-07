@@ -1,148 +1,217 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import { Button } from "@/components/ui/button";
-import { MessageCircle, CheckCircle2, ShoppingCart, CreditCard, Package, BarChart3, Palette } from "lucide-react";
-import { motion } from "framer-motion";
-import SEO from "@/components/SEO";
+import {
+  ShoppingCart,
+  CreditCard,
+  Package,
+  BarChart3,
+  Shirt,
+  Palette,
+  Store,
+  Boxes,
+} from "lucide-react";
+import ServicePageTemplate, { type ServicePageContent } from "@/components/ServicePageTemplate";
 import heroImage from "@/assets/service-loja.webp";
 
-const benefits = [
-  { icon: ShoppingCart, text: "Venda seus produtos 24 horas por dia, 7 dias por semana" },
-  { icon: CreditCard, text: "Pagamento online integrado com cartão, Pix e boleto" },
-  { icon: Package, text: "Gestão completa de produtos, estoque e pedidos" },
-  { icon: BarChart3, text: "Painel administrativo para acompanhar suas vendas" },
-];
+const content: ServicePageContent = {
+  seo: {
+    title: "Loja Virtual",
+    description:
+      "Criação de e-commerce completo em São Paulo. Pagamento online, gestão de estoque, checkout otimizado e design premium para vender 24h por dia.",
+    path: "/servicos/loja-virtual",
+  },
+  hero: {
+    badge: "E-commerce",
+    title: "Loja virtual completa",
+    highlight: "para escalar suas vendas",
+    subtitle:
+      "E-commerce profissional com catálogo, carrinho, pagamento integrado e painel administrativo — desenhado para converter visitantes em compradores 24 horas por dia.",
+    image: heroImage,
+    imageAlt: "Loja virtual com carrinho, produtos e pagamento",
+    whatsappHref:
+      "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Loja%20Virtual.%20Pode%20me%20explicar%20como%20funciona%3F",
+    quickFacts: [
+      { label: "Prazo médio", value: "30 dias" },
+      { label: "Formas de pagamento", value: "Pix, cartão, boleto" },
+      { label: "Produtos", value: "Ilimitados" },
+    ],
+  },
+  benefits: [
+    {
+      icon: ShoppingCart,
+      title: "Venda 24/7",
+      text: "Sua loja aberta todos os dias, o dia inteiro, sem depender de horário comercial ou vendedor.",
+    },
+    {
+      icon: CreditCard,
+      title: "Pagamento integrado",
+      text: "Pix, cartão de crédito e boleto com as principais gateways (Stripe, Mercado Pago, PagSeguro).",
+    },
+    {
+      icon: Package,
+      title: "Gestão completa",
+      text: "Painel para produtos, pedidos, estoque, clientes e cupons — tudo em um só lugar.",
+    },
+    {
+      icon: BarChart3,
+      title: "Escalável",
+      text: "Arquitetura preparada para crescer com você, do primeiro pedido aos milhares por mês.",
+    },
+  ],
+  process: [
+    {
+      title: "Planejamento estratégico",
+      description:
+        "Analisamos seus produtos, categorias, público e concorrência. Definimos a arquitetura da loja, formas de pagamento e integrações logísticas.",
+    },
+    {
+      title: "Design da loja",
+      description:
+        "Criamos o layout da vitrine, páginas de produto, carrinho e checkout com foco em conversão e experiência de compra premium.",
+    },
+    {
+      title: "Desenvolvimento e integrações",
+      description:
+        "Codificamos com tecnologias modernas, integramos gateway de pagamento, frete (Correios/Melhor Envio) e emissão de nota fiscal.",
+    },
+    {
+      title: "Cadastro e conteúdo",
+      description:
+        "Configuramos categorias, cadastramos os primeiros produtos, fotos, descrições, variações (cor, tamanho) e políticas da loja.",
+    },
+    {
+      title: "Testes e lançamento",
+      description:
+        "Testamos todo o fluxo de compra (do carrinho ao pagamento). Publicamos, configuramos analytics de e-commerce e treinamos você para gerenciar.",
+    },
+  ],
+  deliverables: [
+    {
+      title: "Vitrine & Produtos",
+      items: [
+        "Home com destaques e novidades",
+        "Página de produto otimizada",
+        "Variações (cor, tamanho, modelo)",
+        "Busca inteligente e filtros",
+        "Categorias e coleções ilimitadas",
+      ],
+    },
+    {
+      title: "Carrinho & Checkout",
+      items: [
+        "Carrinho lateral flutuante",
+        "Checkout em uma página (1-step)",
+        "Cálculo de frete automático",
+        "Cupons de desconto",
+        "Recuperação de carrinho abandonado",
+      ],
+    },
+    {
+      title: "Pagamento",
+      items: [
+        "Pix com QR Code",
+        "Cartão de crédito (parcelamento)",
+        "Boleto bancário",
+        "Gateway seguro (SSL + PCI)",
+        "Múltiplos gateways suportados",
+      ],
+    },
+    {
+      title: "Painel administrativo",
+      items: [
+        "Gestão de produtos e estoque",
+        "Gestão de pedidos e status",
+        "Cadastro de clientes",
+        "Cupons e promoções",
+        "Relatórios de vendas",
+      ],
+    },
+    {
+      title: "Logística & Fiscal",
+      items: [
+        "Integração Correios / Melhor Envio",
+        "Etiquetas de envio automatizadas",
+        "Cálculo de frete em tempo real",
+        "Integração com emissor de NF-e (opcional)",
+        "Notificações de rastreamento",
+      ],
+    },
+    {
+      title: "Marketing & SEO",
+      items: [
+        "SEO de produtos e categorias",
+        "Google Analytics 4 (e-commerce)",
+        "Meta Pixel e Google Ads",
+        "Integração WhatsApp",
+        "Newsletter e cupons por email",
+      ],
+    },
+  ],
+  examples: [
+    {
+      icon: Shirt,
+      title: "Moda e acessórios",
+      description:
+        "Lojas de roupas, calçados e acessórios com variações de cor, tamanho e modelo.",
+    },
+    {
+      icon: Palette,
+      title: "Artesanato e autorais",
+      description:
+        "Artesãos, ceramistas e criadores que querem uma vitrine premium para produtos únicos.",
+    },
+    {
+      icon: Store,
+      title: "Comércios locais",
+      description:
+        "Lojas físicas expandindo para o digital e ampliando alcance para novos estados.",
+    },
+    {
+      icon: Boxes,
+      title: "Marcas em lançamento",
+      description:
+        "Empreendedores lançando produtos próprios (D2C) com identidade forte e presença digital robusta.",
+    },
+  ],
+  faq: [
+    {
+      question: "Qual plataforma vocês usam?",
+      answer:
+        "Analisamos seu caso e recomendamos entre plataformas robustas como Shopify, WooCommerce ou soluções customizadas em Next.js. Todas com painel administrativo simples de usar.",
+    },
+    {
+      question: "Vocês cadastram os produtos?",
+      answer:
+        "Cadastramos os 20 primeiros produtos incluso no projeto (com fotos otimizadas e descrições). Os demais você pode cadastrar facilmente pelo painel ou contratar como serviço adicional.",
+    },
+    {
+      question: "Quais formas de pagamento a loja aceita?",
+      answer:
+        "Pix (com QR Code instantâneo), cartão de crédito com parcelamento em até 12x e boleto bancário. Integramos com Mercado Pago, PagSeguro, Stripe ou o gateway de sua preferência.",
+    },
+    {
+      question: "E a nota fiscal?",
+      answer:
+        "Integramos com emissores automáticos de NF-e (Bling, Tiny, Omie). Assim, a nota é emitida automaticamente a cada venda aprovada.",
+    },
+    {
+      question: "Consigo integrar com Correios e transportadoras?",
+      answer:
+        "Sim. Integração nativa com Correios e Melhor Envio (que agrega várias transportadoras). O cálculo de frete acontece em tempo real no carrinho.",
+    },
+    {
+      question: "Tem taxa por venda?",
+      answer:
+        "Não cobramos taxa por venda. Você paga apenas a mensalidade da plataforma escolhida e as taxas do gateway de pagamento (padrão do mercado).",
+    },
+  ],
+  finalCta: {
+    title: "Pronto para começar a vender online?",
+    description:
+      "Vamos entender seu produto e propor a estrutura ideal para você começar a vender com profissionalismo e escalar sem dor de cabeça.",
+    whatsappHref:
+      "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Loja%20Virtual.%20Pode%20me%20explicar%20como%20funciona%3F",
+  },
+};
 
-const includes = [
-  "Design profissional e personalizado",
-  "Catálogo de produtos organizado",
-  "Carrinho de compras funcional",
-  "Integração de pagamento (Pix, cartão, boleto)",
-  "Painel administrativo completo",
-  "Gestão de estoque",
-  "Responsivo para celular, tablet e desktop",
-  "Otimização para Google (SEO básico)",
-  "Integração com WhatsApp",
-  "Suporte pós-entrega",
-];
-
-const examples = [
-  "Lojas de roupas e acessórios que querem vender online",
-  "Artesãos e produtores que precisam de uma vitrine digital",
-  "Comércios locais expandindo para o e-commerce",
-  "Empreendedores lançando produtos no mercado digital",
-];
-
-const LojaVirtual = () => (
-  <main className="min-h-screen bg-background">
-    <SEO title="Loja Virtual" description="Criação de loja virtual profissional com pagamento online, gestão de produtos e design personalizado. Venda 24h por dia." path="/servicos/loja-virtual" />
-    <Header />
-    <div className="pt-24 md:pt-32" />
-
-    <section className="px-4 pb-20 md:pb-28">
-      <div className="container mx-auto max-w-4xl">
-        <div className="text-center mb-14 md:mb-20 space-y-5">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto w-full max-w-md md:max-w-lg aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-primary/5 to-accent/20 border border-border/40 shadow-xl"
-          >
-            <img src={heroImage} alt="Loja virtual com pagamento online" width={1280} height={896} loading="eager" decoding="async" fetchPriority="high" className="w-full h-full object-cover" />
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-            className="section-title"
-          >
-            Loja Virtual
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.4 }}
-            className="section-subtitle"
-          >
-            Um e-commerce completo para vender seus produtos online com catálogo profissional, carrinho de compras e pagamentos integrados.
-          </motion.p>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-          className="grid sm:grid-cols-2 gap-4 md:gap-5 mb-14"
-        >
-          {benefits.map(({ icon: Icon, text }) => (
-            <div key={text} className="card-premium p-5 md:p-6 flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0">
-                <Icon className="w-5 h-5 text-primary" />
-              </div>
-              <p className="text-sm text-foreground leading-relaxed">{text}</p>
-            </div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.4 }}
-          className="card-premium p-7 md:p-10 mb-14"
-        >
-          <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground mb-6">O que está incluído</h2>
-          <div className="grid sm:grid-cols-2 gap-3">
-            {includes.map((item) => (
-              <div key={item} className="flex items-start gap-3">
-                <CheckCircle2 className="w-4 h-4 text-success shrink-0 mt-0.5" />
-                <span className="text-sm text-muted-foreground">{item}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.4 }}
-          className="card-premium p-7 md:p-10 mb-14"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Palette className="w-5 h-5 text-primary" />
-            <h2 className="text-xl md:text-2xl font-heading font-bold text-foreground">Ideal para</h2>
-          </div>
-          <div className="space-y-3">
-            {examples.map((item) => (
-              <div key={item} className="flex items-start gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2" />
-                <span className="text-sm text-muted-foreground leading-relaxed">{item}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.4 }}
-          className="text-center space-y-5"
-        >
-          <p className="text-lg text-foreground font-heading font-semibold">Pronto para vender online?</p>
-          <Button variant="whatsapp" size="xl" asChild>
-            <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Loja%20Virtual.%20Pode%20me%20explicar%20como%20funciona%3F" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-5 h-5" />
-              Falar no WhatsApp
-            </a>
-          </Button>
-          <p className="text-xs text-muted-foreground">Consultoria sem custo · Retorno em até 1 hora útil</p>
-        </motion.div>
-      </div>
-    </section>
-
-    <Footer />
-    <FloatingWhatsApp />
-  </main>
-);
+const LojaVirtual = () => <ServicePageTemplate content={content} />;
 
 export default LojaVirtual;

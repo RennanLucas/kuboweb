@@ -105,11 +105,13 @@
     --muted-foreground: 215 18% 65%;
     --accent: 222 35% 15%;
     --accent-foreground: 215 20% 75%;
+    --accent-blue: 209 46% 42%;
+    --accent-blue-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 85% 97%;
     --border: 222 25% 18%;
     --input: 222 25% 18%;
-    --ring: 215 90% 50%;
+    --ring: 209 46% 42%;
     --chart-1: 215 90% 55%;
     --chart-2: 220 80% 65%;
     --chart-3: 220 15% 50%;

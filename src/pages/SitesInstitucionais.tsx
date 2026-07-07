@@ -84,7 +84,7 @@ const content: ServicePageContent = {
     {
       title: "Publicação, entrega e otimização",
       description:
-        "Publicamos no seu domínio, configuramos Google Search Console, Kuboweb Analytics (30 dias grátis) e entregamos o site pronto para uso, com documentação de acesso e orientações iniciais. Preparamos variações de CTAs e páginas-chave para testes A/B contínuos após o lançamento.",
+        "Publicamos no seu domínio, configuramos Google Search Console, Kuboweb Analytics (30 dias grátis) e entregamos o site pronto para uso.",
     },
   ],
   deliverables: [

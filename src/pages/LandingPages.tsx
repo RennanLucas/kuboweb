@@ -81,7 +81,7 @@ const content: ServicePageContent = {
     {
       title: "Rastreamento e testes A/B",
       description:
-        "Configuramos Google Analytics, Pixel do Meta e Google Ads. Preparamos variações para testes A/B contínuos após o lançamento.",
+        "Configuramos Kuboweb Analytics (30 dias grátis), Pixel do Meta e Google Ads. Preparamos variações para testes A/B contínuos após o lançamento.",
     },
   ],
   deliverables: [
@@ -120,7 +120,7 @@ const content: ServicePageContent = {
       items: [
         "WhatsApp Business com mensagem pronta",
         "Formulário com integração ao seu CRM",
-        "Google Analytics 4",
+        "Kuboweb Analytics (30 dias grátis)",
         "Google Ads (tag de conversão)",
         "Meta Pixel (opcional)",
       ],

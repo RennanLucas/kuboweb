@@ -84,7 +84,7 @@ const content: ServicePageContent = {
     {
       title: "Publicação, entrega e otimização",
       description:
-        "Publicamos no seu domínio, configuramos Google Search Console, Kuboweb Analytics (30 dias grátis) e entregamos o site pronto para uso, com documentação de acesso e orientações iniciais. Preparamos variações de CTAs e páginas-chave para testes A/B contínuos após o lançamento.",
+        "Publicamos no seu domínio, configuramos Google Search Console, Kuboweb Analytics (30 dias grátis) e entregamos o site pronto para uso.",
     },
   ],
   deliverables: [
@@ -125,7 +125,6 @@ const content: ServicePageContent = {
         "Certificado SSL (HTTPS)",
         "Domínio personalizado configurado",
         "Backup automático",
-        "Painel para editar conteúdos",
       ],
     },
   {
@@ -137,7 +136,6 @@ const content: ServicePageContent = {
         "Newsletter e captura de leads",
         "Google Search Console",
         "Redes sociais integradas",
-        "Formulários com anti-spam",
       ],
     },
     {
@@ -196,7 +194,7 @@ const content: ServicePageContent = {
     {
       question: "Consigo editar o conteúdo depois?",
       answer:
-        "Sim. Entregamos com um painel simplificado para você atualizar textos, imagens e novas páginas sem depender de programador.",
+        "Sim. Realizamos ajustes e atualizações de conteúdo conforme a demanda, com planos de manutenção opcionais para você manter o site sempre atualizado.",
     },
     {
       question: "Tem manutenção mensal obrigatória?",

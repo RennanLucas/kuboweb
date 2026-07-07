@@ -137,7 +137,7 @@ const content: ServicePageContent = {
     {
       title: "Relatórios & Reuniões",
       items: [
-        "Dashboard em tempo real (Looker Studio)",
+        "Dashboard Kuboweb Analytics (30 dias grátis)",
         "Relatório mensal detalhado",
         "Reunião mensal de resultados",
         "Análise de ROI por campanha",

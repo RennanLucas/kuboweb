@@ -84,7 +84,7 @@ const content: ServicePageContent = {
     {
       title: "Publicação e entrega",
       description:
-        "Publicamos no seu domínio, configuramos Google Search Console, Analytics e entregamos o site pronto para uso, com documentação de acesso e orientações iniciais.",
+        "Publicamos no seu domínio, configuramos Google Search Console, Kuboweb Analytics (30 dias grátis) e entregamos o site pronto para uso, com documentação de acesso e orientações iniciais.",
     },
   ],
   deliverables: [
@@ -132,7 +132,7 @@ const content: ServicePageContent = {
       title: "Integrações",
       items: [
         "WhatsApp Business flutuante",
-        "Google Analytics 4",
+        "Kuboweb Analytics (30 dias grátis)",
         "Google Search Console",
         "Redes sociais integradas",
         "Formulários com anti-spam",

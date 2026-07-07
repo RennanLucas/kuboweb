@@ -80,7 +80,7 @@ const content: ServicePageContent = {
     {
       title: "Testes e lançamento",
       description:
-        "Testamos todo o fluxo de compra (do carrinho ao pagamento). Publicamos, configuramos analytics de e-commerce e entregamos a loja pronta para gerenciar.",
+        "Testamos todo o fluxo de compra (do carrinho ao pagamento). Publicamos, configuramos Kuboweb Analytics de e-commerce (30 dias grátis) e entregamos a loja pronta para gerenciar.",
     },
   ],
   deliverables: [
@@ -138,7 +138,7 @@ const content: ServicePageContent = {
       title: "Marketing & SEO",
       items: [
         "SEO de produtos e categorias",
-        "Google Analytics 4 (e-commerce)",
+        "Kuboweb Analytics para e-commerce (30 dias grátis)",
         "Meta Pixel e Google Ads",
         "Integração WhatsApp",
         "Newsletter e cupons por email",

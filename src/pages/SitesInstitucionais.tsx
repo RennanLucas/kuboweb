@@ -125,7 +125,6 @@ const content: ServicePageContent = {
         "Certificado SSL (HTTPS)",
         "Domínio personalizado configurado",
         "Backup automático",
-        "Painel para editar conteúdos",
       ],
     },
   {
@@ -137,7 +136,6 @@ const content: ServicePageContent = {
         "Newsletter e captura de leads",
         "Google Search Console",
         "Redes sociais integradas",
-        "Formulários com anti-spam",
       ],
     },
     {

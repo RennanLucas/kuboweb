@@ -81,7 +81,7 @@ const content: ServicePageContent = {
     {
       title: "Rastreamento e testes A/B",
       description:
-        "Configuramos Kuboweb Analytics (30 dias grátis) e Google Ads. Preparamos variações para testes A/B contínuos após o lançamento.",
+        "Configuramos Kuboweb Analytics (30 dias grátis) e Google Ads.",
     },
   ],
   deliverables: [
@@ -139,7 +139,6 @@ const content: ServicePageContent = {
       title: "Suporte",
       items: [
         "Suporte via WhatsApp",
-        "Documentação de acesso e orientações iniciais",
         "Orientações para edição de conteúdo",
         "Hospedagem premium inclusa",
         "Ajustes futuros via plano de manutenção",

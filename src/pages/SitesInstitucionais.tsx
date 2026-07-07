@@ -194,7 +194,7 @@ const content: ServicePageContent = {
     {
       question: "Consigo editar o conteúdo depois?",
       answer:
-        "Sim. Entregamos com um painel simplificado para você atualizar textos, imagens e novas páginas sem depender de programador.",
+        "Sim. Realizamos ajustes e atualizações de conteúdo conforme a demanda, com planos de manutenção opcionais para você manter o site sempre atualizado.",
     },
     {
       question: "Tem manutenção mensal obrigatória?",

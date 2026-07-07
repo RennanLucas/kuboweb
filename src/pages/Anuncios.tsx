@@ -31,7 +31,7 @@ const content: ServicePageContent = {
     quickFacts: [
       { label: "Setup", value: "5 dias" },
       { label: "Otimização", value: "Semanal" },
-      { label: "Relatórios", value: "Mensais" },
+      { label: "Acompanhamento", value: "Contínuo" },
     ],
   },
   benefits: [
@@ -80,7 +80,7 @@ const content: ServicePageContent = {
     {
       title: "Otimização contínua",
       description:
-        "Relatórios mensais e otimização semanal de lances, orçamentos, criativos e segmentações baseada em dados reais. Entregamos documentação de acesso e orientações iniciais para você acompanhar os resultados.",
+        "Otimização semanal de lances, orçamentos, criativos e segmentações baseada em dados reais. Entregamos documentação de acesso e orientações iniciais para você acompanhar os resultados.",
     },
   ],
   deliverables: [
@@ -135,13 +135,13 @@ const content: ServicePageContent = {
       ],
     },
     {
-      title: "Relatórios & Reuniões",
+      title: "Acompanhamento & Dados",
       items: [
         "Dashboard Kuboweb Analytics (30 dias grátis)",
-        "Relatório mensal detalhado",
-        "Reunião mensal de resultados",
         "Análise de ROI por campanha",
         "Recomendações estratégicas",
+        "Documentação de acesso",
+        "Orientações iniciais",
       ],
     },
   ],
@@ -190,7 +190,7 @@ const content: ServicePageContent = {
     {
       question: "Qual a diferença entre setup e gestão mensal?",
       answer:
-        "O setup é a configuração inicial (auditoria, estrutura, primeiras campanhas). A gestão mensal é a otimização contínua, testes, ajustes e relatórios — indispensável para bons resultados.",
+        "O setup é a configuração inicial (auditoria, estrutura, primeiras campanhas). A gestão mensal é a otimização contínua, testes e ajustes — indispensável para bons resultados.",
     },
     {
       question: "Vocês trabalham com quais tipos de campanha?",

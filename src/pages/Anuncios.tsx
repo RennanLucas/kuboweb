@@ -80,7 +80,7 @@ const content: ServicePageContent = {
     {
       title: "Otimização contínua",
       description:
-        "Otimização semanal de lances, orçamentos, criativos e segmentações baseada em dados reais. Entregamos documentação de acesso e orientações iniciais para você acompanhar os resultados.",
+        "Otimização semanal de lances, orçamentos, criativos e segmentações baseada em dados reais.",
     },
   ],
   deliverables: [
@@ -140,8 +140,6 @@ const content: ServicePageContent = {
         "Dashboard Kuboweb Analytics (30 dias grátis)",
         "Análise de ROI por campanha",
         "Recomendações estratégicas",
-        "Documentação de acesso",
-        "Orientações iniciais",
       ],
     },
   ],

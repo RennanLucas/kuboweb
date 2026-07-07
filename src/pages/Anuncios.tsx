@@ -80,7 +80,7 @@ const content: ServicePageContent = {
     {
       title: "Otimização contínua",
       description:
-        "Reuniões e relatórios mensais. Otimização semanal de lances, orçamentos, criativos e segmentações baseada em dados reais.",
+        "Relatórios mensais e otimização semanal de lances, orçamentos, criativos e segmentações baseada em dados reais. Entregamos documentação de acesso e orientações iniciais para você acompanhar os resultados.",
     },
   ],
   deliverables: [

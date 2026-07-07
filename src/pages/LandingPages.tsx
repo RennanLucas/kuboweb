@@ -121,8 +121,8 @@ const content: ServicePageContent = {
         "WhatsApp Business com mensagem pronta",
         "Formulário com integração ao seu CRM",
         "Kuboweb Analytics (30 dias grátis)",
-        "Google Ads (tag de conversão)",
-        "Meta Pixel (opcional)",
+        "Meta Pixel e Google Ads",
+        "Newsletter e captura de leads",
       ],
     },
     {
@@ -139,7 +139,7 @@ const content: ServicePageContent = {
       title: "Suporte",
       items: [
         "Suporte via WhatsApp",
-        "Documentação da estrutura",
+        "Documentação de acesso e orientações iniciais",
         "Orientações para edição de conteúdo",
         "Hospedagem premium inclusa",
         "Ajustes futuros via plano de manutenção",

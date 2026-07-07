@@ -82,9 +82,9 @@ const content: ServicePageContent = {
         "Rodamos testes em todos os dispositivos, otimizamos meta tags, structured data, imagens e velocidade — garantindo nota 90+ no PageSpeed.",
     },
     {
-      title: "Publicação e treinamento",
+      title: "Publicação e entrega",
       description:
-        "Publicamos no seu domínio, configuramos Google Search Console, Analytics e entregamos um treinamento para você gerenciar seu conteúdo.",
+        "Publicamos no seu domínio, configuramos Google Search Console, Analytics e entregamos o site pronto para uso, com documentação de acesso e orientações iniciais.",
     },
   ],
   deliverables: [
@@ -141,11 +141,11 @@ const content: ServicePageContent = {
     {
       title: "Suporte pós-entrega",
       items: [
-        "30 dias de ajustes gratuitos",
         "Documentação de uso",
-        "Treinamento em vídeo",
         "Suporte técnico via WhatsApp",
+        "Orientações para edição de conteúdo",
         "Planos de manutenção opcionais",
+        "Ajustes futuros via plano de manutenção",
       ],
     },
   ],

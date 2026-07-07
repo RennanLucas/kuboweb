@@ -138,11 +138,11 @@ const content: ServicePageContent = {
     {
       title: "Suporte",
       items: [
-        "30 dias de ajustes gratuitos",
         "Suporte via WhatsApp",
         "Documentação da estrutura",
-        "Treinamento de edição",
+        "Orientações para edição de conteúdo",
         "Hospedagem premium inclusa",
+        "Ajustes futuros via plano de manutenção",
       ],
     },
   ],

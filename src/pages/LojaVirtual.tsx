@@ -80,7 +80,7 @@ const content: ServicePageContent = {
     {
       title: "Testes e lançamento",
       description:
-        "Testamos todo o fluxo de compra (do carrinho ao pagamento). Publicamos, configuramos analytics de e-commerce e treinamos você para gerenciar.",
+        "Testamos todo o fluxo de compra (do carrinho ao pagamento). Publicamos, configuramos analytics de e-commerce e entregamos a loja pronta para gerenciar.",
     },
   ],
   deliverables: [

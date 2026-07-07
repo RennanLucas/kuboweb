@@ -132,7 +132,7 @@ const content: ServicePageContent = {
       items: [
         "WhatsApp Business flutuante",
         "Kuboweb Analytics (30 dias grátis)",
-        "Meta Pixel e Google Ads",
+        "Google Ads",
         "Newsletter e captura de leads",
         "Google Search Console",
         "Redes sociais integradas",

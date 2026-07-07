@@ -139,7 +139,7 @@ const content: ServicePageContent = {
       items: [
         "SEO de produtos e categorias",
         "Kuboweb Analytics para e-commerce (30 dias grátis)",
-        "Meta Pixel e Google Ads",
+        "Google Ads",
         "Integração WhatsApp",
         "Newsletter e cupons por email",
       ],

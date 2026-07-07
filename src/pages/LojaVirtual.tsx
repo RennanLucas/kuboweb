@@ -78,9 +78,9 @@ const content: ServicePageContent = {
         "Configuramos categorias, cadastramos os primeiros produtos, fotos, descrições, variações (cor, tamanho) e políticas da loja.",
     },
     {
-      title: "Testes e lançamento",
+      title: "Testes, lançamento e otimização",
       description:
-        "Testamos todo o fluxo de compra (do carrinho ao pagamento). Publicamos, configuramos Kuboweb Analytics de e-commerce (30 dias grátis) e entregamos a loja pronta para gerenciar.",
+        "Testamos todo o fluxo de compra (do carrinho ao pagamento). Publicamos, configuramos Kuboweb Analytics de e-commerce (30 dias grátis) e entregamos a loja pronta para gerenciar, com documentação de acesso e orientações iniciais. Preparamos variações de produtos, CTAs e checkout para testes A/B contínuos após o lançamento.",
     },
   ],
   deliverables: [

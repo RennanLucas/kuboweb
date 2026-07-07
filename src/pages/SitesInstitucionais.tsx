@@ -82,9 +82,9 @@ const content: ServicePageContent = {
         "Rodamos testes em todos os dispositivos, otimizamos meta tags, structured data, imagens e velocidade — garantindo nota 90+ no PageSpeed.",
     },
     {
-      title: "Publicação e entrega",
+      title: "Publicação, entrega e otimização",
       description:
-        "Publicamos no seu domínio, configuramos Google Search Console, Kuboweb Analytics (30 dias grátis) e entregamos o site pronto para uso, com documentação de acesso e orientações iniciais.",
+        "Publicamos no seu domínio, configuramos Google Search Console, Kuboweb Analytics (30 dias grátis) e entregamos o site pronto para uso, com documentação de acesso e orientações iniciais. Preparamos variações de CTAs e páginas-chave para testes A/B contínuos após o lançamento.",
     },
   ],
   deliverables: [
@@ -128,11 +128,13 @@ const content: ServicePageContent = {
         "Painel para editar conteúdos",
       ],
     },
-    {
+  {
       title: "Integrações",
       items: [
         "WhatsApp Business flutuante",
         "Kuboweb Analytics (30 dias grátis)",
+        "Meta Pixel e Google Ads",
+        "Newsletter e captura de leads",
         "Google Search Console",
         "Redes sociais integradas",
         "Formulários com anti-spam",

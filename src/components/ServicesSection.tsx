@@ -44,8 +44,8 @@ const services = [
     id: "landing",
     icon: FileText,
     title: "Landing Pages",
-    description: "Focadas 100% em conversão para maximizar o retorno das suas campanhas.",
-    features: ["Copywriting Persuasivo", "Otimização de Conversão"],
+    description: "Focadas 100% em conversão para maximizar o ROI das suas campanhas.",
+    features: ["Copywriting Persuasivo", "Testes A/B"],
     href: "/servicos/landing-pages",
     layout: "tall",
     theme: "dark",
@@ -87,29 +87,30 @@ const ServiceCard = ({
   const isWide = service.layout === "wide";
 
   const baseClasses = `
-    group relative block overflow-hidden rounded-2xl p-7 md:p-8 h-full
+    group relative block overflow-hidden rounded-3xl p-7 md:p-8 h-full
     transition-all duration-300 ease-out
     hover:shadow-xl hover:-translate-y-1
-    ${isDark ? "bg-foreground text-background border border-foreground/10" : "bg-card border border-border/60 shadow-sm"}
+    ${isDark ? "bg-primary text-primary-foreground border border-primary/10" : "bg-card border border-border shadow-sm"}
   `;
 
   return (
     <motion.div variants={itemVariants} className={`h-full ${isWide ? "md:col-span-2" : ""}`}>
       <Link to={service.href} className={baseClasses}>
+
         <div className="flex flex-col h-full">
           <div className="flex justify-between items-start mb-6">
             <div
               className={`p-3 rounded-2xl transition-colors duration-300 ${
-                isDark ? "bg-background/10 text-background" : "bg-accent-blue/10 text-accent-blue"
+                isDark ? "bg-primary-foreground/10 text-primary-foreground" : "bg-primary/10 text-primary"
               }`}
             >
               <Icon className="w-7 h-7 md:w-8 md:h-8" strokeWidth={1.5} />
             </div>
 
             {service.id === "sites" && (
-              <div className="hidden md:block bg-secondary rounded-xl p-4">
-                <div className="w-32 h-2 bg-accent-blue/20 rounded-full mb-2 overflow-hidden">
-                  <div className="w-3/4 h-full bg-accent-blue rounded-full" />
+              <div className="hidden md:block bg-muted rounded-xl p-4">
+                <div className="w-32 h-2 bg-primary/20 rounded-full mb-2 overflow-hidden">
+                  <div className="w-3/4 h-full bg-primary rounded-full" />
                 </div>
                 <div className="w-24 h-2 bg-muted-foreground/20 rounded-full" />
               </div>
@@ -117,14 +118,14 @@ const ServiceCard = ({
 
             {service.id === "anuncios" && (
               <div className="hidden md:flex gap-2 items-end">
-                <div className="h-20 w-8 bg-accent-blue/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-1/2 bg-accent-blue rounded-full" />
+                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
+                  <div className="w-full h-1/2 bg-primary rounded-full" />
                 </div>
-                <div className="h-20 w-8 bg-accent-blue/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-3/4 bg-accent-blue rounded-full" />
+                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
+                  <div className="w-full h-3/4 bg-primary rounded-full" />
                 </div>
-                <div className="h-20 w-8 bg-accent-blue/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-full bg-accent-blue rounded-full" />
+                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
+                  <div className="w-full h-full bg-primary rounded-full" />
                 </div>
               </div>
             )}
@@ -132,14 +133,14 @@ const ServiceCard = ({
 
           <h3
             className={`text-xl md:text-2xl font-bold font-heading mb-3 ${
-              isDark ? "text-background" : "text-foreground"
+              isDark ? "text-primary-foreground" : "text-foreground"
             }`}
           >
             {service.title}
           </h3>
 
           <p
-            className={`mb-6 ${isDark ? "text-background/70" : "text-muted-foreground"} ${
+            className={`mb-6 ${isDark ? "text-primary-foreground/70" : "text-muted-foreground"} ${
               isWide ? "max-w-md" : ""
             }`}
           >
@@ -149,11 +150,11 @@ const ServiceCard = ({
           <ul
             className={`grid gap-y-3 mb-8 text-sm ${
               isWide ? "grid-cols-2" : "grid-cols-1"
-            } ${isDark ? "text-background/60" : "text-muted-foreground"}`}
+            } ${isDark ? "text-primary-foreground/60" : "text-muted-foreground"}`}
           >
             {service.features.map((feature) => (
               <li key={feature} className="flex items-center gap-2">
-                <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isDark ? "bg-background/50" : "bg-accent-blue"}`} />
+                <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isDark ? "bg-primary-foreground/50" : "bg-primary"}`} />
                 {feature}
               </li>
             ))}
@@ -161,7 +162,7 @@ const ServiceCard = ({
 
           <span
             className={`mt-auto inline-flex items-center gap-2 text-sm font-bold transition-transform duration-200 group-hover:translate-x-1 ${
-              isDark ? "text-background" : "text-accent-blue"
+              isDark ? "text-primary-foreground" : "text-primary"
             }`}
           >
             Saiba mais
@@ -175,9 +176,9 @@ const ServiceCard = ({
 
 const ServicesSection = () => {
   return (
-    <section id="servicos" className="py-24 md:py-32 px-4 relative overflow-hidden">
+    <section id="servicos" className="py-24 md:py-36 px-4 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-card/20" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent-blue/[0.03] rounded-full blur-3xl hidden md:block" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-3xl hidden md:block" />
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-12 md:mb-16 space-y-4">
@@ -186,7 +187,7 @@ const ServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3 }}
-            className="text-accent-blue font-semibold text-xs uppercase tracking-[0.2em]"
+            className="text-primary font-bold tracking-wider uppercase text-sm"
           >
             Nossos Serviços
           </motion.p>
@@ -200,6 +201,7 @@ const ServicesSection = () => {
             Soluções desenhadas para o seu crescimento
           </motion.h2>
         </div>
+
 
         <motion.div
           variants={containerVariants}
@@ -221,7 +223,7 @@ const ServicesSection = () => {
           className="text-center"
         >
           <div className="inline-block hover:scale-105 active:scale-95 transition-transform duration-200">
-            <Button variant="dark" size="lg" asChild className="shadow-glow-sm">
+            <Button variant="whatsapp" size="lg" asChild className="shadow-glow-sm">
               <a
                 href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
                 target="_blank"

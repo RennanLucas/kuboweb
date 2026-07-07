@@ -6,32 +6,36 @@
 
 @layer base {
   :root {
-    /* Clean Professional - White + Dark Blue */
-    --background: 220 20% 97%;
-    --foreground: 222 40% 16%;
+    /* Navy Trust - Premium Digital Agency */
+    --background: 220 27% 93%;
+    --foreground: 222 59% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 40% 16%;
+    --card-foreground: 222 59% 15%;
     --card-elevated: 220 20% 95%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 40% 16%;
+    --popover-foreground: 222 59% 15%;
 
-    /* Primary - Deep Navy Blue */
-    --primary: 222 80% 28%;
+    /* Primary - Deep Navy */
+    --primary: 222 59% 15%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary */
-    --secondary: 220 15% 92%;
-    --secondary-foreground: 222 40% 16%;
+    --secondary: 220 20% 90%;
+    --secondary-foreground: 222 59% 15%;
 
     /* Muted */
-    --muted: 220 15% 92%;
-    --muted-foreground: 220 15% 46%;
+    --muted: 220 20% 90%;
+    --muted-foreground: 212 52% 24%;
 
     /* Accent */
     --accent: 220 20% 95%;
-    --accent-foreground: 222 60% 30%;
+    --accent-foreground: 222 59% 15%;
+
+    /* Accent Blue - Brand highlight */
+    --accent-blue: 209 46% 42%;
+    --accent-blue-foreground: 0 0% 100%;
 
     /* Success Green */
     --success: 152 68% 42%;
@@ -46,9 +50,9 @@
     --destructive-foreground: 0 85% 97%;
 
     /* Border and input */
-    --border: 220 15% 88%;
-    --input: 220 15% 88%;
-    --ring: 222 80% 28%;
+    --border: 220 20% 85%;
+    --input: 220 20% 85%;
+    --ring: 209 46% 42%;
 
     --radius: 0.5rem;
 

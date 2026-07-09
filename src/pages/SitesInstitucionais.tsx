@@ -141,7 +141,6 @@ const content: ServicePageContent = {
     {
       title: "Suporte pós-entrega",
       items: [
-        "Documentação de uso",
         "Suporte técnico via WhatsApp",
         "Orientações para edição de conteúdo",
         "Planos de manutenção opcionais",

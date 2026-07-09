@@ -1,5 +1,5 @@
 import { memo, useState, useRef, useCallback, useEffect, useMemo } from "react";
-import { ArrowRight, ArrowLeft, RotateCcw, MessageCircle, Check, User, Send } from "lucide-react";
+import { ArrowRight, ArrowLeft, RotateCcw, MessageCircle, Check, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";

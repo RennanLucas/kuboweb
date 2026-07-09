@@ -40,7 +40,6 @@ const included = [
   "Otimização de velocidade",
   "Suporte via WhatsApp",
   "Relatório mensal simplificado",
-  "Domínio personalizado",
 ];
 
 const faqs = [

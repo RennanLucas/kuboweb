@@ -539,7 +539,7 @@ const Chatbot = () => {
                 transition={{ repeat: Infinity, duration: 2.5, ease: "easeOut", delay: 0.4 }}
               />
               <div className="relative z-10 w-full h-full flex items-center justify-center bg-card rounded-full">
-                <Briefcase className="w-6 h-6 text-primary" />
+                <ClipboardCheck className="w-6 h-6 text-primary" />
               </div>
             </motion.button>
           </motion.div>

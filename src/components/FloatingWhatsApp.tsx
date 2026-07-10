@@ -1,5 +1,5 @@
 import { memo, useState, useEffect } from "react";
-import { MessageCircle } from "lucide-react";
+import { Briefcase } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FloatingWhatsApp = () => {
@@ -24,8 +24,8 @@ const FloatingWhatsApp = () => {
             transition={{ duration: 0.2 }}
             className="bg-card border border-border/50 rounded-xl px-4 py-2.5 shadow-xl whitespace-nowrap"
           >
-            <p className="text-sm font-medium text-foreground">Precisa de ajuda?</p>
-            <p className="text-xs text-muted-foreground">Fale conosco no WhatsApp</p>
+            <p className="text-sm font-medium text-foreground">Consultoria rápida</p>
+            <p className="text-xs text-muted-foreground">Fale com um especialista</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -33,8 +33,8 @@ const FloatingWhatsApp = () => {
         href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center w-14 h-14 rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg shadow-whatsapp/30 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_3]"
-        aria-label="Falar no WhatsApp"
+        className="flex items-center gap-2 pl-3 pr-4 py-3 rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg shadow-whatsapp/30 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_3]"
+        aria-label="Falar com um especialista no WhatsApp"
         onClick={(e) => {
           const w = window as unknown as { gtagSendEvent?: (u: string) => boolean };
           if (typeof w.gtagSendEvent === "function") {
@@ -47,10 +47,11 @@ const FloatingWhatsApp = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-        whileHover={{ scale: 1.15 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <MessageCircle className="w-6 h-6" />
+        <Briefcase className="w-5 h-5" />
+        <span className="text-sm font-semibold whitespace-nowrap">Falar com especialista</span>
       </motion.a>
     </div>
   );

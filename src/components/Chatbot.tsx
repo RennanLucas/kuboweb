@@ -510,38 +510,32 @@ const Chatbot = () => {
                   className="bg-card border border-border/40 rounded-xl rounded-bl-sm px-3 py-2.5 shadow-lg cursor-pointer max-w-[170px] order-2"
                   onClick={handleOpen}
                 >
-                  <p className="text-[11px] font-semibold text-foreground">🚀 Consultoria grátis</p>
-                  <p className="text-[10px] text-primary font-medium mt-0.5">2 min →</p>
+                  <p className="text-[11px] font-semibold text-foreground">Diagnóstico gratuito</p>
+                  <p className="text-[10px] text-primary font-medium mt-0.5">Avaliação em 2 min →</p>
                 </motion.div>
               )}
             </AnimatePresence>
             <motion.button
               onClick={handleOpen}
-              className="w-14 h-14 rounded-full overflow-hidden shadow-lg flex items-center justify-center shrink-0 border-2 border-primary/30 bg-white relative group cursor-pointer"
-              aria-label="Abrir consultor digital"
+              className="w-14 h-14 rounded-full overflow-hidden shadow-lg flex items-center justify-center shrink-0 border-2 border-primary/30 bg-card relative group cursor-pointer"
+              aria-label="Ir para o diagnóstico gratuito"
               animate={{
-                scale: [1, 1.06, 1],
-                rotate: [0, -3, 3, -2, 0],
+                scale: [1, 1.04, 1],
               }}
               transition={{
                 scale: { repeat: Infinity, duration: 2.5, ease: "easeInOut" },
-                rotate: { repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 },
               }}
-              whileHover={{
-                scale: 1.18,
-                rotate: [0, -8, 8, -4, 0],
-                transition: { rotate: { duration: 0.5 }, scale: { duration: 0.2 } },
-              }}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
             >
               <motion.div
                 className="absolute inset-0 rounded-full bg-primary/15"
-                animate={{ scale: [1, 1.6, 1.8], opacity: [0.5, 0.2, 0] }}
+                animate={{ scale: [1, 1.5, 1.7], opacity: [0.5, 0.2, 0] }}
                 transition={{ repeat: Infinity, duration: 2.5, ease: "easeOut" }}
               />
               <motion.div
                 className="absolute inset-0 rounded-full bg-primary/10"
-                animate={{ scale: [1, 1.4, 1.6], opacity: [0.4, 0.15, 0] }}
+                animate={{ scale: [1, 1.3, 1.5], opacity: [0.4, 0.15, 0] }}
                 transition={{ repeat: Infinity, duration: 2.5, ease: "easeOut", delay: 0.4 }}
               />
               <div className="relative z-10 w-full h-full flex items-center justify-center bg-card rounded-full">

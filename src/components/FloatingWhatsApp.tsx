@@ -1,15 +1,30 @@
 import { memo, useState, useEffect } from "react";
-import { Briefcase } from "lucide-react";
+import { ClipboardCheck } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const FloatingWhatsApp = () => {
   const [hovered, setHovered] = useState(false);
   const [visible, setVisible] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isDiagnostico = location.pathname === "/diagnostico";
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  const handleClick = () => {
+    if (isDiagnostico) {
+      const element = document.getElementById("diagnostico-form");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      navigate("/diagnostico");
+    }
+  };
 
   if (!visible) return null;
 
@@ -24,24 +39,19 @@ const FloatingWhatsApp = () => {
             transition={{ duration: 0.2 }}
             className="bg-card border border-border/50 rounded-xl px-4 py-2.5 shadow-xl whitespace-nowrap"
           >
-            <p className="text-sm font-medium text-foreground">Consultoria rápida</p>
-            <p className="text-xs text-muted-foreground">Fale com um especialista</p>
+            <p className="text-sm font-medium text-foreground">
+              {isDiagnostico ? "Iniciar diagnóstico" : "Diagnóstico gratuito"}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {isDiagnostico ? "Vá direto para a avaliação" : "Descubra a solução ideal"}
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
-      <motion.a
-        href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 pl-3 pr-4 py-3 rounded-full bg-whatsapp text-whatsapp-foreground shadow-lg shadow-whatsapp/30 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_3]"
-        aria-label="Falar com um especialista no WhatsApp"
-        onClick={(e) => {
-          const w = window as unknown as { gtagSendEvent?: (u: string) => boolean };
-          if (typeof w.gtagSendEvent === "function") {
-            e.preventDefault();
-            w.gtagSendEvent(e.currentTarget.href);
-          }
-        }}
+      <motion.button
+        onClick={handleClick}
+        className="flex items-center gap-2 pl-3 pr-4 py-3 rounded-full bg-foreground text-background shadow-lg shadow-foreground/20 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_3]"
+        aria-label={isDiagnostico ? "Ir para o diagnóstico" : "Fazer diagnóstico gratuito"}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         initial={{ scale: 0, opacity: 0 }}
@@ -50,9 +60,11 @@ const FloatingWhatsApp = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <Briefcase className="w-5 h-5" />
-        <span className="text-sm font-semibold whitespace-nowrap">Falar com especialista</span>
-      </motion.a>
+        <ClipboardCheck className="w-5 h-5" />
+        <span className="text-sm font-semibold whitespace-nowrap">
+          {isDiagnostico ? "Iniciar diagnóstico" : "Diagnóstico gratuito"}
+        </span>
+      </motion.button>
     </div>
   );
 };

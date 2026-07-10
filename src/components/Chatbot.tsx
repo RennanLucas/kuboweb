@@ -361,6 +361,8 @@ const Chatbot = () => {
   const [showResult, setShowResult] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const scrollToBottom = () => {
     setTimeout(() => {

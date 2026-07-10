@@ -1,9 +1,8 @@
 import { memo, useState, useRef, useCallback, useEffect } from "react";
-import { MessageCircle, User, Sparkles, ArrowRight, X, RotateCcw, Zap, TrendingUp, ShoppingCart, Globe, Target, Megaphone } from "lucide-react";
+import { MessageCircle, User, Sparkles, ArrowRight, X, RotateCcw, Zap, TrendingUp, ShoppingCart, Globe, Target, Megaphone, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import botAvatar from "@/assets/bot-avatar.webp";
 
 type Message = {
   id: number;

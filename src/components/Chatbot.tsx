@@ -382,9 +382,13 @@ const Chatbot = () => {
   }, []);
 
   const handleOpen = () => {
-    setIsOpen(true);
-    if (messages.length === 0) {
-      setTimeout(() => addBotMessage(QUESTIONS.welcome), 150);
+    if (location.pathname === "/diagnostico") {
+      const element = document.getElementById("diagnostico-form");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      navigate("/diagnostico");
     }
   };
 

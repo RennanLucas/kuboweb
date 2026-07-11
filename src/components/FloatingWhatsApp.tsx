@@ -71,6 +71,7 @@ const FloatingWhatsApp = () => {
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            style={{ originX: 0.5, originY: 0.5 }}
           >
             <ClipboardCheck className="w-5 h-5" />
             <span className="text-sm font-semibold whitespace-nowrap">

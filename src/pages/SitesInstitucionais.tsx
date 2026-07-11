@@ -13,7 +13,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 import ServicePageTemplate, { type ServicePageContent } from "@/components/ServicePageTemplate";
-import heroImage from "@/assets/service-sites.webp";
+import heroImage from "@/assets/service-sites-new.jpg";
 
 const content: ServicePageContent = {
   seo: {

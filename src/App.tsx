@@ -7,7 +7,6 @@ import { HelmetProvider } from "react-helmet-async";
 import { MotionConfig } from "framer-motion";
 import { useEffect, useState, lazy, Suspense } from "react";
 import Index from "./pages/Index";
-const Chatbot = lazy(() => import("./components/Chatbot"));
 const CursorGlow = lazy(() => import("./components/ui/CursorGlow"));
 
 const Sobre = lazy(() => import("./pages/Sobre"));
@@ -78,9 +77,6 @@ const App = () => {
                 
                 <Route path="*" element={<NotFound />} />
               </Routes>
-            </Suspense>
-            <Suspense fallback={null}>
-              <Chatbot />
             </Suspense>
             <Suspense fallback={null}>
               <CursorGlow />

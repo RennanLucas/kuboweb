@@ -10,7 +10,7 @@ import {
   Users,
 } from "lucide-react";
 import ServicePageTemplate, { type ServicePageContent } from "@/components/ServicePageTemplate";
-import heroImage from "@/assets/service-landing.webp";
+import heroImage from "@/assets/service-landing-new.jpg";
 
 const content: ServicePageContent = {
   seo: {

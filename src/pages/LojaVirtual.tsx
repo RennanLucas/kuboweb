@@ -9,7 +9,7 @@ import {
   Boxes,
 } from "lucide-react";
 import ServicePageTemplate, { type ServicePageContent } from "@/components/ServicePageTemplate";
-import heroImage from "@/assets/service-loja.webp";
+import heroImage from "@/assets/service-loja-new.jpg";
 
 const content: ServicePageContent = {
   seo: {

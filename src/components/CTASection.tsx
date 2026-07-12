@@ -60,11 +60,21 @@ const CTASection = () => {
             </div>
           </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.18, duration: 0.3 }}
+            className="flex justify-center pt-2"
+          >
+            <GuaranteeBadge />
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.3 }}
+            transition={{ delay: 0.22, duration: 0.3 }}
             className="text-xs text-muted-foreground tracking-wide"
           >
             Consultoria sem custo · Retorno em até 1 hora útil

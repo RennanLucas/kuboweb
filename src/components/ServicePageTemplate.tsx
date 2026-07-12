@@ -382,6 +382,9 @@ const ServicePageTemplate = ({ content }: { content: ServicePageContent }) => {
                   </a>
                 </Button>
               </div>
+              <div className="flex justify-center pt-2">
+                <GuaranteeBadge variant="inverted" />
+              </div>
               <p className="text-xs text-primary-foreground/60 pt-1">
                 Consultoria sem custo · Retorno em até 1 hora útil
               </p>

@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { MessageCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import GuaranteeBadge from "@/components/GuaranteeBadge";
 import { motion } from "framer-motion";
 
 const CTASection = () => {

@@ -19,6 +19,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import GuaranteeBadge from "@/components/GuaranteeBadge";
 
 type IconType = ComponentType<{ className?: string }>;
 
@@ -126,6 +127,8 @@ const ServicePageTemplate = ({ content }: { content: ServicePageContent }) => {
                   </a>
                 </Button>
               </div>
+
+              <GuaranteeBadge className="mt-1" />
 
               {/* quick facts */}
               <dl className="grid grid-cols-3 gap-4 pt-6 border-t border-border/60 mt-8">
@@ -378,6 +381,9 @@ const ServicePageTemplate = ({ content }: { content: ServicePageContent }) => {
                     Falar no WhatsApp
                   </a>
                 </Button>
+              </div>
+              <div className="flex justify-center pt-2">
+                <GuaranteeBadge variant="inverted" />
               </div>
               <p className="text-xs text-primary-foreground/60 pt-1">
                 Consultoria sem custo · Retorno em até 1 hora útil

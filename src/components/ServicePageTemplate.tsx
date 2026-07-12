@@ -19,6 +19,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import GuaranteeBadge from "@/components/GuaranteeBadge";
 
 type IconType = ComponentType<{ className?: string }>;
 

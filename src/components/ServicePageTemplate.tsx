@@ -128,6 +128,8 @@ const ServicePageTemplate = ({ content }: { content: ServicePageContent }) => {
                 </Button>
               </div>
 
+              <GuaranteeBadge className="mt-1" />
+
               {/* quick facts */}
               <dl className="grid grid-cols-3 gap-4 pt-6 border-t border-border/60 mt-8">
                 {content.hero.quickFacts.map((fact) => (

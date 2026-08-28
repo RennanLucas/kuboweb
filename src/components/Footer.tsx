@@ -2,7 +2,7 @@ import { memo } from "react";
 import { MessageCircle, Mail, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import logoKuboweb from "@/assets/logo-kuboweb-new.webp";
+import Logo from "@/components/Logo";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -31,17 +31,7 @@ const Footer = () => {
         >
           <motion.div variants={itemVariants} className="space-y-4">
             <Link to="/" className="inline-block">
-              <motion.img
-                src={logoKuboweb}
-                alt="Kubo Web - Criação de Sites Profissionais"
-                className="h-28 md:h-32 w-auto object-contain -ml-2"
-                width={160}
-                height={60}
-                loading="lazy"
-                decoding="async"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              />
+              <Logo size="md" />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-[280px]">
               Sites profissionais que geram resultados reais para o seu negócio.

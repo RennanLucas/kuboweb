@@ -3,7 +3,7 @@ import { MessageCircle, Menu, X, Sparkles, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import logoKuboweb from "@/assets/logo-kuboweb-new.webp";
+import Logo from "@/components/Logo";
 
 const navLinks = [
   { label: "Serviços", href: "#servicos" },
@@ -89,14 +89,7 @@ const Header = () => {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center shrink-0">
-            <img
-              alt="Kubo Web - Criação de Sites Profissionais"
-              className="h-28 md:h-36 lg:h-40 w-auto object-contain hover:scale-105 transition-transform duration-200 -my-6 md:-my-8"
-              src={logoKuboweb}
-              width={200}
-              height={80}
-              decoding="async"
-            />
+            <Logo size="md" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">

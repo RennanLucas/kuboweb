@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import logoKuboweb from "@/assets/logo-kuboweb-new.webp";
+import Logo from "@/components/Logo";
 
 type Message = {
   id: number;
@@ -441,11 +441,7 @@ const Diagnostico = () => {
               <div className="lg:col-span-4 bg-foreground text-background p-8 lg:p-10 flex flex-col justify-between">
                 <div className="space-y-8">
                   <div>
-                    <img
-                      src={logoKuboweb}
-                      alt="KuboWeb"
-                      className="h-10 w-auto brightness-0 invert opacity-90"
-                    />
+                    <Logo size="sm" />
                   </div>
 
                   <div className="space-y-4">

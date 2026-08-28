@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logoKuboweb from "@/assets/logo-kuboweb-new.webp";
+import Logo from "@/components/Logo";
 
 const CubeLoader = ({ onComplete }: { onComplete: () => void }) => {
   const [visible, setVisible] = useState(true);
@@ -39,11 +39,7 @@ const CubeLoader = ({ onComplete }: { onComplete: () => void }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <img
-              src={logoKuboweb}
-              alt="KuboWeb"
-              className="h-48 w-auto object-contain"
-            />
+            <Logo size="lg" />
           </motion.div>
         </motion.div>
       )}

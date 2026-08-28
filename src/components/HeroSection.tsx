@@ -166,18 +166,18 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground max-w-4xl mx-auto leading-[1.1]"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground max-w-4xl mx-auto leading-[1.15] text-center"
           >
-            Transformamos seu site em uma<br className="hidden sm:block" />
-            <span className="inline-flex flex-col relative h-[1.2em] w-full items-center justify-center overflow-hidden text-gradient-primary">
-              <AnimatePresence mode="popLayout">
+            Transformamos seu site em uma<br />
+            <span className="relative inline-flex justify-center items-center h-[1.3em] overflow-hidden align-bottom min-w-[260px] sm:min-w-[420px] max-w-full">
+              <AnimatePresence mode="wait" initial={false}>
                 <motion.span
                   key={rotativeWords[wordIndex]}
-                  initial={{ y: 50, opacity: 0 }}
+                  initial={{ y: 35, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -50, opacity: 0 }}
-                  transition={{ duration: 0.5, ease: "circOut" }}
-                  className="absolute whitespace-nowrap"
+                  exit={{ y: -35, opacity: 0 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-gradient-hero inline-block whitespace-nowrap"
                 >
                   {rotativeWords[wordIndex]}
                 </motion.span>

@@ -1,44 +1,33 @@
 ﻿import { memo } from "react";
+import logoDark from "@/assets/logo-kuboweb-dark.png";
+import logoLight from "@/assets/logo-kuboweb-light.png";
 
 interface LogoProps {
   className?: string;
+  variant?: "dark" | "light" | "auto";
   size?: "sm" | "md" | "lg";
-  showText?: boolean;
 }
 
-const Logo = ({ className = "", size = "md", showText = true }: LogoProps) => {
-  const iconSizes = {
-    sm: "h-7 w-7",
-    md: "h-9 w-9 md:h-10 md:w-10",
-    lg: "h-12 w-12 md:h-14 md:w-14",
+const Logo = ({ className = "", variant = "dark", size = "md" }: LogoProps) => {
+  const sizeClasses = {
+    sm: "h-7 md:h-8",
+    md: "h-9 md:h-10 lg:h-11",
+    lg: "h-12 md:h-14 lg:h-16",
   };
 
-  const textSizes = {
-    sm: "text-lg",
-    md: "text-xl md:text-2xl",
-    lg: "text-2xl md:text-3xl",
-  };
+  const src = variant === "light" ? logoLight : logoDark;
 
   return (
-    <div className={`flex items-center gap-2.5 group select-none ${className}`}>
-      {/* High-Resolution K Icon */}
+    <div className={`inline-flex items-center group select-none ${className}`}>
       <img
-        src="/favicon-512.png"
+        src={src}
         alt="Kubo Web - Criação de Sites Profissionais"
-        className={`${iconSizes[size]} w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_0_12px_rgba(56,189,248,0.35)]`}
-        width={48}
-        height={48}
+        className={`${sizeClasses[size]} w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_0_16px_rgba(56,189,248,0.2)]`}
+        width={180}
+        height={46}
         loading="eager"
         decoding="async"
       />
-
-      {/* Crisp High-Contrast Typography for Dark Theme */}
-      {showText && (
-        <div className={`flex items-center font-heading font-black tracking-tight ${textSizes[size]} leading-none`}>
-          <span className="text-white tracking-wider">KUBO</span>
-          <span className="text-gradient-hero tracking-wider ml-1">WEB</span>
-        </div>
-      )}
     </div>
   );
 };

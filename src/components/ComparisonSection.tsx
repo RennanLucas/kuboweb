@@ -80,8 +80,8 @@ const ComparisonSection = () => {
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch mb-12">
           {/* Traditional / Common sites card */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="rounded-3xl p-6 sm:p-8 bg-card/40 border border-border/40 backdrop-blur-sm flex flex-col justify-between"
@@ -118,10 +118,10 @@ const ComparisonSection = () => {
 
           {/* Kubo Web high conversion card */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="rounded-3xl p-6 sm:p-8 bg-gradient-to-br from-primary/[0.08] via-card to-card border-2 border-primary/40 shadow-2xl shadow-primary/10 relative overflow-hidden flex flex-col justify-between"
           >
             {/* Top highlight badge */}

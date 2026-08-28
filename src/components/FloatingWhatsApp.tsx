@@ -40,7 +40,7 @@ const FloatingWhatsApp = () => {
   return (
     <>
       {/* Diagnóstico — esquerda */}
-      <div className="fixed bottom-6 left-4 sm:left-6 z-50">
+      <div className="fixed bottom-5 left-3 sm:left-6 z-50">
         <div className="relative flex items-center">
           <AnimatePresence>
             {hoveredDiagnostico && (
@@ -49,7 +49,7 @@ const FloatingWhatsApp = () => {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -10, scale: 0.9 }}
                 transition={{ duration: 0.2 }}
-                className="absolute left-full ml-3 bg-card border border-border/50 rounded-xl px-4 py-2.5 shadow-xl whitespace-nowrap pointer-events-none"
+                className="absolute left-full ml-3 bg-card border border-border/50 rounded-xl px-4 py-2.5 shadow-xl whitespace-nowrap pointer-events-none hidden sm:block"
               >
                 <p className="text-sm font-medium text-foreground">
                   {isDiagnostico ? "Iniciar diagnóstico" : "Diagnóstico gratuito"}
@@ -62,27 +62,25 @@ const FloatingWhatsApp = () => {
           </AnimatePresence>
           <motion.button
             onClick={handleDiagnosticoClick}
-            className="relative flex items-center gap-2 pl-3 pr-4 py-3 rounded-full bg-foreground text-background shadow-lg shadow-foreground/20 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_3]"
+            className="relative flex items-center gap-2 p-3 sm:px-4 sm:py-3 rounded-full bg-foreground text-background shadow-lg shadow-foreground/20 hover:scale-105 transition-transform"
             aria-label={isDiagnostico ? "Ir para o diagnóstico" : "Fazer diagnóstico gratuito"}
             onMouseEnter={() => setHoveredDiagnostico(true)}
             onMouseLeave={() => setHoveredDiagnostico(false)}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            style={{ originX: 0.5, originY: 0.5 }}
           >
-            <ClipboardCheck className="w-5 h-5" />
-            <span className="text-sm font-semibold whitespace-nowrap">
-              {isDiagnostico ? "Iniciar diagnóstico" : "Diagnóstico gratuito"}
+            <ClipboardCheck className="w-5 h-5 text-background" />
+            <span className="text-sm font-semibold whitespace-nowrap hidden sm:inline">
+              {isDiagnostico ? "Diagnóstico" : "Diagnóstico gratuito"}
             </span>
           </motion.button>
         </div>
       </div>
 
       {/* WhatsApp — direita */}
-      <div className="fixed bottom-6 right-4 sm:right-6 z-50">
+      <div className="fixed bottom-5 right-3 sm:right-6 z-50">
         <div className="relative flex items-center">
           <AnimatePresence>
             {hoveredWhatsApp && (
@@ -91,7 +89,7 @@ const FloatingWhatsApp = () => {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: 10, scale: 0.9 }}
                 transition={{ duration: 0.2 }}
-                className="absolute right-full mr-3 bg-card border border-border/50 rounded-xl px-4 py-2.5 shadow-xl whitespace-nowrap pointer-events-none"
+                className="absolute right-full mr-3 bg-card border border-border/50 rounded-xl px-4 py-2.5 shadow-xl whitespace-nowrap pointer-events-none hidden sm:block"
               >
                 <p className="text-sm font-medium text-foreground">Falar no WhatsApp</p>
                 <p className="text-xs text-muted-foreground">Resposta rápida · Sem robô</p>
@@ -100,19 +98,17 @@ const FloatingWhatsApp = () => {
           </AnimatePresence>
           <motion.button
             onClick={handleWhatsAppClick}
-            className="relative flex items-center gap-2 pl-3 pr-4 py-3 rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/25 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_3]"
+            className="relative flex items-center gap-2 p-3.5 sm:px-5 sm:py-3.5 rounded-full bg-[#25D366] text-white shadow-xl shadow-[#25D366]/30 hover:scale-105 transition-transform"
             aria-label="Falar no WhatsApp"
             onMouseEnter={() => setHoveredWhatsApp(true)}
             onMouseLeave={() => setHoveredWhatsApp(false)}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            style={{ originX: 0.5, originY: 0.5 }}
           >
-            <MessageCircle className="w-5 h-5" />
-            <span className="text-sm font-semibold whitespace-nowrap">WhatsApp</span>
+            <MessageCircle className="w-6 h-6 fill-current" />
+            <span className="text-sm font-bold whitespace-nowrap hidden sm:inline">WhatsApp</span>
           </motion.button>
         </div>
       </div>

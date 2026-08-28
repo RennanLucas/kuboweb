@@ -69,8 +69,8 @@ export const CTASection = memo(function CTASection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl mt-8">
             <motion.div 
               className="card-glass p-6 rounded-2xl flex flex-col items-center text-center gap-3 border-glow shadow-glow-sm"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
@@ -85,8 +85,8 @@ export const CTASection = memo(function CTASection() {
 
             <motion.div 
               className="card-glass p-6 rounded-2xl flex flex-col items-center text-center gap-3 border-glow shadow-glow-sm"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
@@ -101,15 +101,15 @@ export const CTASection = memo(function CTASection() {
           </div>
 
           {/* CTA Button */}
-          <div className="mt-12 flex flex-col items-center gap-4">
+          <div className="mt-10 sm:mt-12 flex flex-col items-center gap-4 w-full px-2">
             <Button 
               variant="whatsapp" 
               size="xl" 
-              className="rounded-full shadow-glow text-lg font-bold w-full sm:w-auto min-w-[300px]"
+              className="rounded-full shadow-glow text-base sm:text-lg font-bold w-full sm:w-auto min-w-0 sm:min-w-[280px]"
               asChild
             >
               <a href="https://wa.me/5511932197334?text=Olá%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20começar%20meu%20projeto.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-6 h-6 mr-2" />
+                <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 mr-2 shrink-0" />
                 Quero Começar Meu Projeto
               </a>
             </Button>

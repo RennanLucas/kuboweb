@@ -77,12 +77,12 @@ Quero estruturar meu site para alcançar esse resultado!`;
           <div className="lg:col-span-6 space-y-8">
             {/* Slider 1: Visitors */}
             <div className="space-y-3">
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                 <label className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
-                  <Users className="w-4 h-4 text-primary" />
+                  <Users className="w-4 h-4 text-primary shrink-0" />
                   Visitantes estimados por mês:
                 </label>
-                <span className="text-base font-heading font-extrabold text-primary bg-primary/10 px-3 py-1 rounded-xl">
+                <span className="text-sm sm:text-base font-heading font-extrabold text-primary bg-primary/10 px-3 py-1 rounded-xl w-fit">
                   {visitors.toLocaleString("pt-BR")} acessos
                 </span>
               </div>
@@ -104,12 +104,12 @@ Quero estruturar meu site para alcançar esse resultado!`;
 
             {/* Slider 2: Ticket */}
             <div className="space-y-3">
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
                 <label className="text-xs font-bold text-foreground uppercase tracking-wider flex items-center gap-1.5">
-                  <DollarSign className="w-4 h-4 text-primary" />
+                  <DollarSign className="w-4 h-4 text-primary shrink-0" />
                   Ticket médio do seu serviço/produto:
                 </label>
-                <span className="text-base font-heading font-extrabold text-primary bg-primary/10 px-3 py-1 rounded-xl">
+                <span className="text-sm sm:text-base font-heading font-extrabold text-primary bg-primary/10 px-3 py-1 rounded-xl w-fit">
                   R$ {ticket.toLocaleString("pt-BR")}
                 </span>
               </div>

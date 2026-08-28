@@ -78,6 +78,33 @@ const PricingSection = () => {
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
   }, []);
 
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe && currentIndex < servicePlans.length - 1) {
+      goNext();
+    }
+    if (isRightSwipe && currentIndex > 0) {
+      goPrev();
+    }
+  };
+
   return (
     <section id="precos" className="py-24 md:py-36 px-4 bg-muted/20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -141,7 +168,12 @@ const PricingSection = () => {
 
             {/* Mobile carousel */}
             <div className="md:hidden">
-              <div className="relative overflow-hidden">
+              <div
+                className="relative overflow-hidden touch-pan-y"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+              >
                 <div
                   className="flex transition-transform duration-300 ease-out will-change-transform"
                   style={{ transform: `translateX(-${currentIndex * 100}%)` }}

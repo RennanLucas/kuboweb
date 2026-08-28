@@ -108,13 +108,12 @@ export const ProcessSection = memo(function ProcessSection() {
           viewport={{ once: true }}
           className="relative max-w-6xl mx-auto"
         >
-          {/* Connecting line */}
-          <div className="absolute top-[40px] left-[32px] md:top-1/2 md:left-0 md:-translate-y-1/2 md:w-full h-[calc(100%-80px)] md:h-1 bg-border/50 rounded-full overflow-hidden">
+          {/* Desktop Connecting line */}
+          <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full h-1 bg-border/50 rounded-full overflow-hidden hidden md:block">
             <motion.div 
-              initial={{ x: '-100%', y: '-100%' }}
+              initial={{ x: '-100%' }}
               whileInView={{ 
-                x: ['-100%', '100%'],
-                y: ['-100%', '100%']
+                x: ['-100%', '100%']
               }}
               viewport={{ once: true }}
               transition={{ 
@@ -122,52 +121,37 @@ export const ProcessSection = memo(function ProcessSection() {
                 repeat: Infinity,
                 ease: "linear"
               }}
-              className="absolute top-0 left-0 w-full md:w-1/3 h-1/3 md:h-full bg-gradient-to-b md:bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 hidden md:block"
-            />
-             <motion.div 
-              initial={{ y: '-100%' }}
-              whileInView={{ 
-                y: ['-100%', '100%']
-              }}
-              viewport={{ once: true }}
-              transition={{ 
-                duration: 3, 
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              className="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-transparent via-primary to-transparent opacity-50 md:hidden"
+              className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative z-10 pl-[72px] md:pl-0">
-            {steps.map((step, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-6 relative z-10">
+            {steps.map((step) => (
               <motion.div key={step.number} variants={itemVariants} className="relative group">
-                <div className="flex flex-col h-full bg-card/40 backdrop-blur-sm border border-border/50 rounded-2xl p-6 transition-all duration-300 hover:shadow-glow hover:-translate-y-1">
+                <div className="flex flex-col h-full bg-card/60 backdrop-blur-xl border border-border/50 rounded-3xl p-6 sm:p-7 transition-all duration-300 hover:border-primary/40 hover:shadow-glow shadow-xl">
                   
-                  {/* Step Number & Icon */}
-                  <div className="absolute left-[-72px] md:relative md:left-0 top-0 md:-top-12 flex flex-col items-center md:items-start md:mb-12">
-                    <div className="w-16 h-16 rounded-full bg-background border-2 border-primary/20 flex items-center justify-center relative shadow-lg group-hover:border-primary/50 transition-colors duration-300">
-                      <div className="absolute inset-0 bg-primary/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <step.icon className="w-6 h-6 text-primary relative z-10" />
+                  {/* Step Number & Icon Header */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-12 h-12 rounded-2xl bg-primary/15 border border-primary/30 flex items-center justify-center text-primary shadow-inner">
+                      <step.icon className="w-6 h-6" />
                     </div>
+                    <span className="text-2xl font-heading font-extrabold text-primary/80 bg-primary/10 px-3 py-1 rounded-xl border border-primary/20">
+                      {step.number}
+                    </span>
                   </div>
 
-                  <span className="text-6xl font-black text-foreground/5 md:absolute md:top-4 md:right-4 leading-none select-none tracking-tighter">
-                    {step.number}
-                  </span>
-                  
-                  <div className="md:mt-4">
-                    <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-heading font-bold mb-2.5 text-foreground group-hover:text-primary transition-colors">
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                    <p className="text-muted-foreground text-xs sm:text-sm mb-5 leading-relaxed">
                       {step.description}
                     </p>
 
-                    <ul className="space-y-3 mt-auto">
+                    <ul className="space-y-2.5 mt-auto pt-3 border-t border-border/30">
                       {step.deliverables.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-foreground/80">
-                          <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-foreground/80">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}

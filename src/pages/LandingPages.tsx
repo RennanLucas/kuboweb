@@ -30,7 +30,8 @@ const content: ServicePageContent = {
     whatsappHref:
       "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20criar%20minha%20Landing%20Page.%20Pode%20me%20explicar%20como%20funciona%3F",
     quickFacts: [
-      { label: "Prazo médio", value: "7 dias" },
+      { label: "Investimento", value: "R$ 560" },
+      { label: "Prazo médio", value: "5-10 dias" },
       { label: "Conversão típica", value: "8-15%" },
       { label: "Testes A/B", value: "Inclusos" },
     ],

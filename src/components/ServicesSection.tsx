@@ -33,6 +33,8 @@ const services = [
     id: "sites",
     icon: Building2,
     title: "Sites Institucionais",
+    price: "R$ 760",
+    priceSubtitle: "Investimento único",
     description:
       "Presença digital profissional que transmite autoridade e converte visitantes em clientes qualificados.",
     features: ["SEO Otimizado", "Design Exclusivo", "Ultra Velocidade", "Painel Administrativo"],
@@ -44,6 +46,8 @@ const services = [
     id: "landing",
     icon: FileText,
     title: "Landing Pages",
+    price: "R$ 560",
+    priceSubtitle: "Investimento único",
     description: "Focadas 100% em conversão para maximizar o ROI das suas campanhas.",
     features: ["Copywriting Persuasivo", "Testes A/B"],
     href: "/servicos/landing-pages",
@@ -54,6 +58,8 @@ const services = [
     id: "loja",
     icon: ShoppingCart,
     title: "Loja Virtual",
+    price: "R$ 1.200",
+    priceSubtitle: "Investimento único",
     description: "E-commerce completo e escalável com as melhores tecnologias do mercado.",
     features: ["Checkout Fluido", "Gestão de Estoque"],
     href: "/servicos/loja-virtual",
@@ -64,6 +70,8 @@ const services = [
     id: "anuncios",
     icon: Megaphone,
     title: "Gestão de Anúncios",
+    price: "R$ 280",
+    priceSubtitle: "Configuração + Campanha",
     description: "Estratégias avançadas de tráfego pago no Google Ads para escala imediata.",
     features: [
       "Google Ads",
@@ -107,28 +115,16 @@ const ServiceCard = ({
               <Icon className="w-7 h-7 md:w-8 md:h-8" strokeWidth={1.5} />
             </div>
 
-            {service.id === "sites" && (
-              <div className="hidden md:block bg-muted rounded-xl p-4">
-                <div className="w-32 h-2 bg-primary/20 rounded-full mb-2 overflow-hidden">
-                  <div className="w-3/4 h-full bg-primary rounded-full" />
-                </div>
-                <div className="w-24 h-2 bg-muted-foreground/20 rounded-full" />
-              </div>
-            )}
-
-            {service.id === "anuncios" && (
-              <div className="hidden md:flex gap-2 items-end">
-                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-1/2 bg-primary rounded-full" />
-                </div>
-                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-3/4 bg-primary rounded-full" />
-                </div>
-                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-full bg-primary rounded-full" />
-                </div>
-              </div>
-            )}
+            <div
+              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-heading font-bold text-sm shadow-sm ${
+                isDark
+                  ? "bg-primary-foreground/20 text-primary-foreground border border-primary-foreground/30"
+                  : "bg-primary/10 text-primary border border-primary/20"
+              }`}
+            >
+              <span className="text-[11px] font-medium opacity-80">A partir de</span>
+              <span className="text-base font-extrabold">{service.price}</span>
+            </div>
           </div>
 
           <h3

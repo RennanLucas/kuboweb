@@ -29,9 +29,10 @@ const content: ServicePageContent = {
     whatsappHref:
       "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Loja%20Virtual.%20Pode%20me%20explicar%20como%20funciona%3F",
     quickFacts: [
-      { label: "Prazo médio", value: "30 dias" },
-      { label: "Formas de pagamento", value: "Pix, cartão, boleto" },
-      { label: "Produtos", value: "Ilimitados" },
+      { label: "Investimento", value: "R$ 1.200" },
+      { label: "Prazo médio", value: "10-20 dias" },
+      { label: "Pagamentos", value: "Pix e Cartão" },
+      { label: "Catálogo", value: "Ilimitado" },
     ],
   },
   benefits: [

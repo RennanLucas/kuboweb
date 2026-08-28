@@ -29,9 +29,10 @@ const content: ServicePageContent = {
     whatsappHref:
       "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20An%C3%BAncios%20Google%20Ads.%20Pode%20me%20explicar%20como%20funciona%3F",
     quickFacts: [
-      { label: "Setup", value: "5 dias" },
+      { label: "Investimento", value: "R$ 280" },
+      { label: "Setup inicial", value: "3-5 dias" },
       { label: "Otimização", value: "Semanal" },
-      { label: "Acompanhamento", value: "Contínuo" },
+      { label: "Plataforma", value: "Google Ads" },
     ],
   },
   benefits: [

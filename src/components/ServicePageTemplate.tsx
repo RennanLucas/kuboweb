@@ -131,17 +131,20 @@ const ServicePageTemplate = ({ content }: { content: ServicePageContent }) => {
               <GuaranteeBadge className="mt-1" />
 
               {/* quick facts */}
-              <dl className="grid grid-cols-3 gap-4 pt-6 border-t border-border/60 mt-8">
-                {content.hero.quickFacts.map((fact) => (
-                  <div key={fact.label}>
-                    <dt className="text-xs uppercase tracking-wider text-muted-foreground mb-1">
-                      {fact.label}
-                    </dt>
-                    <dd className="text-lg md:text-xl font-heading font-bold text-foreground">
-                      {fact.value}
-                    </dd>
-                  </div>
-                ))}
+              <dl className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-border/60 mt-8">
+                {content.hero.quickFacts.map((fact) => {
+                  const isPrice = fact.label.toLowerCase().includes("investimento") || fact.label.toLowerCase().includes("preço");
+                  return (
+                    <div key={fact.label} className={isPrice ? "bg-primary/5 border border-primary/15 rounded-xl p-2.5 -m-1" : ""}>
+                      <dt className="text-[11px] uppercase tracking-wider text-muted-foreground mb-1">
+                        {fact.label}
+                      </dt>
+                      <dd className={`text-lg md:text-xl font-heading font-bold ${isPrice ? "text-primary font-extrabold" : "text-foreground"}`}>
+                        {fact.value}
+                      </dd>
+                    </div>
+                  );
+                })}
               </dl>
             </motion.div>
 

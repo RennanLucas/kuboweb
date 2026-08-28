@@ -33,9 +33,10 @@ const content: ServicePageContent = {
     whatsappHref:
       "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20quero%20criar%20um%20site%20institucional%20profissional.%20Pode%20me%20passar%20os%20pr%C3%B3ximos%20passos%3F",
     quickFacts: [
-      { label: "Prazo médio", value: "15 dias" },
-      { label: "Páginas", value: "4 a 8" },
-      { label: "Performance", value: "90+ PSI" },
+      { label: "Investimento", value: "R$ 760" },
+      { label: "Prazo médio", value: "7-15 dias" },
+      { label: "Páginas", value: "Múltiplas" },
+      { label: "Performance", value: "95+ PSI" },
     ],
   },
   benefits: [

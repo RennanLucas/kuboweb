@@ -4,9 +4,12 @@ import HeroSection from "@/components/HeroSection";
 import StatsSection from "@/components/StatsSection";
 import SEO from "@/components/SEO";
 
+const TechStackMarquee = lazy(() => import("@/components/TechStackMarquee"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
 const ComparisonSection = lazy(() => import("@/components/ComparisonSection"));
+const BeforeAfterSlider = lazy(() => import("@/components/BeforeAfterSlider"));
 const PortfolioSection = lazy(() => import("@/components/PortfolioSection"));
+const RoiCalculator = lazy(() => import("@/components/RoiCalculator"));
 const ProjectCalculator = lazy(() => import("@/components/ProjectCalculator"));
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
 const PricingSection = lazy(() => import("@/components/PricingSection"));
@@ -29,67 +32,84 @@ const Index = () => {
       <a href="#main-content" className="skip-to-content">
         Pular para o conteúdo
       </a>
-      
+
       <Header />
 
       <div id="main-content">
-        {/* 1. Hero Section */}
+        {/* 1. Hero — Cinematic centered hero with rotating headline + count-up stats */}
         <HeroSection />
         <div className="line-glow" />
 
-        {/* 2. Marquee Stats & Authority */}
+        {/* 2. Authority Marquee — Stats ticker */}
         <StatsSection />
         <div className="line-glow" />
 
-        {/* 3. Bento Grid Services with Clear Pricing */}
+        {/* 3. Tech Stack Marquee — Infinite scroll of tech badges */}
+        <Suspense fallback={<SectionFallback />}>
+          <TechStackMarquee />
+        </Suspense>
+
+        {/* 4. Services — Bento Grid with pricing */}
         <Suspense fallback={<SectionFallback />}>
           <ServicesSection />
         </Suspense>
         <div className="line-glow" />
 
-        {/* 4. Pain vs Solution Comparison (Amateur vs Kubo Web) */}
+        {/* 5. Comparison — Why amateur sites don't sell */}
         <Suspense fallback={<SectionFallback />}>
           <ComparisonSection />
         </Suspense>
         <div className="line-glow" />
 
-        {/* 5. Interactive Portfolio Showcase with ROI Metrics */}
+        {/* 6. Interactive Before/After Slider — Drag to compare */}
+        <Suspense fallback={<SectionFallback />}>
+          <BeforeAfterSlider />
+        </Suspense>
+        <div className="line-glow" />
+
+        {/* 7. Portfolio — Filterable case studies with ROI metrics */}
         <Suspense fallback={<SectionFallback />}>
           <PortfolioSection />
         </Suspense>
         <div className="line-glow" />
 
-        {/* 6. Real-Time Project Investment Simulator / Calculator */}
+        {/* 8. ROI Calculator — How much revenue are you leaving on the table? */}
+        <Suspense fallback={<SectionFallback />}>
+          <RoiCalculator />
+        </Suspense>
+        <div className="line-glow" />
+
+        {/* 9. Project Calculator — Configure your project + WhatsApp */}
         <Suspense fallback={<SectionFallback />}>
           <ProjectCalculator />
         </Suspense>
         <div className="line-glow" />
 
-        {/* 7. Step-by-step Delivery Process */}
+        {/* 10. Process — 4-step premium timeline */}
         <Suspense fallback={<SectionFallback />}>
           <ProcessSection />
         </Suspense>
         <div className="line-glow" />
 
-        {/* 8. Pricing Tables & Maintenance Plans */}
+        {/* 11. Pricing — Plans with tabs */}
         <Suspense fallback={<SectionFallback />}>
           <PricingSection />
         </Suspense>
         <div className="line-glow" />
 
-        {/* 9. Verified Client Social Proof & Testimonials */}
+        {/* 12. Social Proof — Verified testimonials */}
         <Suspense fallback={<SectionFallback />}>
           <SocialProofSection />
         </Suspense>
         <div className="line-glow" />
 
-        {/* 10. Objection-killing Interactive FAQ */}
+        {/* 13. FAQ — Objection-killing accordion */}
         <Suspense fallback={<SectionFallback />}>
           <FAQSection />
         </Suspense>
         <div className="line-glow" />
 
-        {/* 11. Final High-Conversion CTA & Guarantee */}
+        {/* 14. Final CTA — Urgency + guarantee + WhatsApp */}
         <Suspense fallback={<SectionFallback />}>
           <CTASection />
         </Suspense>
@@ -100,7 +120,7 @@ const Index = () => {
         <Footer />
       </Suspense>
 
-      {/* Floating Action Button */}
+      {/* Floating WhatsApp Button */}
       <Suspense fallback={null}>
         <FloatingWhatsApp />
       </Suspense>
@@ -109,4 +129,3 @@ const Index = () => {
 };
 
 export default Index;
-

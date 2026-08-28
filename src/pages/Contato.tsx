@@ -94,7 +94,7 @@ const Contato = () => {
                 </div>
 
                 <a
-                  href="https://instagram.com/kuboweb_oficial"
+                  href="https://instagram.com/kuboweb_"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="card-premium w-full flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-4 p-6 hover:border-primary/30 transition-all group"
@@ -104,7 +104,7 @@ const Contato = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-semibold text-foreground mb-1">Instagram</h3>
-                    <p className="text-muted-foreground text-sm">@kuboweb_oficial</p>
+                    <p className="text-muted-foreground text-sm">@kuboweb_</p>
                     <p className="text-primary text-sm mt-2 group-hover:underline">Seguir no Instagram →</p>
                   </div>
                 </a>

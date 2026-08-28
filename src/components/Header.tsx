@@ -82,10 +82,10 @@ const Header = () => {
           <Link to="/" className="flex items-center shrink-0">
             <img
               alt="Kubo Web - Criação de Sites Profissionais"
-              className="h-10 md:h-12 w-auto object-contain hover:scale-105 transition-transform duration-200"
+              className="h-28 md:h-36 lg:h-40 w-auto object-contain hover:scale-105 transition-transform duration-200 -my-6 md:-my-8"
               src={logoKuboweb}
-              width={160}
-              height={48}
+              width={200}
+              height={80}
               decoding="async"
             />
           </Link>

@@ -34,9 +34,9 @@ const Footer = () => {
               <motion.img
                 src={logoKuboweb}
                 alt="Kubo Web - Criação de Sites Profissionais"
-                className="h-24 md:h-28 w-auto object-contain"
-                width={128}
-                height={128}
+                className="h-28 md:h-32 w-auto object-contain -ml-2"
+                width={160}
+                height={60}
                 loading="lazy"
                 decoding="async"
                 whileHover={{ scale: 1.05 }}

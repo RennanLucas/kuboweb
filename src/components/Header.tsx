@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { MessageCircle, Menu, X, ChevronDown } from "lucide-react";
+import { MessageCircle, Menu, X, ChevronDown, Building2, FileText, ShoppingCart, Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -7,10 +7,10 @@ import logoKuboweb from "@/assets/logo-kuboweb-new.webp";
 
 
 const serviceSubLinks = [
-  { label: "Sites Institucionais", href: "/servicos/sites-institucionais" },
-  { label: "Landing Pages", href: "/servicos/landing-pages" },
-  { label: "Loja Virtual", href: "/servicos/loja-virtual" },
-  { label: "Anúncios", href: "/servicos/anuncios" },
+  { label: "Sites Institucionais", href: "/servicos/sites-institucionais", icon: Building2 },
+  { label: "Landing Pages", href: "/servicos/landing-pages", icon: FileText },
+  { label: "Loja Virtual", href: "/servicos/loja-virtual", icon: ShoppingCart },
+  { label: "Anúncios", href: "/servicos/anuncios", icon: Megaphone },
 ];
 
 const navLinks = [
@@ -82,7 +82,7 @@ const Header = () => {
           <Link to="/" className="flex items-center shrink-0">
             <img
               alt="Kubo Web - Criação de Sites Profissionais"
-              className="h-36 md:h-44 lg:h-56 w-auto object-contain hover:scale-105 transition-transform duration-200"
+              className="h-10 md:h-12 w-auto object-contain hover:scale-105 transition-transform duration-200"
               src={logoKuboweb}
               width={160}
               height={48}
@@ -135,12 +135,13 @@ const Header = () => {
                         <Link
                           key={sub.href}
                           to={sub.href}
-                          className={`block px-4 py-2.5 text-[13px] font-medium transition-colors duration-150 ${
+                          className={`flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium transition-colors duration-150 ${
                             location.pathname === sub.href
                               ? "text-primary bg-primary/8"
                               : "text-muted-foreground hover:text-foreground hover:bg-accent"
                           }`}
                         >
+                          <sub.icon className="w-4 h-4" />
                           {sub.label}
                         </Link>
                       ))}

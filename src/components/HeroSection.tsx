@@ -23,10 +23,10 @@ const useRotatingText = (words: string[], interval = 3000) => {
 };
 
 const floatingFeatures = [
-  { icon: Shield, label: "SSL Seguro", x: "-22%", y: "8%", delay: 1.8 },
-  { icon: Zap, label: "PageSpeed 99", x: "108%", y: "15%", delay: 2.0 },
-  { icon: TrendingUp, label: "+340% Leads", x: "-20%", y: "78%", delay: 2.2 },
-  { icon: Award, label: "5.0 ★★★★★", x: "110%", y: "72%", delay: 2.4 },
+  { icon: Shield, label: "SSL Seguro", x: "-22%", y: "8%", delay: 0.8 },
+  { icon: Zap, label: "PageSpeed 99", x: "108%", y: "15%", delay: 0.95 },
+  { icon: TrendingUp, label: "+340% Leads", x: "-20%", y: "78%", delay: 1.1 },
+  { icon: Award, label: "5.0 ★★★★★", x: "110%", y: "72%", delay: 1.25 },
 ];
 
 const navItems = ["Início", "Serviços", "Portfólio", "Contato"];
@@ -210,7 +210,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
+          transition={{ delay: 0.2 }}
           className="flex items-center justify-between px-4 py-2 border-b border-border/10 bg-card"
         >
           <div className="flex items-center gap-1.5">
@@ -226,7 +226,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
                 key={item}
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7 + i * 0.05 }}
+                transition={{ delay: 0.25 + i * 0.04 }}
                 className={`text-[9px] font-medium transition-colors ${i === 0 ? "text-primary font-semibold" : "text-muted-foreground"}`}
               >
                 {item}
@@ -241,12 +241,12 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.5 }}
+            transition={{ delay: 0.35, duration: 0.4 }}
             className={`w-full rounded-xl bg-gradient-to-br from-primary/12 via-primary/6 to-accent/8 border border-primary/10 ${sz.bannerP} relative overflow-hidden`}
           >
             <div className="absolute -top-6 -right-6 w-20 h-20 bg-primary/10 rounded-full blur-2xl" />
             <div className="absolute bottom-0 left-0 w-16 h-16 bg-primary/6 rounded-full blur-xl" />
-            <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.1 }}>
+            <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45 }}>
               <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 border border-primary/15 ${sz.textXs} text-primary font-semibold mb-2`}>
                 <Star className="w-2 h-2" /> Agência Premium
               </div>
@@ -260,7 +260,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
               <motion.div
                 initial={{ opacity: 0, scaleX: 0 }}
                 animate={{ opacity: 1, scaleX: 1 }}
-                transition={{ delay: 1.4, duration: 0.4, ease: "easeOut" }}
+                transition={{ delay: 0.55, duration: 0.3, ease: "easeOut" }}
                 className="origin-left"
               >
                 <div className={`mt-3 inline-flex items-center gap-1.5 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-lg font-bold shadow-md shadow-primary/25 px-4 py-2 text-[9px]`}>
@@ -275,7 +275,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.6 }}
+            transition={{ delay: 0.6 }}
             className={`grid grid-cols-3 ${sz.gap} mt-3.5`}
           >
             {[
@@ -287,7 +287,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
                 key={card.title}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.6 + i * 0.1 }}
+                transition={{ delay: 0.65 + i * 0.08 }}
                 className={`rounded-xl border border-border/20 bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-sm ${sz.cardP} hover:border-primary/25 transition-all duration-300`}
               >
                 <div className={`${sz.iconBox} rounded-lg bg-gradient-to-br ${card.color} flex items-center justify-center mb-1.5 border border-primary/8`}>
@@ -307,7 +307,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
           <motion.div
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.0 }}
+            transition={{ delay: 0.8 }}
             className={`flex items-center justify-around rounded-xl bg-gradient-to-r from-primary/8 via-primary/4 to-primary/8 border border-primary/10 mt-3.5 px-4 py-2.5`}
           >
             {[
@@ -319,7 +319,7 @@ const HeroVisual = ({ mobile = false }: { mobile?: boolean }) => {
                 key={stat.label}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 2.1 + i * 0.1 }}
+                transition={{ delay: 0.85 + i * 0.08 }}
                 className="flex items-center gap-1.5 text-center"
               >
                 <stat.icon className="text-primary/70 w-3 h-3" />
@@ -407,11 +407,11 @@ const HeroSection = () => {
           </motion.div>
 
           <div className="space-y-3">
-            <p className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight text-center">
+            <h1 className="text-[1.75rem] sm:text-3xl font-heading font-bold leading-[1.25] text-foreground tracking-tight text-center">
               Eleve sua presença digital e{" "}
               <span className="text-gradient-hero inline-block">venda mais online</span>{" "}
               com soluções sob medida
-            </p>
+            </h1>
             <p className="text-[14px] text-muted-foreground leading-relaxed text-center">
               Design exclusivo, performance impecável e acompanhamento individual em cada etapa do seu projeto.
             </p>

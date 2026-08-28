@@ -5,7 +5,10 @@ import StatsSection from "@/components/StatsSection";
 import SEO from "@/components/SEO";
 const FloatingWhatsApp = lazy(() => import("@/components/FloatingWhatsApp"));
 
+const ProcessSection = lazy(() => import("@/components/ProcessSection"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const SocialProofSection = lazy(() => import("@/components/SocialProofSection"));
+const PricingSection = lazy(() => import("@/components/PricingSection"));
 
 const CTASection = lazy(() => import("@/components/CTASection"));
 const Footer = lazy(() => import("@/components/Footer"));
@@ -20,18 +23,35 @@ const Index = () => {
         description="Criação de sites profissionais em todo o Brasil. Sites institucionais, landing pages que convertem, lojas virtuais e Google Ads. Atendimento 100% online via WhatsApp."
         path="/"
       />
+      <a href="#main-content" className="skip-to-content">
+        Pular para o conteúdo
+      </a>
       <Header />
-      <HeroSection />
-      <div className="line-glow" />
-      <StatsSection />
-      <div className="line-glow" />
-      <Suspense fallback={<SectionFallback />}>
-        <ServicesSection />
-      </Suspense>
-      <div className="line-glow" />
-      <Suspense fallback={<SectionFallback />}>
-        <CTASection />
-      </Suspense>
+      <div id="main-content">
+        <HeroSection />
+        <div className="line-glow" />
+        <StatsSection />
+        <div className="line-glow" />
+        <Suspense fallback={<SectionFallback />}>
+          <ProcessSection />
+        </Suspense>
+        <div className="line-glow" />
+        <Suspense fallback={<SectionFallback />}>
+          <ServicesSection />
+        </Suspense>
+        <div className="line-glow" />
+        <Suspense fallback={<SectionFallback />}>
+          <SocialProofSection />
+        </Suspense>
+        <div className="line-glow" />
+        <Suspense fallback={<SectionFallback />}>
+          <PricingSection />
+        </Suspense>
+        <div className="line-glow" />
+        <Suspense fallback={<SectionFallback />}>
+          <CTASection />
+        </Suspense>
+      </div>
       <Suspense fallback={<SectionFallback />}>
         <Footer />
       </Suspense>
@@ -43,3 +63,4 @@ const Index = () => {
 };
 
 export default Index;
+

@@ -40,7 +40,7 @@ const CTASection = () => {
               transition={{ delay: 0.1, duration: 0.3 }}
               className="section-subtitle"
             >
-              Me chama no WhatsApp, te respondo em até 1 hora com um orçamento sob medida — sem formulário longo, sem robô, sem compromisso.
+              Fale conosco no WhatsApp — nossa equipe responde em até 1 hora com um orçamento sob medida. Sem formulário longo, sem robô, sem compromisso.
             </motion.p>
           </div>
 

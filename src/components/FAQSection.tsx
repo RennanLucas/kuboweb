@@ -10,44 +10,44 @@ import { motion } from "framer-motion";
 
 export const faqs = [
   {
-    question: "O site funciona no celular?",
+    question: "O site funciona perfeitamente no celular?",
     answer:
-      "Sim, 100%. Todos os sites são desenvolvidos com abordagem mobile-first, ou seja, pensados primeiro para o celular e adaptados para tablet e desktop. Você terá uma experiência impecável em qualquer tela — algo essencial, já que mais de 70% dos acessos hoje vêm de dispositivos móveis.",
+      "Sim, 100%. Todos os sites são desenvolvidos com abordagem mobile-first, ou seja, pensados primeiro para smartphones e adaptados para tablet e desktop. Sua empresa terá uma experiência impecável em qualquer tela — algo essencial, já que mais de 70% dos acessos hoje vêm de dispositivos móveis.",
   },
   {
-    question: "Preciso saber de tecnologia?",
+    question: "Preciso ter conhecimento de tecnologia?",
     answer:
-      "Não precisa saber nada de tecnologia. Eu cuido de absolutamente tudo: design, desenvolvimento, hospedagem, domínio e publicação. Você só precisa enviar as informações do seu negócio (ou eu te ajudo a estruturar) e acompanhar a evolução pelo WhatsApp. É um processo simples, direto e sem complicação técnica.",
+      "Não precisa saber nada de programação ou tecnologia. Cuidamos de absolutamente tudo: design, desenvolvimento, hospedagem, domínio e publicação. Você só precisa enviar as informações do seu negócio (ou nossa equipe te ajuda a estruturar) e acompanhar a evolução pelo WhatsApp. É um processo simples, direto e sem complicação técnica.",
   },
   {
-    question: "Você coloca o site no ar pra mim?",
+    question: "A Kubo Web coloca o site no ar para mim?",
     answer:
-      "Sim, eu cuido de tudo: registro de domínio (caso ainda não tenha), configuração da hospedagem, publicação e ajustes finais para garantir que o site esteja online, rápido e seguro. Você recebe o site pronto, funcionando e pronto para receber visitas.",
+      "Sim, cuidamos de toda a infraestrutura: registro de domínio (caso ainda não tenha), configuração de hospedagem, publicação, certificado SSL e ajustes finais para garantir que o site esteja online, ultra veloz e seguro. Você recebe o projeto 100% pronto para receber visitas e converter clientes.",
   },
   {
     question: "Quanto custa criar um site profissional?",
     answer:
-      "Landing Pages a partir de R$ 297, Sites Institucionais a partir de R$ 697, Lojas Virtuais a partir de R$ 1.497 e Google Ads (configuração inicial) a partir de R$ 297. Gestão de Google Ads de R$ 297 a R$ 997/mês. Envie uma mensagem no WhatsApp para um orçamento personalizado.",
+      "Trabalhamos com opções transparentes e sob medida para cada estágio do seu negócio: Landing Pages a partir de R$ 560, Sites Institucionais a partir de R$ 760 e Lojas Virtuais a partir de R$ 1.200. Também oferecemos gestão de anúncios Google Ads e suporte contínuo. Fale conosco no WhatsApp para receber uma proposta personalizada.",
   },
   {
     question: "Em quanto tempo o site fica pronto?",
     answer:
-      "Landing Pages são entregues em 5 a 10 dias úteis. Sites Institucionais e Lojas Virtuais têm prazo de 7 a 15 dias úteis. Campanhas de Google Ads ficam prontas em 3 a 5 dias úteis. O prazo exato depende da complexidade e dos materiais fornecidos.",
+      "Landing Pages são entregues em média de 5 a 10 dias úteis. Sites Institucionais e Lojas Virtuais têm prazo de 7 a 15 dias úteis. Campanhas de Google Ads ficam prontas em 3 a 5 dias úteis. O prazo exato é alinhado no início conforme a complexidade e materiais do projeto.",
   },
   {
-    question: "O site aparece no Google?",
+    question: "O site aparece nas primeiras posições do Google?",
     answer:
-      "Sim. Todos os projetos incluem SEO básico (títulos, meta descriptions, estrutura semântica, velocidade otimizada). Para resultados mais avançados, oferecemos consultoria de SEO como serviço adicional.",
+      "Sim. Todos os nossos projetos são desenvolvidos com as melhores práticas de SEO on-page: indexação imediata, meta tags otimizadas, marcação estruturada Schema.org, sitemap XML e performance com notas máximas no PageSpeed.",
   },
   {
-    question: "Preciso fornecer conteúdo e imagens?",
+    question: "Preciso fornecer todo o conteúdo e imagens?",
     answer:
-      "Idealmente sim, pois o conteúdo que melhor representa seu negócio é o seu. Mas posso ajudar na produção de textos e na seleção de imagens profissionais para complementar o projeto.",
+      "Se já tiver fotos e textos, ótimo! Caso não tenha, nossa equipe cuida da criação de copywriting persuasivo e seleção de imagens profissionais de alta qualidade para o seu nicho.",
   },
   {
-    question: "O que está incluso no valor?",
+    question: "O que está incluso e como funciona a manutenção?",
     answer:
-      "Design personalizado, desenvolvimento responsivo, otimização básica para SEO e integração com WhatsApp.\n\nO suporte é oferecido durante todo o processo de criação do site.\n\nApós a entrega, a manutenção é opcional e custa de R$ 49 a R$ 149/mês, incluindo hospedagem, backups, atualizações de segurança e suporte via WhatsApp.",
+      "Inclui design exclusivo, desenvolvimento responsivo, otimização de velocidade, SEO técnico, integração com WhatsApp e suporte durante todo o desenvolvimento.\n\nApós a entrega, oferecemos planos opcionais de manutenção mensal a partir de R$ 70/mês, cobrindo atualizações, backups automáticos, monitoramento de segurança e suporte prioritário.",
   },
 ];
 

@@ -99,7 +99,7 @@ const Manutencao = () => (
           className="text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-foreground mb-6 leading-tight"
         >
           Seu site sempre{" "}
-          <span className="text-gradient">no ar e atualizado</span>
+          <span className="text-gradient-primary">no ar e atualizado</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 15 }}

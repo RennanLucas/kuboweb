@@ -94,7 +94,7 @@ const Contato = () => {
                 </div>
 
                 <a
-                  href="https://www.instagram.com/kuboweb_oficial?igsh=MXNwdWlleDh4eng1Mw%3D%3D&utm_source=qr"
+                  href="https://instagram.com/kuboweb_oficial"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="card-premium w-full flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-4 p-6 hover:border-primary/30 transition-all group"
@@ -124,7 +124,7 @@ const Contato = () => {
                 Solicite seu orçamento
               </h3>
               <p className="text-muted-foreground">
-                A forma mais rápida de começar é pelo WhatsApp. Respondo em poucos minutos!
+                A forma mais rápida de começar é pelo WhatsApp. Nossa equipe responde em poucos minutos!
               </p>
               <Button variant="whatsapp" size="xl" asChild>
                 <a href="https://wa.me/5511932197334" target="_blank" rel="noopener noreferrer">

@@ -8,6 +8,7 @@ import { MotionConfig } from "framer-motion";
 import { useEffect, useState, lazy, Suspense } from "react";
 import Index from "./pages/Index";
 const CursorGlow = lazy(() => import("./components/ui/CursorGlow"));
+const ScrollProgress = lazy(() => import("./components/ScrollProgress"));
 
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Servicos = lazy(() => import("./pages/Servicos"));
@@ -24,14 +25,25 @@ const Manutencao = lazy(() => import("./pages/Manutencao"));
 const Atendimento = lazy(() => import("./pages/Atendimento"));
 const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
 const GuiaInvestimentoSite = lazy(() => import("./pages/GuiaInvestimentoSite"));
+const Precos = lazy(() => import("./pages/Precos"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
 const PageLoader = () => (
-  <div className="min-h-screen bg-background flex items-center justify-center">
-    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+  <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-6">
+    <div className="cube-scene">
+      <div className="cube-spinner">
+        <div className="cube-face cube-front" />
+        <div className="cube-face cube-back" />
+        <div className="cube-face cube-right" />
+        <div className="cube-face cube-left" />
+        <div className="cube-face cube-top" />
+        <div className="cube-face cube-bottom" />
+      </div>
+    </div>
+    <p className="text-sm text-muted-foreground font-medium animate-pulse">Carregando...</p>
   </div>
 );
 
@@ -73,12 +85,13 @@ const App = () => {
                 <Route path="/criacao-de-sites-:slug/*" element={<CidadeLanding />} />
                 <Route path="/criacao-de-sites-*" element={<CidadeLanding />} />
                 <Route path="/guia/investimento-site-profissional" element={<GuiaInvestimentoSite />} />
-                
+                <Route path="/precos" element={<Precos />} />
                 
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
             <Suspense fallback={null}>
+              <ScrollProgress />
               <CursorGlow />
             </Suspense>
           </BrowserRouter>

@@ -29,6 +29,8 @@ const staticEntries: SitemapEntry[] = [
   { path: "/servicos/landing-pages", changefreq: "monthly", priority: "0.7" },
   { path: "/servicos/loja-virtual", changefreq: "monthly", priority: "0.7" },
   { path: "/servicos/anuncios", changefreq: "monthly", priority: "0.7" },
+  { path: "/precos", changefreq: "monthly", priority: "0.8" },
+  { path: "/guia/investimento-site-profissional", changefreq: "monthly", priority: "0.8" },
 ];
 
 const portfolioSlugs = [

@@ -95,7 +95,7 @@ const Footer = () => {
               {[
                 { href: "https://wa.me/5511932197334", icon: MessageCircle, text: "+55 11 93219-7334", hoverColor: "hover:text-[hsl(142,70%,45%)]", external: true },
                 { href: "mailto:contato.kuboweb@gmail.com", icon: Mail, text: "contato.kuboweb@gmail.com", hoverColor: "hover:text-primary", external: false },
-                { href: "https://www.instagram.com/kuboweb_oficial?igsh=MXNwdWlleDh4eng1Mw%3D%3D&utm_source=qr", icon: Instagram, text: "@kuboweb_oficial", hoverColor: "hover:text-primary", external: true },
+                { href: "https://instagram.com/kuboweb_oficial", icon: Instagram, text: "@kuboweb_oficial", hoverColor: "hover:text-primary", external: true },
               ].map((item) => (
                 <motion.a
                   key={item.href}

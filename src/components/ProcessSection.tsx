@@ -6,13 +6,13 @@ const steps = [
     icon: MessageSquare,
     number: "01",
     title: "Briefing",
-    description: "Entendo seu negócio, objetivos e o que você precisa no site.",
+    description: "Entendemos seu negócio, objetivos e o que você precisa no site.",
   },
   {
     icon: Palette,
     number: "02",
     title: "Criação",
-    description: "Desenvolvo o site com design moderno e foco em resultados.",
+    description: "Desenvolvemos o site com design moderno e foco em resultados.",
   },
   {
     icon: Rocket,

@@ -40,7 +40,7 @@ const AudienceSection = () => {
             transition={{ delay: 0.15, duration: 0.4 }}
             className="section-subtitle"
           >
-            Atendo diversos segmentos com soluções sob medida para cada tipo de negócio.
+            Atendemos diversos segmentos com soluções sob medida para cada tipo de negócio.
           </motion.p>
         </div>
 

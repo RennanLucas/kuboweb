@@ -1,4 +1,4 @@
-﻿import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -27,22 +27,13 @@ const Atendimento = lazy(() => import("./pages/Atendimento"));
 const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
 const GuiaInvestimentoSite = lazy(() => import("./pages/GuiaInvestimentoSite"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+import MiniKuboLoader from "@/components/ui/MiniKuboLoader";
 
 const queryClient = new QueryClient();
 
 const PageLoader = () => (
-  <div className="min-h-screen bg-background flex flex-col items-center justify-center gap-4">
-    <div className="relative w-12 h-12 flex items-center justify-center">
-      <motion.div
-        animate={{ rotate: 360, scale: [1, 1.1, 1] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="w-10 h-10 rounded-xl bg-primary/15 border-2 border-primary/60 shadow-[0_0_15px_rgba(56,189,248,0.4)]"
-      />
-      <span className="absolute w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#38bdf8]" />
-    </div>
-    <span className="text-[11px] font-mono font-bold tracking-widest text-muted-foreground uppercase">
-      Kubo<span className="text-primary">Web</span>
-    </span>
+  <div className="min-h-screen bg-background flex items-center justify-center">
+    <MiniKuboLoader />
   </div>
 );
 

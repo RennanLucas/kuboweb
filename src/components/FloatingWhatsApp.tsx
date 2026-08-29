@@ -62,7 +62,7 @@ const FloatingWhatsApp = () => {
           </AnimatePresence>
           <motion.button
             onClick={handleDiagnosticoClick}
-            className="relative flex items-center gap-2 p-3 sm:px-4 sm:py-3 rounded-full bg-foreground text-background shadow-lg shadow-foreground/20 hover:scale-105 transition-transform"
+            className="relative flex items-center gap-2 p-3 sm:px-4 sm:py-3 rounded-full bg-card/95 border border-primary/30 text-foreground shadow-xl shadow-black/40 backdrop-blur-xl hover:border-primary/60 hover:shadow-glow-sm hover:scale-105 transition-all"
             aria-label={isDiagnostico ? "Ir para o diagnóstico" : "Fazer diagnóstico gratuito"}
             onMouseEnter={() => setHoveredDiagnostico(true)}
             onMouseLeave={() => setHoveredDiagnostico(false)}
@@ -71,7 +71,7 @@ const FloatingWhatsApp = () => {
             transition={{ type: "spring", stiffness: 260, damping: 20, delay: 2 }}
             whileTap={{ scale: 0.95 }}
           >
-            <ClipboardCheck className="w-5 h-5 text-background" />
+            <ClipboardCheck className="w-5 h-5 text-primary" />
             <span className="text-sm font-semibold whitespace-nowrap hidden sm:inline">
               {isDiagnostico ? "Diagnóstico" : "Diagnóstico gratuito"}
             </span>

@@ -438,38 +438,37 @@ const Diagnostico = () => {
           >
             <div className="grid lg:grid-cols-12 min-h-[640px]">
               {/* Sidebar */}
-              <div className="lg:col-span-4 bg-foreground text-background p-8 lg:p-10 flex flex-col justify-between">
-                <div className="space-y-8">
+              <div className="lg:col-span-4 bg-card/90 lg:bg-card/70 border-b lg:border-b-0 lg:border-r border-border/50 p-8 lg:p-10 flex flex-col justify-between relative overflow-hidden backdrop-blur-xl text-foreground">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-primary/[0.05] rounded-full blur-3xl pointer-events-none" />
+
+                <div className="space-y-8 relative z-10">
                   <div>
-                    <Logo size="sm" />
+                    <Logo size="md" />
                   </div>
 
                   <div className="space-y-4">
-                    <h1
-                      className="text-3xl lg:text-4xl font-semibold leading-tight"
-                      style={{ fontFamily: "'Playfair Display', serif" }}
-                    >
-                      Diagnóstico de Estratégia Digital
+                    <h1 className="text-2xl lg:text-3xl font-heading font-extrabold leading-tight text-foreground">
+                      Diagnóstico de <span className="text-gradient-hero">Estratégia Digital</span>
                     </h1>
-                    <p className="text-background/60 text-sm leading-relaxed">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       Uma análise técnica conduzida para identificar gargalos de conversão e
                       oportunidades de escala no seu modelo atual.
                     </p>
                   </div>
                 </div>
 
-                <div className="space-y-6 mt-10 lg:mt-0">
+                <div className="space-y-6 mt-10 lg:mt-0 relative z-10">
                   {currentStep !== "welcome" && currentStep !== "resultado" && (
                     <div className="space-y-3">
-                      <div className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-background/50">
+                      <div className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground">
                         <span>Progresso</span>
-                        <span>
+                        <span className="text-primary font-bold">
                           {currentStepNumber} / {totalSteps}
                         </span>
                       </div>
-                      <div className="h-1.5 bg-background/10 rounded-full overflow-hidden">
+                      <div className="h-2 bg-secondary/60 border border-border/40 rounded-full overflow-hidden">
                         <motion.div
-                          className="h-full rounded-full bg-primary"
+                          className="h-full rounded-full bg-primary shadow-glow-sm"
                           initial={{ width: 0 }}
                           animate={{ width: `${progress}%` }}
                           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -480,18 +479,18 @@ const Diagnostico = () => {
 
                   {currentStep === "resultado" && (
                     <div className="space-y-3">
-                      <div className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-background/50">
+                      <div className="flex items-center justify-between text-xs font-medium uppercase tracking-wider text-muted-foreground">
                         <span>Status</span>
-                        <span>Concluído</span>
+                        <span className="text-emerald-400 font-bold">Concluído</span>
                       </div>
-                      <div className="h-1.5 bg-background/10 rounded-full overflow-hidden">
-                        <div className="h-full w-full rounded-full bg-success" />
+                      <div className="h-2 bg-secondary/60 border border-border/40 rounded-full overflow-hidden">
+                        <div className="h-full w-full rounded-full bg-emerald-400 shadow-glow-sm" />
                       </div>
                     </div>
                   )}
 
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-background/40 font-semibold">
-                    Consultoria Executiva KuboWeb
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/60 font-bold">
+                    Consultoria Executiva Kubo Web
                   </p>
                 </div>
               </div>

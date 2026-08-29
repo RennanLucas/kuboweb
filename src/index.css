@@ -448,6 +448,12 @@
   100% { background-position: 0% 50%; }
 }
 
+@keyframes border-beam {
+  100% {
+    offset-distance: 100%;
+  }
+}
+
 @keyframes glowPulse {
   0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.15); }
   50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.3), 0 0 80px hsl(var(--primary) / 0.1); }

@@ -90,7 +90,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="servicos" className="py-24 md:py-36 px-4 relative overflow-hidden bg-background">
+    <section id="servicos" className="py-28 md:py-40 px-4 relative overflow-hidden bg-background">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-primary/[0.04] rounded-full blur-[180px] pointer-events-none" />
 
@@ -136,11 +136,11 @@ const ServicesSection = () => {
             return (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08, duration: 0.4 }}
-                className={`group rounded-3xl p-7 sm:p-9 bg-card/70 border border-border/50 hover:border-primary/40 transition-all duration-300 backdrop-blur-xl shadow-xl flex flex-col justify-between relative overflow-hidden ${
+                transition={{ delay: index * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className={`group rounded-[1.25rem] p-7 sm:p-9 bg-card/70 border border-border/50 hover:border-primary/40 transition-all duration-300 backdrop-blur-xl shadow-lg flex flex-col justify-between relative overflow-hidden ${
                   service.id === "sites" ? "ring-1 ring-primary/30 shadow-primary/5" : ""
                 }`}
               >

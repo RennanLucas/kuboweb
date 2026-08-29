@@ -6,7 +6,7 @@ import GuaranteeBadge from '@/components/GuaranteeBadge';
 
 export const CTASection = memo(function CTASection() {
   return (
-    <section className="relative w-full py-24 lg:py-32 overflow-hidden bg-background">
+    <section className="relative w-full py-28 lg:py-40 overflow-hidden bg-background">
       {/* Background with dot pattern and gradient */}
       <div className="absolute inset-0 z-0 bg-gradient-primary opacity-10" />
       <div 
@@ -38,7 +38,7 @@ export const CTASection = memo(function CTASection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center gap-6"
         >
           {/* Urgency Counter */}

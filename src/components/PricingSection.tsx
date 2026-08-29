@@ -106,13 +106,13 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="precos" className="py-24 md:py-36 px-4 bg-muted/20 relative overflow-hidden">
+    <section id="precos" className="py-28 md:py-40 px-4 bg-muted/20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto max-w-6xl relative">
-        <div className="text-center mb-10 md:mb-16 space-y-4">
+        <div className="text-center mb-12 md:mb-20 space-y-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

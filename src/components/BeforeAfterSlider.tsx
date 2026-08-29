@@ -47,13 +47,13 @@ const BeforeAfterSlider = () => {
   }, []);
 
   return (
-    <section id="comparativo-visual" className="py-20 md:py-32 relative overflow-hidden bg-background">
+    <section id="comparativo-visual" className="py-28 md:py-40 relative overflow-hidden bg-background">
       <div className="container mx-auto px-4 md:px-6 relative z-10 max-w-5xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-12 md:mb-16 space-y-4"
         >
           <div className="section-label inline-flex items-center gap-2">

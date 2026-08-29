@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { MessageCircle, Menu, X, Sparkles, ChevronRight } from "lucide-react";
+import { MessageCircle, Menu, X, Sparkles, ChevronRight, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -82,12 +82,12 @@ const Header = () => {
         hidden && !mobileOpen ? "-translate-y-full" : "translate-y-0"
       } ${
         scrolled
-          ? "bg-background/95 backdrop-blur-2xl border-b border-border/20 shadow-lg shadow-primary/[0.03]"
+          ? "bg-background/90 backdrop-blur-3xl border-b border-border/15 shadow-xl shadow-black/10"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto max-w-6xl px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className={`flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'}`}>
           <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center shrink-0">
             <Logo size="md" />
           </Link>
@@ -100,10 +100,10 @@ const Header = () => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`px-3.5 py-2 text-[13px] font-semibold transition-all duration-200 rounded-lg relative ${
+                  className={`px-3 py-1.5 text-[13px] font-medium transition-all duration-300 rounded-lg relative ${
                     isActive
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-foreground hover:bg-secondary/60"
+                      ? "text-primary"
+                      : "text-muted-foreground/80 hover:text-foreground"
                   }`}
                 >
                   {link.label}
@@ -120,15 +120,15 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="whatsapp" size="sm" asChild className="shadow-glow-sm">
+            <Button variant="default" size="sm" asChild className="shadow-md hover:shadow-lg transition-shadow">
               <a
                 href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gap-2 font-bold"
               >
-                <MessageCircle className="w-4 h-4" />
-                Falar no WhatsApp
+                Solicitar Orçamento
+                <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </Button>
           </div>
@@ -145,7 +145,7 @@ const Header = () => {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden bg-background/98 backdrop-blur-2xl border-t border-border/30 overflow-hidden transition-[grid-template-rows] duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]`}
+        className={`lg:hidden bg-background/95 backdrop-blur-3xl border-t border-border/20 overflow-hidden transition-[grid-template-rows] duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]`}
         style={{
           display: "grid",
           gridTemplateRows: mobileOpen ? "1fr" : "0fr",

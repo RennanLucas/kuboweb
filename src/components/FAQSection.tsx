@@ -53,7 +53,7 @@ export const faqs = [
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="py-24 md:py-32 px-4 bg-card/20">
+    <section id="faq" className="py-28 md:py-40 px-4 bg-card/20">
       <div className="container mx-auto max-w-3xl">
         <div className="text-center mb-14 md:mb-20 space-y-4">
           <motion.p
@@ -92,7 +92,7 @@ const FAQSection = () => {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.08, duration: 0.4 }}
+              transition={{ delay: index * 0.1, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             >
               <AccordionItem
                 value={`item-${index}`}

@@ -38,13 +38,14 @@ Quero estruturar meu site para alcançar esse resultado!`;
   }, [visitors, ticket, stats]);
 
   return (
-    <section id="calculadora-roi" className="py-24 md:py-36 px-4 bg-muted/30 relative overflow-hidden">
+    <section id="calculadora-roi" className="py-28 md:py-40 px-4 bg-muted/30 relative overflow-hidden">
       <div className="container mx-auto max-w-5xl relative z-10">
-        <div className="text-center mb-12 md:mb-16 space-y-4">
+        <div className="text-center mb-14 md:mb-20 space-y-4">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider"
           >
             <TrendingUp className="w-3.5 h-3.5" />

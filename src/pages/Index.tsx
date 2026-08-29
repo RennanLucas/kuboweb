@@ -38,11 +38,11 @@ const Index = () => {
       <div id="main-content">
         {/* 1. Hero — Cinematic centered hero with rotating headline + count-up stats */}
         <HeroSection />
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 2. Authority Marquee — Stats ticker */}
         <StatsSection />
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 3. Tech Stack Marquee — Infinite scroll of tech badges */}
         <Suspense fallback={<SectionFallback />}>
@@ -53,61 +53,61 @@ const Index = () => {
         <Suspense fallback={<SectionFallback />}>
           <ServicesSection />
         </Suspense>
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 5. Comparison — Why amateur sites don't sell */}
         <Suspense fallback={<SectionFallback />}>
           <ComparisonSection />
         </Suspense>
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 6. Interactive Before/After Slider — Drag to compare */}
         <Suspense fallback={<SectionFallback />}>
           <BeforeAfterSlider />
         </Suspense>
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 7. Portfolio — Filterable case studies with ROI metrics */}
         <Suspense fallback={<SectionFallback />}>
           <PortfolioSection />
         </Suspense>
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 8. ROI Calculator — How much revenue are you leaving on the table? */}
         <Suspense fallback={<SectionFallback />}>
           <RoiCalculator />
         </Suspense>
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 9. Project Calculator — Configure your project + WhatsApp */}
         <Suspense fallback={<SectionFallback />}>
           <ProjectCalculator />
         </Suspense>
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 10. Process — 4-step premium timeline */}
         <Suspense fallback={<SectionFallback />}>
           <ProcessSection />
         </Suspense>
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 11. Pricing — Plans with tabs */}
         <Suspense fallback={<SectionFallback />}>
           <PricingSection />
         </Suspense>
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 12. Social Proof — Verified testimonials */}
         <Suspense fallback={<SectionFallback />}>
           <SocialProofSection />
         </Suspense>
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 13. FAQ — Objection-killing accordion */}
         <Suspense fallback={<SectionFallback />}>
           <FAQSection />
         </Suspense>
-        <div className="line-glow" />
+        <div className="section-transition" />
 
         {/* 14. Final CTA — Urgency + guarantee + WhatsApp */}
         <Suspense fallback={<SectionFallback />}>

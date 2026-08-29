@@ -47,17 +47,18 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
+      staggerChildren: 0.15,
+      delayChildren: 0.1
     }
   }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 25 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] }
   }
 };
 
@@ -65,7 +66,7 @@ export const ProcessSection = memo(function ProcessSection() {
   const whatsappUrl = "https://wa.me/5511932197334?text=Olá%2C%20quero%20iniciar%20meu%20projeto%20de%20site.%20Pode%20me%20explicar%20os%20próximos%20passos%3F";
 
   return (
-    <section id="processo" className="py-24 bg-background relative overflow-hidden">
+    <section id="processo" className="py-28 md:py-40 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-background to-background pointer-events-none" />
       
       <div className="container mx-auto px-6 relative z-10">

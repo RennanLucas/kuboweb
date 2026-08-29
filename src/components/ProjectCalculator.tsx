@@ -115,16 +115,17 @@ Gostaria de entender os próximos passos para darmos início!`;
   }, [selectedProject, selectedAddons, totalPrice]);
 
   return (
-    <section id="simulador" className="py-24 md:py-36 px-4 bg-muted/20 relative overflow-hidden">
+    <section id="simulador" className="py-28 md:py-40 px-4 bg-muted/20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-card/20 pointer-events-none" />
       <div className="absolute top-1/3 right-10 w-[500px] h-[500px] bg-primary/[0.04] rounded-full blur-[160px] pointer-events-none" />
 
       <div className="container mx-auto max-w-5xl relative z-10">
         <div className="text-center mb-14 md:mb-20 space-y-4">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider"
           >
             <Calculator className="w-3.5 h-3.5" />

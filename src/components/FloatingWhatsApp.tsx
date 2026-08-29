@@ -68,7 +68,7 @@ const FloatingWhatsApp = () => {
             onMouseLeave={() => setHoveredDiagnostico(false)}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 2 }}
             whileTap={{ scale: 0.95 }}
           >
             <ClipboardCheck className="w-5 h-5 text-background" />
@@ -104,7 +104,7 @@ const FloatingWhatsApp = () => {
             onMouseLeave={() => setHoveredWhatsApp(false)}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
+            transition={{ type: "spring", stiffness: 260, damping: 20, delay: 2.2 }}
             whileTap={{ scale: 0.95 }}
           >
             <MessageCircle className="w-6 h-6 fill-current" />

@@ -19,7 +19,7 @@ const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
 const SocialProofSection = () => (
-  <section id="depoimentos" className="py-24 md:py-36 px-4 relative overflow-hidden">
+  <section id="depoimentos" className="py-28 md:py-40 px-4 relative overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-primary/3 rounded-full blur-[180px] hidden md:block" />
 

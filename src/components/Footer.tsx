@@ -19,7 +19,8 @@ const itemVariants = {
 
 const Footer = () => {
   return (
-    <footer className="pt-14 pb-24 md:pt-16 md:pb-16 px-4 border-t border-border/20 bg-card/30 relative overflow-hidden">
+    <footer className="pt-16 pb-24 md:pt-20 md:pb-16 px-4 bg-card/30 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-primary/3 rounded-full blur-[120px] hidden md:block pointer-events-none" />
       <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
@@ -51,7 +52,7 @@ const Footer = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 w-fit inline-block"
+                  className="text-sm text-muted-foreground hover:text-primary transition-all duration-200 w-fit inline-block"
                 >
                   {link.label}
                 </Link>
@@ -71,7 +72,7 @@ const Footer = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 w-fit inline-block"
+                  className="text-sm text-muted-foreground hover:text-primary transition-all duration-200 w-fit inline-block"
                 >
                   {link.label}
                 </Link>
@@ -104,12 +105,13 @@ const Footer = () => {
           </motion.div>
         </motion.div>
 
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border/30 to-transparent mb-4" />
         <motion.div
           initial={{ opacity: 0, scaleX: 0 }}
           whileInView={{ opacity: 1, scaleX: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="pt-8 border-t border-border/20 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground origin-left"
+          className="pt-8 mt-4 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground origin-left relative"
         >
           <p>© {new Date().getFullYear()} Kubo Web. Todos os direitos reservados.</p>
           <p>Feito com dedicação para negócios que querem crescer.</p>

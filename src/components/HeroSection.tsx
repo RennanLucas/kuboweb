@@ -18,57 +18,17 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const showcaseTabs = [
-  {
-    id: "landing",
-    label: "Landing Page",
-    badge: "Alta Conversão",
-    headline: "Transforme Visitantes em Clientes no WhatsApp",
-    subtext: "Estrutura focada 100% em conversão com copywriting persuasivo e botões estratégicos.",
-    stats: [
-      { label: "Taxa de Conversão", val: "12.8%", icon: TrendingUp },
-      { label: "PageSpeed Score", val: "99/100", icon: Zap },
-      { label: "Tempo de Carga", val: "0.6s", icon: Clock },
-    ],
-    previewFeatures: ["Copywriting com Gatilhos", "Botões de WhatsApp Otimizados", "Design Responsivo"],
-    price: "R$ 560",
-  },
-  {
-    id: "institucional",
-    label: "Site Institucional",
-    badge: "Mais Vendido",
-    headline: "Autoridade e Presença no Topo do Google",
-    subtext: "Múltiplas páginas para sua empresa transmitir credibilidade máxima e captar leads orgânicos.",
-    stats: [
-      { label: "Retenção de Usuários", val: "+84%", icon: Users },
-      { label: "SEO On-Page", val: "100%", icon: Globe },
-      { label: "Avaliação Média", val: "5.0 ★", icon: Star },
-    ],
-    previewFeatures: ["Estrutura Multi-páginas", "Painel Administrativo", "SEO Técnico Avançado"],
-    price: "R$ 760",
-  },
-  {
-    id: "loja",
-    label: "Loja Virtual",
-    badge: "E-commerce",
-    headline: "Vendas Automáticas 24 Horas por Dia",
-    subtext: "Catálogo completo com carrinho de compras, cálculo de frete e checkout seguro via Pix e cartão.",
-    stats: [
-      { label: "Checkout Otimizado", val: "1 Clique", icon: Zap },
-      { label: "Segurança SSL", val: "256-bit", icon: Lock },
-      { label: "Gestão Integrada", val: "Automática", icon: Layers },
-    ],
-    previewFeatures: ["Gestão de Estoque", "Checkout Pix & Cartão", "Painel de Pedidos"],
-    price: "R$ 1.200",
-  },
+const heroMetrics = [
+  { label: "PageSpeed Score no Google", val: "99/100", icon: Zap, highlight: "Máxima Performance" },
+  { label: "Tempo de Carregamento", val: "0.6s", icon: Clock, highlight: "Instantâneo" },
+  { label: "Taxa Média de Conversão", val: "12.8%", icon: TrendingUp, highlight: "+340% Média" },
+  { label: "Retenção de Visitantes", val: "+84%", icon: Users, highlight: "Baixo Rejeição" },
 ];
 
 const whatsappUrl =
   "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20minha%20empresa.%20Pode%20me%20ajudar%3F";
 
 const HeroSection = () => {
-  const landingStats = showcaseTabs[0].stats;
-
   return (
     <section className="relative min-h-[90vh] flex items-center pt-28 pb-20 md:pt-40 md:pb-32 px-4 overflow-hidden">
       {/* Background Lighting Gradients */}
@@ -135,7 +95,7 @@ const HeroSection = () => {
                 variant="outline"
                 size="xl"
                 asChild
-                className="w-full sm:w-auto border-border/60 hover:border-primary/40 hover:bg-secondary/60 text-foreground"
+                className="w-full sm:w-auto border-border/60 hover:border-primary/40 hover:bg-secondary/60 text-foreground font-semibold"
               >
                 <a href="#simulador">
                   <Zap className="w-4 h-4 text-primary" />
@@ -180,30 +140,40 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="p-5 sm:p-6 rounded-3xl bg-card/60 border border-border/40 backdrop-blur-xl shadow-2xl"
+              className="p-5 sm:p-6 rounded-3xl bg-card/60 border border-border/50 backdrop-blur-xl shadow-2xl relative overflow-hidden"
             >
-              <div className="text-[11px] font-bold text-primary uppercase tracking-wider mb-3 flex items-center justify-between">
-                <span>Desempenho Comprovado</span>
-                <Zap className="w-4 h-4 text-primary" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none" />
+
+              <div className="flex items-center justify-between pb-3 border-b border-border/30">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground">Métricas de Performance</span>
+                </div>
+                <span className="text-[11px] font-bold text-primary flex items-center gap-1">
+                  <Zap className="w-3.5 h-3.5" /> Padrão Kubo Web
+                </span>
               </div>
               
-              <div className="space-y-3 mt-4">
-                {landingStats.map((stat, i) => (
+              <div className="space-y-2.5 mt-4">
+                {heroMetrics.map((stat, i) => (
                   <motion.div
                     key={stat.label}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 + i * 0.12, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ delay: 0.6 + i * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     viewport={{ once: true }}
-                    className="flex items-center justify-between p-3 rounded-2xl bg-background/60 border border-border/30"
+                    className="flex items-center justify-between p-3 rounded-2xl bg-background/70 border border-border/40 hover:border-primary/30 transition-colors"
                   >
                     <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
                         <stat.icon className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="text-sm text-muted-foreground font-medium">{stat.label}</span>
+                      <div>
+                        <p className="text-xs font-semibold text-foreground">{stat.label}</p>
+                        <p className="text-[10px] text-muted-foreground">{stat.highlight}</p>
+                      </div>
                     </div>
-                    <span className="text-base font-heading font-extrabold text-foreground">{stat.val}</span>
+                    <span className="text-sm font-heading font-extrabold text-primary">{stat.val}</span>
                   </motion.div>
                 ))}
               </div>
@@ -215,14 +185,24 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.85, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               viewport={{ once: true }}
-              className="p-4 rounded-2xl bg-gradient-to-br from-primary/[0.06] to-card border border-primary/20 flex items-center gap-4"
+              className="p-4 rounded-2xl bg-gradient-to-br from-primary/[0.08] via-card to-card border border-primary/25 flex items-center gap-3.5 shadow-lg"
             >
-              <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary text-xs font-bold shrink-0">
+              <div className="w-10 h-10 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center text-primary text-xs font-bold shrink-0">
                 KW
               </div>
               <div>
-                <p className="font-bold text-sm text-foreground">Resultado Real de Cliente</p>
-                <p className="text-xs text-muted-foreground">+340% de novos contatos no primeiro mês.</p>
+                <div className="flex items-center gap-1 text-amber-400 mb-0.5">
+                  {[...Array(5)].map((_, idx) => (
+                    <Star key={idx} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                  ))}
+                  <span className="text-[10px] font-bold text-muted-foreground ml-1.5">5.0 ★</span>
+                </div>
+                <p className="text-xs font-semibold text-foreground leading-snug">
+                  "Triplicamos os contatos no WhatsApp nas primeiras semanas."
+                </p>
+                <p className="text-[10px] text-muted-foreground mt-0.5">
+                  Dr. Rafael V. • Clínica Médica
+                </p>
               </div>
             </motion.div>
           </div>

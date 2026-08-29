@@ -60,23 +60,23 @@ export const PricingCard = ({
       className="h-full"
     >
       <div className={cn(
-        "relative overflow-hidden rounded-2xl border p-6 md:p-8 h-full flex flex-col transition-all duration-300 shadow-md hover:shadow-xl",
+        "relative overflow-hidden rounded-3xl border p-6 sm:p-8 h-full flex flex-col transition-all duration-300 shadow-md",
         popular
-          ? "border-primary/40 shadow-glow bg-gradient-to-b from-primary/[0.08] via-card to-card shadow-lg"
-          : "border-border/40 bg-gradient-to-b from-card/80 to-card hover:border-primary/25 hover:-translate-y-1",
+          ? "border-2 border-primary/50 shadow-2xl shadow-primary/10 bg-gradient-to-b from-primary/[0.1] via-card to-card md:-translate-y-2 ring-1 ring-primary/30"
+          : "border-border/40 bg-gradient-to-b from-card/80 to-card hover:border-primary/30 hover:-translate-y-1",
         className
       )}>
         {popular && (
-          <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-xs font-semibold px-4 py-1.5 rounded-bl-xl flex items-center gap-1.5">
+          <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-[10px] font-extrabold uppercase px-3.5 py-1 rounded-bl-2xl flex items-center gap-1.5 shadow-md shadow-primary/30 tracking-wider">
             <Sparkles className="w-3 h-3" />
-            Popular
+            Mais Vendido
           </div>
         )}
 
         <div className="space-y-2 mb-6">
-          <p className="text-sm font-semibold text-primary tracking-wide">{tier}</p>
-          <p className="text-3xl md:text-4xl font-bold text-foreground">{price}</p>
-          <p className="text-sm text-muted-foreground leading-relaxed">{bestFor}</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-primary">{tier}</p>
+          <p className="text-3xl sm:text-4xl font-heading font-extrabold text-foreground">{price}</p>
+          <p className="text-xs text-muted-foreground leading-relaxed">{bestFor}</p>
         </div>
 
         <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-6" />
@@ -89,10 +89,10 @@ export const PricingCard = ({
 
         <Button
           className={cn(
-            "w-full",
-            popular && "shadow-lg shadow-primary/25"
+            "w-full font-bold",
+            popular ? "shadow-glow font-extrabold" : "hover:border-primary/40 hover:bg-secondary/60"
           )}
-          variant={popular ? "default" : "outline"}
+          variant={popular ? "whatsapp" : "outline"}
           size="lg"
           asChild
         >

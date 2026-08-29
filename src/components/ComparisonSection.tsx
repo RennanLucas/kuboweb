@@ -77,7 +77,13 @@ const ComparisonSection = () => {
         </div>
 
         {/* Comparison grid */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch mb-12">
+        <div className="relative mb-12">
+          {/* Central VS Badge (Desktop) */}
+          <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-card border-2 border-primary/40 shadow-xl shadow-primary/20 items-center justify-center font-heading font-black text-xs text-primary backdrop-blur-md">
+            VS
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
           {/* Traditional / Common sites card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -166,6 +172,7 @@ const ComparisonSection = () => {
               </Button>
             </div>
           </motion.div>
+          </div>
         </div>
       </div>
     </section>

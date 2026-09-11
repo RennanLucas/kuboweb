@@ -2,6 +2,7 @@ import { memo, useState, useEffect } from "react";
 import { ClipboardCheck, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
+import { trackWhatsAppClick, trackCtaClick } from "@/lib/tracking";
 
 const FloatingWhatsApp = () => {
   const [hoveredDiagnostico, setHoveredDiagnostico] = useState(false);
@@ -17,6 +18,7 @@ const FloatingWhatsApp = () => {
   }, []);
 
   const handleDiagnosticoClick = () => {
+    trackCtaClick("cta_orcamento");
     if (isDiagnostico) {
       const element = document.getElementById("diagnostico-form");
       if (element) {
@@ -28,6 +30,7 @@ const FloatingWhatsApp = () => {
   };
 
   const handleWhatsAppClick = () => {
+    trackWhatsAppClick("botao_whatsapp");
     window.open(
       "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F",
       "_blank",

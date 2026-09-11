@@ -65,6 +65,11 @@
         });
         return false;
       };
+
+      // Fila segura de eventos _kw
+      window._kw = window._kw || function() {
+        (window._kw.q = window._kw.q || []).push(arguments);
+      };
     </script>
 
     <!-- Verification -->

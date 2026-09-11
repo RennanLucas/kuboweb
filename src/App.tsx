@@ -45,6 +45,57 @@ const ScrollToTop = () => {
   return null;
 };
 
+// Automatic tracking delegator for _kw events
+const TrackingListener = () => {
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement)?.closest("a, button");
+      if (!target) return;
+
+      const href = target.getAttribute("href") || "";
+      const text = (target.textContent || "").toLowerCase();
+      const ariaLabel = (target.getAttribute("aria-label") || "").toLowerCase();
+
+      if (
+        href.includes("wa.me") ||
+        href.includes("whatsapp") ||
+        text.includes("whatsapp") ||
+        ariaLabel.includes("whatsapp")
+      ) {
+        if (typeof window !== "undefined" && typeof window._kw === "function") {
+          window._kw("whatsapp_click", "botao_whatsapp");
+        }
+      } else if (
+        text.includes("orçamento") ||
+        text.includes("orcamento") ||
+        text.includes("simular") ||
+        ariaLabel.includes("orçamento") ||
+        ariaLabel.includes("orcamento")
+      ) {
+        if (typeof window !== "undefined" && typeof window._kw === "function") {
+          window._kw("button_click", "cta_orcamento");
+        }
+      }
+    };
+
+    const handleSubmit = () => {
+      if (typeof window !== "undefined" && typeof window._kw === "function") {
+        window._kw("form_submit", "formulario_contato");
+      }
+    };
+
+    document.addEventListener("click", handleClick, true);
+    document.addEventListener("submit", handleSubmit, true);
+
+    return () => {
+      document.removeEventListener("click", handleClick, true);
+      document.removeEventListener("submit", handleSubmit, true);
+    };
+  }, []);
+
+  return null;
+};
+
 const App = () => {
   return (
     <HelmetProvider>
@@ -55,6 +106,7 @@ const App = () => {
             <Sonner />
             <KuboPreloader />
             <ScrollProgress />
+            <TrackingListener />
             <BrowserRouter>
               <ScrollToTop />
               <Suspense fallback={<PageLoader />}>

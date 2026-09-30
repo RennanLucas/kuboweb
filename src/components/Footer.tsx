@@ -1,129 +1,123 @@
 import { memo } from "react";
-import { MessageCircle, Mail, Instagram } from "lucide-react";
+import { Instagram, Mail, MapPin, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import logoKuboweb from "@/assets/logo-kuboweb-new.webp";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const } },
-};
 
 const Footer = () => {
   return (
-    <footer className="pt-14 pb-24 md:pt-16 md:pb-16 px-4 border-t border-border/20 bg-card/30 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-primary/3 rounded-full blur-[120px] hidden md:block pointer-events-none" />
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid md:grid-cols-4 gap-10 md:gap-8 mb-10"
-        >
-          <motion.div variants={itemVariants} className="space-y-4">
-            <Link to="/" className="inline-block">
-              <motion.img
+    <footer className="relative overflow-hidden border-t border-border/30 bg-card/40 px-4 pb-24 pt-14 md:pb-16 md:pt-16">
+      <div className="absolute left-1/2 top-0 h-[180px] w-[600px] -translate-x-1/2 rounded-full bg-primary/[0.04] blur-[110px]" />
+
+      <div className="container relative z-10 mx-auto max-w-6xl">
+        <div className="mb-10 grid gap-10 md:grid-cols-4 md:gap-8">
+          <div className="space-y-4">
+            <Link to="/" className="inline-flex items-center" aria-label="Kubo Web - Início">
+              <img
                 src={logoKuboweb}
                 alt="Kubo Web - Criação de Sites Profissionais"
-                className="h-24 md:h-28 w-auto object-contain"
-                width={128}
-                height={128}
+                className="h-12 w-auto object-contain"
+                width={160}
+                height={48}
                 loading="lazy"
                 decoding="async"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
               />
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-[280px]">
-              Sites profissionais que geram resultados reais para o seu negócio.
-            </p>
-          </motion.div>
+            <div>
+              <p className="font-heading text-base font-bold text-foreground">Kubo Web</p>
+              <p className="mt-2 max-w-[290px] text-sm leading-relaxed text-muted-foreground">
+                Criação de sites profissionais, landing pages e lojas virtuais com foco em
+                experiência, performance e conversão.
+              </p>
+            </div>
+          </div>
 
-          <motion.div variants={itemVariants} className="space-y-4">
-            <h4 className="font-heading font-semibold text-foreground text-sm tracking-wide">Navegação</h4>
-            <nav className="flex flex-col gap-2.5">
+          <div className="space-y-4">
+            <h2 className="font-heading text-sm font-semibold tracking-wide text-foreground">
+              Serviços
+            </h2>
+            <nav className="flex flex-col gap-2.5" aria-label="Serviços no rodapé">
               {[
-                { label: "Início", href: "/" },
-                { label: "Sobre", href: "/sobre" },
-                { label: "Serviços", href: "/servicos" },
-                { label: "Portfólio", href: "/portfolio" },
-                { label: "Manutenção", href: "/manutencao" },
+                { label: "Sites Institucionais", href: "/servicos/sites-institucionais" },
+                { label: "Landing Pages", href: "/servicos/landing-pages" },
+                { label: "Loja Virtual", href: "/servicos/loja-virtual" },
+                { label: "Gestão de Anúncios", href: "/servicos/anuncios" },
               ].map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 w-fit inline-block"
+                  className="w-fit text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants} className="space-y-4">
-            <h4 className="font-heading font-semibold text-foreground text-sm tracking-wide">Informações</h4>
-            <nav className="flex flex-col gap-2.5">
+          <div className="space-y-4">
+            <h2 className="font-heading text-sm font-semibold tracking-wide text-foreground">
+              Kubo Web
+            </h2>
+            <nav className="flex flex-col gap-2.5" aria-label="Institucional no rodapé">
               {[
-                { label: "Consultoria", href: "/diagnostico" },
+                { label: "Sobre", href: "/sobre" },
+                { label: "Portfólio", href: "/portfolio" },
+                { label: "Diagnóstico", href: "/diagnostico" },
                 { label: "FAQ", href: "/faq" },
                 { label: "Contato", href: "/contato" },
-                { label: "Atendemos no Brasil", href: "/atendimento" },
               ].map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 w-fit inline-block"
+                  className="w-fit text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants} className="space-y-4">
-            <h4 className="font-heading font-semibold text-foreground text-sm tracking-wide">Contato</h4>
+          <div className="space-y-4">
+            <h2 className="font-heading text-sm font-semibold tracking-wide text-foreground">
+              Contato
+            </h2>
             <div className="flex flex-col gap-3">
-              {[
-                { href: "https://wa.me/5511932197334", icon: MessageCircle, text: "+55 11 93219-7334", hoverColor: "hover:text-[hsl(142,70%,45%)]", external: true },
-                { href: "mailto:contato.kuboweb@gmail.com", icon: Mail, text: "contato.kuboweb@gmail.com", hoverColor: "hover:text-primary", external: false },
-                { href: "https://www.instagram.com/kuboweb_oficial?igsh=MXNwdWlleDh4eng1Mw%3D%3D&utm_source=qr", icon: Instagram, text: "@kuboweb_oficial", hoverColor: "hover:text-primary", external: true },
-              ].map((item) => (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noopener noreferrer" : undefined}
-                  className={`flex items-center gap-2.5 text-sm text-muted-foreground ${item.hoverColor} transition-colors`}
-                  whileHover={{ x: 4, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <item.icon className="w-4 h-4" />
-                  {item.text}
-                </motion.a>
-              ))}
+              <a
+                href="https://wa.me/5511932197334"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
+                <MessageCircle className="h-4 w-4 shrink-0" />
+                <span>+55 11 93219-7334</span>
+              </a>
+              <a
+                href="mailto:contato.kuboweb@gmail.com"
+                className="flex items-center gap-2.5 break-all text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
+                <Mail className="h-4 w-4 shrink-0" />
+                <span>contato.kuboweb@gmail.com</span>
+              </a>
+              <a
+                href="https://www.instagram.com/kuboweb_oficial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-sm text-muted-foreground transition-colors hover:text-primary"
+              >
+                <Instagram className="h-4 w-4 shrink-0" />
+                <span>@kuboweb_oficial</span>
+              </a>
+              <div className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+                <span>Atendimento online em todo o Brasil</span>
+              </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="pt-8 border-t border-border/20 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground origin-left"
-        >
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-border/30 pt-8 text-xs text-muted-foreground md:flex-row">
           <p>© {new Date().getFullYear()} Kubo Web. Todos os direitos reservados.</p>
-          <p>Feito com dedicação para negócios que querem crescer.</p>
-        </motion.div>
+          <p>Sites profissionais para negócios que querem crescer no digital.</p>
+        </div>
       </div>
     </footer>
   );

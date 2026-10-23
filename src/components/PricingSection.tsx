@@ -1,223 +1,129 @@
-import { memo, useState, useCallback } from "react";
-import { PricingCard } from "@/components/ui/dark-gradient-pricing";
+import { memo } from "react";
+import { ArrowUpRight, Check, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const servicePlans = [
+const whatsappBase = "https://wa.me/5511932197334?text=";
+
+const plans = [
   {
-    tier: "Site Profissional",
-    price: "R$ 760",
-    bestFor: "Presença online completa para seu negócio",
-    CTA: "Falar no WhatsApp",
-    href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20quero%20criar%20um%20site%20profissional.%20Meu%20nicho%20%C3%A9%20_____%20e%20quero%20come%C3%A7ar%20o%20quanto%20antes.%20Pode%20me%20passar%20os%20pr%C3%B3ximos%20passos%3F",
-    popular: true,
-    benefits: [
-      { text: "Tudo da Landing Page", checked: true },
-      { text: "Múltiplas páginas", checked: true },
-      { text: "Domínio personalizado", checked: true },
-      { text: "Blog integrado", checked: true },
-      { text: "Painel administrativo", checked: true },
-      { text: "Suporte pós-entrega", checked: true },
-    ],
+    name: "Landing Page",
+    price: "A partir de R$ 697",
+    description: "Para campanhas, ofertas e serviços que precisam de uma página direta, clara e focada em contato.",
+    features: ["Design responsivo", "CTA para WhatsApp", "Formulário de contato", "SEO básico"],
+    message: "Olá, tenho interesse em uma Landing Page da Kubo Web e gostaria de fazer um orçamento.",
   },
   {
-    tier: "Landing Page",
-    price: "R$ 560",
-    bestFor: "Página única focada em conversão",
-    CTA: "Falar no WhatsApp",
-    href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20criar%20minha%20Landing%20Page%20de%20R%24%20560.%20Pode%20me%20explicar%20como%20funciona%20e%20como%20come%C3%A7amos%3F",
-    benefits: [
-      { text: "Design profissional", checked: true },
-      { text: "Responsivo (mobile)", checked: true },
-      { text: "Otimizado para Google (SEO)", checked: true },
-      { text: "Botão WhatsApp integrado", checked: true },
-      { text: "Formulário de contato", checked: true },
-      { text: "Entrega rápida", checked: true },
-    ],
+    name: "Site institucional",
+    price: "A partir de R$ 1.497",
+    description: "Para empresas e profissionais que precisam apresentar serviços, diferenciais e informações com mais profundidade.",
+    features: ["Múltiplas páginas", "Design responsivo", "Estrutura de SEO", "Integrações conforme o projeto"],
+    message: "Olá, tenho interesse em um site institucional da Kubo Web e gostaria de fazer um orçamento.",
+    featured: true,
   },
   {
-    tier: "Loja Virtual",
-    price: "R$ 1.200",
-    bestFor: "Para quem quer vender produtos online",
-    CTA: "Falar no WhatsApp",
-    href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Loja%20Virtual%20de%20R%24%201200%20que%20vi%20no%20site.%20Quero%20saber%20prazo%2C%20forma%20de%20pagamento%20e%20o%20que%20preciso%20enviar%20para%20come%C3%A7ar.",
-    benefits: [
-      { text: "Tudo do plano Site", checked: true },
-      { text: "Catálogo de produtos", checked: true },
-      { text: "Carrinho de compras", checked: true },
-      { text: "Integração de pagamento", checked: true },
-      { text: "Painel administrativo", checked: true },
-      { text: "Gestão de estoque", checked: true },
-    ],
+    name: "Loja virtual",
+    price: "Sob orçamento",
+    description: "Para negócios que querem vender produtos online com uma experiência organizada e profissional.",
+    features: ["Catálogo de produtos", "Carrinho de compras", "Pagamento", "Gestão conforme a solução escolhida"],
+    message: "Olá, tenho interesse em uma loja virtual da Kubo Web e gostaria de conversar sobre o projeto.",
   },
   {
-    tier: "Anúncios",
-    price: "R$ 280",
-    bestFor: "Ideal para quem quer tráfego rápido",
-    CTA: "Falar no WhatsApp",
-    href: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20An%C3%BAncios%20Google%20Ads%20de%20R%24%20280.%20Pode%20me%20explicar%20como%20funciona%20e%20quando%20podemos%20iniciar%3F",
-    benefits: [
-      { text: "Campanha Google Ads", checked: true },
-      { text: "Configuração completa", checked: true },
-      { text: "Segmentação de público", checked: true },
-      { text: "Relatório de resultados", checked: true },
-      { text: "Otimização mensal", checked: false },
-      { text: "Gestão contínua", checked: false },
-    ],
+    name: "Google Ads",
+    price: "Sob orçamento",
+    description: "Para negócios que já querem atrair demanda por meio de campanhas de pesquisa e direcionar para site ou WhatsApp.",
+    features: ["Configuração de campanha", "Segmentação", "Palavras-chave", "Acompanhamento"],
+    message: "Olá, tenho interesse no serviço de Google Ads da Kubo Web e gostaria de conversar sobre o projeto.",
   },
 ];
 
-const PricingSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const goNext = useCallback(() => {
-    setCurrentIndex((prev) => Math.min(prev + 1, servicePlans.length - 1));
-  }, []);
-  const goPrev = useCallback(() => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
-  }, []);
-
-  return (
-    <section id="precos" className="py-24 md:py-36 px-4 bg-muted/20 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto max-w-6xl relative">
-        <div className="text-center mb-10 md:mb-16 space-y-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="section-label justify-center"
-          >
-            Preços
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="section-title"
-          >
-            Invista no crescimento do seu negócio
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="section-subtitle"
-          >
-            Valores transparentes, sem surpresas. Escolha o plano ideal e comece a vender mais.
-          </motion.p>
+const PricingSection = () => (
+  <section id="precos" className="px-4 py-20 md:py-28">
+    <div className="container mx-auto max-w-6xl">
+      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end mb-10 md:mb-14">
+        <div>
+          <p className="section-label mb-4">Investimento</p>
+          <h2 className="section-title max-w-xl">Valores claros onde faz sentido. Orçamento quando o projeto varia.</h2>
         </div>
-
-        <Tabs defaultValue="servicos" className="w-full">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <TabsList className="grid w-full max-w-xs sm:max-w-sm mx-auto grid-cols-2 mb-8 md:mb-12 bg-secondary/50 backdrop-blur-sm p-1">
-              <TabsTrigger value="servicos" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300">
-                Serviços
-              </TabsTrigger>
-              <TabsTrigger value="manutencao" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground transition-all duration-300">
-                Manutenção
-              </TabsTrigger>
-            </TabsList>
-          </motion.div>
-
-          <TabsContent value="servicos">
-            {/* Desktop grid */}
-            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-              {servicePlans.map((plan, i) => (
-                <PricingCard key={plan.tier} {...plan} index={i} />
-              ))}
-            </div>
-
-            {/* Mobile carousel */}
-            <div className="md:hidden">
-              <div className="relative overflow-hidden">
-                <div
-                  className="flex transition-transform duration-300 ease-out will-change-transform"
-                  style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-                >
-                  {servicePlans.map((plan) => (
-                    <div key={plan.tier} className="w-full shrink-0 px-1">
-                      <PricingCard {...plan} index={0} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between mt-6 px-1">
-                <button
-                  onClick={goPrev}
-                  disabled={currentIndex === 0}
-                  className="w-10 h-10 rounded-full border border-border/50 bg-card flex items-center justify-center text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:border-primary/50"
-                  aria-label="Anterior"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-
-                <div className="flex items-center gap-2">
-                  {servicePlans.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setCurrentIndex(i)}
-                      aria-label={`Plano ${i + 1}`}
-                      className={`rounded-full transition-all duration-300 ${
-                        i === currentIndex
-                          ? "bg-primary w-6 h-2.5"
-                          : "bg-border hover:bg-muted-foreground w-2.5 h-2.5"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                <button
-                  onClick={goNext}
-                  disabled={currentIndex === servicePlans.length - 1}
-                  className="w-10 h-10 rounded-full border border-border/50 bg-card flex items-center justify-center text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-all hover:border-primary/50"
-                  aria-label="Próximo"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-          </TabsContent>
-
-          <TabsContent value="manutencao">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="max-w-md mx-auto"
-            >
-              <PricingCard
-                tier="Manutenção Mensal"
-                price="R$ 70/mês"
-                bestFor="Mantenha seu site sempre atualizado"
-                CTA="Contratar Manutenção"
-                href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20quero%20contratar%20a%20Manuten%C3%A7%C3%A3o%20Mensal%20de%20R%24%2070.%20Pode%20me%20explicar%20como%20funciona%20e%20como%20ativamos%3F"
-                benefits={[
-                  { text: "Atualizações de conteúdo", checked: true },
-                  { text: "Correções e ajustes", checked: true },
-                  { text: "Backup mensal", checked: true },
-                  { text: "Suporte prioritário", checked: true },
-                  { text: "Monitoramento de uptime", checked: true },
-                ]}
-              />
-            </motion.div>
-          </TabsContent>
-        </Tabs>
+        <div className="lg:justify-self-end lg:max-w-lg">
+          <p className="text-muted-foreground leading-relaxed">
+            O valor final depende do escopo, conteúdo e integrações. Por isso, projetos mais variáveis são avaliados antes de fechar.
+          </p>
+        </div>
       </div>
-    </section>
-  );
-};
+
+      <div className="grid gap-4 md:grid-cols-2">
+        {plans.map((plan, index) => (
+          <motion.article
+            key={plan.name}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ delay: index * 0.06, duration: 0.4 }}
+            className={`rounded-[28px] border p-6 md:p-8 ${
+              plan.featured
+                ? "border-foreground bg-foreground text-background"
+                : "border-border/70 bg-card text-foreground"
+            }`}
+          >
+            <div className="mb-8 flex items-start justify-between gap-4">
+              <div>
+                <p className={`text-sm font-semibold ${plan.featured ? "text-background/65" : "text-muted-foreground"}`}>{plan.name}</p>
+                <h3 className="mt-2 text-2xl md:text-3xl font-heading font-bold tracking-[-0.03em]">{plan.price}</h3>
+              </div>
+              {plan.featured && (
+                <span className="rounded-full bg-background px-3 py-1.5 text-[11px] font-semibold text-foreground">Mais completo</span>
+              )}
+            </div>
+
+            <p className={`leading-relaxed ${plan.featured ? "text-background/70" : "text-muted-foreground"}`}>
+              {plan.description}
+            </p>
+
+            <ul className="mt-7 space-y-3">
+              {plan.features.map((feature) => (
+                <li key={feature} className="flex items-center gap-3 text-sm">
+                  <span className={`flex h-5 w-5 items-center justify-center rounded-full ${plan.featured ? "bg-background/12" : "bg-primary/10 text-primary"}`}>
+                    <Check className="h-3 w-3" />
+                  </span>
+                  <span className={plan.featured ? "text-background/80" : "text-foreground/80"}>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            <a
+              href={`${whatsappBase}${encodeURIComponent(plan.message)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`mt-8 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all ${
+                plan.featured
+                  ? "bg-background text-foreground hover:bg-background/90"
+                  : "bg-foreground text-background hover:bg-foreground/90"
+              }`}
+            >
+              Falar sobre este projeto
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </motion.article>
+        ))}
+      </div>
+
+      <div className="mt-5 flex flex-col gap-4 rounded-[24px] border border-border/70 bg-secondary/35 p-5 sm:flex-row sm:items-center sm:justify-between md:p-6">
+        <div>
+          <p className="font-semibold text-foreground">Já tem um site e só precisa de manutenção?</p>
+          <p className="mt-1 text-sm text-muted-foreground">Plano de manutenção a partir de R$ 70/mês.</p>
+        </div>
+        <a
+          href={`${whatsappBase}${encodeURIComponent("Olá, tenho interesse na manutenção mensal da Kubo Web e gostaria de saber como funciona.")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-primary"
+        >
+          <MessageCircle className="h-4 w-4" />
+          Conversar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+);
 
 export default memo(PricingSection);

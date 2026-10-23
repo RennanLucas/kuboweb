@@ -36,12 +36,29 @@ const workflow = [
   { icon: Code2, title: "Development", copy: "Implementação enxuta, responsiva e pronta para publicar." },
 ];
 
+const MarqueeGroup = ({ copy = false }: { copy?: boolean }) => (
+  <div className="flex shrink-0 items-center gap-6 pr-6 md:gap-9 md:pr-9" aria-hidden={copy || undefined}>
+    {capabilities.map((item) => (
+      <span key={`${copy ? "copy-" : ""}${item}`} className="flex items-center gap-6 md:gap-9">
+        <span>{item}</span>
+        <span className="h-1 w-1 rounded-full bg-[#79a9ff]/80" />
+      </span>
+    ))}
+    <span className="flex items-center gap-2 text-white/62">
+      Built for ambitious brands
+      <ArrowDownRight className="h-3.5 w-3.5" />
+    </span>
+    <span className="h-1 w-1 rounded-full bg-[#79a9ff]/80" />
+  </div>
+);
+
 const HeroSection = () => {
   return (
     <section className="relative isolate overflow-hidden bg-[#050a13] px-4 pb-0 pt-28 text-white md:pt-40">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute left-1/2 top-[-320px] h-[760px] w-[980px] -translate-x-1/2 rounded-full bg-blue-600/20 blur-[180px]" />
         <div className="absolute right-[-260px] top-[18%] hidden h-[620px] w-[620px] rounded-full bg-cyan-400/8 blur-[190px] md:block" />
+        <div className="absolute left-[9%] top-[31%] hidden h-2 w-2 rounded-full bg-[#79a9ff] shadow-[0_0_24px_rgba(121,169,255,.8)] md:block kubo-pulse-soft" />
         <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_88%)]" />
       </div>
 
@@ -53,9 +70,9 @@ const HeroSection = () => {
             transition={{ duration: 0.4 }}
             className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 backdrop-blur-xl"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#79a9ff] shadow-[0_0_18px_rgba(121,169,255,.8)]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#79a9ff] shadow-[0_0_18px_rgba(121,169,255,.8)] kubo-pulse-soft" />
             <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/50 sm:text-[10px] sm:tracking-[0.26em]">
-              Kubo Web · Digital Studio · Brasil
+              Kubo Web · Web Design Studio · Brasil
             </span>
           </motion.div>
 
@@ -87,7 +104,7 @@ const HeroSection = () => {
             <Button
               asChild
               size="xl"
-              className="rounded-full bg-white px-7 text-[#050a13] shadow-[0_20px_60px_rgba(0,0,0,.3)] hover:bg-white/90"
+              className="rounded-full bg-white px-7 text-[#050a13] shadow-[0_20px_60px_rgba(0,0,0,.3)] transition-transform duration-300 hover:-translate-y-0.5 hover:bg-[#eef4ff]"
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-5 w-5" />
@@ -98,7 +115,7 @@ const HeroSection = () => {
               asChild
               size="xl"
               variant="outline"
-              className="rounded-full border-white/16 bg-white/[0.035] px-7 text-white hover:border-white/35 hover:bg-white/[0.08] hover:text-white"
+              className="rounded-full border-white/16 bg-white/[0.035] px-7 text-white transition-all hover:-translate-y-0.5 hover:border-white/35 hover:bg-white/[0.08] hover:text-white"
             >
               <Link to="/portfolio">
                 Explorar trabalhos
@@ -135,7 +152,7 @@ const HeroSection = () => {
 
           <div className="overflow-hidden rounded-t-[28px] border border-b-0 border-white/11 bg-[#0a1220]/96 shadow-[0_35px_100px_rgba(0,0,0,.42)] backdrop-blur-2xl md:rounded-t-[34px]">
             <div className="flex items-center gap-3 border-b border-white/8 px-4 py-3.5 sm:px-5 md:px-7 md:py-4">
-              <div className="flex gap-1.5">
+              <div className="flex gap-1.5" aria-hidden="true">
                 <span className="h-2 w-2 rounded-full bg-white/12 md:h-2.5 md:w-2.5" />
                 <span className="h-2 w-2 rounded-full bg-white/12 md:h-2.5 md:w-2.5" />
                 <span className="h-2 w-2 rounded-full bg-white/12 md:h-2.5 md:w-2.5" />
@@ -162,10 +179,10 @@ const HeroSection = () => {
                   {workflow.map((item, index) => (
                     <div
                       key={item.title}
-                      className={`rounded-2xl border p-4 ${index === 0 ? "border-[#79a9ff]/25 bg-[#79a9ff]/10" : "border-white/8 bg-white/[0.025]"}`}
+                      className={`group rounded-2xl border p-4 kubo-interactive-card ${index === 0 ? "border-[#79a9ff]/25 bg-[#79a9ff]/10" : "border-white/8 bg-white/[0.025]"}`}
                     >
                       <div className="flex items-center gap-3">
-                        <span className={`flex h-9 w-9 items-center justify-center rounded-xl ${index === 0 ? "bg-[#79a9ff] text-[#061020]" : "bg-white/[0.05] text-white/45"}`}>
+                        <span className={`flex h-9 w-9 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105 ${index === 0 ? "bg-[#79a9ff] text-[#061020]" : "bg-white/[0.05] text-white/45"}`}>
                           <item.icon className="h-4 w-4" />
                         </span>
                         <div>
@@ -191,7 +208,7 @@ const HeroSection = () => {
                     </div>
                     <Link
                       to="/portfolio"
-                      className="inline-flex items-center gap-2 text-xs font-semibold text-white/62 transition-colors hover:text-white"
+                      className="kubo-link-line inline-flex items-center gap-2 text-xs font-semibold text-white/62 transition-colors hover:text-white"
                     >
                       Ver portfólio
                       <ArrowUpRight className="h-4 w-4" />
@@ -203,13 +220,13 @@ const HeroSection = () => {
                       href="https://www.helenaavilapsi.com.br/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group rounded-2xl border border-white/10 bg-[#f0ebe5] p-5 text-[#1d242c] transition-transform duration-300 hover:-translate-y-1"
+                      className="group rounded-2xl border border-white/10 bg-[#f0ebe5] p-5 text-[#1d242c] kubo-interactive-card"
                     >
                       <div className="flex items-center justify-between">
                         <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-black/35">Psicoterapia · Website</span>
                         <ArrowUpRight className="h-4 w-4 text-black/35 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                       </div>
-                      <p className="mt-8 font-serif text-2xl font-semibold leading-tight tracking-[-0.035em]">Helena Ávila</p>
+                      <p className="mt-8 font-serif text-2xl leading-tight tracking-[-0.035em]">Helena Ávila</p>
                       <p className="mt-2 text-xs leading-5 text-black/48">Site publicado para presença profissional, conteúdo e contato.</p>
                       <p className="mt-7 text-[10px] font-semibold uppercase tracking-[0.16em] text-black/40">helenaavilapsi.com.br</p>
                     </a>
@@ -218,7 +235,7 @@ const HeroSection = () => {
                       href="https://cristiano-avila-site.vercel.app/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group rounded-2xl border border-white/10 bg-[#132138] p-5 text-white transition-transform duration-300 hover:-translate-y-1"
+                      className="group rounded-2xl border border-white/10 bg-[#132138] p-5 text-white kubo-interactive-card"
                     >
                       <div className="flex items-center justify-between">
                         <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/35">Professional · Website</span>
@@ -236,19 +253,11 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      <div className="relative -mx-4 border-y border-white/9 bg-white/[0.018]">
-        <div className="mx-auto flex max-w-[1600px] items-center overflow-hidden py-4">
-          <div className="flex min-w-max items-center gap-5 px-5 text-[9px] font-semibold uppercase tracking-[0.22em] text-white/34 md:gap-8 md:text-[11px] md:tracking-[0.24em]">
-            {[...capabilities, ...capabilities].map((item, index) => (
-              <span key={`${item}-${index}`} className="flex items-center gap-5 md:gap-8">
-                {item}
-                <span className="h-1 w-1 rounded-full bg-[#79a9ff]/80" />
-              </span>
-            ))}
-            <span className="flex items-center gap-2 text-white/60">
-              Built for ambitious brands
-              <ArrowDownRight className="h-3.5 w-3.5" />
-            </span>
+      <div className="relative -mx-4 border-y border-white/9 bg-white/[0.018] py-4">
+        <div className="kubo-marquee mx-auto max-w-[1600px] text-[9px] font-semibold uppercase tracking-[0.22em] text-white/34 md:text-[11px] md:tracking-[0.24em]">
+          <div className="kubo-marquee-track">
+            <MarqueeGroup />
+            <MarqueeGroup copy />
           </div>
         </div>
       </div>

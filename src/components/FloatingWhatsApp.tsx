@@ -2,7 +2,7 @@ import { memo, useEffect, useState } from "react";
 import { ClipboardCheck, MessageCircle } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
-import { trackCtaClick, trackWhatsAppClick } from "@/lib/tracking";
+import { trackCtaClick } from "@/lib/tracking";
 
 const FloatingWhatsApp = () => {
   const [hoveredDiagnostico, setHoveredDiagnostico] = useState(false);
@@ -28,7 +28,7 @@ const FloatingWhatsApp = () => {
   };
 
   const handleWhatsAppClick = () => {
-    trackWhatsAppClick("botao_whatsapp");
+    // WhatsApp clicks are tracked once by the global capture listener in App.tsx.
     window.open(
       "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Kubo%20Web%20e%20gostaria%20de%20saber%20mais.%20Pode%20me%20ajudar%3F",
       "_blank",

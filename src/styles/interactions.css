@@ -1,0 +1,88 @@
+@keyframes kubo-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes kubo-pulse-soft {
+  0%, 100% { opacity: .45; transform: scale(1); }
+  50% { opacity: .85; transform: scale(1.06); }
+}
+
+@keyframes kubo-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
+}
+
+.kubo-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+
+.kubo-marquee-track {
+  display: flex;
+  width: max-content;
+  min-width: 200%;
+  animation: kubo-marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.kubo-marquee:hover .kubo-marquee-track {
+  animation-play-state: paused;
+}
+
+.kubo-pulse-soft {
+  animation: kubo-pulse-soft 4.5s ease-in-out infinite;
+}
+
+.kubo-float {
+  animation: kubo-float 6s ease-in-out infinite;
+}
+
+.kubo-interactive-card {
+  transform: translateZ(0);
+  transition: transform .45s cubic-bezier(.16,1,.3,1), box-shadow .45s cubic-bezier(.16,1,.3,1), border-color .3s ease;
+}
+
+.kubo-interactive-card:hover {
+  transform: translate3d(0,-4px,0);
+}
+
+.kubo-focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(121,169,255,.28), 0 0 0 1px rgba(36,88,216,.55);
+}
+
+.kubo-link-line {
+  position: relative;
+}
+
+.kubo-link-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  opacity: .65;
+  transition: right .3s cubic-bezier(.16,1,.3,1);
+}
+
+.kubo-link-line:hover::after,
+.kubo-link-line:focus-visible::after {
+  right: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kubo-marquee-track,
+  .kubo-pulse-soft,
+  .kubo-float {
+    animation: none !important;
+  }
+
+  .kubo-interactive-card {
+    transition: none !important;
+    transform: none !important;
+  }
+}

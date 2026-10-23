@@ -1,6 +1,6 @@
-import { memo } from "react";
-import { ArrowUpRight, Check } from "lucide-react";
-import { motion } from "framer-motion";
+import { memo, useState } from "react";
+import { ArrowUpRight, Check, MessageCircle } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const whatsappBase = "https://wa.me/5511932197334?text=";
 
@@ -11,8 +11,9 @@ const plans = [
     price: "R$ 697",
     suffix: "a partir de",
     description: "Uma página de campanha, serviço ou oferta com mensagem clara e caminho direto até o contato.",
-    features: ["Design responsivo", "CTA para WhatsApp", "Formulário", "SEO básico"],
+    features: ["Direção visual", "Design responsivo", "CTA para WhatsApp", "Formulário", "SEO básico"],
     message: "Olá, tenho interesse em uma Landing Page da Kubo Web e gostaria de fazer um orçamento.",
+    accent: "#8db6ff",
   },
   {
     name: "Site institucional",
@@ -20,9 +21,9 @@ const plans = [
     price: "R$ 1.497",
     suffix: "a partir de",
     description: "Uma presença digital mais completa para apresentar empresa, serviços, diferenciais e gerar autoridade.",
-    features: ["Múltiplas páginas", "Design responsivo", "Estrutura de SEO", "Integrações conforme o projeto"],
+    features: ["Múltiplas páginas", "Direção visual", "Responsividade", "Estrutura de SEO", "Integrações conforme o projeto"],
     message: "Olá, tenho interesse em um site institucional da Kubo Web e gostaria de fazer um orçamento.",
-    featured: true,
+    accent: "#a9d9ff",
   },
   {
     name: "Loja virtual",
@@ -30,106 +31,161 @@ const plans = [
     price: "Sob orçamento",
     suffix: "escopo variável",
     description: "E-commerce com estrutura, catálogo, checkout e integrações definidas conforme a operação do negócio.",
-    features: ["Catálogo", "Carrinho", "Pagamento", "Integrações"],
+    features: ["Catálogo", "Carrinho", "Pagamento", "Responsividade", "Integrações"],
     message: "Olá, tenho interesse em uma loja virtual da Kubo Web e gostaria de conversar sobre o projeto.",
+    accent: "#c8b8ff",
   },
   {
     name: "Google Ads",
     number: "04",
     price: "Sob orçamento",
     suffix: "escopo variável",
-    description: "Campanhas de pesquisa estruturadas para conectar intenção de busca com seu site ou WhatsApp.",
-    features: ["Configuração", "Segmentação", "Palavras-chave", "Acompanhamento"],
+    description: "Campanhas de pesquisa estruturadas para conectar intenção de busca com a página certa e um próximo passo claro.",
+    features: ["Configuração", "Segmentação", "Palavras-chave", "Conversões", "Acompanhamento"],
     message: "Olá, tenho interesse no serviço de Google Ads da Kubo Web e gostaria de conversar sobre o projeto.",
+    accent: "#9ae7cc",
   },
-];
+] as const;
 
-const PricingSection = () => (
-  <section id="precos" className="bg-white px-4 py-24 md:py-36">
-    <div className="container mx-auto max-w-7xl">
-      <div className="mb-14 grid gap-9 lg:grid-cols-[1.05fr_0.95fr] lg:items-end md:mb-20">
-        <div>
-          <div className="mb-5 flex items-center gap-3">
-            <span className="h-px w-10 bg-primary" />
-            <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Investment</span>
+const PricingSection = () => {
+  const [active, setActive] = useState(1);
+  const plan = plans[active];
+
+  return (
+    <section id="precos" className="relative overflow-hidden bg-white px-4 py-24 md:py-40">
+      <motion.div
+        aria-hidden="true"
+        animate={{ backgroundColor: plan.accent }}
+        transition={{ duration: .45 }}
+        className="pointer-events-none absolute left-[-10%] top-[18%] h-[560px] w-[560px] rounded-full opacity-30 blur-[170px]"
+      />
+      <div className="container relative mx-auto max-w-[1380px]">
+        <div className="grid gap-9 border-b border-black/[0.09] pb-12 lg:grid-cols-[1.06fr_.94fr] lg:items-end md:pb-16">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#2458d8]">Investment</p>
+            <h2 className="mt-5 max-w-[900px] text-[3rem] font-heading font-semibold leading-[.91] tracking-[-0.067em] text-[#08111f] sm:text-6xl md:text-7xl lg:text-[5.4rem]">
+              Escolha o formato.
+              <span className="block text-[#08111f]/[0.32]">O escopo vem depois.</span>
+            </h2>
           </div>
-          <h2 className="max-w-4xl text-[2.9rem] font-heading font-semibold leading-[0.95] tracking-[-0.052em] text-foreground sm:text-6xl md:text-7xl">
-            Um investimento compatível
-            <span className="block text-muted-foreground/45">com a percepção que você quer gerar.</span>
-          </h2>
+          <p className="max-w-[470px] text-base leading-8 text-[#08111f]/[0.46] lg:justify-self-end md:text-lg">
+            Projetos simples têm ponto de partida claro. Escopos com integrações, conteúdo ou operação mais complexa são avaliados antes da proposta.
+          </p>
         </div>
-        <p className="max-w-[430px] text-base leading-8 text-muted-foreground lg:justify-self-end md:text-lg">
-          Projetos simples têm ponto de partida claro. Escopos com mais integrações são avaliados antes para o orçamento refletir o que realmente será construído.
-        </p>
-      </div>
 
-      <div className="overflow-hidden rounded-[34px] border border-border/70 bg-[#f7f8fa] shadow-[0_30px_90px_rgba(15,23,42,.06)]">
-        {plans.map((plan, index) => (
-          <motion.a
-            key={plan.name}
-            href={`${whatsappBase}${encodeURIComponent(plan.message)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-70px" }}
-            transition={{ delay: index * 0.05, duration: 0.45 }}
-            className={`group grid gap-7 border-b border-border/70 p-6 last:border-b-0 md:grid-cols-[0.22fr_0.9fr_1.1fr_0.8fr] md:items-center md:p-8 lg:p-9 ${
-              plan.featured ? "bg-[#0b1525] text-white" : "transition-colors hover:bg-white"
-            }`}
-          >
-            <div className="flex items-center justify-between md:block">
-              <span className={`text-[10px] font-semibold uppercase tracking-[0.24em] ${plan.featured ? "text-white/35" : "text-muted-foreground"}`}>{plan.number}</span>
-              <ArrowUpRight className={`h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 md:hidden ${plan.featured ? "text-white/55" : "text-muted-foreground"}`} />
-            </div>
-
-            <div>
-              <p className={`text-[10px] font-semibold uppercase tracking-[0.2em] ${plan.featured ? "text-[#78a9ff]" : "text-primary"}`}>{plan.suffix}</p>
-              <h3 className="mt-3 text-2xl font-heading font-semibold tracking-[-0.035em] md:text-3xl">{plan.name}</h3>
-            </div>
-
-            <div>
-              <p className={`text-sm leading-7 md:text-[15px] ${plan.featured ? "text-white/48" : "text-muted-foreground"}`}>{plan.description}</p>
-              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-                {plan.features.map((feature) => (
-                  <span key={feature} className={`inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] ${plan.featured ? "text-white/48" : "text-foreground/55"}`}>
-                    <Check className={`h-3 w-3 ${plan.featured ? "text-[#78a9ff]" : "text-primary"}`} />
-                    {feature}
+        <div className="mt-10 grid gap-5 xl:grid-cols-[.72fr_1.28fr]">
+          <div className="space-y-2">
+            {plans.map((item, index) => {
+              const selected = active === index;
+              return (
+                <button
+                  key={item.name}
+                  type="button"
+                  onClick={() => setActive(index)}
+                  onMouseEnter={() => setActive(index)}
+                  className={`group flex w-full items-center gap-4 rounded-[22px] border p-4 text-left transition-all duration-300 ${selected ? "border-black/[0.1] bg-[#f6f7f9] shadow-[0_14px_45px_rgba(8,17,31,.06)]" : "border-transparent hover:bg-[#f8f9fb]"}`}
+                >
+                  <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[10px] font-semibold transition-all ${selected ? "bg-[#08111f] text-white" : "bg-[#f0f2f5] text-[#08111f]/[0.38]"}`}>
+                    {item.number}
                   </span>
-                ))}
-              </div>
-            </div>
+                  <div className="min-w-0 flex-1">
+                    <p className={`text-sm font-semibold transition-colors ${selected ? "text-[#08111f]" : "text-[#08111f]/[0.52]"}`}>{item.name}</p>
+                    <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-[#08111f]/[0.28]">{item.suffix}</p>
+                  </div>
+                  <span className={`text-sm font-heading font-semibold tracking-[-0.03em] transition-colors ${selected ? "text-[#08111f]" : "text-[#08111f]/[0.34]"}`}>{item.price}</span>
+                </button>
+              );
+            })}
 
-            <div className="flex items-end justify-between gap-4 md:justify-end">
-              <div className="md:text-right">
-                <p className={`text-2xl font-heading font-semibold tracking-[-0.035em] md:text-3xl ${plan.price.length > 12 ? "text-xl md:text-2xl" : ""}`}>{plan.price}</p>
-                <p className={`mt-1 text-[10px] uppercase tracking-[0.18em] ${plan.featured ? "text-white/30" : "text-muted-foreground"}`}>Solicitar proposta</p>
+            <a
+              href={`${whatsappBase}${encodeURIComponent("Olá, tenho interesse na manutenção mensal da Kubo Web e gostaria de saber como funciona.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-4 flex items-center justify-between rounded-[22px] border border-black/[0.08] bg-white p-4 transition-all hover:border-black/[0.14] hover:shadow-[0_12px_38px_rgba(8,17,31,.05)]"
+            >
+              <div>
+                <p className="text-sm font-semibold text-[#08111f]">Manutenção mensal</p>
+                <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.15em] text-[#08111f]/[0.28]">A partir de R$ 70/mês</p>
               </div>
-              <span className={`hidden h-11 w-11 items-center justify-center rounded-full md:flex ${plan.featured ? "bg-white text-[#0b1525]" : "bg-foreground text-background"}`}>
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </span>
-            </div>
-          </motion.a>
-        ))}
-      </div>
+              <ArrowUpRight className="h-4 w-4 text-[#08111f]/[0.4] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
 
-      <div className="mt-5 flex flex-col gap-4 rounded-[24px] border border-border/70 bg-white p-5 sm:flex-row sm:items-center sm:justify-between md:p-6">
-        <div>
-          <p className="font-semibold text-foreground">Manutenção mensal</p>
-          <p className="mt-1 text-sm text-muted-foreground">A partir de R$ 70/mês para sites que precisam continuar atualizados e acompanhados.</p>
+          <div className="relative min-h-[610px] overflow-hidden rounded-[38px] bg-[#07101f] p-6 text-white shadow-[0_46px_120px_rgba(8,17,31,.2)] md:p-8 lg:p-10">
+            <motion.div
+              aria-hidden="true"
+              animate={{ backgroundColor: plan.accent }}
+              transition={{ duration: .45 }}
+              className="pointer-events-none absolute -right-[12%] -top-[20%] h-[520px] w-[520px] rounded-full opacity-[0.22] blur-[150px]"
+            />
+            <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] [background-size:64px_64px]" />
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: .34, ease: [0.16, 1, 0.3, 1] }}
+                className="relative z-10 flex min-h-[530px] flex-col"
+              >
+                <div className="flex items-start justify-between gap-5 border-b border-white/[0.1] pb-6">
+                  <div>
+                    <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/[0.32]">Selected service · {plan.number}</p>
+                    <h3 className="mt-3 text-3xl font-heading font-semibold tracking-[-0.05em] md:text-4xl">{plan.name}</h3>
+                  </div>
+                  <span className="rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1.5 text-[8px] font-semibold uppercase tracking-[0.16em] text-white/[0.45]">{plan.suffix}</span>
+                </div>
+
+                <div className="grid flex-1 gap-8 py-9 lg:grid-cols-[1.1fr_.9fr]">
+                  <div>
+                    <p className="max-w-[560px] text-base leading-8 text-white/[0.5] md:text-lg">{plan.description}</p>
+
+                    <div className="mt-9 grid gap-3 sm:grid-cols-2">
+                      {plan.features.map((feature) => (
+                        <div key={feature} className="flex items-center gap-3 rounded-[18px] border border-white/[0.08] bg-white/[0.035] p-4">
+                          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/[0.06]" style={{ color: plan.accent }}><Check className="h-3.5 w-3.5" /></span>
+                          <span className="text-xs font-medium text-white/[0.62]">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col justify-between rounded-[28px] border border-white/[0.08] bg-white/[0.035] p-5 md:p-6">
+                    <div>
+                      <p className="text-[8px] font-semibold uppercase tracking-[0.2em] text-white/[0.28]">Investimento</p>
+                      <p className={`mt-4 font-heading font-semibold tracking-[-0.06em] ${plan.price.length > 12 ? "text-4xl" : "text-5xl md:text-6xl"}`}>{plan.price}</p>
+                      <p className="mt-3 text-xs leading-6 text-white/[0.34]">A proposta final considera conteúdo, páginas, integrações e complexidade real do projeto.</p>
+                    </div>
+
+                    <a
+                      href={`${whatsappBase}${encodeURIComponent(plan.message)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group mt-8 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-[#07101f] transition-all hover:-translate-y-0.5 hover:bg-[#eef4ff]"
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                      Solicitar proposta
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="grid gap-3 border-t border-white/[0.1] pt-6 sm:grid-cols-3">
+                  {["Escopo antes da proposta", "Experiência responsiva", "Publicação revisada"].map((item, index) => (
+                    <div key={item} className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.13em] text-white/[0.34]">
+                      <span className="text-[8px]" style={{ color: plan.accent }}>0{index + 1}</span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
-        <a
-          href={`${whatsappBase}${encodeURIComponent("Olá, tenho interesse na manutenção mensal da Kubo Web e gostaria de saber como funciona.")}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition-colors hover:text-primary"
-        >
-          Conversar sobre manutenção
-          <ArrowUpRight className="h-4 w-4" />
-        </a>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default memo(PricingSection);

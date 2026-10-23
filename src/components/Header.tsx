@@ -30,6 +30,23 @@ const Header = () => {
     setMobileOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMobileOpen(false);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [mobileOpen]);
+
   const darkHeroRoutes = [
     "/",
     "/portfolio",
@@ -117,6 +134,7 @@ const Header = () => {
             }`}
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -124,8 +142,9 @@ const Header = () => {
       </div>
 
       <div
+        id="mobile-navigation"
         className={`overflow-hidden border-t border-border/60 bg-background/98 backdrop-blur-2xl transition-all duration-300 lg:hidden ${
-          mobileOpen ? "max-h-[520px] opacity-100" : "max-h-0 border-t-transparent opacity-0"
+          mobileOpen ? "max-h-[520px] opacity-100" : "pointer-events-none max-h-0 border-t-transparent opacity-0"
         }`}
       >
         <nav className="container mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4" aria-label="Navegação mobile">

@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import SEO from "@/components/SEO";
 import RealWorkSection from "@/components/RealWorkSection";
-import { faqs } from "@/components/FAQSection";
+import { faqs } from "@/data/faqs";
 
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
 const BenefitsSection = lazy(() => import("@/components/BenefitsSection"));

@@ -71,6 +71,8 @@ components:
   button-dark-hover:
     backgroundColor: "{colors.button-dark-hover}"
   header-cta:
+    backgroundColor: "{colors.button-light}"
+    textColor: "#18151e"
     rounded: "{rounded.button}"
     padding: "11px 18px"
   process-tag:
@@ -86,7 +88,7 @@ components:
 
 Kubo Web combines the confidence of an editorial studio with the precision of a digital craft practice. Dark, spacious fields carry large geometric type; selective serif italics add a human inflection. Lavender connects the fine geometry, small details, and decisive actions. Pale sections introduce a deliberate change in reading pace.
 
-This system records the implemented homepage in `src/pages/StudioHome.tsx`, `src/styles/studio.css`, and `src/components/LineSculpture.tsx`. Existing internal routes retain earlier styling and are not yet fully migrated. Use this world as the reference for intentional future migrations; do not treat incumbent inner-route styles as tokens of this system. The homepage composition is recorded separately in `.impeccable/surfaces/home.md`.
+This system records the implemented homepage in `src/pages/StudioHome.tsx`, `src/styles/studio.css`, and `src/components/LineSculpture.tsx`. The portfolio and both case pages share this visual system. Header and footer are shared across all routes; remaining service, studio, contact and support page bodies retain earlier styling. Use this world as the reference for intentional future migrations; do not treat incumbent inner-route styles as tokens of this system. The homepage composition is recorded separately in `.impeccable/surfaces/home.md`.
 
 **Key Characteristics:**
 - Spacious editorial hierarchy with compact supporting labels.
@@ -146,13 +148,13 @@ Motion is restrained: filled buttons rise (3px) on hover, project images rise (6
 
 ## Shapes
 
-Use small, functional corners: buttons (7px), compact controls (6px), tags (4px), and project image frames (12px). Thin borders and open rows are more common than panel boxes. Circular forms are reserved for small symbols and the process orbit. Geometric wire contours provide the expressive form; the interface remains legible and spare.
+Use small, functional corners: buttons (7px), compact controls (6px), tags (4px), and project image frames (12px). Thin borders and open rows are more common than panel boxes. Circular forms are reserved for small symbols and workflow nodes. Geometric wire contours provide the expressive form; the interface remains legible and spare.
 
 ## Components
 
 ### Buttons and links
 
-Filled buttons use generous horizontal breathing room, a trailing arrow, and the frontmatter padding. The light variant belongs on dark surfaces; the dark variant belongs on pale surfaces. Their minimum height is (54px). Mobile reduces type to (13px) and padding to (15px 19px). Secondary actions are plain text links with a small arrow and an underline on hover. The header action is outlined with a fine border (`#5a5669`), becoming subtly filled (`#26232f`) on hover.
+Filled buttons use generous horizontal breathing room, a trailing arrow, and the frontmatter padding. The light variant belongs on dark surfaces; the dark variant belongs on pale surfaces. Their minimum height is (54px). Mobile reduces type to (13px) and padding to (15px 19px). Secondary actions are plain text links with a small arrow and an underline on hover. The shared header action uses the light lavender fill and dark text, brightening on hover. Active internal navigation is underlined.
 
 Visible keyboard focus uses a (2px) outline with offset (6px): lavender (`#a899ef`) on dark surfaces and deep plum (`#594074`) on light ones. Preserve focus visibility on all controls.
 
@@ -162,7 +164,7 @@ The fixed header is near-opaque dark with a bottom rule. Desktop links use compa
 
 ### Project frames
 
-Real screenshots sit inside gently rounded, colored frames with a minimal browser strip. Image content remains identifiable; captions and service descriptions sit below. Hover reveals an exploration cue and subtly lifts the screenshot. Keyboard focus reveals the same cue, and mobile displays it persistently.
+Real screenshots sit inside gently rounded, colored frames with a minimal browser strip. Image content remains identifiable; captions and service descriptions sit below. Paired desktop and mobile captures show the responsive delivery. Factual descriptions and discipline labels appear below the name. Hover and keyboard focus reveal a desktop exploration cue; mobile relies on the visible title and arrow without an overlay covering the work.
 
 ### Service selector
 
@@ -170,7 +172,7 @@ Service choices are open rows on lilac paper, separated by rules. Selected text 
 
 ### Process selector and tags
 
-Four numbered tabs use a faint selected background and lavender bottom rule. The panel combines a large quiet numeral, circular code symbol, explanation, compact bordered tags, and a concrete output. Arrow Left/Right, Home, and End move selection and focus. Tags are passive labels, not buttons.
+Four numbered tabs use a faint selected background and lavender bottom rule. The panel combines a connected four-step workflow, current-step indicator, explanation, compact bordered tags, and a concrete output. Arrow Left/Right, Home, and End move selection and focus. Tags are passive labels, not buttons.
 
 ### FAQ
 

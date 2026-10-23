@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowDown,
@@ -7,15 +7,16 @@ import {
   ArrowUpRight,
   Check,
   Code2,
-  Menu,
   MessageCircle,
   Minus,
   Plus,
-  X,
 } from "lucide-react";
-import BrandMark from "@/components/BrandMark";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import LineSculpture from "@/components/LineSculpture";
 import SEO from "@/components/SEO";
+import ProjectGallery from "@/components/ProjectGallery";
+import StudioContact from "@/components/StudioContact";
 import { faqs } from "@/data/faqs";
 import "@/styles/studio.css";
 
@@ -110,80 +111,6 @@ const steps = [
     tags: ["Revisão", "SEO", "Publicação"],
   },
 ];
-
-function StudioNavigation() {
-  const [open, setOpen] = useState(false);
-  const toggleRef = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    if (!open) return;
-    const close = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-        toggleRef.current?.focus();
-      }
-    };
-    window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
-  }, [open]);
-  return (
-    <header className="kw-header">
-      <div className="kw-header-inner">
-        <Link to="/" aria-label="Kubo Web — início" className="kw-brand">
-          <BrandMark inverse />
-        </Link>
-        <nav className="kw-nav" aria-label="Navegação principal">
-          <a href="#projetos">Projetos</a>
-          <a href="#servicos">Serviços</a>
-          <a href="#processo">Como funciona</a>
-          <Link to="/sobre">O estúdio</Link>
-        </nav>
-        <a
-          className="kw-header-cta"
-          href={whatsapp()}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vamos conversar <ArrowUpRight size={16} />
-        </a>
-        <button
-          ref={toggleRef}
-          type="button"
-          className="kw-menu-toggle"
-          onClick={() => setOpen(!open)}
-          aria-label={open ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={open}
-          aria-controls="studio-mobile-nav"
-        >
-          {open ? <X /> : <Menu />}
-        </button>
-      </div>
-      {open && (
-        <nav
-          id="studio-mobile-nav"
-          className="kw-mobile-nav"
-          aria-label="Navegação mobile"
-          onClick={() => setOpen(false)}
-        >
-          <a href="#projetos">
-            Projetos <ArrowUpRight />
-          </a>
-          <a href="#servicos">
-            Serviços <ArrowUpRight />
-          </a>
-          <a href="#processo">
-            Como funciona <ArrowUpRight />
-          </a>
-          <Link to="/sobre">
-            O estúdio <ArrowUpRight />
-          </Link>
-          <a href={whatsapp()} target="_blank" rel="noopener noreferrer">
-            Conversar no WhatsApp <MessageCircle />
-          </a>
-        </nav>
-      )}
-    </header>
-  );
-}
 
 function ServiceSelector() {
   const [active, setActive] = useState(0);
@@ -354,12 +281,27 @@ function Process() {
           tabIndex={0}
           aria-labelledby={`process-tab-${active}`}
         >
-          <div className="kw-process-art" aria-hidden="true">
-            <span className="kw-process-number">0{active + 1}</span>
-            <div className="kw-process-orbit">
-              <Code2 size={36} />
-            </div>
-          </div>
+          <ol className="kw-workflow" aria-label="Resumo das etapas do projeto">
+            {steps.map((item, index) => (
+              <li
+                key={item.name}
+                aria-current={index === active ? "step" : undefined}
+              >
+                <span className="kw-workflow-node">
+                  {index < active ? (
+                    <Check size={16} />
+                  ) : (
+                    String(index + 1).padStart(2, "0")
+                  )}
+                </span>
+                <div>
+                  <strong>{item.name}</strong>
+                  <span>{item.output}</span>
+                </div>
+                {index === active && <ArrowRight size={18} />}
+              </li>
+            ))}
+          </ol>
           <div className="kw-process-copy">
             <h3>{step.title}</h3>
             <p>{step.text}</p>
@@ -398,7 +340,7 @@ const StudioHome = () => (
     <a href="#conteudo" className="kw-skip">
       Pular para o conteúdo
     </a>
-    <StudioNavigation />
+    <Header />
     <main id="conteudo">
       <section className="kw-hero">
         <div className="kw-hero-topline kw-wrap">
@@ -460,68 +402,7 @@ const StudioHome = () => (
               Ver portfólio completo <ArrowUpRight size={19} />
             </Link>
           </div>
-          <div className="kw-project-grid">
-            <Link
-              to="/portfolio/helena-avila"
-              className="kw-project kw-project-helena"
-            >
-              <div className="kw-project-image">
-                <div className="kw-browser-bar">
-                  <span />
-                  <span />
-                  <span />
-                  <small>helenaavilapsi.com.br</small>
-                </div>
-                <img
-                  src="/projects/helena-desktop.png"
-                  alt="Site de Helena Ávila: composição clara com fotografia e apresentação de psicoterapia"
-                  width="1265"
-                  height="712"
-                  loading="lazy"
-                />
-                <span className="kw-project-open">
-                  Explorar projeto <ArrowUpRight size={18} />
-                </span>
-              </div>
-              <div className="kw-project-info">
-                <div>
-                  <h3>Helena Ávila</h3>
-                  <p>Psicoterapia · Site institucional</p>
-                </div>
-                <ArrowUpRight size={27} />
-              </div>
-            </Link>
-            <Link
-              to="/portfolio/cristiano-avila"
-              className="kw-project kw-project-cristiano"
-            >
-              <div className="kw-project-image">
-                <div className="kw-browser-bar">
-                  <span />
-                  <span />
-                  <span />
-                  <small>cristiano-avila-site.vercel.app</small>
-                </div>
-                <img
-                  src="/projects/cristiano-desktop.png"
-                  alt="Site de Cristiano Ávila: tipografia editorial e retrato do profissional"
-                  width="1265"
-                  height="712"
-                  loading="lazy"
-                />
-                <span className="kw-project-open">
-                  Explorar projeto <ArrowUpRight size={18} />
-                </span>
-              </div>
-              <div className="kw-project-info">
-                <div>
-                  <h3>Cristiano Ávila</h3>
-                  <p>Psicologia clínica · Site institucional</p>
-                </div>
-                <ArrowUpRight size={27} />
-              </div>
-            </Link>
-          </div>
+          <ProjectGallery />
           <div className="kw-work-note">
             <p>
               Cada negócio tem uma história.
@@ -616,73 +497,9 @@ const StudioHome = () => (
           </div>
         </div>
       </section>
-      <section className="kw-contact" id="contato">
-        <div className="kw-wrap">
-          <div className="kw-contact-top">
-            <span>Uma boa conversa pode mudar tudo.</span>
-            <MessageCircle size={25} />
-          </div>
-          <h2>
-            Vamos construir
-            <br />
-            <em>o seu próximo passo?</em>
-          </h2>
-          <div className="kw-contact-bottom">
-            <p>
-              Conte sua ideia. A gente conversa sobre
-              <br />o melhor caminho para tirá-la do papel.
-            </p>
-            <a
-              href={whatsapp()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="kw-button kw-button-dark"
-            >
-              Conversar sobre meu projeto <ArrowUpRight size={19} />
-            </a>
-          </div>
-        </div>
-      </section>
+      <StudioContact />
     </main>
-    <footer className="kw-footer">
-      <div className="kw-wrap">
-        <div className="kw-footer-top">
-          <Link to="/" aria-label="Kubo Web — início">
-            <BrandMark inverse />
-          </Link>
-          <p>
-            Estratégia, design e desenvolvimento.
-            <br />
-            Atendimento online em todo o Brasil.
-          </p>
-          <div>
-            <a href="mailto:contato.kuboweb@gmail.com">
-              contato.kuboweb@gmail.com <ArrowUpRight size={14} />
-            </a>
-            <a
-              href="https://www.instagram.com/kuboweb_oficial/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram <ArrowUpRight size={14} />
-            </a>
-          </div>
-        </div>
-        <div className="kw-footer-word" aria-hidden="true">
-          kubo
-        </div>
-        <div className="kw-footer-bottom">
-          <span>© {new Date().getFullYear()} Kubo Web</span>
-          <nav aria-label="Links do rodapé">
-            <Link to="/sobre">O estúdio</Link>
-            <Link to="/contato">Contato</Link>
-            <Link to="/manutencao">Manutenção</Link>
-            <Link to="/faq">Perguntas frequentes</Link>
-          </nav>
-          <span>Ideias com forma. Marcas com presença.</span>
-        </div>
-      </div>
-    </footer>
+    <Footer />
   </div>
 );
 export default StudioHome;

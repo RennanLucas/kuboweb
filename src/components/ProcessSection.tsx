@@ -38,7 +38,10 @@ const steps = [
 
 const ProcessSection = () => {
   return (
-    <section id="processo" className="bg-[#f3f4f6] px-4 py-24 md:py-36">
+    <section
+      id="processo"
+      className="bg-[#f3f4f6] px-4 py-24 [content-visibility:auto] [contain-intrinsic-size:850px] md:py-36"
+    >
       <div className="container mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:h-fit">
@@ -56,13 +59,13 @@ const ProcessSection = () => {
 
             <div className="mt-9 hidden max-w-[430px] rounded-[26px] border border-border/70 bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,.05)] md:block">
               <div className="flex items-center justify-between">
-                <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Project flow</span>
-                <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-emerald-700">Live</span>
+                <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Sequência de trabalho</span>
+                <span className="rounded-full bg-primary/8 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-primary">4 etapas</span>
               </div>
               <div className="mt-5 grid grid-cols-4 gap-2">
-                {steps.map((step, index) => (
+                {steps.map((step) => (
                   <div key={step.number} className="text-center">
-                    <div className={`mx-auto h-1.5 rounded-full ${index < 2 ? "bg-primary" : "bg-border"}`} />
+                    <div className="mx-auto h-1.5 rounded-full bg-primary/25" />
                     <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{step.label}</p>
                   </div>
                 ))}
@@ -114,7 +117,7 @@ const ProcessSection = () => {
                     <div className={`mt-8 flex items-center justify-between border-t pt-4 ${index === 1 ? "border-white/10" : "border-border/70"}`}>
                       <span className={`flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.17em] ${index === 1 ? "text-white/35" : "text-muted-foreground"}`}>
                         <CheckCircle2 className={`h-3.5 w-3.5 ${index === 1 ? "text-[#8bb6ff]" : "text-primary"}`} />
-                        Etapa definida
+                        Etapa do processo
                       </span>
                       <ArrowUpRight className={`h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${index === 1 ? "text-white/35" : "text-muted-foreground"}`} />
                     </div>

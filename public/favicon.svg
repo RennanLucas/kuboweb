@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kubo Web">
+  <rect width="64" height="64" rx="18" fill="#07101f"/>
+  <rect x="8" y="8" width="48" height="48" rx="14" fill="none" stroke="#ffffff" stroke-opacity=".08"/>
+  <path d="M22 17v30" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  <path d="M28 32 44 17M28 32l17 15" fill="none" stroke="#79a9ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m43 14 7 7M43 50l7-7" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width="2" stroke-linecap="round"/>
+</svg>

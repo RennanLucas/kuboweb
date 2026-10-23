@@ -35,10 +35,9 @@ const Index = () => {
 
       <Header />
       <HeroSection />
-
-      <Suspense fallback={<div className="h-[58px] bg-[#f7f8fa]" />}><StackRailSection /></Suspense>
       <RealWorkSection />
       <Suspense fallback={<SectionFallback />}><StudioShowcaseSection /></Suspense>
+      <Suspense fallback={<div className="h-[58px] bg-[#f7f8fa]" />}><StackRailSection /></Suspense>
       <Suspense fallback={<SectionFallback />}><ServicesSection /></Suspense>
       <Suspense fallback={<SectionFallback />}><ComparisonSection /></Suspense>
       <Suspense fallback={<SectionFallback />}><ProcessSection /></Suspense>

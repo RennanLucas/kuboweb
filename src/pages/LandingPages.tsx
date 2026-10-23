@@ -1,209 +1,61 @@
-import {
-  Target,
-  Zap,
-  TrendingUp,
-  MessageCircle,
-  Megaphone,
-  Rocket,
-  Calendar,
-  ShoppingBag,
-  Users,
-} from "lucide-react";
+import { Calendar, FileText, MessageCircle, Megaphone, MousePointerClick, Rocket, Target, Users } from "lucide-react";
 import ServicePageTemplate, { type ServicePageContent } from "@/components/ServicePageTemplate";
 import heroImage from "@/assets/service-landing-new.jpg";
 
 const content: ServicePageContent = {
   seo: {
     title: "Landing Pages",
-    description:
-      "Landing pages de alta conversão em São Paulo. Design persuasivo, copywriting estratégico e integração com WhatsApp para transformar visitantes em clientes.",
+    description: "Criação de landing pages profissionais para campanhas, ofertas, lançamentos e geração de contatos, com design responsivo e caminho claro até a ação.",
     path: "/servicos/landing-pages",
   },
   hero: {
     badge: "Landing Pages",
-    title: "Páginas focadas",
-    highlight: "100% em conversão",
-    subtitle:
-      "Landing pages projetadas com copywriting persuasivo, gatilhos comprovados e design otimizado para transformar cliques em campanhas pagas em leads e vendas reais.",
+    title: "Uma página com",
+    highlight: "um objetivo muito claro",
+    subtitle: "Landing pages construídas para apresentar uma oferta sem distrações, organizar a mensagem e conduzir o visitante até WhatsApp, formulário, cadastro ou compra.",
     image: heroImage,
-    imageAlt: "Landing page de alta conversão em desktop e mobile",
-    whatsappHref:
-      "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20criar%20minha%20Landing%20Page.%20Pode%20me%20explicar%20como%20funciona%3F",
-    quickFacts: [
-      { label: "Prazo médio", value: "7 dias" },
-      { label: "Conversão típica", value: "8-15%" },
-      { label: "Testes A/B", value: "Inclusos" },
-    ],
+    imageAlt: "Landing page profissional em desktop e mobile",
+    whatsappHref: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Kubo%20Web%20e%20quero%20criar%20uma%20Landing%20Page.%20Pode%20me%20explicar%20como%20funciona%3F",
+    quickFacts: [],
   },
   benefits: [
-    {
-      icon: Target,
-      title: "Foco absoluto",
-      text: "Uma única ação, sem distrações. Cada elemento existe para levar o visitante à conversão.",
-    },
-    {
-      icon: Zap,
-      title: "Velocidade extrema",
-      text: "Carregamento em menos de 2s no mobile — essencial para não perder leads em campanhas pagas.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Copy estratégica",
-      text: "Textos persuasivos baseados em gatilhos mentais e frameworks comprovados (AIDA, PAS, StoryBrand).",
-    },
-    {
-      icon: MessageCircle,
-      title: "Conversão direta",
-      text: "WhatsApp, formulários otimizados e pixel de conversão configurados desde o primeiro dia.",
-    },
+    { icon: Target, title: "Mensagem focada", text: "A página é organizada em torno de uma oferta e de uma ação principal, reduzindo caminhos desnecessários." },
+    { icon: MousePointerClick, title: "CTA claro", text: "Botões, formulários e WhatsApp entram em pontos coerentes com a leitura e o estágio da decisão." },
+    { icon: FileText, title: "Conteúdo estruturado", text: "Headline, benefícios, objeções e detalhes da oferta são organizados para facilitar entendimento e comparação." },
+    { icon: MessageCircle, title: "Integração com contato", text: "A página pode ser conectada ao WhatsApp, formulários e ferramentas de rastreamento conforme o projeto." },
   ],
   process: [
-    {
-      title: "Estratégia e persona",
-      description:
-        "Mapeamos o público-alvo, dores, objeções e desejos. Definimos a promessa central e a estrutura persuasiva ideal para sua oferta.",
-    },
-    {
-      title: "Copywriting persuasivo",
-      description:
-        "Escrevemos headlines, subtítulos, provas sociais, CTAs e microcopy usando frameworks comprovados de conversão.",
-    },
-    {
-      title: "Design de conversão",
-      description:
-        "Layout otimizado com hierarquia visual clara, gatilhos visuais e CTAs estrategicamente posicionados ao longo da página.",
-    },
-    {
-      title: "Desenvolvimento otimizado",
-      description:
-        "Código enxuto, imagens otimizadas e carregamento assíncrono. Meta de PageSpeed 95+ no mobile para não queimar seu orçamento de mídia.",
-    },
-    {
-      title: "Rastreamento e testes A/B",
-      description:
-        "Configuramos Kuboweb Analytics (30 dias grátis) e Google Ads.",
-    },
+    { title: "Entender a oferta", description: "Definimos produto ou serviço, público, origem do tráfego e a ação que a página precisa incentivar." },
+    { title: "Organizar a mensagem", description: "Estruturamos as seções em uma sequência que apresenta contexto, proposta, benefícios, detalhes e próximos passos." },
+    { title: "Criar a interface", description: "Desenhamos a página com hierarquia forte, leitura fácil e adaptação para celular e desktop." },
+    { title: "Desenvolver e integrar", description: "A interface vira código e recebe as integrações necessárias, como WhatsApp, formulário e tags de campanha." },
+    { title: "Revisar e publicar", description: "Testamos o fluxo principal e publicamos a página no endereço definido para a campanha." },
   ],
   deliverables: [
-    {
-      title: "Estratégia & Copy",
-      items: [
-        "Análise de persona e concorrência",
-        "Headline principal + variações A/B",
-        "Copywriting de todas as seções",
-        "Definição de gatilhos mentais",
-        "Objeções mapeadas e respondidas",
-      ],
-    },
-    {
-      title: "Design & UX",
-      items: [
-        "Design premium e responsivo",
-        "Hero de alto impacto",
-        "Seção de benefícios visual",
-        "Provas sociais e depoimentos",
-        "CTAs otimizados em múltiplos pontos",
-      ],
-    },
-    {
-      title: "Performance",
-      items: [
-        "Carregamento sub 2s no mobile",
-        "PageSpeed 95+ (mobile e desktop)",
-        "Imagens otimizadas (WebP + lazy)",
-        "Core Web Vitals aprovados",
-        "SEO técnico on-page",
-      ],
-    },
-    {
-      title: "Integrações",
-      items: [
-        "WhatsApp Business com mensagem pronta",
-        "Formulário com integração ao seu CRM",
-        "Kuboweb Analytics (30 dias grátis)",
-        "Google Ads",
-        "Newsletter e captura de leads",
-      ],
-    },
-    {
-      title: "Otimização contínua",
-      items: [
-        "2 variações A/B na entrega",
-        "Heatmap configurado",
-        "Análise dos primeiros 30 dias",
-        "Sugestões de melhoria",
-        "Ajustes de copy pós-lançamento",
-      ],
-    },
-    {
-      title: "Suporte",
-      items: [
-        "Suporte via WhatsApp",
-        "Orientações para edição de conteúdo",
-        "Hospedagem premium inclusa",
-        "Ajustes futuros via plano de manutenção",
-      ],
-    },
+    { title: "Estratégia da página", items: ["Definição do objetivo principal", "Organização da oferta", "Hierarquia das seções", "Mapeamento dos CTAs"] },
+    { title: "Conteúdo", items: ["Headline e subtítulos", "Estrutura de benefícios", "Tratamento de dúvidas e objeções", "Microcopy de botões e formulários"] },
+    { title: "Design & UX", items: ["Layout sob medida", "Versão mobile e desktop", "Hierarquia visual", "Interações quando fizerem sentido"] },
+    { title: "Integrações", items: ["WhatsApp", "Formulário de contato ou cadastro", "Tags de conversão conforme campanha", "Analytics conforme a solução escolhida"] },
+    { title: "Performance", items: ["Imagens otimizadas", "Carregamento responsivo", "Boas práticas técnicas", "Revisão em dispositivos diferentes"] },
+    { title: "Publicação", items: ["Domínio ou subdomínio", "HTTPS", "Validação do fluxo principal", "Ajustes previstos no escopo"] },
   ],
   examples: [
-    {
-      icon: Megaphone,
-      title: "Campanhas de Google Ads",
-      description:
-        "Página de destino dedicada para maximizar o ROI de cada real investido em mídia paga.",
-    },
-    {
-      icon: Rocket,
-      title: "Lançamento de produtos",
-      description:
-        "Estrutura persuasiva para gerar expectativa e converter no dia do lançamento.",
-    },
-    {
-      icon: Calendar,
-      title: "Captação para eventos",
-      description:
-        "Cursos, workshops, webinars — landing pages otimizadas para inscrições qualificadas.",
-    },
-    {
-      icon: Users,
-      title: "Geração de leads B2B",
-      description:
-        "Iscas digitais, agendamentos de demo e formulários que qualificam antes do vendedor entrar em contato.",
-    },
+    { icon: Megaphone, title: "Campanhas de Google Ads", description: "Uma página específica para receber o tráfego de uma oferta ou serviço anunciado." },
+    { icon: Rocket, title: "Lançamentos", description: "Para apresentar um novo produto, serviço, lista de espera ou condição especial em uma página dedicada." },
+    { icon: Calendar, title: "Eventos e inscrições", description: "Para workshops, webinars, eventos e outras ações que precisam centralizar informação e cadastro." },
+    { icon: Users, title: "Captação de contatos", description: "Para operações B2B ou de serviços que querem receber pedidos de orçamento, diagnósticos ou agendamentos." },
   ],
   faq: [
-    {
-      question: "Qual é a diferença entre landing page e site institucional?",
-      answer:
-        "A landing page tem um único objetivo (converter em lead ou venda) e uma única página, sem menu de navegação. O site institucional apresenta toda a empresa com várias páginas.",
-    },
-    {
-      question: "Preciso ter Google Ads rodando para ter uma landing page?",
-      answer:
-        "Não. Mas ela funciona muito melhor com tráfego pago (Google Ads, Meta Ads, Email Marketing). Se você só quer presença orgânica, um site institucional pode ser mais indicado.",
-    },
-    {
-      question: "Vocês fazem os testes A/B após a entrega?",
-      answer:
-        "Sim. Entregamos com 2 variações prontas para teste e acompanhamos os primeiros 30 dias sugerindo otimizações baseadas em dados reais.",
-    },
-    {
-      question: "A landing page vem com hospedagem?",
-      answer:
-        "Sim. Hospedagem premium, domínio configurado, SSL e CDN global inclusos no projeto.",
-    },
-    {
-      question: "Quanto tempo até estar no ar?",
-      answer:
-        "Em média 7 dias úteis após a aprovação do briefing e recebimento dos conteúdos base (logo, imagens, oferta).",
-    },
+    { question: "Qual é a diferença entre landing page e site institucional?", answer: "A landing page normalmente concentra uma oferta e uma ação em uma única página. O site institucional apresenta a empresa de forma mais ampla, com diferentes páginas e caminhos de navegação." },
+    { question: "Preciso ter anúncios para usar uma landing page?", answer: "Não. Ela também pode ser usada em redes sociais, e-mail, QR Code, campanhas orgânicas ou links diretos. O melhor canal depende da estratégia do negócio." },
+    { question: "Vocês configuram rastreamento?", answer: "Podemos configurar tags e eventos necessários para a campanha conforme as ferramentas escolhidas e o escopo contratado." },
+    { question: "A landing page vem com hospedagem?", answer: "A publicação e a hospedagem são definidas no projeto. Podemos configurar o ambiente e o domínio conforme a solução escolhida." },
+    { question: "Quanto tempo leva para ficar pronta?", answer: "O prazo depende do conteúdo, do tamanho da página, das integrações e das aprovações. O cronograma é definido antes do início do projeto." },
   ],
   finalCta: {
-    title: "Pronto para transformar cliques em clientes?",
-    description:
-      "Faça sua próxima campanha pagar-se a si mesma. Vamos analisar sua oferta e propor a estrutura ideal para maximizar sua conversão.",
-    whatsappHref:
-      "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20quero%20criar%20minha%20Landing%20Page.%20Pode%20me%20explicar%20como%20funciona%3F",
+    title: "Sua campanha precisa de uma página mais clara?",
+    description: "Envie a oferta, o objetivo e de onde virá o tráfego. A Kubo Web ajuda a definir a estrutura adequada antes de começar o desenvolvimento.",
+    whatsappHref: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Kubo%20Web%20e%20quero%20criar%20uma%20Landing%20Page.%20Pode%20me%20explicar%20como%20funciona%3F",
   },
 };
 

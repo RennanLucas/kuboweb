@@ -63,12 +63,12 @@ const CidadeLanding = () => {
       a: `Sim. O atendimento pode ser feito remotamente por WhatsApp, e-mail e reunião online. Briefing, aprovações e publicação não dependem de atendimento presencial em ${cidade.nome}.`,
     },
     {
-      q: `Quanto tempo leva para o site ficar pronto?`,
+      q: "Quanto tempo leva para o site ficar pronto?",
       a: "O cronograma depende da quantidade de páginas, conteúdo, integrações e aprovações. O prazo é definido junto com o escopo antes do início do projeto.",
     },
     {
       q: `É possível trabalhar SEO para buscas relacionadas a ${cidade.nome}?`,
-      a: `O site pode receber estrutura técnica, títulos, descrições e conteúdo local relevante para facilitar a indexação. Posição no Google depende de concorrência, autoridade, conteúdo e outros fatores, por isso não existe garantia de ranking específico.`,
+      a: "O site pode receber estrutura técnica, títulos, descrições e conteúdo local relevante para facilitar a indexação. Posição no Google depende de concorrência, autoridade, conteúdo e outros fatores, por isso não existe garantia de ranking específico.",
     },
     {
       q: "A Kubo Web oferece manutenção depois da publicação?",
@@ -147,16 +147,25 @@ const CidadeLanding = () => {
       <section className="px-4 py-24 md:py-36">
         <div className="container mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-primary">Contexto local</p>
-            <h2 className="mt-5 text-4xl font-heading font-semibold leading-[0.98] tracking-[-0.05em] text-foreground md:text-6xl">Presença digital em {cidade.nome}.</h2>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-primary">Presença local</p>
+            <h2 className="mt-5 text-4xl font-heading font-semibold leading-[0.98] tracking-[-0.05em] text-foreground md:text-6xl">Um ponto digital próprio para quem busca seu negócio em {cidade.nome}.</h2>
           </div>
           <div className="rounded-[34px] border border-border/70 bg-white p-7 md:p-10">
-            <p className="text-base leading-8 text-muted-foreground">{cidade.diferencial}</p>
-            <div className="mt-8 border-t border-border/70 pt-7">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">Setores presentes no contexto da cidade</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {cidade.setores.map((setor) => <span key={setor} className="rounded-full border border-border/70 bg-[#f4f5f7] px-3 py-1.5 text-xs font-medium text-foreground/70">{setor}</span>)}
-              </div>
+            <p className="text-base leading-8 text-muted-foreground">
+              Um site pode reunir apresentação, serviços, localização, formas de contato e páginas específicas para campanhas em um endereço controlado pelo próprio negócio. Quando existe interesse em buscas locais, a estrutura também pode ser preparada para trabalhar conteúdo relevante ligado a {cidade.nome} sem prometer posições ou resultados que dependem do mercado.
+            </p>
+            <div className="mt-8 grid gap-3 border-t border-border/70 pt-7 sm:grid-cols-3">
+              {[
+                ["01", "Apresentar", "Explicar com clareza o que a empresa faz e para quem."],
+                ["02", "Ser encontrado", "Dar ao Google uma estrutura técnica e conteúdo organizado para indexação."],
+                ["03", "Gerar contato", "Conduzir o visitante até WhatsApp, formulário, cadastro ou compra."],
+              ].map(([number, itemTitle, text]) => (
+                <div key={number} className="rounded-2xl bg-[#f4f5f7] p-4">
+                  <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-primary">{number}</span>
+                  <h3 className="mt-3 font-heading font-semibold text-foreground">{itemTitle}</h3>
+                  <p className="mt-2 text-xs leading-5 text-muted-foreground">{text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

@@ -1,96 +1,62 @@
-import { MessageSquare, Palette, Rocket } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const steps = [
   {
-    icon: MessageSquare,
     number: "01",
-    title: "Briefing",
-    description: "Entendo seu negócio, objetivos e o que você precisa no site.",
+    title: "Entender",
+    description:
+      "Primeiro definimos o objetivo do site, o público, os serviços que precisam aparecer e qual ação o visitante deve tomar.",
   },
   {
-    icon: Palette,
     number: "02",
-    title: "Criação",
-    description: "Desenvolvo o site com design moderno e foco em resultados.",
+    title: "Construir",
+    description:
+      "A estrutura, o conteúdo e o visual são organizados para que a página fique clara, atual e coerente com o posicionamento do negócio.",
   },
   {
-    icon: Rocket,
     number: "03",
-    title: "Publicação",
-    description: "Site no ar, pronto para receber clientes e gerar vendas.",
+    title: "Publicar",
+    description:
+      "Depois dos ajustes finais, o projeto é publicado, testado no celular e no desktop e fica pronto para receber acessos.",
   },
 ];
 
 const ProcessSection = () => {
   return (
-    <section id="processo" className="py-24 md:py-32 px-4 bg-card/20">
-      <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-14 md:mb-20 space-y-4">
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="section-label justify-center"
-          >
-            Processo
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-            className="section-title"
-          >
-            Como funciona
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15, duration: 0.4 }}
-            className="section-subtitle"
-          >
-            Simples, direto e sem burocracia.
-          </motion.p>
+    <section id="processo" className="px-4 py-20 md:py-28">
+      <div className="container mx-auto max-w-6xl">
+        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end mb-10 md:mb-14">
+          <div>
+            <p className="section-label mb-4">Processo</p>
+            <h2 className="section-title max-w-xl">Um projeto bom começa antes do código.</h2>
+          </div>
+          <p className="max-w-lg text-muted-foreground leading-relaxed lg:justify-self-end">
+            O trabalho segue uma sequência simples para evitar retrabalho e deixar claro o que está sendo construído em cada etapa.
+          </p>
         </div>
 
-        <div className="relative">
-          {/* Connection line - desktop */}
-          <div className="hidden md:block absolute top-[2rem] left-[16.66%] right-[16.66%] h-px">
-            <div className="w-full h-full bg-gradient-to-r from-primary/5 via-primary/25 to-primary/5" />
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-primary/10 via-primary/40 to-primary/10 blur-sm" />
-          </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {steps.map((step, index) => (
+            <motion.article
+              key={step.number}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ delay: index * 0.07, duration: 0.4 }}
+              className="group relative min-h-[280px] overflow-hidden rounded-[26px] border border-border/70 bg-card p-6 md:p-8"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <span className="text-sm font-semibold tracking-[0.18em] text-primary">{step.number}</span>
+                <ArrowDownRight className="h-5 w-5 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1 group-hover:text-primary" />
+              </div>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-10">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15, duration: 0.4 }}
-                className="relative text-center group"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mx-auto mb-6 shadow-lg shadow-primary/25 relative z-10 ring-2 ring-primary/20 ring-offset-4 ring-offset-background group-hover:shadow-xl group-hover:shadow-primary/30 transition-shadow duration-300">
-                  <step.icon className="w-7 h-7 text-primary-foreground" />
-                </div>
-
-                <div className="space-y-2.5">
-                  <span className="text-[11px] font-bold text-primary/70 uppercase tracking-[0.25em]">
-                    Passo {step.number}
-                  </span>
-                  <h3 className="text-xl font-heading font-semibold text-foreground">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm max-w-[250px] mx-auto">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              <div className="mt-24 md:mt-28">
+                <h3 className="text-2xl font-heading font-bold tracking-[-0.03em] text-foreground">{step.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">{step.description}</p>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

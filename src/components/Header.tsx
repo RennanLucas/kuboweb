@@ -19,10 +19,10 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 150, damping: 28, mass: 0.22 });
+  const progress = useSpring(scrollYProgress, { stiffness: 180, damping: 32, mass: 0.2 });
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 22);
+    const onScroll = () => setScrolled(window.scrollY > 26);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -55,52 +55,53 @@ const Header = () => {
     "/guia/investimento-site-profissional",
   ];
 
-  const darkHero =
+  const hasDarkHero =
     darkHeroRoutes.includes(location.pathname) ||
     location.pathname.startsWith("/servicos/") ||
     location.pathname.startsWith("/criacao-de-sites-");
 
-  const inverse = darkHero && !scrolled;
+  const inverse = hasDarkHero && !scrolled;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-5 md:pt-4">
+    <header className="pointer-events-none fixed inset-x-0 top-3 z-50 px-3 md:top-4 md:px-5">
       <motion.div
         aria-hidden="true"
-        className="fixed inset-x-0 top-0 h-[2px] origin-left bg-[#78a7ff]"
+        className="fixed left-0 right-0 top-0 h-[2px] origin-left bg-[#7ea8ff]"
         style={{ scaleX: progress }}
       />
 
       <div
-        className={`mx-auto flex h-[64px] max-w-[1320px] items-center justify-between rounded-[20px] border px-4 transition-all duration-500 md:h-[68px] md:px-5 ${
+        className={`pointer-events-auto mx-auto flex max-w-[1240px] items-center justify-between rounded-full border px-3 py-2 transition-all duration-500 md:px-4 ${
           inverse
-            ? "border-white/[0.1] bg-[#07101f]/[0.58] shadow-[0_18px_60px_rgba(0,0,0,.12)] backdrop-blur-2xl"
-            : "border-black/[0.07] bg-white/[0.88] shadow-[0_18px_55px_rgba(8,17,31,.08)] backdrop-blur-2xl"
+            ? "border-white/10 bg-[#080d16]/62 shadow-[0_18px_70px_rgba(0,0,0,.2)] backdrop-blur-2xl"
+            : "border-black/[0.07] bg-white/88 shadow-[0_18px_55px_rgba(15,23,42,.08)] backdrop-blur-2xl"
         }`}
       >
         <Link
           to="/"
+          className="rounded-full px-2 py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7ea8ff]/70"
           aria-label="Kubo Web - Início"
-          className="rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#78a7ff]/[0.6]"
         >
-          <BrandMark inverse={inverse} compact />
+          <BrandMark inverse={inverse} />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegação principal">
-          {navLinks.map((item) => {
-            const active = location.pathname.startsWith(item.href);
+          {navLinks.map((link) => {
+            const active = link.href === "/" ? location.pathname === "/" : location.pathname.startsWith(link.href);
             return (
               <Link
-                key={item.href}
-                to={item.href}
+                key={link.href}
+                to={link.href}
                 className={`relative rounded-full px-4 py-2 text-[13px] font-medium transition-colors ${
-                  inverse ? "text-white/[0.58] hover:text-white" : "text-[#08111f]/[0.55] hover:text-[#08111f]"
-                } ${active ? (inverse ? "text-white" : "text-[#08111f]") : ""}`}
+                  inverse ? "text-white/62 hover:text-white" : "text-[#07101f]/58 hover:text-[#07101f]"
+                } ${active ? (inverse ? "text-white" : "text-[#07101f]") : ""}`}
               >
-                {item.label}
+                {link.label}
                 {active && (
                   <motion.span
-                    layoutId="kubo-nav-dot"
-                    className="absolute bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-[#78a7ff]"
+                    layoutId="kubo-nav-pill"
+                    className={`absolute inset-x-3 -bottom-[2px] h-px ${inverse ? "bg-[#91b5ff]" : "bg-[#2c61dc]"}`}
+                    transition={{ type: "spring", stiffness: 420, damping: 34 }}
                   />
                 )}
               </Link>
@@ -111,21 +112,19 @@ const Header = () => {
         <div className="hidden items-center gap-2 lg:flex">
           <Link
             to="/portfolio"
-            className={`group inline-flex h-10 items-center gap-2 rounded-full px-4 text-[12px] font-semibold transition-colors ${
-              inverse ? "text-white/[0.58] hover:text-white" : "text-[#08111f]/[0.55] hover:text-[#08111f]"
+            className={`inline-flex h-10 items-center gap-2 rounded-full px-4 text-[13px] font-semibold transition-all ${
+              inverse ? "text-white/62 hover:bg-white/[0.05] hover:text-white" : "text-[#07101f]/58 hover:bg-black/[0.035] hover:text-[#07101f]"
             }`}
           >
-            Ver projetos
-            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            Ver trabalho
+            <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex h-10 items-center gap-2 rounded-full px-4 text-[12px] font-semibold transition-all hover:-translate-y-0.5 ${
-              inverse
-                ? "bg-white text-[#07101f] hover:bg-[#eef4ff]"
-                : "bg-[#07101f] text-white hover:bg-[#11233f]"
+            className={`inline-flex h-10 items-center gap-2 rounded-full px-4 text-[13px] font-semibold transition-all hover:-translate-y-0.5 ${
+              inverse ? "bg-white text-[#07101f] hover:bg-[#edf3ff]" : "bg-[#07101f] text-white hover:bg-[#13213a]"
             }`}
           >
             <MessageCircle className="h-3.5 w-3.5" />
@@ -135,51 +134,74 @@ const Header = () => {
 
         <button
           type="button"
-          onClick={() => setMobileOpen((value) => !value)}
-          aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={mobileOpen}
-          className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors lg:hidden ${
-            inverse
-              ? "border-white/[0.12] bg-white/[0.05] text-white"
-              : "border-black/[0.08] bg-black/[0.025] text-[#08111f]"
+          onClick={() => setMobileOpen(true)}
+          className={`inline-flex h-10 w-10 items-center justify-center rounded-full border lg:hidden ${
+            inverse ? "border-white/12 bg-white/[0.045] text-white" : "border-black/[0.08] bg-black/[0.025] text-[#07101f]"
           }`}
+          aria-label="Abrir menu"
+          aria-expanded={mobileOpen}
         >
-          {mobileOpen ? <X className="h-[18px] w-[18px]" /> : <Menu className="h-[18px] w-[18px]" />}
+          <Menu className="h-4.5 w-4.5" />
         </button>
       </div>
 
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -12, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.985 }}
-            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto mt-2 max-w-[1320px] overflow-hidden rounded-[24px] border border-white/[0.1] bg-[#07101f]/[0.96] p-5 text-white shadow-[0_30px_90px_rgba(0,0,0,.32)] backdrop-blur-2xl lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.22 }}
+            className="pointer-events-auto fixed inset-0 z-[60] bg-[#050a13] px-5 py-5 text-white"
           >
-            <nav className="grid" aria-label="Navegação mobile">
-              <Link to="/" className="border-b border-white/[0.08] py-4 text-2xl font-heading font-semibold tracking-[-0.04em]">Início</Link>
-              {navLinks.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="group flex items-center justify-between border-b border-white/[0.08] py-4 text-2xl font-heading font-semibold tracking-[-0.04em] text-white/[0.78] transition-colors hover:text-white"
-                >
-                  {item.label}
-                  <ArrowUpRight className="h-5 w-5 text-white/[0.28] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </Link>
-              ))}
-            </nav>
+            <div className="pointer-events-none absolute inset-0 overflow-hidden">
+              <div className="absolute left-1/2 top-[-240px] h-[620px] w-[620px] -translate-x-1/2 rounded-full bg-[#326cff]/18 blur-[150px]" />
+              <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,.07)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.07)_1px,transparent_1px)] [background-size:64px_64px]" />
+            </div>
 
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white text-sm font-semibold text-[#07101f]"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Falar sobre um projeto
-            </a>
+            <div className="relative mx-auto flex h-full max-w-2xl flex-col">
+              <div className="flex items-center justify-between">
+                <BrandMark inverse />
+                <button
+                  type="button"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/[0.05]"
+                  aria-label="Fechar menu"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              <nav className="mt-16 flex flex-1 flex-col" aria-label="Navegação mobile">
+                {[{ label: "Início", href: "/" }, ...navLinks].map((link, index) => (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.04 + index * 0.045 }}
+                    className="border-b border-white/10"
+                  >
+                    <Link
+                      to={link.href}
+                      className="group flex items-center justify-between py-5 text-[2rem] font-heading font-semibold tracking-[-0.045em] text-white/84"
+                    >
+                      {link.label}
+                      <ArrowUpRight className="h-5 w-5 text-white/28 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 flex min-h-14 items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-[#07101f]"
+              >
+                <MessageCircle className="h-4.5 w-4.5" />
+                Conversar sobre um projeto
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

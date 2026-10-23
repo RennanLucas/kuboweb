@@ -6,17 +6,13 @@
       "has": [{ "type": "host", "value": "kuboweb.com.br" }],
       "destination": "https://www.kuboweb.com.br/:path*",
       "permanent": true
-    },
-    {
-      "source": "/portfolio/:slug",
-      "destination": "/portfolio",
-      "permanent": true
     }
   ],
   "rewrites": [
     { "source": "/sobre", "destination": "/sobre/index.html" },
     { "source": "/servicos", "destination": "/servicos/index.html" },
     { "source": "/portfolio", "destination": "/portfolio/index.html" },
+    { "source": "/portfolio/:slug", "destination": "/portfolio/index.html" },
     { "source": "/diagnostico", "destination": "/diagnostico/index.html" },
     { "source": "/faq", "destination": "/faq/index.html" },
     { "source": "/contato", "destination": "/contato/index.html" },
@@ -32,33 +28,23 @@
   "headers": [
     {
       "source": "/assets/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
       "source": "/(.*)\\.(webp|avif|png|jpg|jpeg|svg|ico|woff2)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
       "source": "/(.*)\\.(js|css)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
       "source": "/index.html",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
     },
     {
       "source": "/(.*)/index.html",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
     }
   ]
 }

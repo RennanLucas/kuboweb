@@ -30,8 +30,22 @@ const Header = () => {
     setMobileOpen(false);
   }, [location.pathname]);
 
-  const darkHeroRoutes = ["/", "/portfolio", "/sobre", "/contato", "/servicos", "/faq", "/diagnostico", "/manutencao"];
-  const hasDarkHero = darkHeroRoutes.includes(location.pathname) || location.pathname.startsWith("/servicos/");
+  const darkHeroRoutes = [
+    "/",
+    "/portfolio",
+    "/sobre",
+    "/contato",
+    "/servicos",
+    "/faq",
+    "/diagnostico",
+    "/manutencao",
+    "/atendimento",
+    "/guia/investimento-site-profissional",
+  ];
+  const hasDarkHero =
+    darkHeroRoutes.includes(location.pathname) ||
+    location.pathname.startsWith("/servicos/") ||
+    location.pathname.startsWith("/criacao-de-sites-");
   const darkTop = hasDarkHero && !scrolled && !mobileOpen;
 
   return (

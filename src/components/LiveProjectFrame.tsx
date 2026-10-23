@@ -21,7 +21,7 @@ const LiveProjectFrame = ({
   compact = false,
   eager = false,
 }: LiveProjectFrameProps) => {
-  const screenshotUrl = `https://image.thum.io/get/width/${compact ? 700 : 1200}/crop/${compact ? 1100 : 900}/maxAge/24/noanimate/${url}`;
+  const screenshotUrl = `https://image.thum.io/get/width/${compact ? 700 : 1200}/crop/${compact ? 1100 : 900}/maxAge/24/noanimate/?url=${encodeURIComponent(url)}`;
 
   return (
     <div className={`relative overflow-hidden rounded-[26px] border border-black/[0.08] bg-[#eef1f5] shadow-[0_30px_100px_rgba(7,16,31,.16)] ${className}`}>

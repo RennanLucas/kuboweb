@@ -1,95 +1,38 @@
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Check, ArrowRight, Palette, Search, Plug, Clock, Shield, Sparkles } from "lucide-react";
+import { Helmet } from "react-helmet-async";
+import { ArrowRight, Code2, LayoutTemplate, MessageCircle, Plug, Search, Wrench } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PageHero from "@/components/PageHero";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
-const variaveis = [
-  {
-    icon: Palette,
-    titulo: "Design sob medida vs. template",
-    texto:
-      "Templates genéricos custam menos no curto prazo, mas entregam a mesma cara de mil outros sites. Um design feito do zero para a sua marca comunica posicionamento, gera confiança e converte mais — porque foi pensado para o seu público, não para o público de ninguém.",
-  },
-  {
-    icon: Search,
-    titulo: "Otimização para SEO",
-    texto:
-      "Um site bonito que não aparece no Google é vitrine fechada. SEO técnico (estrutura, performance, dados estruturados, semântica) entra desde o primeiro arquivo do projeto — ou não entra mais. Esse trabalho impacta diretamente o custo e o retorno de longo prazo.",
-  },
-  {
-    icon: Plug,
-    titulo: "Integrações e automações",
-    texto:
-      "WhatsApp, CRM, pagamentos, e-mail marketing, painel administrativo, área do cliente, blog, multi-idiomas. Cada integração adiciona complexidade técnica e escopo — e também valor real para o negócio. O custo varia conforme o que precisa conversar com o quê.",
-  },
-  {
-    icon: Clock,
-    titulo: "Prazo e profundidade",
-    texto:
-      "Um site entregue em 5 dias úteis é diferente de um projeto com pesquisa de marca, prototipagem, testes e revisões. Não existe certo ou errado — existe o que faz sentido para o seu momento. O prazo definido influencia diretamente o investimento.",
-  },
-  {
-    icon: Shield,
-    titulo: "Manutenção e evolução",
-    texto:
-      "Site profissional não termina no go-live. Atualizações de segurança, ajustes de conteúdo, monitoramento de performance e melhorias contínuas mantêm o site relevante. Considerar isso desde o início evita surpresas e protege o investimento.",
-  },
+const factors = [
+  { icon: LayoutTemplate, title: "Quantidade de páginas e conteúdo", text: "Uma landing page de uma única oferta tem um escopo diferente de um site com várias páginas, serviços, áreas de conteúdo e materiais específicos." },
+  { icon: Code2, title: "Nível de personalização", text: "Quanto mais a interface, os componentes e os fluxos precisam ser adaptados à marca e ao negócio, maior tende a ser o trabalho de design e desenvolvimento." },
+  { icon: Plug, title: "Integrações", text: "Formulários, CRM, pagamentos, agenda, automações, área administrativa e serviços externos adicionam requisitos técnicos ao projeto." },
+  { icon: Search, title: "SEO e estrutura técnica", text: "Arquitetura de páginas, títulos, descrições, dados estruturados, sitemap e performance precisam ser planejados de acordo com o tipo de site." },
+  { icon: Wrench, title: "Manutenção e evolução", text: "Depois da publicação, algumas empresas precisam apenas manter o conteúdo; outras precisam de novas páginas, integrações e acompanhamento frequente." },
 ];
 
-const valorVsCusto = [
-  {
-    titulo: "Construtor genérico (Wix, Squarespace, etc.)",
-    pros: ["Custo inicial baixo", "Setup rápido"],
-    contras: [
-      "Design padronizado, igual ao de concorrentes",
-      "Limitações técnicas de SEO e performance",
-      "Você não é dono do código — refém da plataforma",
-      "Customizações complexas são impossíveis ou caras",
-    ],
-  },
-  {
-    titulo: "Freelancer pontual",
-    pros: ["Atendimento direto", "Flexibilidade"],
-    contras: [
-      "Qualidade varia muito por profissional",
-      "Suporte pós-entrega geralmente termina rápido",
-      "Sem garantia de continuidade do projeto",
-      "Raramente entrega estratégia + design + dev + SEO juntos",
-    ],
-  },
-  {
-    titulo: "Agência especializada (como a Kubo Web)",
-    pros: [
-      "Design exclusivo, alinhado ao posicionamento da marca",
-      "SEO técnico desde a primeira linha de código",
-      "Equipe multidisciplinar (estratégia, design, dev, ads)",
-      "Suporte e evolução contínuos pós go-live",
-      "Foco em conversão e ROI, não só em entrega visual",
-    ],
-    contras: ["Investimento maior no curto prazo"],
-  },
+const priceReferences = [
+  { label: "Landing Page", value: "A partir de R$ 697", href: "/servicos/landing-pages", text: "Para campanhas, ofertas e páginas com uma ação principal." },
+  { label: "Site institucional", value: "A partir de R$ 1.497", href: "/servicos/sites-institucionais", text: "Para apresentar empresa, serviços, diferenciais e contato em uma estrutura mais completa." },
+  { label: "Loja virtual", value: "Sob orçamento", href: "/servicos/loja-virtual", text: "O valor depende de catálogo, plataforma, pagamento, frete e integrações da operação." },
+  { label: "Google Ads", value: "Sob orçamento", href: "/servicos/anuncios", text: "A gestão depende da estrutura da conta, objetivo, campanhas e acompanhamento necessário." },
+  { label: "Manutenção", value: "A partir de R$ 70/mês", href: "/manutencao", text: "Para pequenas atualizações e acompanhamento conforme tecnologia e escopo do site." },
 ];
 
 const GuiaInvestimentoSite = () => {
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Quanto custa um site profissional no Brasil? Guia completo de investimento",
-    description:
-      "Entenda as variáveis que definem o investimento em um site profissional: design sob medida, SEO, integrações, prazo e manutenção. Guia transparente da Kubo Web.",
+    headline: "Quanto custa um site profissional? Guia de investimento",
+    description: "Entenda os fatores que influenciam o investimento em sites, landing pages e lojas virtuais e veja os valores de referência da Kubo Web.",
     author: { "@type": "Organization", name: "Kubo Web" },
-    publisher: {
-      "@type": "Organization",
-      name: "Kubo Web",
-      logo: { "@type": "ImageObject", url: "https://www.kuboweb.com.br/favicon-192.png" },
-    },
+    publisher: { "@type": "Organization", name: "Kubo Web", logo: { "@type": "ImageObject", url: "https://www.kuboweb.com.br/favicon-192.png" } },
     datePublished: "2026-06-06",
-    dateModified: "2026-06-06",
+    dateModified: "2026-10-23",
     mainEntityOfPage: "https://www.kuboweb.com.br/guia/investimento-site-profissional",
   };
 
@@ -97,194 +40,127 @@ const GuiaInvestimentoSite = () => {
     <main className="min-h-screen bg-background">
       <SEO
         title="Quanto custa um site profissional? Guia de investimento"
-        description="Guia completo para avaliar o investimento em um site profissional no Brasil: design, SEO, integrações, prazo e manutenção. Entenda valor vs. custo."
+        description="Veja os valores de referência da Kubo Web e entenda o que muda o investimento em uma landing page, site institucional ou loja virtual."
         path="/guia/investimento-site-profissional"
         jsonLd={articleJsonLd}
       />
+      <Helmet><meta name="article:modified_time" content="2026-10-23" /></Helmet>
       <Header />
 
-      <PageHero
-        title="Quanto custa um site profissional?"
-        subtitle="Um guia honesto sobre as variáveis que definem o investimento em um site — e por que o preço mais barato raramente é o mais barato no longo prazo."
-        breadcrumbs={[
-          { label: "Início", href: "/" },
-          { label: "Guia de investimento" },
-        ]}
-      />
-
-      <article className="px-4 pb-16">
-        <div className="container mx-auto max-w-3xl space-y-16">
-          {/* Intro */}
-          <motion.section
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="prose prose-lg max-w-none"
-          >
-            <p className="text-lg text-foreground/85 leading-relaxed">
-              "Quanto custa um site?" é uma das perguntas mais frequentes que recebemos —
-              e também uma das mais difíceis de responder em uma frase. Um site profissional
-              não é um produto de prateleira com preço fixo: é uma ferramenta estratégica de
-              negócio, e o investimento varia de acordo com o que ele precisa entregar.
-            </p>
-            <p className="text-lg text-foreground/85 leading-relaxed mt-4">
-              Em vez de listar tabelas que enganam, este guia mostra <strong>as variáveis reais</strong>{" "}
-              que definem o investimento — para que você converse com qualquer fornecedor
-              (nós ou não) sabendo exatamente o que está comprando.
-            </p>
-          </motion.section>
-
-          {/* Variáveis */}
-          <section className="space-y-8">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wide mb-3">
-                <Sparkles className="w-3.5 h-3.5" />
-                As 5 variáveis que definem o preço
-              </div>
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
-                O que realmente impacta o investimento
-              </h2>
-            </div>
-
-            <div className="space-y-6">
-              {variaveis.map((v, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="flex gap-4 p-6 rounded-2xl border border-border/40 bg-card"
-                >
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-                    <v.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-foreground mb-2">{v.titulo}</h3>
-                    <p className="text-foreground/80 leading-relaxed">{v.texto}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-
-          {/* Valor vs Custo */}
-          <section className="space-y-8">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wide mb-3">
-                Valor vs. Custo
-              </div>
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
-                Três caminhos para ter um site
-              </h2>
-              <p className="mt-3 text-foreground/75 leading-relaxed">
-                Não existe escolha errada — existe escolha alinhada ou desalinhada ao
-                momento do seu negócio. Veja o que cada caminho entrega:
-              </p>
-            </div>
-
-            <div className="grid gap-6">
-              {valorVsCusto.map((opt, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="p-6 rounded-2xl border border-border/40 bg-card"
-                >
-                  <h3 className="text-lg font-bold text-foreground mb-4">{opt.titulo}</h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Pontos fortes</p>
-                      <ul className="space-y-1.5">
-                        {opt.pros.map((p, j) => (
-                          <li key={j} className="flex items-start gap-2 text-sm text-foreground/80">
-                            <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                            <span>{p}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Limitações</p>
-                      <ul className="space-y-1.5">
-                        {opt.contras.map((c, j) => (
-                          <li key={j} className="flex items-start gap-2 text-sm text-foreground/70">
-                            <span className="w-4 h-4 mt-0.5 shrink-0 text-muted-foreground">—</span>
-                            <span>{c}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-
-          {/* Como a Kubo Web cobra */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
-              Como a Kubo Web define o investimento
-            </h2>
-            <div className="p-6 rounded-2xl border border-primary/20 bg-primary/5 space-y-4">
-              <p className="text-foreground/85 leading-relaxed">
-                Não trabalhamos com tabela pública de preços — porque acreditamos que
-                <strong> proposta honesta nasce de diagnóstico, não de catálogo</strong>.
-                Cada projeto recebe um escopo personalizado baseado em:
-              </p>
-              <ul className="space-y-2">
-                {[
-                  "Objetivo de negócio (vender, captar leads, fortalecer marca)",
-                  "Volume de conteúdo, páginas e integrações necessárias",
-                  "Profundidade de design e prototipagem",
-                  "Prazo desejado de entrega",
-                  "Necessidade ou não de manutenção contínua",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-foreground/80">
-                    <Check className="w-4 h-4 text-primary mt-1 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-foreground/85 leading-relaxed">
-                Em 1 minuto, o diagnóstico gratuito te mostra qual solução faz sentido
-                para o seu momento — e em seguida você recebe uma proposta clara,
-                detalhada e sem letrinhas miúdas.
-              </p>
-            </div>
-          </section>
-
-          {/* CTA */}
-          <motion.section
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center space-y-6 py-8"
-          >
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground">
-              Pronto para entender o investimento do seu projeto?
-            </h2>
-            <p className="text-foreground/75 max-w-xl mx-auto">
-              Faça o diagnóstico gratuito de 1 minuto e receba uma proposta personalizada
-              para o seu negócio.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <Button asChild size="xl" className="shadow-glow-sm">
-                <Link to="/diagnostico">
-                  Iniciar diagnóstico gratuito
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
-              <Button asChild size="xl" variant="outline">
-                <Link to="/servicos">Ver nossos serviços</Link>
-              </Button>
-            </div>
-          </motion.section>
+      <section className="relative isolate overflow-hidden bg-[#07101f] px-4 pb-20 pt-36 text-white md:pb-28 md:pt-44">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -left-44 top-0 h-[640px] w-[640px] rounded-full bg-blue-600/18 blur-[190px]" />
+          <div className="absolute -right-48 top-[-120px] h-[720px] w-[720px] rounded-full bg-cyan-400/8 blur-[220px]" />
         </div>
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
+            <div>
+              <div className="mb-6 flex items-center gap-3">
+                <span className="h-px w-10 bg-[#78a9ff]" />
+                <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/42">Guide · Investment</span>
+              </div>
+              <h1 className="max-w-5xl text-[3.1rem] font-heading font-semibold leading-[0.92] tracking-[-0.06em] sm:text-6xl md:text-7xl lg:text-[5.35rem]">
+                Quanto custa um
+                <span className="block text-[#78a9ff]">site profissional?</span>
+              </h1>
+            </div>
+            <p className="max-w-[440px] text-base leading-8 text-white/52 lg:justify-self-end md:text-lg">O preço não depende só do número de telas. Conteúdo, personalização, integrações, publicação e manutenção mudam o escopo — e precisam aparecer com clareza na proposta.</p>
+          </div>
+        </div>
+      </section>
+
+      <article>
+        <section className="bg-[#f4f5f7] px-4 py-24 md:py-36">
+          <div className="container mx-auto max-w-7xl">
+            <div className="mb-14 grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-primary">Valores de referência</p>
+                <h2 className="mt-5 max-w-4xl text-4xl font-heading font-semibold leading-[0.98] tracking-[-0.05em] text-foreground md:text-6xl">O ponto de partida hoje.</h2>
+              </div>
+              <p className="max-w-[430px] text-base leading-8 text-muted-foreground lg:justify-self-end">Esses valores são referências públicas da Kubo Web. O orçamento final é definido depois do escopo.</p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              {priceReferences.map((item) => (
+                <Link key={item.label} to={item.href} className="group rounded-[28px] border border-border/70 bg-white p-7 transition-all hover:-translate-y-0.5 hover:border-primary/20 md:p-8">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">{item.label}</p>
+                      <h3 className="mt-3 text-2xl font-heading font-semibold tracking-[-0.035em] text-foreground md:text-3xl">{item.value}</h3>
+                    </div>
+                    <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
+                  </div>
+                  <p className="mt-8 max-w-xl text-sm leading-7 text-muted-foreground">{item.text}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 py-24 md:py-36">
+          <div className="container mx-auto max-w-7xl">
+            <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
+              <div className="lg:sticky lg:top-28 lg:self-start">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-primary">Scope factors</p>
+                <h2 className="mt-5 text-4xl font-heading font-semibold leading-[0.98] tracking-[-0.05em] text-foreground md:text-6xl">O que muda o orçamento.</h2>
+                <p className="mt-6 max-w-md text-base leading-8 text-muted-foreground">Dois sites com o mesmo número de páginas podem exigir níveis bem diferentes de conteúdo, design, tecnologia e integração.</p>
+              </div>
+
+              <div className="overflow-hidden rounded-[34px] border border-border/70 bg-white shadow-[0_30px_90px_rgba(15,23,42,.05)]">
+                {factors.map(({ icon: Icon, title, text }, index) => (
+                  <section key={title} className={`grid gap-5 p-7 md:grid-cols-[0.16fr_0.84fr] md:p-9 ${index !== factors.length - 1 ? "border-b border-border/70" : ""}`}>
+                    <div className="flex items-start justify-between md:block">
+                      <span className="text-xs font-semibold text-muted-foreground">0{index + 1}</span>
+                      <span className="mt-0 flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/8 text-primary md:mt-7"><Icon className="h-4.5 w-4.5" /></span>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-heading font-semibold tracking-[-0.035em] text-foreground">{title}</h3>
+                      <p className="mt-4 text-sm leading-7 text-muted-foreground md:text-[15px]">{text}</p>
+                    </div>
+                  </section>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#07101f] px-4 py-24 text-white md:py-36">
+          <div className="container mx-auto max-w-7xl">
+            <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-[#78a9ff]">Compare propostas</p>
+                <h2 className="mt-5 max-w-4xl text-4xl font-heading font-semibold leading-[0.98] tracking-[-0.05em] md:text-6xl">Compare escopo, não só preço.</h2>
+              </div>
+              <p className="max-w-[430px] text-base leading-8 text-white/48 lg:justify-self-end">Antes de escolher um fornecedor, veja o que está incluso: quantidade de páginas, conteúdo, responsividade, integrações, SEO técnico, publicação, revisões e suporte.</p>
+            </div>
+
+            <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {["O que será entregue?", "Quem fornece textos e imagens?", "Quais integrações estão inclusas?", "Como funciona a publicação?", "O que acontece depois do launch?", "Mudanças futuras entram como manutenção?"].map((question, index) => (
+                <div key={question} className="rounded-[24px] border border-white/10 bg-white/[0.045] p-5">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/28">0{index + 1}</p>
+                  <p className="mt-8 text-sm font-medium leading-6 text-white/72">{question}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-4 py-24 md:py-32">
+          <div className="container mx-auto max-w-7xl">
+            <div className="rounded-[38px] bg-[#2458d8] p-8 text-white md:p-12 lg:p-14">
+              <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-white/55">Seu projeto</p>
+                  <h2 className="mt-5 max-w-4xl text-4xl font-heading font-semibold leading-[0.98] tracking-[-0.05em] md:text-6xl">Quer saber qual escopo faz sentido?</h2>
+                  <p className="mt-6 max-w-2xl text-base leading-8 text-white/66">Envie o que você precisa, referências e o site atual se já existir. A conversa serve para transformar isso em um escopo claro.</p>
+                </div>
+                <Button asChild size="xl" className="rounded-full bg-white px-7 text-[#2458d8] hover:bg-white/90">
+                  <a href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20li%20o%20guia%20de%20investimento%20da%20Kubo%20Web%20e%20quero%20conversar%20sobre%20meu%20projeto." target="_blank" rel="noopener noreferrer"><MessageCircle className="h-5 w-5" /> Conversar sobre o projeto</a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </article>
 
       <Footer />

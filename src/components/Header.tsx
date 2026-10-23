@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
+import { motion, useScroll, useSpring } from "framer-motion";
 import BrandMark from "@/components/BrandMark";
 
 const navLinks = [
@@ -18,6 +19,8 @@ const Header = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.22 });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 18);
@@ -69,13 +72,19 @@ const Header = () => {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         darkTop
-          ? "border-b border-white/10 bg-[#07101f]/30 backdrop-blur-md"
-          : "border-b border-border/60 bg-background/92 shadow-[0_8px_30px_rgba(15,23,42,0.05)] backdrop-blur-2xl"
+          ? "border-b border-white/10 bg-[#07101f]/34 backdrop-blur-xl"
+          : "border-b border-border/60 bg-background/94 shadow-[0_10px_35px_rgba(15,23,42,0.055)] backdrop-blur-2xl"
       }`}
     >
+      <motion.div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-[2px] origin-left bg-[#79a9ff]"
+        style={{ scaleX: progress }}
+      />
+
       <div className="container mx-auto max-w-7xl px-4 md:px-6">
-        <div className="flex h-[76px] items-center justify-between md:h-[84px]">
-          <Link to="/" className="flex items-center" aria-label="Kubo Web - Início">
+        <div className="flex h-[74px] items-center justify-between md:h-[82px]">
+          <Link to="/" className="rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#79a9ff]/70" aria-label="Kubo Web - Início">
             <BrandMark inverse={darkTop} />
           </Link>
 
@@ -86,17 +95,24 @@ const Header = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
+                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                     darkTop
                       ? active
-                        ? "bg-white/10 text-white"
-                        : "text-white/65 hover:bg-white/8 hover:text-white"
+                        ? "text-white"
+                        : "text-white/62 hover:text-white"
                       : active
-                        ? "bg-foreground text-background"
-                        : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {link.label}
+                  {active && (
+                    <motion.span
+                      layoutId="nav-active"
+                      className={`absolute inset-x-4 -bottom-1 h-px ${darkTop ? "bg-[#79a9ff]" : "bg-primary"}`}
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    />
+                  )}
                 </Link>
               );
             })}
@@ -105,19 +121,19 @@ const Header = () => {
           <div className="hidden items-center gap-3 lg:flex">
             <Link
               to="/portfolio"
-              className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all ${
+              className={`group inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all ${
                 darkTop
-                  ? "border-white/20 text-white/80 hover:border-white/45 hover:bg-white/8 hover:text-white"
-                  : "border-border/80 text-foreground hover:border-primary/30 hover:text-primary"
+                  ? "border-white/18 text-white/78 hover:border-white/38 hover:bg-white/[0.06] hover:text-white"
+                  : "border-border/80 text-foreground hover:border-primary/30 hover:bg-primary/[0.025] hover:text-primary"
               }`}
             >
               Ver projetos
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
             <Button
               asChild
               size="sm"
-              className={`rounded-full px-5 ${darkTop ? "bg-white text-[#07101f] hover:bg-white/90" : ""}`}
+              className={`rounded-full px-5 shadow-none ${darkTop ? "bg-white text-[#07101f] hover:bg-[#eef4ff]" : ""}`}
             >
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="h-4 w-4" />
@@ -129,7 +145,7 @@ const Header = () => {
           <button
             type="button"
             onClick={() => setMobileOpen((open) => !open)}
-            className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors lg:hidden ${
+            className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#79a9ff]/70 lg:hidden ${
               darkTop ? "border-white/20 bg-white/5 text-white" : "border-border/80 bg-background text-foreground"
             }`}
             aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
@@ -144,7 +160,7 @@ const Header = () => {
       <div
         id="mobile-navigation"
         className={`overflow-hidden border-t border-border/60 bg-background/98 backdrop-blur-2xl transition-all duration-300 lg:hidden ${
-          mobileOpen ? "max-h-[520px] opacity-100" : "pointer-events-none max-h-0 border-t-transparent opacity-0"
+          mobileOpen ? "max-h-[540px] opacity-100" : "pointer-events-none max-h-0 border-t-transparent opacity-0"
         }`}
       >
         <nav className="container mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4" aria-label="Navegação mobile">
@@ -153,8 +169,8 @@ const Header = () => {
             <Link
               key={link.href}
               to={link.href}
-              className={`rounded-xl px-4 py-3 text-[15px] font-medium ${
-                location.pathname.startsWith(link.href) ? "bg-secondary text-foreground" : "text-muted-foreground"
+              className={`rounded-xl px-4 py-3 text-[15px] font-medium transition-colors ${
+                location.pathname.startsWith(link.href) ? "bg-secondary text-foreground" : "text-muted-foreground hover:bg-secondary/70 hover:text-foreground"
               }`}
             >
               {link.label}

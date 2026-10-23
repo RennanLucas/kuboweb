@@ -1,212 +1,62 @@
-import {
-  Target,
-  TrendingUp,
-  Eye,
-  Megaphone,
-  UserCheck,
-  Rocket,
-  MapPin,
-  ShoppingBag,
-} from "lucide-react";
+import { BarChart3, Eye, MapPin, Megaphone, Search, ShoppingBag, Target, UserCheck } from "lucide-react";
 import ServicePageTemplate, { type ServicePageContent } from "@/components/ServicePageTemplate";
 import heroImage from "@/assets/service-anuncios-new.jpg";
 
 const content: ServicePageContent = {
   seo: {
     title: "Google Ads",
-    description:
-      "Gestão profissional de Google Ads em São Paulo. Apareça no topo do Google, atraia clientes qualificados e escale suas vendas com estratégia e dados.",
+    description: "Estruturação e gestão de Google Ads com pesquisa de palavras-chave, anúncios, conversões e acompanhamento orientado por dados.",
     path: "/servicos/anuncios",
   },
   hero: {
     badge: "Google Ads",
     title: "Google Ads com",
-    highlight: "estratégia e retorno",
-    subtitle:
-      "Campanhas de tráfego pago no Google gerenciadas por especialistas — para colocar sua empresa na frente de clientes prontos para comprar, com resultados mensuráveis e escalabilidade real.",
+    highlight: "estrutura e acompanhamento",
+    subtitle: "Campanhas organizadas para conectar buscas relevantes ao seu site ou WhatsApp, com configuração de conversões e ajustes baseados nos dados disponíveis.",
     image: heroImage,
-    imageAlt: "Dashboard de Google Ads com métricas de performance",
-    whatsappHref:
-      "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20An%C3%BAncios%20Google%20Ads.%20Pode%20me%20explicar%20como%20funciona%3F",
-    quickFacts: [
-      { label: "Setup", value: "5 dias" },
-      { label: "Otimização", value: "Semanal" },
-      { label: "Acompanhamento", value: "Contínuo" },
-    ],
+    imageAlt: "Interface de campanha de Google Ads",
+    whatsappHref: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20Google%20Ads.%20Pode%20me%20explicar%20como%20funciona%3F",
+    quickFacts: [],
   },
   benefits: [
-    {
-      icon: Target,
-      title: "Intenção de compra",
-      text: "Alcance quem já está buscando ativamente pelo seu serviço no Google — o lead mais quente do mercado.",
-    },
-    {
-      icon: Eye,
-      title: "Topo do Google",
-      text: "Sua empresa nas primeiras posições do Google desde o primeiro dia — sem esperar meses por SEO orgânico.",
-    },
-    {
-      icon: TrendingUp,
-      title: "ROI mensurável",
-      text: "Cada real investido é rastreado. Você sabe exatamente quantos leads e vendas cada campanha gerou.",
-    },
-    {
-      icon: Megaphone,
-      title: "Orçamento sob controle",
-      text: "Você define quanto quer investir por dia. Ajustamos e escalamos conforme os resultados aparecem.",
-    },
+    { icon: Search, title: "Demanda de pesquisa", text: "Campanhas de pesquisa podem alcançar pessoas que estão buscando termos relacionados ao seu serviço ou produto." },
+    { icon: Target, title: "Segmentação", text: "Palavras-chave, localização, horários e outros critérios são organizados de acordo com o objetivo e o mercado." },
+    { icon: BarChart3, title: "Dados de campanha", text: "Cliques, custos e conversões configuradas ajudam a orientar decisões e identificar o que precisa ser ajustado." },
+    { icon: Megaphone, title: "Controle de orçamento", text: "O investimento de mídia é definido na própria plataforma e pode ser ajustado de acordo com a estratégia e os resultados observados." },
   ],
   process: [
-    {
-      title: "Auditoria e estratégia",
-      description:
-        "Analisamos seu mercado, concorrentes e público. Mapeamos as palavras-chave estratégicas e definimos os tipos de campanha (Pesquisa, Display, YouTube, Performance Max).",
-    },
-    {
-      title: "Estrutura da conta",
-      description:
-        "Configuramos a conta Google Ads, campanhas, grupos de anúncios, extensões e segmentações. Instalamos tags de conversão e integração com Google Analytics.",
-    },
-    {
-      title: "Criação de anúncios",
-      description:
-        "Escrevemos títulos e descrições persuasivos, criamos variações para testes A/B e configuramos as extensões (sitelinks, chamadas, avaliações).",
-    },
-    {
-      title: "Lançamento e monitoramento",
-      description:
-        "Colocamos as campanhas no ar com monitoramento diário nas duas primeiras semanas — ajustando lances, palavras negativas e horários.",
-    },
-    {
-      title: "Otimização contínua",
-      description:
-        "Otimização semanal de lances, orçamentos, criativos e segmentações baseada em dados reais.",
-    },
+    { title: "Diagnóstico", description: "Analisamos oferta, site ou landing page, região atendida, concorrência e o objetivo que será medido na campanha." },
+    { title: "Pesquisa e estrutura", description: "Organizamos palavras-chave, grupos de anúncios, segmentação e exclusões necessárias para a campanha inicial." },
+    { title: "Conversões e anúncios", description: "Configuramos eventos compatíveis com o projeto e criamos anúncios alinhados à busca e à página de destino." },
+    { title: "Publicação", description: "A campanha é ativada após a revisão das configurações, do orçamento e dos destinos dos anúncios." },
+    { title: "Acompanhamento", description: "Os dados são revisados para ajustar termos de pesquisa, negativas, anúncios, lances e orçamento quando necessário." },
   ],
   deliverables: [
-    {
-      title: "Auditoria & Estratégia",
-      items: [
-        "Análise da conta atual (se existir)",
-        "Análise de concorrentes",
-        "Pesquisa profunda de palavras-chave",
-        "Definição de tipos de campanha",
-        "Planejamento de orçamento e metas",
-      ],
-    },
-    {
-      title: "Configuração técnica",
-      items: [
-        "Criação/reestruturação da conta",
-        "Instalação de tag de conversão",
-        "Integração com Google Analytics 4",
-        "Configuração de públicos",
-        "Extensões de anúncio completas",
-      ],
-    },
-    {
-      title: "Campanhas criadas",
-      items: [
-        "Campanhas de Pesquisa (busca)",
-        "Campanhas de Display",
-        "Campanhas de Performance Max",
-        "Remarketing dinâmico",
-        "Google Shopping (para e-commerce)",
-      ],
-    },
-    {
-      title: "Criativos & Copy",
-      items: [
-        "Múltiplas variações de anúncio",
-        "Testes A/B contínuos",
-        "Extensões (sitelinks, chamadas)",
-        "Anúncios responsivos",
-        "Criativos para Display (opcional)",
-      ],
-    },
-    {
-      title: "Gestão contínua",
-      items: [
-        "Otimização semanal de lances",
-        "Ajuste de palavras negativas",
-        "Testes de novos anúncios",
-        "Reajuste de orçamentos",
-        "Monitoramento de concorrentes",
-      ],
-    },
-    {
-      title: "Acompanhamento & Dados",
-      items: [
-        "Dashboard Kuboweb Analytics (30 dias grátis)",
-        "Análise de ROI por campanha",
-        "Recomendações estratégicas",
-      ],
-    },
+    { title: "Estratégia", items: ["Análise da oferta", "Pesquisa de palavras-chave", "Organização de campanhas", "Definição das conversões importantes"] },
+    { title: "Configuração", items: ["Campanhas e grupos de anúncios", "Segmentação", "Extensões e recursos aplicáveis", "Tags de conversão conforme o projeto"] },
+    { title: "Anúncios", items: ["Títulos e descrições", "Variações para aprendizado", "Revisão de destinos", "Ajustes de mensagem conforme dados"] },
+    { title: "Qualidade do tráfego", items: ["Análise de termos de pesquisa", "Palavras negativas", "Ajustes de localização", "Revisão de horários quando relevante"] },
+    { title: "Acompanhamento", items: ["Revisão de orçamento", "Ajustes de lances conforme estratégia", "Leitura de conversões", "Recomendações para página de destino"] },
+    { title: "Transparência", items: ["Conta vinculada ao negócio", "Acesso aos dados da campanha", "Investimento de mídia pago à plataforma", "Escopo de gestão definido em proposta"] },
   ],
   examples: [
-    {
-      icon: UserCheck,
-      title: "Profissionais liberais",
-      description:
-        "Advogados, médicos, dentistas e consultores que precisam de agenda cheia rapidamente.",
-    },
-    {
-      icon: Rocket,
-      title: "Empresas em lançamento",
-      description:
-        "Novos produtos, serviços ou marcas que precisam de tração imediata no mercado.",
-    },
-    {
-      icon: MapPin,
-      title: "Negócios locais",
-      description:
-        "Restaurantes, clínicas e prestadores de serviço que querem dominar buscas na sua região.",
-    },
-    {
-      icon: ShoppingBag,
-      title: "E-commerces",
-      description:
-        "Lojas virtuais que precisam de tráfego qualificado com Google Shopping e Performance Max.",
-    },
+    { icon: UserCheck, title: "Serviços profissionais", description: "Para negócios que recebem contatos, agendamentos ou pedidos de orçamento por site e WhatsApp." },
+    { icon: MapPin, title: "Negócios locais", description: "Para operações que atendem regiões específicas e querem aparecer em buscas relacionadas ao serviço." },
+    { icon: ShoppingBag, title: "E-commerce", description: "Para lojas que precisam avaliar campanhas de produtos, pesquisa ou outras soluções disponíveis no Google Ads." },
+    { icon: Eye, title: "Marcas com oferta definida", description: "Para negócios que já têm uma página de destino e querem testar aquisição de tráfego de forma mensurável." },
   ],
   faq: [
-    {
-      question: "Qual o orçamento mínimo de mídia para começar?",
-      answer:
-        "Recomendamos um mínimo de R$ 30/dia (R$ 900/mês) em mídia paga para gerar dados suficientes para otimização. Esse valor é pago diretamente ao Google, separado da nossa gestão.",
-    },
-    {
-      question: "Quanto tempo até ver resultados?",
-      answer:
-        "As primeiras impressões e cliques aparecem em 24-48h. Leads qualificados costumam aparecer nas primeiras 2 semanas. O período de otimização e escala completa é de 60 a 90 dias.",
-    },
-    {
-      question: "A conta do Google Ads fica no meu nome?",
-      answer:
-        "Sim. A conta é criada no seu nome/CNPJ e você tem acesso total como proprietário. Nós temos acesso de gerente. Se um dia você quiser sair, leva a conta inteira com histórico e dados.",
-    },
-    {
-      question: "Qual a diferença entre setup e gestão mensal?",
-      answer:
-        "O setup é a configuração inicial (auditoria, estrutura, primeiras campanhas). A gestão mensal é a otimização contínua, testes e ajustes — indispensável para bons resultados.",
-    },
-    {
-      question: "Vocês trabalham com quais tipos de campanha?",
-      answer:
-        "Google Ads em todas as suas modalidades: Pesquisa, Display, YouTube, Performance Max, Shopping e Remarketing. Focamos em Google porque é onde está a intenção de compra mais qualificada.",
-    },
-    {
-      question: "Tem contrato de fidelidade?",
-      answer:
-        "Não. Trabalhamos com renovação mensal e transparência total. Você fica porque os resultados justificam.",
-    },
+    { question: "Existe um orçamento mínimo de mídia?", answer: "O valor adequado depende do mercado, região, volume de busca e custo estimado por clique. Antes de começar, avaliamos se o orçamento disponível é compatível com o objetivo da campanha." },
+    { question: "Em quanto tempo aparecem resultados?", answer: "Impressões e cliques podem aparecer após a aprovação e ativação dos anúncios, mas geração de contatos e vendas varia por mercado, oferta, orçamento, página e concorrência. Não existe prazo garantido de resultado." },
+    { question: "A conta do Google Ads fica no meu nome?", answer: "A recomendação é que a conta e a forma de pagamento pertençam ao próprio negócio, com acesso de gestão concedido à Kubo Web quando necessário." },
+    { question: "O investimento no Google está incluso na gestão?", answer: "Não. O orçamento de mídia é cobrado pelo Google Ads. O serviço da Kubo Web corresponde à configuração, gestão e acompanhamento definidos na proposta." },
+    { question: "Quais tipos de campanha podem ser usados?", answer: "A escolha depende do negócio e da disponibilidade dos recursos na conta. Pesquisa costuma ser uma opção importante para demanda ativa, e outras modalidades podem ser avaliadas quando fizerem sentido." },
+    { question: "Google Ads garante vendas?", answer: "Não. A plataforma pode gerar tráfego e oportunidades mensuráveis, mas vendas dependem também da oferta, preço, atendimento, página, concorrência e outros fatores fora da campanha." },
   ],
   finalCta: {
-    title: "Pronto para escalar suas vendas no Google?",
-    description:
-      "Faça uma análise gratuita da sua conta ou do seu mercado. Mostramos o potencial real do Google Ads para o seu negócio antes de qualquer contratação.",
-    whatsappHref:
-      "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20An%C3%BAncios%20Google%20Ads.%20Pode%20me%20explicar%20como%20funciona%3F",
+    title: "Quer avaliar se Google Ads faz sentido para o seu negócio?",
+    description: "Envie seu serviço, região atendida, página atual e objetivo. A Kubo Web avalia a estrutura necessária para começar com mais clareza.",
+    whatsappHref: "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20servi%C3%A7o%20de%20Google%20Ads.%20Pode%20me%20explicar%20como%20funciona%3F",
   },
 };
 

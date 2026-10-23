@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kubo Web">
   <rect width="64" height="64" rx="15" fill="#07101f"/>
-  <path d="M32 9 52 20.5 32 32 12 20.5 32 9Z" fill="#78a7ff"/>
-  <path d="M12 20.5 32 32v23L12 43.5v-23Z" fill="#f8fbff"/>
-  <path d="M52 20.5 32 32v23l20-11.5v-23Z" fill="#2d63d8"/>
-  <path d="m22.6 26.6 9.4 5.3 9.4-5.3M32 32v11.3" fill="none" stroke="#07101f" stroke-opacity=".24" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M32 8 53 19.2 32 30.2 11 19.2 32 8Z" fill="#9bbdff"/>
+  <path d="M11 20.7 31 31.2V54L11 43.1V20.7Z" fill="#f7fbff"/>
+  <path d="M33 31.2 53 20.7V43.1L33 54V31.2Z" fill="#2a61dc"/>
+  <path d="M23.7 23.2v13.1" fill="none" stroke="#07101f" stroke-width="3" stroke-linecap="round"/>
+  <path d="m27 29.6 7.1-6m-7.1 6 7.5 6.5" fill="none" stroke="#07101f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

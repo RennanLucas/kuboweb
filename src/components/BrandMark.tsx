@@ -3,36 +3,36 @@ type BrandMarkProps = {
   compact?: boolean;
 };
 
-const BrandMark = ({ inverse = false, compact = false }: BrandMarkProps) => {
-  const ink = inverse ? "text-white" : "text-[#07101f]";
-  const muted = inverse ? "text-white/42" : "text-[#07101f]/42";
-  const stroke = inverse ? "rgba(255,255,255,.88)" : "#07101f";
-  const accent = inverse ? "#8eb8ff" : "#2458d8";
-  const shell = inverse ? "border-white/14 bg-white/[0.045]" : "border-[#07101f]/10 bg-white";
+const BrandGlyph = ({ inverse = false }: { inverse?: boolean }) => {
+  const edge = inverse ? "#ffffff" : "#08111f";
+  const blue = "#78a7ff";
+  const blueDark = "#2d63d8";
 
   return (
-    <span className="inline-flex items-center gap-3" aria-label="Kubo Web">
-      <span
-        className={`relative flex h-[42px] w-[42px] shrink-0 items-center justify-center overflow-hidden rounded-[14px] border shadow-[0_8px_30px_rgba(15,23,42,.08)] ${shell}`}
-        aria-hidden="true"
-      >
-        <span className="absolute inset-[5px] rounded-[10px] border border-current opacity-[0.055]" />
-        <svg viewBox="0 0 44 44" className="relative h-full w-full" fill="none" role="presentation">
-          <path d="M14 11V33" stroke={stroke} strokeWidth="4" strokeLinecap="round" />
-          <path d="M18 22L30 11" stroke={accent} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M18 22L31 33" stroke={accent} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M29.5 9.5L34.5 14.5" stroke={stroke} strokeOpacity="0.3" strokeWidth="1.5" strokeLinecap="round" />
-          <path d="M29.5 34.5L34.5 29.5" stroke={stroke} strokeOpacity="0.3" strokeWidth="1.5" strokeLinecap="round" />
-        </svg>
-      </span>
+    <svg viewBox="0 0 42 42" className="h-9 w-9 shrink-0" fill="none" aria-hidden="true">
+      <path d="M21 4.5 35.5 12.8 21 21 6.5 12.8 21 4.5Z" fill={blue} />
+      <path d="M6.5 12.8 21 21v16.5L6.5 29.2V12.8Z" fill={edge} fillOpacity={inverse ? 0.88 : 0.96} />
+      <path d="M35.5 12.8 21 21v16.5l14.5-8.3V12.8Z" fill={blueDark} />
+      <path d="m14.2 17.3 6.8 3.8 6.8-3.8" stroke="#fff" strokeOpacity=".72" strokeWidth="1.25" strokeLinecap="round" />
+      <path d="M21 21v8.2" stroke="#fff" strokeOpacity=".56" strokeWidth="1.25" strokeLinecap="round" />
+    </svg>
+  );
+};
 
+const BrandMark = ({ inverse = false, compact = false }: BrandMarkProps) => {
+  const ink = inverse ? "text-white" : "text-[#08111f]";
+  const muted = inverse ? "text-white/38" : "text-[#08111f]/42";
+
+  return (
+    <span className="inline-flex items-center gap-2.5" aria-label="Kubo Web">
+      <BrandGlyph inverse={inverse} />
       <span className="leading-none">
-        <span className={`block font-heading text-[17px] font-semibold tracking-[-0.04em] ${ink}`}>
-          Kubo Web
+        <span className={`block font-heading text-[18px] font-semibold uppercase tracking-[-0.065em] ${ink}`}>
+          Kubo<span className="text-[#5f8fff]">.</span>
         </span>
         {!compact && (
-          <span className={`mt-1.5 block text-[8px] font-semibold uppercase tracking-[0.24em] ${muted}`}>
-            Web Design Studio
+          <span className={`mt-1.5 block text-[7px] font-semibold uppercase tracking-[0.3em] ${muted}`}>
+            Digital Studio
           </span>
         )}
       </span>

@@ -1,263 +1,267 @@
-import { memo } from "react";
+import { memo, type ReactNode } from "react";
 import {
-  ArrowDownRight,
+  ArrowDown,
   ArrowUpRight,
-  CheckCircle2,
-  Code2,
-  Layers3,
+  Check,
   MessageCircle,
-  Smartphone,
+  MousePointer2,
+  Sparkles,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
 const whatsappUrl =
-  "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Kubo%20Web%20e%20quero%20iniciar%20um%20projeto.";
+  "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Kubo%20Web%20e%20quero%20conversar%20sobre%20um%20projeto.";
 
-const capabilities = [
-  "Web Design",
-  "Desenvolvimento",
-  "Landing Pages",
-  "E-commerce",
-  "Google Ads",
-  "Estratégia Digital",
-];
+const capabilities = ["Web design", "Landing pages", "E-commerce", "Google Ads", "UX", "Desenvolvimento"];
 
-const proofPoints = [
-  { label: "Projetos", value: "Publicados e verificáveis" },
-  { label: "Experiência", value: "Responsiva por padrão" },
-  { label: "Contato", value: "Direto pelo WhatsApp" },
-];
-
-const workflow = [
-  { icon: Layers3, title: "Direção visual", copy: "Posicionamento, hierarquia e sistema visual." },
-  { icon: Smartphone, title: "Mobile review", copy: "Decisões pensadas para a tela que mais converte." },
-  { icon: Code2, title: "Development", copy: "Implementação enxuta, responsiva e pronta para publicar." },
-];
-
-const MarqueeGroup = ({ copy = false }: { copy?: boolean }) => (
-  <div className="flex shrink-0 items-center gap-6 pr-6 md:gap-9 md:pr-9" aria-hidden={copy || undefined}>
-    {capabilities.map((item) => (
-      <span key={`${copy ? "copy-" : ""}${item}`} className="flex items-center gap-6 md:gap-9">
-        <span>{item}</span>
-        <span className="h-1 w-1 rounded-full bg-[#79a9ff]/80" />
-      </span>
-    ))}
-    <span className="flex items-center gap-2 text-white/62">
-      Built for ambitious brands
-      <ArrowDownRight className="h-3.5 w-3.5" />
-    </span>
-    <span className="h-1 w-1 rounded-full bg-[#79a9ff]/80" />
+const BrowserChrome = ({ children, tone = "dark" }: { children: ReactNode; tone?: "dark" | "light" }) => (
+  <div
+    className={`overflow-hidden border shadow-[0_42px_120px_rgba(0,0,0,.34)] ${
+      tone === "dark" ? "border-white/[0.1] bg-[#0a1423]" : "border-black/[0.07] bg-[#f7f4ef]"
+    }`}
+  >
+    <div className={`flex h-10 items-center gap-2 border-b px-4 ${tone === "dark" ? "border-white/[0.08]" : "border-black/[0.07]"}`}>
+      <span className={`h-2 w-2 rounded-full ${tone === "dark" ? "bg-white/[0.16]" : "bg-black/[0.1]"}`} />
+      <span className={`h-2 w-2 rounded-full ${tone === "dark" ? "bg-white/[0.16]" : "bg-black/[0.1]"}`} />
+      <span className={`h-2 w-2 rounded-full ${tone === "dark" ? "bg-white/[0.16]" : "bg-black/[0.1]"}`} />
+      <span className={`mx-auto h-5 w-[34%] rounded-full ${tone === "dark" ? "bg-white/[0.045]" : "bg-black/[0.035]"}`} />
+    </div>
+    {children}
   </div>
 );
 
-const HeroSection = () => {
+const HeroProjectStage = () => {
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const rotateX = useTransform(my, [-0.5, 0.5], [3.2, -3.2]);
+  const rotateY = useTransform(mx, [-0.5, 0.5], [-4.2, 4.2]);
+  const xBack = useTransform(mx, [-0.5, 0.5], [-10, 10]);
+  const yBack = useTransform(my, [-0.5, 0.5], [-8, 8]);
+  const xFront = useTransform(mx, [-0.5, 0.5], [8, -8]);
+  const yFront = useTransform(my, [-0.5, 0.5], [6, -6]);
+
   return (
-    <section className="relative isolate overflow-hidden bg-[#050a13] px-4 pb-0 pt-28 text-white md:pt-40">
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-[-320px] h-[760px] w-[980px] -translate-x-1/2 rounded-full bg-blue-600/20 blur-[180px]" />
-        <div className="absolute right-[-260px] top-[18%] hidden h-[620px] w-[620px] rounded-full bg-cyan-400/8 blur-[190px] md:block" />
-        <div className="absolute left-[9%] top-[31%] hidden h-2 w-2 rounded-full bg-[#79a9ff] shadow-[0_0_24px_rgba(121,169,255,.8)] md:block kubo-pulse-soft" />
-        <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_88%)]" />
-      </div>
+    <div
+      className="relative mx-auto mt-14 max-w-[1240px] [perspective:1600px] md:mt-20"
+      onMouseMove={(event) => {
+        const rect = event.currentTarget.getBoundingClientRect();
+        mx.set((event.clientX - rect.left) / rect.width - 0.5);
+        my.set((event.clientY - rect.top) / rect.height - 0.5);
+      }}
+      onMouseLeave={() => {
+        mx.set(0);
+        my.set(0);
+      }}
+    >
+      <div className="pointer-events-none absolute inset-x-[8%] bottom-[-12%] h-[34%] rounded-[50%] bg-[#4078ff]/[0.26] blur-[110px]" />
 
-      <div className="container mx-auto max-w-7xl">
-        <div className="mx-auto max-w-6xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="mb-6 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 backdrop-blur-xl"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#79a9ff] shadow-[0_0_18px_rgba(121,169,255,.8)] kubo-pulse-soft" />
-            <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/50 sm:text-[10px] sm:tracking-[0.26em]">
-              Kubo Web · Web Design Studio · Brasil
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.03, duration: 0.58, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto max-w-[1180px] text-[2.8rem] font-heading font-semibold leading-[0.94] tracking-[-0.055em] sm:text-6xl md:text-[5.7rem] md:leading-[0.9] lg:text-[6.8rem] xl:text-[7.35rem]"
-          >
-            Sites que fazem sua marca
-            <span className="block text-[#79a9ff]">parecer maior.</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.48 }}
-            className="mx-auto mt-6 max-w-2xl text-[15px] leading-7 text-white/52 md:mt-7 md:text-lg md:leading-8"
-          >
-            Estratégia, direção de arte e desenvolvimento para negócios que querem uma presença digital mais clara, profissional e atual.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.16, duration: 0.48 }}
-            className="mt-8 flex flex-col justify-center gap-3 sm:flex-row md:mt-9"
-          >
-            <Button
-              asChild
-              size="xl"
-              className="rounded-full bg-white px-7 text-[#050a13] shadow-[0_20px_60px_rgba(0,0,0,.3)] transition-transform duration-300 hover:-translate-y-0.5 hover:bg-[#eef4ff]"
-            >
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-5 w-5" />
-                Iniciar um projeto
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="xl"
-              variant="outline"
-              className="rounded-full border-white/16 bg-white/[0.035] px-7 text-white transition-all hover:-translate-y-0.5 hover:border-white/35 hover:bg-white/[0.08] hover:text-white"
-            >
-              <Link to="/portfolio">
-                Explorar trabalhos
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          </motion.div>
-
-          <motion.dl
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.24, duration: 0.5 }}
-            className="mx-auto mt-10 grid max-w-3xl gap-3 border-t border-white/10 pt-6 sm:grid-cols-3 sm:gap-0 md:mt-12"
-          >
-            {proofPoints.map((item, index) => (
-              <div
-                key={item.label}
-                className={`px-3 py-2 ${index > 0 ? "sm:border-l sm:border-white/10" : ""}`}
-              >
-                <dt className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/28">{item.label}</dt>
-                <dd className="mt-1.5 text-xs font-medium text-white/72 sm:text-sm">{item.value}</dd>
-              </div>
-            ))}
-          </motion.dl>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.24, duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mx-auto mt-12 max-w-7xl md:mt-18"
-        >
-          <div className="absolute -inset-12 -z-10 rounded-full bg-blue-500/10 blur-[120px]" />
-
-          <div className="overflow-hidden rounded-t-[28px] border border-b-0 border-white/11 bg-[#0a1220]/96 shadow-[0_35px_100px_rgba(0,0,0,.42)] backdrop-blur-2xl md:rounded-t-[34px]">
-            <div className="flex items-center gap-3 border-b border-white/8 px-4 py-3.5 sm:px-5 md:px-7 md:py-4">
-              <div className="flex gap-1.5" aria-hidden="true">
-                <span className="h-2 w-2 rounded-full bg-white/12 md:h-2.5 md:w-2.5" />
-                <span className="h-2 w-2 rounded-full bg-white/12 md:h-2.5 md:w-2.5" />
-                <span className="h-2 w-2 rounded-full bg-white/12 md:h-2.5 md:w-2.5" />
-              </div>
-              <span className="ml-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-white/32">Studio board</span>
-              <span className="ml-auto hidden text-[9px] font-semibold uppercase tracking-[0.22em] text-white/25 sm:block">
-                Design / Build / Launch
-              </span>
+      <motion.div
+        style={{ x: xBack, y: yBack }}
+        className="absolute left-[3%] top-[10%] hidden w-[38%] -rotate-[5deg] opacity-70 lg:block"
+      >
+        <BrowserChrome tone="light">
+          <div className="min-h-[380px] p-7 text-[#252c28]">
+            <div className="flex items-center justify-between text-[9px] font-semibold uppercase tracking-[0.18em] text-black/[0.3]">
+              <span>Helena Ávila</span>
+              <span>Psicoterapia</span>
             </div>
+            <p className="mt-16 max-w-[390px] font-serif text-[3.15rem] leading-[.94] tracking-[-0.05em]">
+              Um espaço digital mais humano.
+            </p>
+            <p className="mt-5 max-w-[330px] text-xs leading-6 text-black/[0.45]">
+              Conteúdo, presença e contato organizados com calma e clareza.
+            </p>
+            <div className="mt-8 h-10 w-32 rounded-full bg-[#586f64]" />
+            <div className="mt-10 grid grid-cols-3 gap-3">
+              {[0, 1, 2].map((item) => (
+                <div key={item} className="h-20 border border-black/[0.06] bg-white/[0.55]" />
+              ))}
+            </div>
+          </div>
+        </BrowserChrome>
+      </motion.div>
 
-            <div className="grid lg:grid-cols-[0.82fr_1.18fr]">
-              <div className="border-b border-white/8 p-5 sm:p-6 md:p-8 lg:border-b-0 lg:border-r">
-                <div className="flex items-end justify-between gap-4">
-                  <div>
-                    <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/28">Como trabalhamos</p>
-                    <h2 className="mt-2 text-2xl font-heading font-semibold tracking-[-0.04em] md:text-3xl">Estrutura antes do efeito.</h2>
-                  </div>
-                  <span className="hidden rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.18em] text-white/38 sm:inline-flex">
-                    2026
-                  </span>
+      <motion.div
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        className="relative z-10 mx-auto w-full max-w-[1000px]"
+      >
+        <BrowserChrome>
+          <div className="relative min-h-[470px] overflow-hidden bg-[#08111f] p-6 sm:p-8 md:min-h-[560px] md:p-10 lg:p-12">
+            <div className="pointer-events-none absolute -right-[10%] top-[-20%] h-[520px] w-[520px] rounded-full bg-[#356dff]/[0.2] blur-[150px]" />
+            <div className="pointer-events-none absolute bottom-[-35%] left-[-10%] h-[440px] w-[440px] rounded-full bg-cyan-300/[0.08] blur-[140px]" />
+            <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:52px_52px]" />
+
+            <div className="relative z-10 flex h-full flex-col justify-between">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-[#78a7ff] shadow-[0_0_18px_rgba(120,167,255,.7)]" />
+                  <span className="text-[9px] font-semibold uppercase tracking-[0.24em] text-white/[0.38]">Selected work · Live</span>
+                </div>
+                <span className="hidden text-[9px] font-semibold uppercase tracking-[0.22em] text-white/[0.24] sm:block">Strategy / Design / Code</span>
+              </div>
+
+              <div className="mt-16 grid gap-8 lg:grid-cols-[1.08fr_.92fr] lg:items-end">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8db6ff]">Cristiano Ávila · Professional website</p>
+                  <h2 className="mt-5 max-w-[700px] text-[2.75rem] font-heading font-semibold leading-[.92] tracking-[-0.065em] text-white sm:text-6xl md:text-[4.8rem]">
+                    Menos ruído.
+                    <span className="block text-white/[0.38]">Mais presença.</span>
+                  </h2>
+                  <p className="mt-6 max-w-[520px] text-sm leading-7 text-white/[0.42] md:text-base">
+                    Uma interface direta, responsiva e construída para apresentar o profissional com clareza antes do primeiro contato.
+                  </p>
                 </div>
 
-                <div className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-                  {workflow.map((item, index) => (
-                    <div
-                      key={item.title}
-                      className={`group rounded-2xl border p-4 kubo-interactive-card ${index === 0 ? "border-[#79a9ff]/25 bg-[#79a9ff]/10" : "border-white/8 bg-white/[0.025]"}`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <span className={`flex h-9 w-9 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105 ${index === 0 ? "bg-[#79a9ff] text-[#061020]" : "bg-white/[0.05] text-white/45"}`}>
-                          <item.icon className="h-4 w-4" />
-                        </span>
-                        <div>
-                          <p className="text-xs font-medium text-white/78">{item.title}</p>
-                          <p className="mt-1 text-[10px] leading-4 text-white/34">{item.copy}</p>
-                        </div>
-                        {index === 0 && <CheckCircle2 className="ml-auto hidden h-4 w-4 text-[#9cc2ff] lg:block" />}
-                      </div>
+                <div className="grid gap-2 sm:grid-cols-3 lg:grid-cols-1">
+                  {["Mensagem clara", "Mobile first", "Contato direto"].map((item) => (
+                    <div key={item} className="flex items-center gap-3 border-t border-white/[0.1] py-3 text-xs text-white/[0.52]">
+                      <Check className="h-3.5 w-3.5 text-[#8db6ff]" />
+                      {item}
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="relative overflow-hidden bg-[#0d1727] p-5 sm:p-6 md:p-8">
-                <div className="absolute right-[-18%] top-[-28%] h-[390px] w-[390px] rounded-full bg-blue-500/20 blur-[120px]" />
-                <div className="absolute bottom-[-35%] left-[-15%] h-[330px] w-[330px] rounded-full bg-cyan-300/8 blur-[110px]" />
-
-                <div className="relative z-10 rounded-[24px] border border-white/10 bg-white/[0.035] p-5 sm:p-6 md:p-8">
-                  <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/8 pb-5">
-                    <div>
-                      <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/28">Projetos ao vivo</p>
-                      <h3 className="mt-2 text-2xl font-heading font-semibold tracking-[-0.04em] md:text-3xl">Abra e confira o trabalho real.</h3>
-                    </div>
-                    <Link
-                      to="/portfolio"
-                      className="kubo-link-line inline-flex items-center gap-2 text-xs font-semibold text-white/62 transition-colors hover:text-white"
-                    >
-                      Ver portfólio
-                      <ArrowUpRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-
-                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                    <a
-                      href="https://www.helenaavilapsi.com.br/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group rounded-2xl border border-white/10 bg-[#f0ebe5] p-5 text-[#1d242c] kubo-interactive-card"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-black/35">Psicoterapia · Website</span>
-                        <ArrowUpRight className="h-4 w-4 text-black/35 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                      </div>
-                      <p className="mt-8 font-serif text-2xl leading-tight tracking-[-0.035em]">Helena Ávila</p>
-                      <p className="mt-2 text-xs leading-5 text-black/48">Site publicado para presença profissional, conteúdo e contato.</p>
-                      <p className="mt-7 text-[10px] font-semibold uppercase tracking-[0.16em] text-black/40">helenaavilapsi.com.br</p>
-                    </a>
-
-                    <a
-                      href="https://cristiano-avila-site.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group rounded-2xl border border-white/10 bg-[#132138] p-5 text-white kubo-interactive-card"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/35">Professional · Website</span>
-                        <ArrowUpRight className="h-4 w-4 text-white/35 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                      </div>
-                      <p className="mt-8 text-2xl font-heading font-semibold leading-tight tracking-[-0.035em]">Cristiano Ávila</p>
-                      <p className="mt-2 text-xs leading-5 text-white/48">Estrutura direta para apresentar serviços e conduzir ao contato.</p>
-                      <p className="mt-7 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/35">cristiano-avila-site.vercel.app</p>
-                    </a>
-                  </div>
-                </div>
+              <div className="mt-12 flex flex-wrap items-end justify-between gap-5 border-t border-white/[0.1] pt-6">
+                <a
+                  href="https://cristiano-avila-site.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-white"
+                >
+                  Abrir projeto real
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+                <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/[0.26]">Publicado · Responsivo</span>
               </div>
             </div>
           </div>
-        </motion.div>
+        </BrowserChrome>
+      </motion.div>
+
+      <motion.div
+        style={{ x: xFront, y: yFront }}
+        className="absolute -bottom-8 right-[4%] z-20 hidden w-[218px] rotate-[4deg] sm:block md:right-[7%] md:w-[244px]"
+      >
+        <div className="overflow-hidden rounded-[34px] border-[7px] border-[#101722] bg-[#101722] shadow-[0_34px_90px_rgba(0,0,0,.45)]">
+          <div className="mx-auto mt-2 h-2 w-16 rounded-full bg-white/[0.1]" />
+          <div className="mt-2 min-h-[318px] rounded-[25px] bg-[#f5f1eb] p-5 text-[#242b27]">
+            <p className="text-[8px] font-semibold uppercase tracking-[0.18em] text-black/[0.3]">Mobile review</p>
+            <p className="mt-7 font-serif text-3xl leading-[.98] tracking-[-0.05em]">Helena Ávila</p>
+            <div className="mt-5 h-2 w-[82%] rounded-full bg-black/[0.1]" />
+            <div className="mt-2 h-2 w-[58%] rounded-full bg-black/[0.08]" />
+            <div className="mt-6 aspect-[4/3] rounded-[20px] bg-[#d8ded8]" />
+            <div className="mt-5 h-9 w-full rounded-full bg-[#586f64]" />
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, x: -10, y: 10 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ delay: 0.9, duration: 0.5 }}
+        className="absolute -left-2 top-[44%] z-30 hidden items-center gap-2 rounded-full border border-white/[0.1] bg-[#0b1525]/[0.88] px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/[0.52] shadow-xl backdrop-blur-xl xl:flex"
+      >
+        <MousePointer2 className="h-3.5 w-3.5 text-[#8db6ff]" />
+        Move para explorar
+      </motion.div>
+    </div>
+  );
+};
+
+const HeroSection = () => {
+  return (
+    <section className="relative isolate overflow-hidden bg-[#050a13] px-4 pb-24 pt-32 text-white md:pb-32 md:pt-44">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-[-360px] h-[860px] w-[1100px] -translate-x-1/2 rounded-full bg-[#2e67ff]/[0.2] blur-[190px]" />
+        <div className="absolute inset-0 opacity-[0.09] [background-image:linear-gradient(rgba(255,255,255,.055)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.055)_1px,transparent_1px)] [background-size:80px_80px] [mask-image:linear-gradient(to_bottom,black,transparent_92%)]" />
+        <div className="absolute inset-0 bg-noise opacity-[0.18]" />
       </div>
 
-      <div className="relative -mx-4 border-y border-white/9 bg-white/[0.018] py-4">
-        <div className="kubo-marquee mx-auto max-w-[1600px] text-[9px] font-semibold uppercase tracking-[0.22em] text-white/34 md:text-[11px] md:tracking-[0.24em]">
-          <div className="kubo-marquee-track">
-            <MarqueeGroup />
-            <MarqueeGroup copy />
+      <div className="container mx-auto max-w-[1380px]">
+        <div className="mx-auto max-w-[1180px] text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="mb-7 inline-flex items-center gap-2.5 text-[9px] font-semibold uppercase tracking-[0.26em] text-white/[0.44] md:text-[10px]"
+          >
+            <Sparkles className="h-3.5 w-3.5 text-[#8db6ff]" />
+            Kubo Web · Digital Studio · Brasil
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05, duration: 0.68, ease: [0.16, 1, 0.3, 1] }}
+            className="mx-auto text-[3.1rem] font-heading font-semibold leading-[0.89] tracking-[-0.072em] sm:text-7xl md:text-[6.4rem] lg:text-[7.7rem] xl:text-[8.55rem]"
+          >
+            Sites de alto nível
+            <span className="block bg-gradient-to-r from-[#8db6ff] via-[#d5e4ff] to-[#6b95ff] bg-[length:200%_100%] bg-clip-text text-transparent text-gradient-hero">
+              para marcas sérias.
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.15, duration: 0.5 }}
+            className="mx-auto mt-7 max-w-[760px] text-[15px] leading-7 text-white/[0.48] md:mt-8 md:text-lg md:leading-8"
+          >
+            Estratégia, direção de arte e desenvolvimento em uma experiência digital que faz sua empresa parecer tão profissional quanto o trabalho que entrega.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.22, duration: 0.48 }}
+            className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row md:mt-10"
+          >
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex h-[52px] min-w-[210px] items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-[#07101f] shadow-[0_20px_65px_rgba(0,0,0,.24)] transition-all hover:-translate-y-0.5 hover:bg-[#edf3ff]"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Iniciar um projeto
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <Link
+              to="/portfolio"
+              className="group inline-flex h-[52px] min-w-[180px] items-center justify-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.035] px-6 text-sm font-semibold text-white/[0.72] backdrop-blur-xl transition-all hover:-translate-y-0.5 hover:border-white/[0.25] hover:bg-white/[0.07] hover:text-white"
+            >
+              Ver projetos
+              <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.34, duration: 0.55 }}
+            className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-white/[0.24] md:mt-12"
+          >
+            <span>Estratégia</span><span className="h-1 w-1 rounded-full bg-[#78a7ff]" />
+            <span>Design</span><span className="h-1 w-1 rounded-full bg-[#78a7ff]" />
+            <span>Desenvolvimento</span><span className="h-1 w-1 rounded-full bg-[#78a7ff]" />
+            <span>Publicação</span>
+          </motion.div>
+        </div>
+
+        <HeroProjectStage />
+      </div>
+
+      <div className="mt-24 border-y border-white/[0.08] py-4 md:mt-32">
+        <div className="overflow-hidden">
+          <div className="animate-marquee-stats flex min-w-max items-center gap-7 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/[0.3] md:gap-10">
+            {[...capabilities, ...capabilities].map((item, index) => (
+              <span key={`${item}-${index}`} className="flex items-center gap-7 md:gap-10">
+                {item}
+                <span className="h-1 w-1 rounded-full bg-[#78a7ff]/[0.7]" />
+              </span>
+            ))}
           </div>
         </div>
       </div>

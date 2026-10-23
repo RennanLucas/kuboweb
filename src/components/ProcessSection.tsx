@@ -1,4 +1,4 @@
-import { ArrowUpRight, CheckCircle2, Code2, Compass, Layers3, Rocket } from "lucide-react";
+import { Code2, Compass, Layers3, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 
 const steps = [
@@ -6,130 +6,85 @@ const steps = [
     number: "01",
     label: "Discovery",
     icon: Compass,
-    title: "Entender antes de desenhar.",
-    description: "Objetivo, público, oferta, referências e o próximo passo que o visitante precisa tomar.",
-    detail: "Briefing · posicionamento · conteúdo",
+    title: "Entender o negócio.",
+    description: "Objetivo, público, oferta, referências e qual ação o visitante precisa tomar.",
   },
   {
     number: "02",
     label: "Direction",
     icon: Layers3,
-    title: "Criar uma direção que sustenta a página inteira.",
-    description: "Hierarquia, tipografia, contraste, grid e ritmo definidos como sistema para a interface não parecer montada por partes.",
-    detail: "Wireframe · visual system · UX",
+    title: "Definir a direção.",
+    description: "Arquitetura, hierarquia, tipografia, contraste e ritmo viram um sistema visual coerente.",
   },
   {
     number: "03",
     label: "Build",
     icon: Code2,
-    title: "Transformar design em experiência real.",
-    description: "A interface vira código responsivo, com revisão de estados, navegação, velocidade e experiência no mobile.",
-    detail: "Frontend · responsivo · QA",
+    title: "Construir de verdade.",
+    description: "A interface vira código responsivo com navegação, performance, acessibilidade e revisão mobile.",
   },
   {
     number: "04",
     label: "Launch",
     icon: Rocket,
-    title: "Publicar sem perder a qualidade do projeto.",
-    description: "Domínio, SEO técnico, integrações, rastreamento e revisão final antes do site começar a receber tráfego.",
-    detail: "Deploy · SEO · analytics",
+    title: "Publicar e revisar.",
+    description: "Domínio, SEO técnico, rastreamento, integrações e QA final antes de colocar tráfego no site.",
   },
 ];
 
-const ProcessSection = () => {
-  return (
-    <section
-      id="processo"
-      className="bg-[#f3f4f6] px-4 py-24 [content-visibility:auto] [contain-intrinsic-size:850px] md:py-36"
-    >
-      <div className="container mx-auto max-w-7xl">
-        <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
-          <div className="lg:sticky lg:top-28 lg:h-fit">
-            <div className="mb-5 flex items-center gap-3">
-              <span className="h-px w-10 bg-primary" />
-              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">Studio pipeline</span>
-            </div>
-            <h2 className="max-w-xl text-[3rem] font-heading font-semibold leading-[0.94] tracking-[-0.055em] text-foreground sm:text-6xl lg:text-[4.5rem]">
-              Processo com
-              <span className="block text-primary">direção.</span>
-            </h2>
-            <p className="mt-6 max-w-[430px] text-base leading-8 text-muted-foreground md:text-lg">
-              Os melhores sites parecem simples porque as decisões difíceis foram resolvidas antes. É isso que mantém o projeto coerente do briefing ao lançamento.
-            </p>
+const ProcessSection = () => (
+  <section id="processo" className="relative overflow-hidden bg-[#eef0f3] px-4 py-24 md:py-36">
+    <div className="container mx-auto max-w-[1380px]">
+      <div className="grid gap-10 lg:grid-cols-[1.08fr_.92fr] lg:items-end">
+        <div>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#2458d8]">Process</p>
+          <h2 className="mt-5 max-w-[880px] text-[3rem] font-heading font-semibold leading-[.92] tracking-[-0.065em] text-[#08111f] sm:text-6xl md:text-7xl lg:text-[5.35rem]">
+            O processo não começa
+            <span className="block text-[#08111f]/[0.34]">no efeito visual.</span>
+          </h2>
+        </div>
+        <p className="max-w-[460px] text-base leading-8 text-[#08111f]/[0.46] lg:justify-self-end md:text-lg">
+          Site profissional parece simples quando estratégia, conteúdo, design e código foram resolvidos na ordem certa.
+        </p>
+      </div>
 
-            <div className="mt-9 hidden max-w-[430px] rounded-[26px] border border-border/70 bg-white p-5 shadow-[0_20px_60px_rgba(15,23,42,.05)] md:block">
-              <div className="flex items-center justify-between">
-                <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">Sequência de trabalho</span>
-                <span className="rounded-full bg-primary/8 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-primary">4 etapas</span>
+      <div className="relative mt-16 md:mt-20">
+        <div className="absolute left-0 right-0 top-[25px] hidden h-px bg-black/[0.1] md:block" />
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1.15, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute left-0 right-0 top-[25px] hidden h-px origin-left bg-[#2458d8] md:block"
+        />
+
+        <div className="grid border-t border-black/[0.1] md:grid-cols-4 md:border-t-0">
+          {steps.map((step, index) => (
+            <motion.article
+              key={step.number}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ delay: index * 0.08, duration: 0.5 }}
+              className="group relative border-b border-black/[0.1] py-8 md:border-b-0 md:border-r md:px-6 md:pb-4 md:pt-16 first:md:pl-0 last:md:border-r-0 last:md:pr-0"
+            >
+              <span className="absolute left-0 top-[16px] hidden h-[18px] w-[18px] rounded-full border-[5px] border-[#eef0f3] bg-[#2458d8] shadow-[0_0_0_1px_rgba(36,88,216,.22)] md:block md:left-6 first:md:left-0" />
+
+              <div className="flex items-center justify-between md:block">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#08111f]/[0.28]">{step.number} · {step.label}</span>
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#2458d8] shadow-[0_10px_30px_rgba(8,17,31,.06)] md:mt-7">
+                  <step.icon className="h-4 w-4" />
+                </span>
               </div>
-              <div className="mt-5 grid grid-cols-4 gap-2">
-                {steps.map((step) => (
-                  <div key={step.number} className="text-center">
-                    <div className="mx-auto h-1.5 rounded-full bg-primary/25" />
-                    <p className="mt-2 text-[8px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">{step.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
-          <div className="space-y-5">
-            {steps.map((step, index) => (
-              <motion.article
-                key={step.number}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ delay: index * 0.05, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-                className={`group overflow-hidden rounded-[30px] border p-6 md:p-8 ${
-                  index === 1
-                    ? "border-[#0d1727] bg-[#0d1727] text-white shadow-[0_28px_80px_rgba(15,23,42,.16)]"
-                    : "border-border/70 bg-white text-foreground shadow-[0_16px_50px_rgba(15,23,42,.04)]"
-                }`}
-              >
-                <div className="grid gap-8 md:grid-cols-[0.34fr_0.66fr] md:items-stretch">
-                  <div className={`flex min-h-[210px] flex-col justify-between rounded-[24px] p-5 ${index === 1 ? "bg-white/[0.055]" : "bg-[#f5f6f8]"}`}>
-                    <div className="flex items-center justify-between">
-                      <span className={`text-[10px] font-semibold uppercase tracking-[0.24em] ${index === 1 ? "text-white/38" : "text-muted-foreground"}`}>
-                        {step.number}
-                      </span>
-                      <span className={`flex h-10 w-10 items-center justify-center rounded-2xl ${index === 1 ? "bg-[#79a9ff] text-[#0d1727]" : "bg-primary/10 text-primary"}`}>
-                        <step.icon className="h-4.5 w-4.5" />
-                      </span>
-                    </div>
-
-                    <div>
-                      <p className={`text-[9px] font-semibold uppercase tracking-[0.22em] ${index === 1 ? "text-[#8bb6ff]" : "text-primary"}`}>{step.label}</p>
-                      <p className={`mt-3 text-xs leading-5 ${index === 1 ? "text-white/42" : "text-muted-foreground"}`}>{step.detail}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex min-h-[210px] flex-col justify-between py-1">
-                    <div>
-                      <h3 className="max-w-2xl text-2xl font-heading font-semibold leading-tight tracking-[-0.04em] md:text-4xl">
-                        {step.title}
-                      </h3>
-                      <p className={`mt-5 max-w-2xl text-sm leading-7 md:text-base ${index === 1 ? "text-white/48" : "text-muted-foreground"}`}>
-                        {step.description}
-                      </p>
-                    </div>
-
-                    <div className={`mt-8 flex items-center justify-between border-t pt-4 ${index === 1 ? "border-white/10" : "border-border/70"}`}>
-                      <span className={`flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.17em] ${index === 1 ? "text-white/35" : "text-muted-foreground"}`}>
-                        <CheckCircle2 className={`h-3.5 w-3.5 ${index === 1 ? "text-[#8bb6ff]" : "text-primary"}`} />
-                        Etapa do processo
-                      </span>
-                      <ArrowUpRight className={`h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${index === 1 ? "text-white/35" : "text-muted-foreground"}`} />
-                    </div>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
+              <h3 className="mt-7 text-2xl font-heading font-semibold tracking-[-0.045em] text-[#08111f] md:mt-8 md:text-3xl">{step.title}</h3>
+              <p className="mt-4 max-w-[300px] text-sm leading-7 text-[#08111f]/[0.45]">{step.description}</p>
+            </motion.article>
+          ))}
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default ProcessSection;

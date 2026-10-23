@@ -7,7 +7,6 @@ import { faqs } from "@/data/faqs";
 
 const StudioShowcaseSection = lazy(() => import("@/components/StudioShowcaseSection"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
-const BenefitsSection = lazy(() => import("@/components/BenefitsSection"));
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
 const PricingSection = lazy(() => import("@/components/PricingSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
@@ -15,7 +14,7 @@ const CTASection = lazy(() => import("@/components/CTASection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const FloatingWhatsApp = lazy(() => import("@/components/FloatingWhatsApp"));
 
-const SectionFallback = () => <div className="py-16" />;
+const SectionFallback = () => <div className="min-h-[160px] bg-transparent" />;
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -32,10 +31,10 @@ const faqSchema = {
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background selection:bg-primary/15 selection:text-foreground">
+    <main className="min-h-screen bg-background selection:bg-[#78a7ff]/30 selection:text-foreground">
       <SEO
         title="Kubo Web | Sites profissionais para negócios que querem crescer"
-        description="Criação de sites profissionais, landing pages e lojas virtuais com design atual, navegação clara e foco em gerar contatos para o seu negócio."
+        description="Criação de sites profissionais, landing pages e lojas virtuais com direção visual, experiência responsiva e desenvolvimento sob medida."
         path="/"
         jsonLd={faqSchema}
       />
@@ -50,10 +49,6 @@ const Index = () => {
 
       <Suspense fallback={<SectionFallback />}>
         <ServicesSection />
-      </Suspense>
-
-      <Suspense fallback={<SectionFallback />}>
-        <BenefitsSection />
       </Suspense>
 
       <Suspense fallback={<SectionFallback />}>

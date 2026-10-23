@@ -6,232 +6,141 @@ import { Link } from "react-router-dom";
 const items = [
   {
     id: "site",
+    number: "01",
     label: "Site institucional",
     icon: Building2,
-    title: "Uma presença digital que organiza a percepção da empresa.",
-    text: "Estrutura, conteúdo e interface trabalham juntos para a marca parecer mais clara, confiável e atual.",
+    title: "Presença digital que organiza percepção e confiança.",
+    text: "Conteúdo, estrutura e direção visual trabalham juntos para a empresa parecer mais clara, atual e profissional.",
     href: "/servicos/sites-institucionais",
-    accent: "#79a9ff",
+    accent: "#78a7ff",
   },
   {
     id: "landing",
+    number: "02",
     label: "Landing page",
     icon: FileText,
-    title: "Uma página desenhada para explicar uma oferta e conduzir à ação.",
-    text: "Hierarquia, prova, objeções e CTA entram na mesma narrativa para reduzir ruído e facilitar a decisão.",
+    title: "Uma oferta forte precisa de uma página que conduza a leitura.",
+    text: "Mensagem, prova, objeções e CTA entram na mesma narrativa para reduzir ruído e facilitar a decisão.",
     href: "/servicos/landing-pages",
     accent: "#9ad9ff",
   },
   {
     id: "store",
+    number: "03",
     label: "Loja virtual",
     icon: ShoppingBag,
-    title: "Produto, navegação e checkout apresentados como uma experiência única.",
-    text: "A loja precisa vender sem parecer improvisada: catálogo, mobile, confiança e integrações entram desde o início.",
+    title: "Produto, navegação e checkout precisam parecer um só sistema.",
+    text: "A experiência de compra é desenhada para funcionar bem no mobile, apresentar produto e manter confiança até o pagamento.",
     href: "/servicos/loja-virtual",
-    accent: "#c9b8ff",
+    accent: "#c8b7ff",
   },
   {
     id: "ads",
+    number: "04",
     label: "Google Ads",
     icon: Megaphone,
-    title: "Tráfego conectado à página certa, com mensagem coerente até o contato.",
-    text: "Campanha e destino precisam falar a mesma língua. A Kubo Web organiza essa continuidade entre busca, página e conversão.",
+    title: "Tráfego e página precisam falar exatamente a mesma língua.",
+    text: "A campanha leva a busca certa para uma página coerente, com mensagem contínua até o contato.",
     href: "/servicos/anuncios",
-    accent: "#8ee7c5",
+    accent: "#88e4c1",
   },
 ] as const;
 
-const SitePreview = ({ mode }: { mode: (typeof items)[number]["id"] }) => {
-  if (mode === "landing") {
-    return (
-      <div className="grid min-h-[430px] gap-4 p-5 md:grid-cols-[1.18fr_.82fr] md:p-7">
-        <div className="rounded-[26px] bg-[#f7f8fb] p-6 text-[#101726] md:p-8">
-          <div className="h-2 w-24 rounded-full bg-[#101726]/10" />
-          <div className="mt-14 max-w-xl">
-            <div className="h-3 w-28 rounded-full bg-[#2458d8]/18" />
-            <div className="mt-5 h-10 w-[88%] rounded-xl bg-[#101726]" />
-            <div className="mt-3 h-10 w-[64%] rounded-xl bg-[#101726]" />
-            <div className="mt-6 h-3 w-[78%] rounded-full bg-[#101726]/10" />
-            <div className="mt-2 h-3 w-[58%] rounded-full bg-[#101726]/10" />
-            <div className="mt-8 flex gap-3">
-              <div className="h-12 w-36 rounded-full bg-[#2458d8]" />
-              <div className="h-12 w-28 rounded-full border border-[#101726]/10" />
-            </div>
-          </div>
-        </div>
-        <div className="grid gap-4">
-          {["Oferta", "Prova", "Objeções", "CTA"].map((label, index) => (
-            <motion.div
-              key={label}
-              initial={{ opacity: 0, x: 16 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.06 }}
-              className="flex items-center justify-between rounded-[22px] border border-white/9 bg-white/[0.035] p-5"
-            >
-              <div>
-                <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/28">0{index + 1}</p>
-                <p className="mt-2 text-sm font-medium text-white/72">{label}</p>
-              </div>
-              <div className="h-2 w-2 rounded-full bg-[#9ad9ff]" />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    );
-  }
+type Mode = (typeof items)[number]["id"];
 
-  if (mode === "store") {
-    return (
-      <div className="min-h-[430px] p-5 md:p-7">
-        <div className="grid h-full gap-4 md:grid-cols-[.72fr_1.28fr]">
-          <div className="rounded-[26px] border border-white/9 bg-white/[0.035] p-5">
-            <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/28">Store structure</p>
-            <div className="mt-6 space-y-3">
-              {["Categorias", "Produto", "Carrinho", "Pagamento"].map((label, index) => (
-                <div key={label} className="flex items-center gap-3 rounded-2xl bg-white/[0.035] p-4">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-white/[0.06] text-[9px] text-white/38">0{index + 1}</span>
-                  <span className="text-xs font-medium text-white/68">{label}</span>
-                </div>
-              ))}
+const PreviewCanvas = ({ mode }: { mode: Mode }) => {
+  const current = items.find((item) => item.id === mode)!;
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={mode}
+        initial={{ opacity: 0, y: 18, scale: 0.985 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: -12, scale: 0.99 }}
+        transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
+        className="relative min-h-[520px] overflow-hidden border border-white/[0.1] bg-[#0a1423] p-5 sm:p-7 md:min-h-[620px] md:p-9"
+      >
+        <div className="absolute -right-[18%] -top-[20%] h-[560px] w-[560px] rounded-full blur-[150px]" style={{ backgroundColor: `${current.accent}22` }} />
+        <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:56px_56px]" />
+
+        <div className="relative z-10 flex min-h-[480px] flex-col md:min-h-[548px]">
+          <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: current.accent }} />
+              <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/[0.32]">Kubo build system</span>
             </div>
+            <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/[0.2]">{current.number} / 04</span>
           </div>
-          <div className="rounded-[26px] bg-[#f4f1eb] p-5 md:p-7">
-            <div className="flex items-center justify-between">
-              <div className="h-3 w-28 rounded-full bg-black/10" />
-              <div className="h-9 w-24 rounded-full bg-black/6" />
+
+          <div className="grid flex-1 gap-8 pt-8 md:grid-cols-[1.08fr_.92fr] md:items-end">
+            <div className="flex min-h-[360px] flex-col justify-between bg-[#f4f5f7] p-6 text-[#08111f] sm:p-8">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="text-[8px] font-semibold uppercase tracking-[0.2em] text-black/[0.28]">{current.label}</span>
+                  <span className="h-8 w-20 rounded-full border border-black/[0.07]" />
+                </div>
+                <h3 className="mt-12 max-w-[620px] text-[2.6rem] font-heading font-semibold leading-[.91] tracking-[-0.065em] sm:text-5xl md:text-[3.9rem]">
+                  {current.title}
+                </h3>
+                <p className="mt-6 max-w-[470px] text-sm leading-7 text-black/[0.46]">{current.text}</p>
+              </div>
+              <div className="mt-10 flex items-center gap-3">
+                <span className="h-10 w-32 rounded-full bg-[#08111f]" />
+                <span className="h-10 w-10 rounded-full border border-black/[0.1]" />
+              </div>
             </div>
-            <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {Array.from({ length: 6 }).map((_, index) => (
+
+            <div className="space-y-3">
+              {(mode === "site"
+                ? ["Arquitetura", "Direção visual", "Responsivo", "Publicação"]
+                : mode === "landing"
+                  ? ["Oferta", "Prova", "Objeções", "CTA"]
+                  : mode === "store"
+                    ? ["Catálogo", "Produto", "Carrinho", "Checkout"]
+                    : ["Busca", "Anúncio", "Página", "Contato"]
+              ).map((label, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.045 }}
-                  className="rounded-[18px] bg-white p-3 shadow-[0_12px_30px_rgba(15,23,42,.06)]"
+                  key={label}
+                  initial={{ opacity: 0, x: 18 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 + index * 0.055 }}
+                  className="group flex items-center justify-between border-t border-white/[0.1] py-4"
                 >
-                  <div className={`aspect-[4/5] rounded-[14px] ${index % 3 === 0 ? "bg-[#dce8ff]" : index % 3 === 1 ? "bg-[#ece3db]" : "bg-[#e3e8ec]"}`} />
-                  <div className="mt-3 h-2 w-3/4 rounded-full bg-black/12" />
-                  <div className="mt-2 h-2 w-1/3 rounded-full bg-black/8" />
+                  <div className="flex items-center gap-4">
+                    <span className="text-[9px] font-semibold text-white/[0.22]">0{index + 1}</span>
+                    <span className="text-sm font-medium text-white/[0.62] transition-colors group-hover:text-white">{label}</span>
+                  </div>
+                  <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: current.accent }} />
                 </motion.div>
               ))}
             </div>
           </div>
         </div>
-      </div>
-    );
-  }
-
-  if (mode === "ads") {
-    return (
-      <div className="grid min-h-[430px] gap-4 p-5 md:grid-cols-[.86fr_1.14fr] md:p-7">
-        <div className="rounded-[26px] border border-white/9 bg-white/[0.035] p-5 md:p-6">
-          <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/28">Search intent</p>
-          <div className="mt-6 rounded-2xl border border-white/9 bg-[#0c1727] p-4">
-            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-3">
-              <span className="h-2 w-2 rounded-full bg-[#8ee7c5]" />
-              <span className="text-xs text-white/58">criação de site profissional</span>
-            </div>
-            <div className="mt-5 space-y-3">
-              {["Intenção alta", "Página coerente", "CTA direto"].map((label, index) => (
-                <div key={label} className="flex items-center justify-between rounded-xl border border-white/8 px-4 py-3">
-                  <span className="text-xs text-white/54">{label}</span>
-                  <span className="text-[9px] font-semibold text-[#8ee7c5]">0{index + 1}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div className="rounded-[26px] bg-white p-5 text-[#101726] md:p-7">
-          <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-black/35">Ad → landing → contact</p>
-          <div className="mt-7 space-y-4">
-            {[
-              ["Anúncio", "Mensagem alinhada à busca"],
-              ["Página", "Mesmo argumento, mais contexto"],
-              ["Contato", "Próximo passo sem fricção"],
-            ].map(([title, copy], index) => (
-              <motion.div
-                key={title}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.07 }}
-                className="relative rounded-[20px] border border-black/7 bg-[#f6f7f9] p-5"
-              >
-                <span className="absolute right-4 top-4 text-[9px] font-semibold text-black/22">0{index + 1}</span>
-                <p className="text-sm font-semibold">{title}</p>
-                <p className="mt-2 text-xs leading-5 text-black/46">{copy}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="grid min-h-[430px] gap-4 p-5 md:grid-cols-[.7fr_1.3fr] md:p-7">
-      <div className="rounded-[26px] border border-white/9 bg-white/[0.035] p-5 md:p-6">
-        <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/28">Information architecture</p>
-        <div className="mt-6 space-y-3">
-          {["Home", "Serviços", "Prova", "Sobre", "Contato"].map((label, index) => (
-            <motion.div
-              key={label}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.05 }}
-              className={`flex items-center gap-3 rounded-2xl border p-4 ${index === 0 ? "border-[#79a9ff]/25 bg-[#79a9ff]/10" : "border-white/8 bg-white/[0.025]"}`}
-            >
-              <span className="text-[9px] font-semibold text-white/30">0{index + 1}</span>
-              <span className="text-xs font-medium text-white/68">{label}</span>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-      <div className="rounded-[26px] bg-[#f5f6f8] p-5 text-[#101726] md:p-7">
-        <div className="flex items-center justify-between border-b border-black/7 pb-4">
-          <div className="h-3 w-24 rounded-full bg-black/10" />
-          <div className="flex gap-2"><span className="h-2 w-12 rounded-full bg-black/8" /><span className="h-2 w-12 rounded-full bg-black/8" /></div>
-        </div>
-        <div className="mt-8 max-w-[88%]">
-          <div className="h-3 w-28 rounded-full bg-[#2458d8]/16" />
-          <div className="mt-5 h-10 w-[92%] rounded-xl bg-[#101726]" />
-          <div className="mt-3 h-10 w-[66%] rounded-xl bg-[#101726]" />
-          <div className="mt-6 h-3 w-[72%] rounded-full bg-black/9" />
-          <div className="mt-2 h-3 w-[54%] rounded-full bg-black/9" />
-          <div className="mt-8 h-12 w-36 rounded-full bg-[#2458d8]" />
-        </div>
-        <div className="mt-10 grid grid-cols-3 gap-3">
-          {[0,1,2].map((index) => <div key={index} className="h-20 rounded-[16px] border border-black/6 bg-white" />)}
-        </div>
-      </div>
-    </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
 const StudioShowcaseSection = () => {
-  const [active, setActive] = useState<(typeof items)[number]["id"]>("site");
+  const [active, setActive] = useState<Mode>("site");
   const current = items.find((item) => item.id === active)!;
 
   return (
     <section className="relative overflow-hidden bg-[#050a13] px-4 py-24 text-white md:py-36">
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[12%] top-[-10%] h-[460px] w-[460px] rounded-full bg-blue-600/14 blur-[150px]" />
-        <div className="absolute bottom-[-16%] right-[4%] h-[520px] w-[520px] rounded-full bg-cyan-400/8 blur-[180px]" />
-        <div className="absolute inset-0 opacity-[0.1] [background-image:linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] [background-size:68px_68px]" />
-      </div>
-
-      <div className="container relative mx-auto max-w-7xl">
-        <div className="grid gap-10 lg:grid-cols-[.72fr_1.28fr] lg:gap-14">
+      <div className="pointer-events-none absolute inset-0 bg-noise opacity-[0.14]" />
+      <div className="container relative mx-auto max-w-[1380px]">
+        <div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:h-fit">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8eb8ff]">Interactive studio</p>
-            <h2 className="mt-5 max-w-xl text-[2.9rem] font-heading font-semibold leading-[0.94] tracking-[-0.055em] sm:text-6xl lg:text-[4.8rem]">
-              Explore como cada tipo de projeto é pensado.
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8db6ff]">Interactive studio</p>
+            <h2 className="mt-5 max-w-[620px] text-[3rem] font-heading font-semibold leading-[.92] tracking-[-0.065em] sm:text-6xl lg:text-[5rem]">
+              Cada projeto pede uma lógica diferente.
             </h2>
-            <p className="mt-6 max-w-lg text-base leading-8 text-white/46 md:text-lg">
-              Não é uma coleção de templates. Cada formato pede uma arquitetura, uma narrativa e uma experiência diferentes.
+            <p className="mt-6 max-w-[520px] text-base leading-8 text-white/[0.42] md:text-lg">
+              Escolha um formato e veja como a estrutura muda. A direção visual vem depois da estratégia, não antes.
             </p>
 
-            <div className="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
+            <div className="mt-10 border-t border-white/[0.1]">
               {items.map((item) => {
                 const Icon = item.icon;
                 const selected = item.id === active;
@@ -240,61 +149,31 @@ const StudioShowcaseSection = () => {
                     key={item.id}
                     type="button"
                     onClick={() => setActive(item.id)}
-                    className={`group flex items-center gap-3 rounded-2xl border p-4 text-left transition-all duration-300 ${selected ? "border-white/16 bg-white/[0.08]" : "border-white/7 bg-white/[0.02] hover:border-white/12 hover:bg-white/[0.045]"}`}
+                    onMouseEnter={() => setActive(item.id)}
                     aria-pressed={selected}
+                    className={`group flex w-full items-center gap-4 border-b border-white/[0.1] py-5 text-left transition-colors ${selected ? "text-white" : "text-white/[0.42] hover:text-white/[0.72]"}`}
                   >
-                    <span className={`flex h-10 w-10 items-center justify-center rounded-xl ${selected ? "bg-white text-[#07101f]" : "bg-white/[0.05] text-white/45"}`}>
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <span className={`text-sm font-medium ${selected ? "text-white" : "text-white/52"}`}>{item.label}</span>
-                    <ArrowUpRight className={`ml-auto h-4 w-4 transition-transform ${selected ? "text-white/70" : "text-white/20 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white/50"}`} />
+                    <span className="text-[9px] font-semibold text-white/[0.22]">{item.number}</span>
+                    <Icon className={`h-4 w-4 ${selected ? "text-[#8db6ff]" : "text-white/[0.3]"}`} />
+                    <span className="text-sm font-medium">{item.label}</span>
+                    <motion.span
+                      animate={{ x: selected ? 0 : -5, opacity: selected ? 1 : 0.25 }}
+                      className="ml-auto"
+                    >
+                      <ArrowUpRight className="h-4 w-4" />
+                    </motion.span>
                   </button>
                 );
               })}
             </div>
+
+            <Link to={current.href} className="group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-white/[0.7] transition-colors hover:text-white">
+              Ver detalhes do serviço
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
           </div>
 
-          <div>
-            <div className="overflow-hidden rounded-[34px] border border-white/10 bg-[#091321]/94 shadow-[0_45px_120px_rgba(0,0,0,.35)] backdrop-blur-xl">
-              <div className="flex items-center gap-3 border-b border-white/8 px-5 py-4 md:px-7">
-                <div className="flex gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-white/12" /><span className="h-2.5 w-2.5 rounded-full bg-white/12" /><span className="h-2.5 w-2.5 rounded-full bg-white/12" /></div>
-                <span className="ml-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/30">Kubo studio · capability preview</span>
-                <span className="ml-auto hidden h-2 w-2 rounded-full sm:block" style={{ backgroundColor: current.accent, boxShadow: `0 0 18px ${current.accent}` }} />
-              </div>
-
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={active}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <SitePreview mode={active} />
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`${active}-copy`}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.28 }}
-                className="mt-6 grid gap-5 rounded-[28px] border border-white/8 bg-white/[0.025] p-6 md:grid-cols-[1fr_auto] md:items-end md:p-7"
-              >
-                <div>
-                  <h3 className="max-w-3xl text-2xl font-heading font-semibold leading-tight tracking-[-0.04em] md:text-3xl">{current.title}</h3>
-                  <p className="mt-3 max-w-2xl text-sm leading-7 text-white/42">{current.text}</p>
-                </div>
-                <Link to={current.href} className="group inline-flex items-center gap-2 text-sm font-semibold text-white/72 transition-colors hover:text-white">
-                  Ver serviço
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </Link>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+          <PreviewCanvas mode={active} />
         </div>
       </div>
     </section>

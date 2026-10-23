@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kubo Web">
-  <rect width="64" height="64" rx="18" fill="#07101f"/>
-  <rect x="8" y="8" width="48" height="48" rx="14" fill="none" stroke="#ffffff" stroke-opacity=".08"/>
-  <path d="M22 17v30" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
-  <path d="M28 32 44 17M28 32l17 15" fill="none" stroke="#79a9ff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="m43 14 7 7M43 50l7-7" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width="2" stroke-linecap="round"/>
+  <rect width="64" height="64" rx="15" fill="#07101f"/>
+  <path d="M32 9 52 20.5 32 32 12 20.5 32 9Z" fill="#78a7ff"/>
+  <path d="M12 20.5 32 32v23L12 43.5v-23Z" fill="#f8fbff"/>
+  <path d="M52 20.5 32 32v23l20-11.5v-23Z" fill="#2d63d8"/>
+  <path d="m22.6 26.6 9.4 5.3 9.4-5.3M32 32v11.3" fill="none" stroke="#07101f" stroke-opacity=".24" stroke-width="1.8" stroke-linecap="round"/>
 </svg>

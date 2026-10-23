@@ -1,4 +1,5 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
       "source": "/:path*",
@@ -13,7 +14,20 @@
     }
   ],
   "rewrites": [
-    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+    { "source": "/sobre", "destination": "/index.html" },
+    { "source": "/servicos", "destination": "/index.html" },
+    { "source": "/portfolio", "destination": "/index.html" },
+    { "source": "/diagnostico", "destination": "/index.html" },
+    { "source": "/faq", "destination": "/index.html" },
+    { "source": "/contato", "destination": "/index.html" },
+    { "source": "/servicos/sites-institucionais", "destination": "/index.html" },
+    { "source": "/servicos/landing-pages", "destination": "/index.html" },
+    { "source": "/servicos/loja-virtual", "destination": "/index.html" },
+    { "source": "/servicos/anuncios", "destination": "/index.html" },
+    { "source": "/manutencao", "destination": "/index.html" },
+    { "source": "/atendimento", "destination": "/index.html" },
+    { "source": "/criacao-de-sites-:slug", "destination": "/index.html" },
+    { "source": "/guia/investimento-site-profissional", "destination": "/index.html" }
   ],
   "headers": [
     {

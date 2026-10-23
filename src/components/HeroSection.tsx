@@ -156,7 +156,7 @@ const StagePreview = ({ stage }: { stage: (typeof stages)[number]["id"] }) => {
           <div className="relative">
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-black/34">Production · Live</span>
+              <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-black/34">Exemplo de publicação</span>
             </div>
             <p className="mt-14 max-w-[520px] text-[2.8rem] font-heading font-semibold leading-[.94] tracking-[-0.058em] md:text-[3.6rem]">
               Pronto para abrir, compartilhar e anunciar.
@@ -337,9 +337,9 @@ const HeroSection = () => {
             >
               <div className="flex items-center gap-3 border-b border-white/8 px-4 py-3.5 sm:px-5">
                 <div className="flex gap-1.5"><span className="h-2 w-2 rounded-full bg-white/13" /><span className="h-2 w-2 rounded-full bg-white/13" /><span className="h-2 w-2 rounded-full bg-white/13" /></div>
-                <span className="ml-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/28">Kubo Studio · Live workflow</span>
-                <span className="ml-auto hidden items-center gap-2 text-[8px] font-semibold uppercase tracking-[0.18em] text-emerald-300/62 sm:flex">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> Online
+                <span className="ml-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/28">Kubo Studio · Interactive workflow</span>
+                <span className="ml-auto hidden items-center gap-2 text-[8px] font-semibold uppercase tracking-[0.18em] text-[#91b5ff] sm:flex">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#91b5ff]" /> 4 etapas
                 </span>
               </div>
 
@@ -364,7 +364,7 @@ const HeroSection = () => {
                     })}
                   </div>
                   <div className="mt-8 rounded-2xl border border-white/8 bg-white/[0.025] p-3">
-                    <p className="text-[8px] font-semibold uppercase tracking-[0.18em] text-white/22">Current project</p>
+                    <p className="text-[8px] font-semibold uppercase tracking-[0.18em] text-white/22">Preview flow</p>
                     <p className="mt-2 text-[11px] font-medium text-white/62">Website / Brand presence</p>
                     <div className="mt-3 h-1 overflow-hidden rounded-full bg-white/8">
                       <motion.div className="h-full rounded-full bg-[#78a7ff]" animate={{ width: `${(stages.findIndex((stage) => stage.id === activeStage) + 1) * 25}%` }} />

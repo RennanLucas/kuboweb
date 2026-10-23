@@ -1,26 +1,45 @@
+import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Header from "@/components/Header";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import { ArrowUpRight, Instagram, Mail, MessageCircle } from "lucide-react";
+import {
+  ArrowUpRight,
+  Building2,
+  Check,
+  FileText,
+  Instagram,
+  Mail,
+  Megaphone,
+  MessageCircle,
+  ShoppingBag,
+  Sparkles,
+  Target,
+} from "lucide-react";
 
-const whatsappUrl =
-  "https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Kubo%20Web%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.";
+const services = [
+  { id: "site", label: "Site institucional", icon: Building2 },
+  { id: "landing", label: "Landing page", icon: FileText },
+  { id: "loja", label: "Loja virtual", icon: ShoppingBag },
+  { id: "ads", label: "Google Ads", icon: Megaphone },
+] as const;
+
+const objectives = [
+  "Gerar mais contatos",
+  "Melhorar a presença da marca",
+  "Vender online",
+  "Organizar uma campanha",
+] as const;
+
+const stages = ["Só tenho a ideia", "Já tenho conteúdo", "Já tenho um site", "Quero começar logo"] as const;
 
 const channels = [
-  {
-    icon: MessageCircle,
-    label: "WhatsApp",
-    value: "+55 11 93219-7334",
-    detail: "Conte o que você precisa e qual é o objetivo do projeto.",
-    href: whatsappUrl,
-    external: true,
-  },
   {
     icon: Mail,
     label: "E-mail",
     value: "contato.kuboweb@gmail.com",
-    detail: "Bom para briefings, referências e informações mais detalhadas.",
+    detail: "Bom para enviar briefing, referências e materiais.",
     href: "mailto:contato.kuboweb@gmail.com",
     external: false,
   },
@@ -28,13 +47,28 @@ const channels = [
     icon: Instagram,
     label: "Instagram",
     value: "@kuboweb_oficial",
-    detail: "Acompanhe a identidade e os trabalhos publicados pela Kubo Web.",
+    detail: "Acompanhe identidade, trabalhos e novidades da Kubo Web.",
     href: "https://www.instagram.com/kuboweb_oficial/",
     external: true,
   },
 ];
 
 const Contato = () => {
+  const [service, setService] = useState(0);
+  const [objective, setObjective] = useState(0);
+  const [stage, setStage] = useState(0);
+
+  const whatsappUrl = useMemo(() => {
+    const message = [
+      "Olá, vim pelo site da Kubo Web e quero conversar sobre um projeto.",
+      "",
+      `Tipo de projeto: ${services[service].label}`,
+      `Objetivo principal: ${objectives[objective]}`,
+      `Momento atual: ${stages[stage]}`,
+    ].join("\n");
+    return `https://wa.me/5511932197334?text=${encodeURIComponent(message)}`;
+  }, [service, objective, stage]);
+
   return (
     <main className="min-h-screen bg-background">
       <SEO
@@ -44,90 +78,196 @@ const Contato = () => {
       />
       <Header />
 
-      <section className="relative isolate overflow-hidden bg-[#07101f] px-4 pb-20 pt-36 text-white md:pb-28 md:pt-44">
+      <section className="relative isolate overflow-hidden bg-[#050a13] px-4 pb-24 pt-36 text-white md:pb-32 md:pt-44">
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute -left-44 top-0 h-[620px] w-[620px] rounded-full bg-blue-600/18 blur-[180px]" />
-          <div className="absolute -right-44 top-[-120px] h-[700px] w-[700px] rounded-full bg-cyan-400/8 blur-[220px]" />
+          <div className="absolute left-[8%] top-[-260px] h-[720px] w-[720px] rounded-full bg-[#326cff]/[0.2] blur-[180px]" />
+          <div className="absolute right-[-12%] top-[10%] h-[620px] w-[620px] rounded-full bg-[#8db6ff]/[0.08] blur-[190px]" />
+          <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] [background-size:72px_72px]" />
         </div>
 
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <div className="container mx-auto max-w-[1380px]">
+          <div className="grid gap-14 lg:grid-cols-[1.02fr_.98fr] lg:items-end">
             <div>
-              <div className="mb-6 flex items-center gap-3">
-                <span className="h-px w-10 bg-[#78a9ff]" />
-                <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/42">Start a project</span>
+              <div className="inline-flex items-center gap-2.5 text-[9px] font-semibold uppercase tracking-[0.28em] text-[#8db6ff]">
+                <Sparkles className="h-3.5 w-3.5" />
+                Start a project
               </div>
-              <h1 className="max-w-5xl text-[3.25rem] font-heading font-semibold leading-[0.92] tracking-[-0.06em] sm:text-6xl md:text-7xl lg:text-[5.6rem]">
-                Vamos conversar sobre
-                <span className="block text-[#78a9ff]">o próximo projeto.</span>
+              <h1 className="mt-6 max-w-[880px] text-[3.4rem] font-heading font-semibold leading-[.89] tracking-[-0.075em] sm:text-7xl md:text-[6.3rem] lg:text-[7rem]">
+                Antes da proposta,
+                <span className="block text-white/[0.3]">vamos organizar a ideia.</span>
               </h1>
             </div>
-            <p className="max-w-[430px] text-base leading-8 text-white/52 lg:justify-self-end md:text-lg">
-              Você pode chamar direto no WhatsApp ou enviar um briefing por e-mail. A primeira conversa serve para entender escopo, objetivo e o que realmente precisa ser construído.
-            </p>
+            <div className="lg:justify-self-end lg:max-w-[470px]">
+              <p className="text-base leading-8 text-white/[0.48] md:text-lg">
+                Escolha o tipo de projeto, o objetivo e o momento atual. O WhatsApp já abre com um briefing inicial pronto para a conversa começar com contexto.
+              </p>
+              <div className="mt-8 flex items-center gap-3 border-t border-white/[0.1] pt-6 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/[0.28]">
+                Briefing rápido · Sem formulário longo
+                <Target className="h-4 w-4 text-[#8db6ff]" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#f4f5f7] px-4 py-24 md:py-36">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative overflow-hidden rounded-[34px] bg-[#2458d8] p-8 text-white shadow-[0_30px_90px_rgba(36,88,216,.18)] transition-transform hover:-translate-y-1 md:p-11"
-            >
-              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-[70px]" />
-              <div className="relative flex min-h-[420px] flex-col justify-between">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/58">Direct channel</span>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#2458d8]">
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </span>
-                </div>
-                <div>
-                  <MessageCircle className="h-8 w-8 text-white/72" />
-                  <h2 className="mt-6 max-w-xl text-4xl font-heading font-semibold leading-[0.98] tracking-[-0.05em] md:text-5xl">
-                    Comece pelo WhatsApp.
-                  </h2>
-                  <p className="mt-5 max-w-lg text-sm leading-7 text-white/68 md:text-base">
-                    Envie uma mensagem com o tipo de projeto, sua empresa e o que você quer melhorar. A conversa começa por aí.
-                  </p>
-                  <p className="mt-8 text-sm font-semibold">+55 11 93219-7334</p>
+      <section className="relative overflow-hidden bg-[#eef0f3] px-4 py-24 md:py-36">
+        <div className="pointer-events-none absolute left-[-12%] top-[14%] h-[560px] w-[560px] rounded-full bg-[#8db6ff]/20 blur-[170px]" />
+        <div className="container relative mx-auto max-w-[1380px]">
+          <div className="grid gap-6 xl:grid-cols-[.72fr_1.28fr]">
+            <div className="space-y-5">
+              <div className="rounded-[30px] border border-black/[0.07] bg-white p-6 shadow-[0_22px_60px_rgba(8,17,31,.05)] md:p-7">
+                <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#2458d8]">01 · Projeto</p>
+                <div className="mt-5 grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
+                  {services.map((item, index) => {
+                    const Icon = item.icon;
+                    const selected = service === index;
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => setService(index)}
+                        className={`group flex items-center gap-3 rounded-[18px] border p-3.5 text-left transition-all ${selected ? "border-[#08111f]/10 bg-[#08111f] text-white" : "border-black/[0.06] bg-[#f7f8fa] text-[#08111f] hover:border-black/[0.12]"}`}
+                      >
+                        <span className={`flex h-9 w-9 items-center justify-center rounded-full ${selected ? "bg-white/[0.08] text-[#8db6ff]" : "bg-white text-[#2458d8]"}`}>
+                          <Icon className="h-4 w-4" />
+                        </span>
+                        <span className="text-sm font-semibold">{item.label}</span>
+                        {selected && <Check className="ml-auto h-4 w-4 text-[#9ae7cc]" />}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
-            </a>
 
-            <div className="grid gap-5">
-              {channels.slice(1).map(({ icon: Icon, label, value, detail, href, external }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noopener noreferrer" : undefined}
-                  className="group rounded-[30px] border border-border/70 bg-white p-7 transition-all hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_25px_70px_rgba(15,23,42,.06)] md:p-9"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/8 text-primary">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
-                  </div>
-                  <p className="mt-10 text-[9px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">{label}</p>
-                  <h3 className="mt-3 break-all text-xl font-heading font-semibold tracking-[-0.03em] text-foreground md:text-2xl">{value}</h3>
-                  <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground">{detail}</p>
-                </a>
-              ))}
-
-              <div className="rounded-[30px] border border-border/70 bg-[#07101f] p-7 text-white md:p-9">
-                <p className="text-[9px] font-semibold uppercase tracking-[0.24em] text-[#78a9ff]">Atendimento</p>
-                <h3 className="mt-3 text-2xl font-heading font-semibold tracking-[-0.035em]">Online em todo o Brasil.</h3>
-                <p className="mt-4 text-sm leading-7 text-white/48">
-                  Reuniões, briefing, aprovação e acompanhamento podem ser feitos de forma remota, sem depender de uma localização física.
-                </p>
+              <div className="rounded-[30px] border border-black/[0.07] bg-white p-6 shadow-[0_22px_60px_rgba(8,17,31,.05)] md:p-7">
+                <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#2458d8]">02 · Objetivo</p>
+                <div className="mt-5 space-y-2">
+                  {objectives.map((item, index) => (
+                    <button
+                      key={item}
+                      type="button"
+                      onClick={() => setObjective(index)}
+                      className={`flex w-full items-center justify-between rounded-[16px] border px-4 py-3 text-left text-sm font-medium transition-all ${objective === index ? "border-[#2458d8]/20 bg-[#edf3ff] text-[#08111f]" : "border-black/[0.05] text-[#08111f]/[0.52] hover:bg-[#f8f9fb]"}`}
+                    >
+                      {item}
+                      <span className={`h-2 w-2 rounded-full ${objective === index ? "bg-[#2458d8]" : "bg-black/[0.08]"}`} />
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
+
+            <div className="relative min-h-[680px] overflow-hidden rounded-[38px] bg-[#07101f] p-6 text-white shadow-[0_48px_120px_rgba(8,17,31,.22)] md:p-8 lg:p-10">
+              <div className="pointer-events-none absolute -right-[16%] -top-[16%] h-[560px] w-[560px] rounded-full bg-[#326cff]/[0.22] blur-[160px]" />
+              <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)] [background-size:64px_64px]" />
+
+              <div className="relative z-10 flex h-full min-h-[600px] flex-col">
+                <div className="flex items-center justify-between border-b border-white/[0.1] pb-5">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-[#9ae7cc] shadow-[0_0_18px_rgba(154,231,204,.55)]" />
+                    <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/[0.34]">Kubo brief builder</span>
+                  </div>
+                  <span className="hidden text-[9px] font-semibold uppercase tracking-[0.18em] text-white/[0.22] sm:block">03 · Momento atual</span>
+                </div>
+
+                <div className="grid flex-1 gap-9 py-8 lg:grid-cols-[1.05fr_.95fr]">
+                  <div>
+                    <p className="text-[9px] font-semibold uppercase tracking-[0.22em] text-[#8db6ff]">Seu briefing inicial</p>
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={`${service}-${objective}`}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: .3 }}
+                      >
+                        <h2 className="mt-5 max-w-[650px] text-4xl font-heading font-semibold leading-[.94] tracking-[-0.058em] md:text-5xl lg:text-6xl">
+                          {services[service].label}
+                          <span className="block text-white/[0.3]">para {objectives[objective].toLowerCase()}.</span>
+                        </h2>
+                      </motion.div>
+                    </AnimatePresence>
+
+                    <div className="mt-9 space-y-2">
+                      {stages.map((item, index) => (
+                        <button
+                          key={item}
+                          type="button"
+                          onClick={() => setStage(index)}
+                          className={`flex w-full items-center gap-3 rounded-[18px] border p-4 text-left transition-all ${stage === index ? "border-white/[0.12] bg-white/[0.07]" : "border-white/[0.06] bg-white/[0.025] hover:bg-white/[0.045]"}`}
+                        >
+                          <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[9px] font-semibold ${stage === index ? "bg-[#8db6ff] text-[#07101f]" : "bg-white/[0.05] text-white/[0.3]"}`}>0{index + 1}</span>
+                          <span className={`text-sm font-medium ${stage === index ? "text-white/[0.78]" : "text-white/[0.42]"}`}>{item}</span>
+                          {stage === index && <Check className="ml-auto h-4 w-4 text-[#9ae7cc]" />}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col justify-between rounded-[28px] border border-white/[0.08] bg-white/[0.04] p-5 md:p-6">
+                    <div>
+                      <p className="text-[8px] font-semibold uppercase tracking-[0.2em] text-white/[0.26]">Mensagem preparada</p>
+                      <div className="mt-5 space-y-4">
+                        <div>
+                          <p className="text-[8px] font-semibold uppercase tracking-[0.16em] text-white/[0.22]">Projeto</p>
+                          <p className="mt-1 text-sm font-medium text-white/[0.7]">{services[service].label}</p>
+                        </div>
+                        <div>
+                          <p className="text-[8px] font-semibold uppercase tracking-[0.16em] text-white/[0.22]">Objetivo</p>
+                          <p className="mt-1 text-sm font-medium text-white/[0.7]">{objectives[objective]}</p>
+                        </div>
+                        <div>
+                          <p className="text-[8px] font-semibold uppercase tracking-[0.16em] text-white/[0.22]">Momento</p>
+                          <p className="mt-1 text-sm font-medium text-white/[0.7]">{stages[stage]}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group mt-9 inline-flex min-h-[54px] items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-[#07101f] transition-all hover:-translate-y-0.5 hover:bg-[#edf3ff]"
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                      Enviar briefing no WhatsApp
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="grid gap-3 border-t border-white/[0.1] pt-6 sm:grid-cols-3">
+                  {["Sem formulário longo", "Contexto já organizado", "Conversa direto no WhatsApp"].map((item, index) => (
+                    <div key={item} className="flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.13em] text-white/[0.3]">
+                      <span className="text-[#8db6ff]">0{index + 1}</span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {channels.map(({ icon: Icon, label, value, detail, href, external }) => (
+              <a
+                key={label}
+                href={href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
+                className="group flex items-center gap-4 rounded-[24px] border border-black/[0.07] bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_50px_rgba(8,17,31,.05)] md:p-6"
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#edf3ff] text-[#2458d8]">
+                  <Icon className="h-4.5 w-4.5" />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-[8px] font-semibold uppercase tracking-[0.2em] text-[#08111f]/[0.28]">{label}</p>
+                  <p className="mt-1 truncate text-sm font-semibold text-[#08111f]">{value}</p>
+                  <p className="mt-1 text-xs text-[#08111f]/[0.4]">{detail}</p>
+                </div>
+                <ArrowUpRight className="h-4 w-4 text-[#08111f]/[0.3] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            ))}
           </div>
         </div>
       </section>

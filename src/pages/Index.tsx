@@ -5,8 +5,10 @@ import SEO from "@/components/SEO";
 import RealWorkSection from "@/components/RealWorkSection";
 import { faqs } from "@/data/faqs";
 
+const StackRailSection = lazy(() => import("@/components/StackRailSection"));
 const StudioShowcaseSection = lazy(() => import("@/components/StudioShowcaseSection"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const ComparisonSection = lazy(() => import("@/components/ComparisonSection"));
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
 const PricingSection = lazy(() => import("@/components/PricingSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
@@ -41,6 +43,11 @@ const Index = () => {
 
       <Header />
       <HeroSection />
+
+      <Suspense fallback={<div className="h-[58px] bg-[#f7f8fa]" />}>
+        <StackRailSection />
+      </Suspense>
+
       <RealWorkSection />
 
       <Suspense fallback={<SectionFallback />}>
@@ -49,6 +56,10 @@ const Index = () => {
 
       <Suspense fallback={<SectionFallback />}>
         <ServicesSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <ComparisonSection />
       </Suspense>
 
       <Suspense fallback={<SectionFallback />}>

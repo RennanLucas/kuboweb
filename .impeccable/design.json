@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-23T18:58:48.9338347Z",
+  "title": "Design System: Kubo Web",
+  "extensions": {
+    "colorMeta": {
+      "kw-bg": {
+        "role": "neutral",
+        "displayName": "Studio Night",
+        "tonalRamp": [
+          "oklch(15% 0.01 275)",
+          "oklch(27% 0.01 275)",
+          "oklch(39% 0.01 275)",
+          "oklch(51% 0.01 275)",
+          "oklch(63% 0.01 275)",
+          "oklch(75% 0.01 275)",
+          "oklch(87% 0.01 275)",
+          "oklch(95% 0.01 275)"
+        ]
+      },
+      "kw-ink": {
+        "role": "neutral",
+        "displayName": "Cool White",
+        "tonalRamp": [
+          "oklch(15% 0.01 295)",
+          "oklch(27% 0.01 295)",
+          "oklch(39% 0.01 295)",
+          "oklch(51% 0.01 295)",
+          "oklch(63% 0.01 295)",
+          "oklch(75% 0.01 295)",
+          "oklch(87% 0.01 295)",
+          "oklch(95% 0.01 295)"
+        ]
+      },
+      "kw-muted": {
+        "role": "neutral",
+        "displayName": "Quiet Gray",
+        "tonalRamp": [
+          "oklch(15% 0.014 290)",
+          "oklch(27% 0.014 290)",
+          "oklch(39% 0.014 290)",
+          "oklch(51% 0.014 290)",
+          "oklch(63% 0.014 290)",
+          "oklch(75% 0.014 290)",
+          "oklch(87% 0.014 290)",
+          "oklch(95% 0.014 290)"
+        ]
+      },
+      "kw-line": {
+        "role": "neutral",
+        "displayName": "Graphite Rule",
+        "tonalRamp": [
+          "oklch(15% 0.012 285)",
+          "oklch(27% 0.012 285)",
+          "oklch(39% 0.012 285)",
+          "oklch(51% 0.012 285)",
+          "oklch(63% 0.012 285)",
+          "oklch(75% 0.012 285)",
+          "oklch(87% 0.012 285)",
+          "oklch(95% 0.012 285)"
+        ]
+      },
+      "kw-accent": {
+        "role": "primary",
+        "displayName": "Studio Lavender",
+        "tonalRamp": [
+          "oklch(15% 0.08 292)",
+          "oklch(27% 0.08 292)",
+          "oklch(39% 0.08 292)",
+          "oklch(51% 0.08 292)",
+          "oklch(63% 0.08 292)",
+          "oklch(75% 0.08 292)",
+          "oklch(87% 0.08 292)",
+          "oklch(95% 0.08 292)"
+        ]
+      },
+      "services-paper": {
+        "role": "neutral",
+        "displayName": "Lilac Paper",
+        "tonalRamp": [
+          "oklch(15% 0.016 300)",
+          "oklch(27% 0.016 300)",
+          "oklch(39% 0.016 300)",
+          "oklch(51% 0.016 300)",
+          "oklch(63% 0.016 300)",
+          "oklch(75% 0.016 300)",
+          "oklch(87% 0.016 300)",
+          "oklch(95% 0.016 300)"
+        ]
+      },
+      "services-ink": {
+        "role": "neutral",
+        "displayName": "Paper Ink",
+        "tonalRamp": [
+          "oklch(15% 0.02 300)",
+          "oklch(27% 0.02 300)",
+          "oklch(39% 0.02 300)",
+          "oklch(51% 0.02 300)",
+          "oklch(63% 0.02 300)",
+          "oklch(75% 0.02 300)",
+          "oklch(87% 0.02 300)",
+          "oklch(95% 0.02 300)"
+        ]
+      },
+      "services-muted": {
+        "role": "neutral",
+        "displayName": "Paper Gray",
+        "tonalRamp": [
+          "oklch(15% 0.025 300)",
+          "oklch(27% 0.025 300)",
+          "oklch(39% 0.025 300)",
+          "oklch(51% 0.025 300)",
+          "oklch(63% 0.025 300)",
+          "oklch(75% 0.025 300)",
+          "oklch(87% 0.025 300)",
+          "oklch(95% 0.025 300)"
+        ]
+      },
+      "contact-lilac": {
+        "role": "neutral",
+        "displayName": "Contact Lilac",
+        "tonalRamp": [
+          "oklch(15% 0.07 292)",
+          "oklch(27% 0.07 292)",
+          "oklch(39% 0.07 292)",
+          "oklch(51% 0.07 292)",
+          "oklch(63% 0.07 292)",
+          "oklch(75% 0.07 292)",
+          "oklch(87% 0.07 292)",
+          "oklch(95% 0.07 292)"
+        ]
+      },
+      "button-light": {
+        "role": "primary",
+        "displayName": "Soft Action Lavender",
+        "tonalRamp": [
+          "oklch(15% 0.045 300)",
+          "oklch(27% 0.045 300)",
+          "oklch(39% 0.045 300)",
+          "oklch(51% 0.045 300)",
+          "oklch(63% 0.045 300)",
+          "oklch(75% 0.045 300)",
+          "oklch(87% 0.045 300)",
+          "oklch(95% 0.045 300)"
+        ]
+      },
+      "button-light-hover": {
+        "role": "primary",
+        "displayName": "Bright Action Lavender",
+        "tonalRamp": [
+          "oklch(15% 0.04 300)",
+          "oklch(27% 0.04 300)",
+          "oklch(39% 0.04 300)",
+          "oklch(51% 0.04 300)",
+          "oklch(63% 0.04 300)",
+          "oklch(75% 0.04 300)",
+          "oklch(87% 0.04 300)",
+          "oklch(95% 0.04 300)"
+        ]
+      },
+      "button-dark": {
+        "role": "neutral",
+        "displayName": "Deep Action Ink",
+        "tonalRamp": [
+          "oklch(15% 0.025 300)",
+          "oklch(27% 0.025 300)",
+          "oklch(39% 0.025 300)",
+          "oklch(51% 0.025 300)",
+          "oklch(63% 0.025 300)",
+          "oklch(75% 0.025 300)",
+          "oklch(87% 0.025 300)",
+          "oklch(95% 0.025 300)"
+        ]
+      },
+      "button-dark-hover": {
+        "role": "neutral",
+        "displayName": "Plum Action Ink",
+        "tonalRamp": [
+          "oklch(15% 0.06 300)",
+          "oklch(27% 0.06 300)",
+          "oklch(39% 0.06 300)",
+          "oklch(51% 0.06 300)",
+          "oklch(63% 0.06 300)",
+          "oklch(75% 0.06 300)",
+          "oklch(87% 0.06 300)",
+          "oklch(95% 0.06 300)"
+        ]
+      },
+      "process-bg": {
+        "role": "neutral",
+        "displayName": "Process Night",
+        "tonalRamp": [
+          "oklch(15% 0.012 295)",
+          "oklch(27% 0.012 295)",
+          "oklch(39% 0.012 295)",
+          "oklch(51% 0.012 295)",
+          "oklch(63% 0.012 295)",
+          "oklch(75% 0.012 295)",
+          "oklch(87% 0.012 295)",
+          "oklch(95% 0.012 295)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Geometric display",
+        "purpose": "Desktop hero; mobile overrides are documented in DESIGN.md."
+      },
+      "headline": {
+        "displayName": "Section headline",
+        "purpose": "Balanced editorial section statements."
+      },
+      "emphasis": {
+        "displayName": "Serif emphasis",
+        "purpose": "Selected italic phrases inside headlines."
+      },
+      "body": {
+        "displayName": "Studio body",
+        "purpose": "Readable descriptions and functional copy."
+      },
+      "button": {
+        "displayName": "Action label",
+        "purpose": "Filled primary actions."
+      }
+    },
+    "shadows": [
+      {
+        "name": "project-image",
+        "value": "0 22px 36px #2a232326",
+        "purpose": "Screenshot depth within the colored project frame."
+      },
+      {
+        "name": "sculpture-drop",
+        "value": "0 12px 22px #33304035",
+        "purpose": "SVG filter drop-shadow on the decorative sculpture."
+      }
+    ],
+    "motion": [
+      {
+        "name": "button-state",
+        "value": "background 0.2s, transform 0.25s",
+        "purpose": "Filled button hover, including translateY(-3px)."
+      },
+      {
+        "name": "project-image",
+        "value": "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Screenshot hover lift of 6px."
+      },
+      {
+        "name": "sculpture-drift",
+        "value": "12s ease-in-out infinite",
+        "purpose": "Drift from translateY(0) rotate(-4deg) to translateY(-14px) rotate(4deg) and back."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Disable studio animation, transition, and smooth scrolling."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "min-width: 1600px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "max-width: 1100px"
+      },
+      {
+        "name": "mobile",
+        "value": "max-width: 760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Light action",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Lavender action on the dark studio canvas.",
+      "html": "<a class=\"ds-light\" href=\"#project\">Começar meu projeto <svg width=\"19\" height=\"19\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-light{display:inline-flex;align-items:center;justify-content:center;gap:25px;padding:16px 22px;min-height:54px;border-radius:7px;background:#ded7f7;color:#18151e;font:600 14px/1.3 'DM Sans',sans-serif;text-decoration:none;transition:background .2s,transform .25s}.ds-light:hover{background:#ede6ff;transform:translateY(-3px)}.ds-light:focus-visible{outline:2px solid #a899ef;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-light{transition:none}}"
+    },
+    {
+      "name": "Dark action",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Dark action on the pale service or contact surface.",
+      "html": "<a class=\"ds-dark\" href=\"#quote\">Pedir orçamento <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-dark{display:inline-flex;align-items:center;justify-content:center;gap:25px;padding:16px 22px;min-height:54px;border-radius:7px;background:#17141e;color:#fff;font:600 14px/1.3 'DM Sans',sans-serif;text-decoration:none;transition:background .2s,transform .25s}.ds-dark:hover{background:#332a48;transform:translateY(-3px)}.ds-dark:focus-visible{outline:2px solid #594074;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-dark{transition:none}}"
+    },
+    {
+      "name": "Header action",
+      "kind": "button",
+      "refersTo": "header-cta",
+      "description": "Shared lavender action in desktop navigation.",
+      "html": "<a class=\"ds-header-action\" href=\"#contact\">Vamos conversar <svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M7 17 17 7M7 7h10v10\"/></svg></a>",
+      "css": ".ds-header-action{display:inline-flex;align-items:center;gap:20px;border:1px solid transparent;background:#ded7f7;border-radius:7px;padding:11px 18px;color:#18151e;font:600 13px 'DM Sans',sans-serif;text-decoration:none;transition:background .2s}.ds-header-action:hover{background:#ede6ff}.ds-header-action:focus-visible{outline:2px solid #a899ef;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-header-action{transition:none}}"
+    },
+    {
+      "name": "Desktop navigation",
+      "kind": "nav",
+      "description": "Quiet links on a dark fixed header.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navegação\"><a href=\"#projects\">Projetos</a><a href=\"#services\">Serviços</a><a href=\"#process\">Como funciona</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:32px;background:var(--kw-bg,#0c0d10);padding:20px}.ds-nav a{font:13px 'DM Sans',sans-serif;color:#c0bec8;text-decoration:none;transition:color .2s}.ds-nav a:hover{color:#fff}.ds-nav a:focus-visible{outline:2px solid #a899ef;outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none}}"
+    },
+    {
+      "name": "Process tag",
+      "kind": "chip",
+      "refersTo": "process-tag",
+      "description": "Passive metadata within a process panel.",
+      "html": "<span class=\"ds-tag\">Estratégia</span>",
+      "css": ".ds-tag{display:inline-block;padding:5px 11px;border:1px solid #41394f;border-radius:4px;color:#bfb3d4;background:#111115;font:11px 'DM Sans',sans-serif}"
+    },
+    {
+      "name": "Project frame",
+      "kind": "card",
+      "description": "Real desktop and mobile screenshots paired in a colored frame, with factual project description and disciplines below.",
+      "html": "<a class=\"ds-project\" href=\"#case\"><div class=\"ds-frame\"><div class=\"ds-browser\"><i></i><i></i><i></i><small>helenaavilapsi.com.br</small></div><div class=\"ds-image-slot\">Local project screenshot</div><span class=\"ds-open\">Explorar projeto ↗</span></div><h3>Helena Ávila</h3><p>Psicoterapia · Site institucional</p></a>",
+      "css": ".ds-project{display:block;max-width:510px;background:var(--kw-bg,#0c0d10);color:var(--kw-ink,#f2f1f5);font-family:'DM Sans',sans-serif;text-decoration:none;padding:12px}.ds-frame{position:relative;background:#d8d3c8;border-radius:12px;overflow:hidden;padding:44px 53px 42px 27px;aspect-ratio:1.3}.ds-browser{display:flex;align-items:center;gap:4px;height:23px;background:#fff;color:#59565c;border-radius:5px 5px 0 0;padding:0 10px}.ds-browser i{width:4px;height:4px;background:#c5c1c9;border-radius:50%}.ds-browser small{font-size:7px;margin:auto}.ds-image-slot{height:210px;background:#f4f0e9;color:#625c6b;display:grid;place-items:center;font-size:12px;box-shadow:0 22px 36px #2a232326;transition:transform .6s cubic-bezier(.16,1,.3,1)}.ds-project:hover .ds-image-slot{transform:translateY(-6px)}.ds-open{position:absolute;bottom:20px;right:20px;background:#14131a;color:#fff;padding:11px 16px;border-radius:6px;font-size:11px;opacity:0;transition:opacity .25s}.ds-project:hover .ds-open,.ds-project:focus-visible .ds-open{opacity:1}.ds-project:focus-visible{outline:2px solid #a899ef;outline-offset:6px}.ds-project h3{font:500 23px 'Space Grotesk',sans-serif;letter-spacing:-.03em;margin:21px 0 4px}.ds-project p{font-size:12px;color:#a8a5b1;margin:0}@media(prefers-reduced-motion:reduce){.ds-image-slot,.ds-open{transition:none}}"
+    },
+    {
+      "name": "Native FAQ row",
+      "kind": "custom",
+      "description": "Native disclosure with a plus/minus state and a fine rule.",
+      "html": "<details class=\"ds-faq\"><summary>Como começamos um projeto?<span aria-hidden=\"true\"></span></summary><p>Conte sua ideia em uma conversa com a Kubo Web.</p></details>",
+      "css": ".ds-faq{max-width:600px;border-top:1px solid #37323f;border-bottom:1px solid #37323f;background:var(--kw-bg,#0c0d10);font-family:'DM Sans',sans-serif}.ds-faq summary{display:flex;align-items:center;justify-content:space-between;gap:26px;padding:23px 0;color:#e6e1ed;font-size:14px;list-style:none;cursor:pointer}.ds-faq summary::-webkit-details-marker{display:none}.ds-faq summary span{color:#b6a8ce}.ds-faq summary span:after{content:'+'}.ds-faq[open] summary span:after{content:'−'}.ds-faq summary:focus-visible{outline:2px solid #a899ef;outline-offset:6px}.ds-faq p{padding:0 40px 24px 0;margin:0;color:#b2aabb;font-size:13px;line-height:1.9}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Geometric Editorial Studio",
+    "overview": "Kubo Web combines the confidence of an editorial studio with the precision of a digital craft practice. Dark, spacious fields carry large geometric type; selective serif italics add a human inflection. Lavender connects the fine geometry, small details, and decisive actions. Pale sections introduce a deliberate change in reading pace.\n\nThis system records the implemented homepage in `src/pages/StudioHome.tsx`, `src/styles/studio.css`, and `src/components/LineSculpture.tsx`. The portfolio and both case pages share this visual system. Header and footer are shared across all routes; remaining service, studio, contact and support page bodies retain earlier styling. Use this world as the reference for intentional future migrations; do not treat incumbent inner-route styles as tokens of this system. The homepage composition is recorded separately in `.impeccable/surfaces/home.md`.",
+    "keyCharacteristics": [
+      "Spacious editorial hierarchy with compact supporting labels.",
+      "Geometric linework paired with restrained lavender accents.",
+      "Mostly flat surfaces, thin rules, and small functional corners.",
+      "Real project imagery and clear, keyboard-accessible interactions."
+    ],
+    "rules": [
+      {
+        "name": "The Surface Pairing Rule",
+        "body": "Switch both background and text roles when entering a pale region. Keep muted copy appropriate to its local surface.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Use Space Grotesk for the main statement and Playfair italics for a chosen phrase; retain DM Sans for functional reading.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do use the studio palette and local surface text pairings.",
+      "Do retain the geometric sans, serif italic, and clear body-type relationship.",
+      "Do preserve keyboard focus, tab navigation, native disclosure behavior, and reduced motion.",
+      "Do use verified project screenshots and recognizable project content.",
+      "Do migrate existing internal routes deliberately, with their behavior preserved."
+    ],
+    "donts": [
+      "Don't turn every section into a raised card or add pervasive shadows.",
+      "Don't spread decorative serif italics into navigation or body paragraphs.",
+      "Don't substitute invented clients, testimonials, results, or unsupported brand marks for evidence.",
+      "Don't assume internal routes already implement this visual system."
+    ]
+  }
+}

@@ -10,5 +10,6 @@ import "@fontsource/space-grotesk/500.css";
 import "@fontsource/space-grotesk/600.css";
 import "@fontsource/space-grotesk/700.css";
 import "@fontsource/playfair-display/400.css";
+import "@fontsource/playfair-display/400-italic.css";
 
 createRoot(document.getElementById("root")!).render(<App />);

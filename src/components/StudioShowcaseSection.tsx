@@ -1,183 +1,172 @@
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Building2, FileText, Megaphone, ShoppingBag } from "lucide-react";
+import { ArrowUpRight, Check, Gauge, Layers3, Megaphone, MonitorSmartphone, Search } from "lucide-react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const items = [
-  {
-    id: "site",
-    number: "01",
-    label: "Site institucional",
-    icon: Building2,
-    title: "Presença digital que organiza percepção e confiança.",
-    text: "Conteúdo, estrutura e direção visual trabalham juntos para a empresa parecer mais clara, atual e profissional.",
-    href: "/servicos/sites-institucionais",
-    accent: "#78a7ff",
-  },
-  {
-    id: "landing",
-    number: "02",
-    label: "Landing page",
-    icon: FileText,
-    title: "Uma oferta forte precisa de uma página que conduza a leitura.",
-    text: "Mensagem, prova, objeções e CTA entram na mesma narrativa para reduzir ruído e facilitar a decisão.",
-    href: "/servicos/landing-pages",
-    accent: "#9ad9ff",
-  },
-  {
-    id: "store",
-    number: "03",
-    label: "Loja virtual",
-    icon: ShoppingBag,
-    title: "Produto, navegação e checkout precisam parecer um só sistema.",
-    text: "A experiência de compra é desenhada para funcionar bem no mobile, apresentar produto e manter confiança até o pagamento.",
-    href: "/servicos/loja-virtual",
-    accent: "#c8b7ff",
-  },
-  {
-    id: "ads",
-    number: "04",
-    label: "Google Ads",
-    icon: Megaphone,
-    title: "Tráfego e página precisam falar exatamente a mesma língua.",
-    text: "A campanha leva a busca certa para uma página coerente, com mensagem contínua até o contato.",
-    href: "/servicos/anuncios",
-    accent: "#88e4c1",
-  },
-] as const;
+const LayerCard = ({ label, index, active = false }: { label: string; index: number; active?: boolean }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 18 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: index * 0.06, duration: 0.45 }}
+    className={`flex items-center justify-between rounded-2xl border p-4 ${active ? "border-[#2b61dc]/20 bg-[#2b61dc]/7" : "border-black/[0.06] bg-white"}`}
+  >
+    <div className="flex items-center gap-3">
+      <span className={`flex h-8 w-8 items-center justify-center rounded-xl text-[9px] font-semibold ${active ? "bg-[#07101f] text-white" : "bg-[#f0f2f5] text-black/36"}`}>0{index + 1}</span>
+      <span className="text-sm font-medium text-[#111827]">{label}</span>
+    </div>
+    <span className={`h-2 w-2 rounded-full ${active ? "bg-[#2b61dc]" : "bg-black/10"}`} />
+  </motion.div>
+);
 
-type Mode = (typeof items)[number]["id"];
+const StudioShowcaseSection = () => (
+  <section className="relative overflow-hidden bg-[#f7f7f5] px-4 py-24 md:py-36">
+    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/8 to-transparent" />
+    <div className="container mx-auto max-w-[1380px]">
+      <div className="mb-14 grid gap-8 lg:grid-cols-[1.08fr_.92fr] lg:items-end md:mb-20">
+        <div>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#2b61dc]">Design system</p>
+          <h2 className="mt-5 max-w-[900px] text-[3rem] font-heading font-semibold leading-[0.92] tracking-[-0.065em] text-[#0b111c] sm:text-6xl md:text-[5.25rem]">
+            O nível aparece
+            <span className="block text-black/28">nos detalhes.</span>
+          </h2>
+        </div>
+        <p className="max-w-[470px] text-base leading-8 text-black/48 lg:justify-self-end md:text-lg">
+          Os sites das referências funcionam porque produto, interface e narrativa parecem uma coisa só. A Kubo segue a mesma lógica: menos peças genéricas, mais sistema.
+        </p>
+      </div>
 
-const PreviewCanvas = ({ mode }: { mode: Mode }) => {
-  const current = items.find((item) => item.id === mode)!;
-
-  return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={mode}
-        initial={{ opacity: 0, y: 18, scale: 0.985 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: -12, scale: 0.99 }}
-        transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
-        className="relative min-h-[520px] overflow-hidden border border-white/[0.1] bg-[#0a1423] p-5 sm:p-7 md:min-h-[620px] md:p-9"
-      >
-        <div className="absolute -right-[18%] -top-[20%] h-[560px] w-[560px] rounded-full blur-[150px]" style={{ backgroundColor: `${current.accent}22` }} />
-        <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:56px_56px]" />
-
-        <div className="relative z-10 flex min-h-[480px] flex-col md:min-h-[548px]">
-          <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: current.accent }} />
-              <span className="text-[9px] font-semibold uppercase tracking-[0.22em] text-white/[0.32]">Kubo build system</span>
+      <div className="grid gap-4 lg:grid-cols-12">
+        <motion.article
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="relative overflow-hidden rounded-[32px] border border-black/[0.06] bg-white p-6 shadow-[0_25px_80px_rgba(15,23,42,.05)] sm:p-8 lg:col-span-7 lg:p-10"
+        >
+          <div className="pointer-events-none absolute -right-24 -top-28 h-[360px] w-[360px] rounded-full bg-[#dce7ff] blur-[90px]" />
+          <div className="relative z-10 grid gap-8 md:grid-cols-[.85fr_1.15fr] md:items-end">
+            <div>
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#07101f] text-white"><Layers3 className="h-4.5 w-4.5" /></span>
+              <p className="mt-8 text-[9px] font-semibold uppercase tracking-[0.22em] text-black/32">Direção de projeto</p>
+              <h3 className="mt-3 max-w-[430px] text-3xl font-heading font-semibold leading-[1.02] tracking-[-0.045em] text-[#0b111c] md:text-4xl">
+                Uma decisão visual precisa sustentar a próxima.
+              </h3>
+              <p className="mt-4 max-w-[430px] text-sm leading-7 text-black/46">
+                Estrutura, hierarquia, cor, tipografia e CTA deixam de competir entre si e passam a funcionar como uma linguagem única.
+              </p>
             </div>
-            <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-white/[0.2]">{current.number} / 04</span>
+            <div className="rounded-[26px] border border-black/[0.06] bg-[#f5f6f8] p-4 sm:p-5">
+              <div className="flex items-center justify-between border-b border-black/[0.06] pb-4">
+                <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-black/28">Project layers</span>
+                <span className="rounded-full bg-white px-2.5 py-1 text-[8px] font-semibold uppercase tracking-[0.16em] text-black/34">Live system</span>
+              </div>
+              <div className="mt-4 space-y-2.5">
+                <LayerCard label="Mensagem e proposta" index={0} active />
+                <LayerCard label="Arquitetura da página" index={1} />
+                <LayerCard label="Sistema visual" index={2} />
+                <LayerCard label="Estados e mobile" index={3} />
+              </div>
+            </div>
           </div>
+        </motion.article>
 
-          <div className="grid flex-1 gap-8 pt-8 md:grid-cols-[1.08fr_.92fr] md:items-end">
-            <div className="flex min-h-[360px] flex-col justify-between bg-[#f4f5f7] p-6 text-[#08111f] sm:p-8">
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-[8px] font-semibold uppercase tracking-[0.2em] text-black/[0.28]">{current.label}</span>
-                  <span className="h-8 w-20 rounded-full border border-black/[0.07]" />
-                </div>
-                <h3 className="mt-12 max-w-[620px] text-[2.6rem] font-heading font-semibold leading-[.91] tracking-[-0.065em] sm:text-5xl md:text-[3.9rem]">
-                  {current.title}
-                </h3>
-                <p className="mt-6 max-w-[470px] text-sm leading-7 text-black/[0.46]">{current.text}</p>
+        <motion.article
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ delay: 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="relative overflow-hidden rounded-[32px] border border-white/8 bg-[#07101f] p-6 text-white shadow-[0_30px_90px_rgba(15,23,42,.15)] sm:p-8 lg:col-span-5 lg:p-9"
+        >
+          <div className="absolute -right-20 -top-24 h-[300px] w-[300px] rounded-full bg-[#336cff]/25 blur-[90px]" />
+          <div className="relative z-10">
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/[0.07] text-[#91b5ff]"><MonitorSmartphone className="h-4.5 w-4.5" /></span>
+            <p className="mt-8 text-[9px] font-semibold uppercase tracking-[0.22em] text-white/28">Responsive by design</p>
+            <h3 className="mt-3 max-w-[420px] text-3xl font-heading font-semibold leading-[1.02] tracking-[-0.045em]">Desktop e mobile contam a mesma história.</h3>
+
+            <div className="mt-8 flex items-end gap-3">
+              <div className="flex-1 rounded-[22px] border border-white/9 bg-white/[0.035] p-4">
+                <div className="h-2 w-16 rounded-full bg-white/10" />
+                <div className="mt-8 h-6 w-[84%] rounded-lg bg-white/78" />
+                <div className="mt-2 h-6 w-[58%] rounded-lg bg-white/78" />
+                <div className="mt-5 h-2 w-[70%] rounded-full bg-white/8" />
+                <div className="mt-2 h-2 w-[48%] rounded-full bg-white/6" />
+                <div className="mt-6 h-9 w-28 rounded-full bg-[#78a7ff]" />
               </div>
-              <div className="mt-10 flex items-center gap-3">
-                <span className="h-10 w-32 rounded-full bg-[#08111f]" />
-                <span className="h-10 w-10 rounded-full border border-black/[0.1]" />
+              <div className="w-[92px] rounded-[25px] border-[5px] border-white/12 bg-white/[0.04] p-2 shadow-xl">
+                <div className="mx-auto h-1 w-8 rounded-full bg-white/12" />
+                <div className="mt-2 rounded-[18px] bg-[#f4f1eb] p-3">
+                  <div className="h-2 w-8 rounded-full bg-black/9" />
+                  <div className="mt-5 h-4 w-[82%] rounded-md bg-black/72" />
+                  <div className="mt-2 h-4 w-[56%] rounded-md bg-black/72" />
+                  <div className="mt-5 h-16 rounded-xl bg-[#d8ddd7]" />
+                  <div className="mt-4 h-7 rounded-full bg-[#536d61]" />
+                </div>
               </div>
             </div>
+          </div>
+        </motion.article>
 
-            <div className="space-y-3">
-              {(mode === "site"
-                ? ["Arquitetura", "Direção visual", "Responsivo", "Publicação"]
-                : mode === "landing"
-                  ? ["Oferta", "Prova", "Objeções", "CTA"]
-                  : mode === "store"
-                    ? ["Catálogo", "Produto", "Carrinho", "Checkout"]
-                    : ["Busca", "Anúncio", "Página", "Contato"]
-              ).map((label, index) => (
-                <motion.div
-                  key={label}
-                  initial={{ opacity: 0, x: 18 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 + index * 0.055 }}
-                  className="group flex items-center justify-between border-t border-white/[0.1] py-4"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="text-[9px] font-semibold text-white/[0.22]">0{index + 1}</span>
-                    <span className="text-sm font-medium text-white/[0.62] transition-colors group-hover:text-white">{label}</span>
+        <motion.article
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ delay: 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="rounded-[32px] border border-black/[0.06] bg-[#eef2ff] p-6 sm:p-8 lg:col-span-5 lg:p-9"
+        >
+          <div className="flex items-start justify-between gap-4">
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#07101f] text-white"><Gauge className="h-4.5 w-4.5" /></span>
+            <Search className="h-5 w-5 text-black/24" />
+          </div>
+          <p className="mt-8 text-[9px] font-semibold uppercase tracking-[0.22em] text-[#2b61dc]">Antes de publicar</p>
+          <h3 className="mt-3 max-w-[420px] text-3xl font-heading font-semibold leading-[1.02] tracking-[-0.045em] text-[#0b111c]">Performance, SEO e rastreamento entram no acabamento.</h3>
+          <div className="mt-7 grid gap-2">
+            {["Metadados e canonical", "Responsividade e leitura", "Formulários e CTAs", "Analytics e conversões"].map((item) => (
+              <div key={item} className="flex items-center gap-3 rounded-2xl border border-[#2b61dc]/10 bg-white/65 px-4 py-3">
+                <Check className="h-3.5 w-3.5 text-[#2b61dc]" />
+                <span className="text-xs font-medium text-black/58">{item}</span>
+              </div>
+            ))}
+          </div>
+        </motion.article>
+
+        <motion.article
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ delay: 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="relative overflow-hidden rounded-[32px] border border-black/[0.06] bg-white p-6 shadow-[0_25px_80px_rgba(15,23,42,.04)] sm:p-8 lg:col-span-7 lg:p-9"
+        >
+          <div className="grid gap-8 md:grid-cols-[.9fr_1.1fr] md:items-center">
+            <div>
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#07101f] text-white"><Megaphone className="h-4.5 w-4.5" /></span>
+              <p className="mt-8 text-[9px] font-semibold uppercase tracking-[0.22em] text-black/32">Campanha conectada</p>
+              <h3 className="mt-3 text-3xl font-heading font-semibold leading-[1.02] tracking-[-0.045em] text-[#0b111c]">Anúncio, página e contato precisam falar a mesma língua.</h3>
+              <Link to="/servicos/anuncios" className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#0b111c]">
+                Ver Google Ads
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+            <div className="rounded-[26px] bg-[#0a111d] p-4 text-white sm:p-5">
+              {[
+                ["01", "Busca", "Intenção"],
+                ["02", "Página", "Mesma mensagem"],
+                ["03", "Contato", "Próximo passo"],
+              ].map(([number, title, detail], index) => (
+                <div key={number} className={`flex items-center gap-4 py-4 ${index > 0 ? "border-t border-white/8" : ""}`}>
+                  <span className="text-[9px] font-semibold text-[#91b5ff]">{number}</span>
+                  <div>
+                    <p className="text-sm font-medium text-white/78">{title}</p>
+                    <p className="mt-1 text-[10px] text-white/30">{detail}</p>
                   </div>
-                  <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: current.accent }} />
-                </motion.div>
+                  <ArrowUpRight className="ml-auto h-3.5 w-3.5 text-white/22" />
+                </div>
               ))}
             </div>
           </div>
-        </div>
-      </motion.div>
-    </AnimatePresence>
-  );
-};
-
-const StudioShowcaseSection = () => {
-  const [active, setActive] = useState<Mode>("site");
-  const current = items.find((item) => item.id === active)!;
-
-  return (
-    <section className="relative overflow-hidden bg-[#050a13] px-4 py-24 text-white md:py-36">
-      <div className="pointer-events-none absolute inset-0 bg-noise opacity-[0.14]" />
-      <div className="container relative mx-auto max-w-[1380px]">
-        <div className="grid gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-16">
-          <div className="lg:sticky lg:top-28 lg:h-fit">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#8db6ff]">Interactive studio</p>
-            <h2 className="mt-5 max-w-[620px] text-[3rem] font-heading font-semibold leading-[.92] tracking-[-0.065em] sm:text-6xl lg:text-[5rem]">
-              Cada projeto pede uma lógica diferente.
-            </h2>
-            <p className="mt-6 max-w-[520px] text-base leading-8 text-white/[0.42] md:text-lg">
-              Escolha um formato e veja como a estrutura muda. A direção visual vem depois da estratégia, não antes.
-            </p>
-
-            <div className="mt-10 border-t border-white/[0.1]">
-              {items.map((item) => {
-                const Icon = item.icon;
-                const selected = item.id === active;
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => setActive(item.id)}
-                    onMouseEnter={() => setActive(item.id)}
-                    aria-pressed={selected}
-                    className={`group flex w-full items-center gap-4 border-b border-white/[0.1] py-5 text-left transition-colors ${selected ? "text-white" : "text-white/[0.42] hover:text-white/[0.72]"}`}
-                  >
-                    <span className="text-[9px] font-semibold text-white/[0.22]">{item.number}</span>
-                    <Icon className={`h-4 w-4 ${selected ? "text-[#8db6ff]" : "text-white/[0.3]"}`} />
-                    <span className="text-sm font-medium">{item.label}</span>
-                    <motion.span
-                      animate={{ x: selected ? 0 : -5, opacity: selected ? 1 : 0.25 }}
-                      className="ml-auto"
-                    >
-                      <ArrowUpRight className="h-4 w-4" />
-                    </motion.span>
-                  </button>
-                );
-              })}
-            </div>
-
-            <Link to={current.href} className="group mt-7 inline-flex items-center gap-2 text-sm font-semibold text-white/[0.7] transition-colors hover:text-white">
-              Ver detalhes do serviço
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-          </div>
-
-          <PreviewCanvas mode={active} />
-        </div>
+        </motion.article>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default StudioShowcaseSection;

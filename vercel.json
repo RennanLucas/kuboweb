@@ -1,4 +1,17 @@
 {
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "kuboweb.com.br" }],
+      "destination": "https://www.kuboweb.com.br/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio/:slug",
+      "destination": "/portfolio",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/((?!assets/).*)", "destination": "/index.html" }
   ],

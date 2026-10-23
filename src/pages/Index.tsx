@@ -29,12 +29,6 @@ const faqSchema = {
   })),
 };
 
-const Divider = () => (
-  <div className="container mx-auto max-w-6xl px-4" aria-hidden="true">
-    <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-  </div>
-);
-
 const Index = () => {
   return (
     <main className="min-h-screen bg-background selection:bg-primary/15 selection:text-foreground">
@@ -48,31 +42,22 @@ const Index = () => {
       <Header />
       <HeroSection />
       <RealWorkSection />
-      <Divider />
 
       <Suspense fallback={<SectionFallback />}>
         <ServicesSection />
       </Suspense>
 
-      <Divider />
-
       <Suspense fallback={<SectionFallback />}>
         <BenefitsSection />
       </Suspense>
-
-      <Divider />
 
       <Suspense fallback={<SectionFallback />}>
         <ProcessSection />
       </Suspense>
 
-      <Divider />
-
       <Suspense fallback={<SectionFallback />}>
         <PricingSection />
       </Suspense>
-
-      <Divider />
 
       <Suspense fallback={<SectionFallback />}>
         <FAQSection />

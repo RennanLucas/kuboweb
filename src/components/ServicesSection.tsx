@@ -1,246 +1,85 @@
 import { memo } from "react";
-import { FileText, Building2, ShoppingCart, Megaphone, MessageCircle, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowUpRight, Building2, FileText, Megaphone, ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 24, scale: 0.98 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: [0.16, 1, 0.3, 1] as const,
-    },
-  },
-};
-
 const services = [
   {
-    id: "sites",
     icon: Building2,
-    title: "Sites Institucionais",
-    description:
-      "Presença digital profissional que transmite autoridade e converte visitantes em clientes qualificados.",
-    features: ["SEO Otimizado", "Design Exclusivo", "Ultra Velocidade", "Painel Administrativo"],
+    title: "Sites institucionais",
+    description: "Sites completos para apresentar sua empresa, serviços e diferenciais com uma imagem profissional.",
+    detail: "Estrutura, design, versão mobile e contato direto.",
     href: "/servicos/sites-institucionais",
-    layout: "wide",
-    theme: "light",
   },
   {
-    id: "landing",
     icon: FileText,
-    title: "Landing Pages",
-    description: "Focadas 100% em conversão para maximizar o ROI das suas campanhas.",
-    features: ["Copywriting Persuasivo", "Testes A/B"],
+    title: "Landing pages",
+    description: "Páginas objetivas para campanhas, lançamentos e ofertas que precisam conduzir o visitante até a ação.",
+    detail: "Mensagem clara, CTA e experiência responsiva.",
     href: "/servicos/landing-pages",
-    layout: "tall",
-    theme: "dark",
   },
   {
-    id: "loja",
     icon: ShoppingCart,
-    title: "Loja Virtual",
-    description: "E-commerce completo e escalável com as melhores tecnologias do mercado.",
-    features: ["Checkout Fluido", "Gestão de Estoque"],
+    title: "Lojas virtuais",
+    description: "Estrutura de e-commerce para organizar produtos, facilitar a compra e profissionalizar sua operação online.",
+    detail: "Catálogo, carrinho e integrações conforme o projeto.",
     href: "/servicos/loja-virtual",
-    layout: "tall",
-    theme: "light",
   },
   {
-    id: "anuncios",
     icon: Megaphone,
-    title: "Gestão de Anúncios",
-    description: "Estratégias avançadas de tráfego pago no Google Ads para escala imediata.",
-    features: [
-      "Google Ads",
-      "Dashboards em Tempo Real",
-      "Análise de Público Alvo",
-      "Otimização de Funil",
-    ],
+    title: "Google Ads",
+    description: "Criação e organização de campanhas para levar pessoas interessadas até seu site ou WhatsApp.",
+    detail: "Configuração, segmentação e acompanhamento.",
     href: "/servicos/anuncios",
-    layout: "wide",
-    theme: "light",
   },
 ];
 
-const ServiceCard = ({
-  service,
-}: {
-  service: (typeof services)[number];
-}) => {
-  const Icon = service.icon;
-  const isDark = service.theme === "dark";
-  const isWide = service.layout === "wide";
-
-  const baseClasses = `
-    group relative block overflow-hidden rounded-3xl p-7 md:p-8 h-full
-    transition-all duration-300 ease-out
-    hover:shadow-xl hover:-translate-y-1
-    ${isDark ? "bg-primary text-primary-foreground border border-primary/10" : "bg-card border border-border shadow-sm"}
-  `;
-
-  return (
-    <motion.div variants={itemVariants} className={`h-full ${isWide ? "md:col-span-2" : ""}`}>
-      <Link to={service.href} className={baseClasses}>
-
-        <div className="flex flex-col h-full">
-          <div className="flex justify-between items-start mb-6">
-            <div
-              className={`p-3 rounded-2xl transition-colors duration-300 ${
-                isDark ? "bg-primary-foreground/10 text-primary-foreground" : "bg-primary/10 text-primary"
-              }`}
-            >
-              <Icon className="w-7 h-7 md:w-8 md:h-8" strokeWidth={1.5} />
-            </div>
-
-            {service.id === "sites" && (
-              <div className="hidden md:block bg-muted rounded-xl p-4">
-                <div className="w-32 h-2 bg-primary/20 rounded-full mb-2 overflow-hidden">
-                  <div className="w-3/4 h-full bg-primary rounded-full" />
-                </div>
-                <div className="w-24 h-2 bg-muted-foreground/20 rounded-full" />
-              </div>
-            )}
-
-            {service.id === "anuncios" && (
-              <div className="hidden md:flex gap-2 items-end">
-                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-1/2 bg-primary rounded-full" />
-                </div>
-                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-3/4 bg-primary rounded-full" />
-                </div>
-                <div className="h-20 w-8 bg-primary/10 rounded-full flex items-end p-1">
-                  <div className="w-full h-full bg-primary rounded-full" />
-                </div>
-              </div>
-            )}
-          </div>
-
-          <h3
-            className={`text-xl md:text-2xl font-bold font-heading mb-3 ${
-              isDark ? "text-primary-foreground" : "text-foreground"
-            }`}
-          >
-            {service.title}
-          </h3>
-
-          <p
-            className={`mb-6 ${isDark ? "text-primary-foreground/70" : "text-muted-foreground"} ${
-              isWide ? "max-w-md" : ""
-            }`}
-          >
-            {service.description}
-          </p>
-
-          <ul
-            className={`grid gap-y-3 mb-8 text-sm ${
-              isWide ? "grid-cols-2" : "grid-cols-1"
-            } ${isDark ? "text-primary-foreground/60" : "text-muted-foreground"}`}
-          >
-            {service.features.map((feature) => (
-              <li key={feature} className="flex items-center gap-2">
-                <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isDark ? "bg-primary-foreground/50" : "bg-primary"}`} />
-                {feature}
-              </li>
-            ))}
-          </ul>
-
-          <span
-            className={`mt-auto inline-flex items-center gap-2 text-sm font-bold transition-transform duration-200 group-hover:translate-x-1 ${
-              isDark ? "text-primary-foreground" : "text-primary"
-            }`}
-          >
-            Saiba mais
-            <ArrowRight className="w-4 h-4" />
-          </span>
+const ServicesSection = () => (
+  <section id="servicos" className="px-4 py-20 md:py-28">
+    <div className="container mx-auto max-w-6xl">
+      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end mb-10 md:mb-14">
+        <div>
+          <p className="section-label mb-4">Serviços</p>
+          <h2 className="section-title max-w-xl">O que a Kubo Web pode construir para o seu negócio.</h2>
         </div>
-      </Link>
-    </motion.div>
-  );
-};
-
-const ServicesSection = () => {
-  return (
-    <section id="servicos" className="py-24 md:py-36 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-card/30 via-background to-card/20" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-3xl hidden md:block" />
-
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="text-center mb-12 md:mb-16 space-y-4">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3 }}
-            className="text-primary font-bold tracking-wider uppercase text-sm"
-          >
-            Nossos Serviços
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.05, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="section-title"
-          >
-            Soluções desenhadas para o seu crescimento
-          </motion.h2>
-        </div>
-
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 auto-rows-[minmax(320px,auto)] mb-14"
-        >
-          {services.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="text-center"
-        >
-          <div className="inline-block hover:scale-105 active:scale-95 transition-transform duration-200">
-            <Button variant="whatsapp" size="lg" asChild className="shadow-glow-sm">
-              <a
-                href="https://wa.me/5511932197334?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20KuboWeb%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MessageCircle className="w-5 h-5" />
-                Falar no WhatsApp
-              </a>
-            </Button>
-          </div>
-          <p className="text-xs text-muted-foreground mt-3">
-            Consultoria sem custo · Retorno em até 1 hora útil
-          </p>
-        </motion.div>
+        <p className="max-w-lg text-muted-foreground leading-relaxed lg:justify-self-end">
+          Cada projeto parte do objetivo da empresa. A tecnologia e a estrutura entram depois, para servir à mensagem e à experiência do cliente.
+        </p>
       </div>
-    </section>
-  );
-};
+
+      <div className="grid gap-4 md:grid-cols-2">
+        {services.map((service, index) => (
+          <motion.div
+            key={service.title}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ delay: index * 0.06, duration: 0.4 }}
+          >
+            <Link
+              to={service.href}
+              className="group flex h-full min-h-[250px] flex-col rounded-[26px] border border-border/70 bg-card p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5"
+            >
+              <div className="mb-10 flex items-start justify-between gap-4">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/8 text-primary">
+                  <service.icon className="h-5 w-5" />
+                </div>
+                <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-primary" />
+              </div>
+
+              <div className="mt-auto">
+                <h3 className="text-xl md:text-2xl font-heading font-bold tracking-[-0.025em] text-foreground">
+                  {service.title}
+                </h3>
+                <p className="mt-3 max-w-lg leading-relaxed text-muted-foreground">{service.description}</p>
+                <p className="mt-5 text-sm font-medium text-foreground/75">{service.detail}</p>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
 
 export default memo(ServicesSection);

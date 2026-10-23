@@ -1,13 +1,19 @@
 {
   "name": "Kubo Web",
   "short_name": "Kubo Web",
-  "description": "Sites profissionais, landing pages, lojas virtuais e Google Ads para negócios no Brasil.",
+  "description": "Web design studio para sites profissionais, landing pages, lojas virtuais e Google Ads no Brasil.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#07101f",
   "theme_color": "#07101f",
   "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
     {
       "src": "/favicon-192.png",
       "sizes": "192x192",

@@ -30,7 +30,8 @@ const Header = () => {
     setMobileOpen(false);
   }, [location.pathname]);
 
-  const darkTop = location.pathname === "/" && !scrolled && !mobileOpen;
+  const hasDarkHero = location.pathname === "/" || location.pathname === "/portfolio";
+  const darkTop = hasDarkHero && !scrolled && !mobileOpen;
 
   return (
     <header

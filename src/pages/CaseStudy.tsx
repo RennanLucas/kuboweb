@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SEO from "@/components/SEO";
 
-const screenshot = (url: string, width: number) => `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=${width}`;
+const screenshot = (url: string, width: number) => `/projects/${url.includes("helenaavilapsi") ? "helena" : "cristiano"}-${width < 700 ? "mobile" : "desktop"}.png`;
 
 const cases = {
   "helena-avila": {

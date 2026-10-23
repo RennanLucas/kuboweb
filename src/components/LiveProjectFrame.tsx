@@ -21,7 +21,8 @@ const LiveProjectFrame = ({
   compact = false,
   eager = false,
 }: LiveProjectFrameProps) => {
-  const screenshotUrl = `https://image.thum.io/get/width/${compact ? 700 : 1200}/crop/${compact ? 1100 : 900}/maxAge/24/noanimate/?url=${encodeURIComponent(url)}`;
+  const projectId = url.includes("helenaavilapsi") ? "helena" : url.includes("cristiano-avila") ? "cristiano" : null;
+  const screenshotUrl = projectId ? `/projects/${projectId}-${compact ? "mobile" : "desktop"}.png` : "";
 
   return (
     <div className={`relative overflow-hidden rounded-[26px] border border-black/[0.08] bg-[#eef1f5] shadow-[0_30px_100px_rgba(7,16,31,.16)] ${className}`}>
@@ -43,17 +44,17 @@ const LiveProjectFrame = ({
           <div className="text-center">
             <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-[#2458d8]">Projeto publicado</p>
             <p className="mt-3 text-xl font-semibold tracking-[-0.04em] text-[#08111f]">{title}</p>
-            <p className="mt-2 text-[10px] text-[#08111f]/[0.36]">Carregando captura real</p>
+            <p className="mt-2 text-[10px] text-[#08111f]/[0.65]">{domain}</p>
           </div>
         </div>
 
-        <img
+        {screenshotUrl && <img
           src={screenshotUrl}
           alt={`Captura do projeto ${title}`}
           loading={eager ? "eager" : "lazy"}
           decoding="async"
           className={`absolute inset-0 z-10 h-full w-full object-cover object-top transition-transform duration-700 ${compact ? "group-hover:scale-[1.015]" : "group-hover:scale-[1.01]"}`}
-        />
+        />}
         <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-black/[0.025]" />
       </div>
     </div>

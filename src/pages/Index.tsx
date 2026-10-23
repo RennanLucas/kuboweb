@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import RealWorkSection from "@/components/RealWorkSection";
 import { faqs } from "@/data/faqs";
 
+const AgencyStatementSection = lazy(() => import("@/components/AgencyStatementSection"));
 const StackRailSection = lazy(() => import("@/components/StackRailSection"));
 const StudioShowcaseSection = lazy(() => import("@/components/StudioShowcaseSection"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
@@ -36,6 +37,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <RealWorkSection />
+      <Suspense fallback={<SectionFallback />}><AgencyStatementSection /></Suspense>
       <Suspense fallback={<SectionFallback />}><StudioShowcaseSection /></Suspense>
       <Suspense fallback={<div className="h-[58px] bg-[#f7f8fa]" />}><StackRailSection /></Suspense>
       <Suspense fallback={<SectionFallback />}><ServicesSection /></Suspense>

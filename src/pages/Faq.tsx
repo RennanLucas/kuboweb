@@ -1,9 +1,10 @@
 import Header from "@/components/Header";
-import FAQSection, { faqs } from "@/components/FAQSection";
+import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { faqs } from "@/data/faqs";
 import { ArrowDownRight } from "lucide-react";
 
 const Faq = () => {

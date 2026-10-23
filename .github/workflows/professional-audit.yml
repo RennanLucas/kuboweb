@@ -28,3 +28,21 @@ jobs:
 
       - name: Production build
         run: npm run build
+
+      - name: Smoke-check generated site
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f dist/index.html
+          test -f dist/404.html
+          test -f dist/faq/index.html
+          test -f dist/servicos/landing-pages/index.html
+          test -f dist/criacao-de-sites-santos/index.html
+          grep -Fq 'Perguntas Frequentes | Kubo Web' dist/faq/index.html
+          grep -Fq 'Landing Pages | Kubo Web' dist/servicos/landing-pages/index.html
+          grep -Fq 'Criação de Sites em Santos SP | Kubo Web' dist/criacao-de-sites-santos/index.html
+          grep -Fq 'Essa página não faz parte do projeto.' dist/404.html
+          if grep -R -E '150 projetos|98% de satisfação|retorno em (até )?1 hora|30 dias grátis|topo do Google|conversão típica 8.?15%' src --exclude-dir=ui; then
+            echo 'Unsupported legacy claim detected in active source.' >&2
+            exit 1
+          fi

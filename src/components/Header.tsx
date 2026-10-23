@@ -74,9 +74,17 @@ const Header = () => {
       } ${
         scrolled
           ? "bg-background/95 backdrop-blur-2xl border-b border-border/20 shadow-lg"
-          : "bg-transparent"
+          : "bg-background/80 backdrop-blur-md border-b border-border/10"
       }`}
     >
+      {/* Top Announcement Bar */}
+      <div className="bg-gradient-to-r from-primary/10 via-primary/20 to-primary/10 border-b border-primary/15 py-1 px-4 text-center text-[10px] sm:text-xs font-medium text-foreground flex items-center justify-center gap-2">
+        <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+        <span className="font-semibold text-primary">Vagas abertas para novos projetos este mês</span>
+        <span className="hidden sm:inline text-muted-foreground">•</span>
+        <span className="hidden sm:inline text-muted-foreground">Atendimento direto via WhatsApp em até 15 min</span>
+      </div>
+
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center shrink-0">

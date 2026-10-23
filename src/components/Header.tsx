@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, MessageCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import logoKuboweb from "@/assets/logo-kuboweb-new.webp";
+import BrandMark from "@/components/BrandMark";
 
 const navLinks = [
   { label: "Serviços", href: "/servicos" },
@@ -42,18 +42,8 @@ const Header = () => {
     >
       <div className="container mx-auto max-w-7xl px-4 md:px-6">
         <div className="flex h-[76px] items-center justify-between md:h-[84px]">
-          <Link to="/" className="flex items-center gap-3" aria-label="Kubo Web - Início">
-            <img
-              src={logoKuboweb}
-              alt="Kubo Web"
-              className={`h-9 w-auto object-contain transition-all duration-500 md:h-10 ${darkTop ? "brightness-0 invert" : ""}`}
-              width={150}
-              height={40}
-              decoding="async"
-            />
-            <span className={`hidden text-[10px] font-semibold uppercase tracking-[0.28em] xl:block ${darkTop ? "text-white/45" : "text-muted-foreground"}`}>
-              Digital Studio
-            </span>
+          <Link to="/" className="flex items-center" aria-label="Kubo Web - Início">
+            <BrandMark inverse={darkTop} />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegação principal">

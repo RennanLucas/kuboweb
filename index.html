@@ -3,16 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="Mfaif-iGmBIgJMD50E1Zer6eW_OF427tNqkj_IRtMa0" />
-    <title>Kubo Web | Criação de Sites Profissionais no Brasil</title>
+    <title>Kubo Web | Sites profissionais para negócios que querem crescer</title>
     <meta
       name="description"
-      content="Criação de sites profissionais no Brasil: sites institucionais, landing pages, lojas virtuais e Google Ads. Atendimento online via WhatsApp."
+      content="Criação de sites profissionais, landing pages, lojas virtuais e Google Ads. Projetos responsivos, com visual atual e atendimento direto pelo WhatsApp."
     />
     <meta name="author" content="Kubo Web" />
     <meta
       name="keywords"
-      content="criação de sites Brasil, agência de sites, site profissional, landing page de alta conversão, loja virtual, desenvolvimento web, Google Ads, criação de site, agência digital, sites para empresas, sites responsivos, SEO Brasil"
+      content="criação de sites Brasil, site profissional, landing page, loja virtual, desenvolvimento web, Google Ads, agência digital, sites para empresas, sites responsivos, SEO"
     />
     <meta name="geo.region" content="BR" />
     <meta name="geo.placename" content="Brasil" />
@@ -21,16 +20,16 @@
     <link rel="alternate" hreflang="x-default" href="https://www.kuboweb.com.br" />
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
     <meta name="google" content="notranslate" />
-    <meta name="theme-color" content="#6C3CE1" />
+    <meta name="theme-color" content="#123a82" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Kubo Web" />
     <meta property="og:url" content="https://www.kuboweb.com.br" />
-    <meta property="og:title" content="Kubo Web | Criação de Sites Profissionais no Brasil" />
+    <meta property="og:title" content="Kubo Web | Sites profissionais para negócios que querem crescer" />
     <meta
       property="og:description"
-      content="Criação de sites profissionais em todo o Brasil. Sites institucionais, landing pages que convertem, lojas virtuais e Google Ads. Atendimento 100% online via WhatsApp."
+      content="Sites profissionais, landing pages, lojas virtuais e Google Ads com estrutura clara, visual atual e atendimento direto."
     />
     <meta property="og:image" content="https://www.kuboweb.com.br/og-image.png" />
     <meta property="og:image:secure_url" content="https://www.kuboweb.com.br/og-image.png" />
@@ -42,10 +41,10 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kubo Web | Criação de Sites Profissionais no Brasil" />
+    <meta name="twitter:title" content="Kubo Web | Sites profissionais para negócios que querem crescer" />
     <meta
       name="twitter:description"
-      content="Criação de sites profissionais em todo o Brasil. Sites institucionais, landing pages que convertem, lojas virtuais e Google Ads. Atendimento 100% online via WhatsApp."
+      content="Sites profissionais, landing pages, lojas virtuais e Google Ads com estrutura clara, visual atual e atendimento direto."
     />
     <meta name="twitter:image" content="https://www.kuboweb.com.br/og-image.png" />
 
@@ -57,7 +56,6 @@
       gtag('js', new Date());
       gtag('config', 'AW-17979954388');
 
-      // Helper: dispara evento de conversão e abre URL após callback
       window.gtagSendEvent = function(url) {
         var callback = function () {
           if (typeof url === 'string') { window.open(url, '_blank', 'noopener,noreferrer'); }
@@ -69,7 +67,6 @@
         return false;
       };
 
-      // Fila segura de eventos _kw
       window._kw = window._kw || function() {
         (window._kw.q = window._kw.q || []).push(arguments);
       };
@@ -87,8 +84,7 @@
     <link rel="shortcut icon" type="image/png" href="/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
 
-    <!-- Canonical is set per-route via src/components/SEO.tsx (react-helmet-async) -->
-
+    <!-- Canonical is set per-route via src/components/SEO.tsx -->
 
     <!-- Preconnect fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -102,18 +98,12 @@
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Kubo Web",
-        "description": "Criação de sites profissionais em todo o Brasil. Sites institucionais, landing pages de alta conversão, lojas virtuais e Google Ads.",
+        "description": "Criação de sites profissionais, landing pages, lojas virtuais e Google Ads para negócios no Brasil.",
         "url": "https://www.kuboweb.com.br",
         "logo": "https://www.kuboweb.com.br/favicon-192.png",
         "image": "https://www.kuboweb.com.br/og-image.png",
         "telephone": "+5511932197334",
         "email": "contato.kuboweb@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "São Paulo",
-          "addressRegion": "SP",
-          "addressCountry": "BR"
-        },
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+5511932197334",
@@ -121,20 +111,15 @@
           "areaServed": "BR",
           "availableLanguage": "pt-BR"
         },
-        "areaServed": [
-          { "@type": "Country", "name": "Brasil" },
-          { "@type": "AdministrativeArea", "name": "Todos os estados do Brasil" }
-        ],
+        "areaServed": {
+          "@type": "Country",
+          "name": "Brasil"
+        },
         "availableLanguage": "pt-BR",
         "priceRange": "$$",
         "sameAs": [
           "https://www.instagram.com/kuboweb_oficial"
         ],
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5.0",
-          "reviewCount": "150"
-        },
         "serviceType": ["Criação de Sites", "Landing Pages", "E-commerce", "SEO", "Google Ads"],
         "knowsLanguage": "pt-BR",
         "hasOfferCatalog": {
@@ -178,7 +163,7 @@
       }
     </script>
 
-    <!-- Preload critical fonts (Inter for body, Manrope for headings, Space Mono for code) to avoid FOUT -->
+    <!-- Critical fonts -->
     <link
       rel="preload"
       as="style"
@@ -190,12 +175,13 @@
       media="print"
       onload="this.media='all'"
     />
-    <noscript
-      ><link
+    <noscript>
+      <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
-    /></noscript>
-          <script src="https://gitzmynfamubetgujtmm.supabase.co/functions/v1/tracker-script?pid=5081e7a5-d77b-4415-8f06-f8129e61284c" defer></script>
+      />
+    </noscript>
+    <script src="https://gitzmynfamubetgujtmm.supabase.co/functions/v1/tracker-script?pid=5081e7a5-d77b-4415-8f06-f8129e61284c" defer></script>
   </head>
 
   <body>
@@ -205,9 +191,9 @@
         <nav aria-label="Navegação Principal">
           <a href="/">Kubo Web</a>
         </nav>
-        <h1>Criação de Sites Profissionais e Landing Pages que Vendem | Kubo Web</h1>
+        <h1>Sites profissionais para negócios que querem crescer | Kubo Web</h1>
         <p>
-          Desenvolvimento de sites institucionais exclusivos, landing pages de alta conversão e lojas virtuais com foco em gerar autoridade e vendas diárias no Google.
+          Criação de sites institucionais, landing pages, lojas virtuais e Google Ads com atendimento online em todo o Brasil.
         </p>
       </header>
     </noscript>

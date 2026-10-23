@@ -9,6 +9,8 @@
       content="Criação de sites profissionais, landing pages, lojas virtuais e Google Ads. Projetos responsivos, com visual atual e atendimento direto pelo WhatsApp."
     />
     <meta name="author" content="Kubo Web" />
+    <meta name="application-name" content="Kubo Web" />
+    <meta name="apple-mobile-web-app-title" content="Kubo Web" />
     <meta
       name="keywords"
       content="criação de sites Brasil, site profissional, landing page, loja virtual, desenvolvimento web, Google Ads, agência digital, sites para empresas, sites responsivos, SEO"
@@ -47,6 +49,7 @@
       content="Sites profissionais, landing pages, lojas virtuais e Google Ads com estrutura clara, visual atual e atendimento direto."
     />
     <meta name="twitter:image" content="https://www.kuboweb.com.br/og-image.png" />
+    <meta name="twitter:image:alt" content="Kubo Web | Criação de Sites Profissionais" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17979954388"></script>
@@ -55,17 +58,6 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-17979954388');
-
-      window.gtagSendEvent = function(url) {
-        var callback = function () {
-          if (typeof url === 'string') { window.open(url, '_blank', 'noopener,noreferrer'); }
-        };
-        gtag('event', 'ads_conversion_Solicitar_cota_o_1', {
-          'event_callback': callback,
-          'event_timeout': 2000,
-        });
-        return false;
-      };
 
       window._kw = window._kw || function() {
         (window._kw.q = window._kw.q || []).push(arguments);
@@ -77,12 +69,13 @@
     <meta name="google-site-verification" content="X0XVVXdF6vzXKx6dOoIklKUaZnu0iVQLqhgC_a8SK7U" />
     <meta name="google-site-verification" content="rwS0vrki34vMwDJ_IM0K98cA6zkRW0rxUJyGSHmuHWE" />
 
-    <!-- Favicon -->
+    <!-- Brand icons and manifest -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
     <link rel="shortcut icon" type="image/png" href="/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Canonical is set per-route via src/components/SEO.tsx -->
 

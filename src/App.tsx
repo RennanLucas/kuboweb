@@ -2,19 +2,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { MotionConfig, motion } from "framer-motion";
+import { MotionConfig } from "framer-motion";
 import { useEffect, lazy, Suspense } from "react";
 import Index from "./pages/Index";
-import KuboPreloader from "@/components/ui/KuboPreloader";
-import ScrollProgress from "@/components/ui/ScrollProgress";
 
-const CursorGlow = lazy(() => import("./components/ui/CursorGlow"));
 const Sobre = lazy(() => import("./pages/Sobre"));
 const Servicos = lazy(() => import("./pages/Servicos"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
-const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
 const Diagnostico = lazy(() => import("./pages/Diagnostico"));
 const Faq = lazy(() => import("./pages/Faq"));
 const Contato = lazy(() => import("./pages/Contato"));
@@ -27,13 +23,12 @@ const Atendimento = lazy(() => import("./pages/Atendimento"));
 const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
 const GuiaInvestimentoSite = lazy(() => import("./pages/GuiaInvestimentoSite"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-import MiniKuboLoader from "@/components/ui/MiniKuboLoader";
 
 const queryClient = new QueryClient();
 
 const PageLoader = () => (
-  <div className="min-h-screen bg-background flex items-center justify-center">
-    <MiniKuboLoader />
+  <div className="min-h-screen bg-background flex items-center justify-center" aria-label="Carregando página">
+    <div className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse" />
   </div>
 );
 
@@ -45,7 +40,6 @@ const ScrollToTop = () => {
   return null;
 };
 
-// Automatic tracking delegator for _kw events
 const TrackingListener = () => {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -104,8 +98,6 @@ const App = () => {
           <TooltipProvider>
             <Toaster />
             <Sonner />
-            <KuboPreloader />
-            <ScrollProgress />
             <TrackingListener />
             <BrowserRouter>
               <ScrollToTop />
@@ -115,7 +107,7 @@ const App = () => {
                   <Route path="/sobre" element={<Sobre />} />
                   <Route path="/servicos" element={<Servicos />} />
                   <Route path="/portfolio" element={<Portfolio />} />
-                  <Route path="/portfolio/:slug" element={<ProjectDetail />} />
+                  <Route path="/portfolio/:slug" element={<Navigate to="/portfolio" replace />} />
                   <Route path="/diagnostico" element={<Diagnostico />} />
                   <Route path="/faq" element={<Faq />} />
                   <Route path="/contato" element={<Contato />} />
@@ -130,9 +122,6 @@ const App = () => {
                   <Route path="/guia/investimento-site-profissional" element={<GuiaInvestimentoSite />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
-              </Suspense>
-              <Suspense fallback={null}>
-                <CursorGlow />
               </Suspense>
             </BrowserRouter>
           </TooltipProvider>

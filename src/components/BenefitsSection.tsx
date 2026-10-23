@@ -1,79 +1,61 @@
-import { Zap, MessageCircle, Sparkles } from "lucide-react";
+import { Gauge, MessageCircle, PenTool } from "lucide-react";
 import { motion } from "framer-motion";
-import benefitsImage from "@/assets/benefits-cubes.webp";
 
 const benefits = [
   {
-    icon: Zap,
-    title: "Site rápido e responsivo",
-    description: "Performance otimizada que carrega em segundos e funciona perfeitamente em qualquer dispositivo.",
+    icon: PenTool,
+    number: "01",
+    title: "Visual com identidade",
+    description:
+      "Nada de empilhar efeitos. A interface é construída para combinar com o posicionamento da empresa e deixar a informação fácil de entender.",
+  },
+  {
+    icon: Gauge,
+    number: "02",
+    title: "Experiência rápida e responsiva",
+    description:
+      "O site é pensado para funcionar bem no celular e no computador, com navegação direta e sem elementos desnecessários pesando a página.",
   },
   {
     icon: MessageCircle,
-    title: "Foco em conversão e WhatsApp",
-    description: "Estrutura pensada para transformar visitantes em clientes através de CTAs estratégicos.",
-  },
-  {
-    icon: Sparkles,
-    title: "Estrutura profissional e moderna",
-    description: "Design clean e contemporâneo que transmite credibilidade e profissionalismo.",
+    number: "03",
+    title: "Caminho claro até o contato",
+    description:
+      "Chamadas para ação, WhatsApp e formulários entram nos pontos certos para facilitar o próximo passo de quem visita o site.",
   },
 ];
 
 const BenefitsSection = () => {
   return (
-    <section id="beneficios" className="py-24 md:py-32 px-4 bg-card/20">
+    <section id="beneficios" className="px-4 py-20 md:py-28">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-14 md:mb-20 space-y-4">
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="section-label justify-center"
-          >
-            Por que escolher
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-            className="section-title"
-          >
-            O que você ganha com um site profissional
-          </motion.h2>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-auto w-full max-w-2xl aspect-[16/9] rounded-3xl overflow-hidden mt-8"
-          >
-            <img src={benefitsImage} alt="Soluções digitais profissionais" width={1280} height={896} loading="lazy" className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-screen" />
-          </motion.div>
+        <div className="max-w-3xl mb-10 md:mb-14">
+          <p className="section-label mb-4">Como pensamos o projeto</p>
+          <h2 className="section-title">Profissional não é ter mais efeitos. É saber o que precisa aparecer.</h2>
+          <p className="mt-5 max-w-2xl text-muted-foreground leading-relaxed">
+            Um bom site organiza a mensagem, transmite confiança e deixa o visitante seguir sem esforço. É nisso que o projeto precisa acertar primeiro.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid gap-4 md:grid-cols-3">
           {benefits.map((benefit, index) => (
-            <motion.div
+            <motion.article
               key={benefit.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="card-premium text-center p-8 md:p-10 group"
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ delay: index * 0.07, duration: 0.4 }}
+              className="rounded-[26px] border border-border/70 bg-card p-6 md:p-8"
             >
-              <div className="w-14 h-14 rounded-2xl bg-primary/8 border border-primary/15 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/15 group-hover:scale-105 transition-all duration-300">
-                <benefit.icon className="w-6 h-6 text-primary" />
+              <div className="mb-12 flex items-center justify-between">
+                <span className="text-xs font-semibold tracking-[0.18em] text-muted-foreground">{benefit.number}</span>
+                <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/8 text-primary">
+                  <benefit.icon className="h-5 w-5" />
+                </span>
               </div>
-              <h3 className="text-lg md:text-xl font-heading font-semibold mb-3 text-foreground">
-                {benefit.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
-                {benefit.description}
-              </p>
-            </motion.div>
+              <h3 className="text-xl font-heading font-bold tracking-[-0.02em] text-foreground">{benefit.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">{benefit.description}</p>
+            </motion.article>
           ))}
         </div>
       </div>

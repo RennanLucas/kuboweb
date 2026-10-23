@@ -1,129 +1,91 @@
 import { memo } from "react";
-import { MessageCircle, Mail, Instagram } from "lucide-react";
+import { ArrowUpRight, Instagram, Mail, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import logoKuboweb from "@/assets/logo-kuboweb-new.webp";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const } },
-};
+const navigation = [
+  { label: "Início", href: "/" },
+  { label: "Serviços", href: "/servicos" },
+  { label: "Portfólio", href: "/portfolio" },
+  { label: "Sobre", href: "/sobre" },
+  { label: "Contato", href: "/contato" },
+];
 
 const Footer = () => {
   return (
-    <footer className="pt-14 pb-24 md:pt-16 md:pb-16 px-4 border-t border-border/20 bg-card/30 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-primary/3 rounded-full blur-[120px] hidden md:block pointer-events-none" />
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid md:grid-cols-4 gap-10 md:gap-8 mb-10"
-        >
-          <motion.div variants={itemVariants} className="space-y-4">
-            <Link to="/" className="inline-block">
-              <motion.img
+    <footer className="border-t border-border/70 bg-background px-4 pb-24 pt-14 md:pb-10 md:pt-16">
+      <div className="container mx-auto max-w-6xl">
+        <div className="grid gap-10 border-b border-border/70 pb-10 md:grid-cols-[1.2fr_0.8fr_1fr] md:pb-12">
+          <div>
+            <Link to="/" className="inline-flex items-center" aria-label="Kubo Web - Início">
+              <img
                 src={logoKuboweb}
-                alt="Kubo Web - Criação de Sites Profissionais"
-                className="h-24 md:h-28 w-auto object-contain"
-                width={128}
-                height={128}
+                alt="Kubo Web"
+                className="h-10 w-auto object-contain"
+                width={150}
+                height={40}
                 loading="lazy"
                 decoding="async"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
               />
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-[280px]">
-              Sites profissionais que geram resultados reais para o seu negócio.
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              Criação de sites, landing pages e lojas virtuais para negócios que precisam de uma presença digital mais profissional.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants} className="space-y-4">
-            <h4 className="font-heading font-semibold text-foreground text-sm tracking-wide">Navegação</h4>
-            <nav className="flex flex-col gap-2.5">
-              {[
-                { label: "Início", href: "/" },
-                { label: "Sobre", href: "/sobre" },
-                { label: "Serviços", href: "/servicos" },
-                { label: "Portfólio", href: "/portfolio" },
-                { label: "Manutenção", href: "/manutencao" },
-              ].map((link) => (
+          <div>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Navegação</p>
+            <nav className="flex flex-col items-start gap-2.5">
+              {navigation.map((item) => (
                 <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 w-fit inline-block"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="space-y-4">
-            <h4 className="font-heading font-semibold text-foreground text-sm tracking-wide">Informações</h4>
-            <nav className="flex flex-col gap-2.5">
-              {[
-                { label: "Consultoria", href: "/diagnostico" },
-                { label: "FAQ", href: "/faq" },
-                { label: "Contato", href: "/contato" },
-                { label: "Atendemos no Brasil", href: "/atendimento" },
-              ].map((link) => (
-                <Link
-                  key={link.href}
-                  to={link.href}
-                  className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-200 w-fit inline-block"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="space-y-4">
-            <h4 className="font-heading font-semibold text-foreground text-sm tracking-wide">Contato</h4>
-            <div className="flex flex-col gap-3">
-              {[
-                { href: "https://wa.me/5511932197334", icon: MessageCircle, text: "+55 11 93219-7334", hoverColor: "hover:text-[hsl(142,70%,45%)]", external: true },
-                { href: "mailto:contato.kuboweb@gmail.com", icon: Mail, text: "contato.kuboweb@gmail.com", hoverColor: "hover:text-primary", external: false },
-                { href: "https://www.instagram.com/kuboweb_oficial?igsh=MXNwdWlleDh4eng1Mw%3D%3D&utm_source=qr", icon: Instagram, text: "@kuboweb_oficial", hoverColor: "hover:text-primary", external: true },
-              ].map((item) => (
-                <motion.a
                   key={item.href}
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noopener noreferrer" : undefined}
-                  className={`flex items-center gap-2.5 text-sm text-muted-foreground ${item.hoverColor} transition-colors`}
-                  whileHover={{ x: 4, scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  to={item.href}
+                  className="text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
                 >
-                  <item.icon className="w-4 h-4" />
-                  {item.text}
-                </motion.a>
+                  {item.label}
+                </Link>
               ))}
-            </div>
-          </motion.div>
-        </motion.div>
+            </nav>
+          </div>
 
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          whileInView={{ opacity: 1, scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="pt-8 border-t border-border/20 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-muted-foreground origin-left"
-        >
+          <div>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Contato</p>
+            <div className="flex flex-col items-start gap-3">
+              <a
+                href="https://wa.me/5511932197334"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2.5 text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
+                <ArrowUpRight className="h-3.5 w-3.5 opacity-50 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href="mailto:contato.kuboweb@gmail.com"
+                className="inline-flex items-center gap-2.5 text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
+              >
+                <Mail className="h-4 w-4" />
+                contato.kuboweb@gmail.com
+              </a>
+              <a
+                href="https://www.instagram.com/kuboweb_oficial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2.5 text-sm font-medium text-foreground/75 transition-colors hover:text-primary"
+              >
+                <Instagram className="h-4 w-4" />
+                @kuboweb_oficial
+                <ArrowUpRight className="h-3.5 w-3.5 opacity-50 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-2 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Kubo Web. Todos os direitos reservados.</p>
-          <p>Feito com dedicação para negócios que querem crescer.</p>
-        </motion.div>
+          <p>Atendimento online no Brasil.</p>
+        </div>
       </div>
     </footer>
   );

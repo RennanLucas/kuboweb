@@ -1,7 +1,6 @@
 import { useLocation, Navigate, Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { MessageCircle, CheckCircle2, MapPin, Rocket, Search, ShoppingBag, Megaphone, ArrowRight, HelpCircle, Building2, TrendingUp } from "lucide-react";
+import { ArrowRight, Building2, MapPin, Megaphone, MessageCircle, Search, ShoppingBag } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -16,19 +15,10 @@ import { Button } from "@/components/ui/button";
 import { getCidadeBySlug } from "@/data/cidades";
 
 const servicos = [
-  { icon: Rocket, title: "Sites Institucionais", desc: "Presença digital profissional para sua empresa" },
-  { icon: Search, title: "Landing Pages", desc: "Páginas otimizadas para conversão e vendas" },
-  { icon: ShoppingBag, title: "Lojas Virtuais", desc: "E-commerce completo e pronto para vender" },
-  { icon: Megaphone, title: "Google Ads", desc: "Tráfego qualificado para o seu negócio" },
-];
-
-const beneficios = [
-  "Atendimento 100% online via WhatsApp",
-  "Sites entregues em até 7 dias úteis",
-  "Design responsivo e otimizado para celular",
-  "SEO técnico aplicado desde o lançamento",
-  "Suporte direto, sem intermediários",
-  "Hospedagem e domínio configurados",
+  { icon: Building2, title: "Sites Institucionais", desc: "Presença própria para apresentar empresa, serviços, diferenciais e contato.", href: "/servicos/sites-institucionais" },
+  { icon: Search, title: "Landing Pages", desc: "Páginas focadas em campanhas, ofertas, cadastros e geração de contatos.", href: "/servicos/landing-pages" },
+  { icon: ShoppingBag, title: "Lojas Virtuais", desc: "Estruturas de e-commerce definidas de acordo com catálogo, pagamento e operação.", href: "/servicos/loja-virtual" },
+  { icon: Megaphone, title: "Google Ads", desc: "Campanhas de pesquisa e aquisição avaliadas conforme objetivo, mercado e orçamento.", href: "/servicos/anuncios" },
 ];
 
 const CidadeLanding = () => {
@@ -40,8 +30,8 @@ const CidadeLanding = () => {
 
   const path = `/criacao-de-sites-${cidade.slug}`;
   const title = `Criação de Sites em ${cidade.nome} ${cidade.uf}`;
-  const description = `Sites profissionais, landing pages, lojas virtuais e Google Ads para empresas de ${cidade.nome}/${cidade.uf}. Atendimento 100% online.`;
-  const whatsappMsg = encodeURIComponent(`Olá! Sou de ${cidade.nome}/${cidade.uf} e tenho interesse em criar um site profissional.`);
+  const description = `Criação de sites profissionais, landing pages, lojas virtuais e Google Ads para negócios de ${cidade.nome}/${cidade.uf}, com atendimento online.`;
+  const whatsappMsg = encodeURIComponent(`Olá! Sou de ${cidade.nome}/${cidade.uf} e quero conversar sobre um projeto de site com a Kubo Web.`);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -65,24 +55,24 @@ const CidadeLanding = () => {
 
   const faqs = [
     {
-      q: `Quanto custa criar um site em ${cidade.nome}?`,
-      a: `O investimento para criar um site profissional em ${cidade.nome}/${cidade.uf} varia conforme o escopo: site institucional, landing page ou loja virtual. A Kubo Web trabalha com orçamentos personalizados — fale com um especialista pelo WhatsApp e receba uma proposta sob medida.`,
+      q: `Quanto custa criar um site para uma empresa de ${cidade.nome}?`,
+      a: "O valor depende do tipo de projeto e do escopo. Landing Pages partem de R$ 697 e sites institucionais de R$ 1.497. Loja virtual e Google Ads são avaliados de acordo com a necessidade do negócio.",
     },
     {
-      q: `A Kubo Web atende empresas de ${cidade.nome} sendo 100% online?`,
-      a: `Sim. Atendemos empresas de ${cidade.nome} e de toda a região ${cidade.regiao} de forma 100% online, via WhatsApp, e-mail e videochamadas, com processo estruturado para entregar sites profissionais sem reuniões presenciais.`,
+      q: `A Kubo Web atende negócios de ${cidade.nome} de forma online?`,
+      a: `Sim. O atendimento pode ser feito remotamente por WhatsApp, e-mail e reunião online. Briefing, aprovações e publicação não dependem de atendimento presencial em ${cidade.nome}.`,
     },
     {
-      q: `Em quanto tempo o site da minha empresa em ${cidade.nome} fica pronto?`,
-      a: `Sites institucionais e landing pages são entregues em até 7 dias úteis. Lojas virtuais e projetos maiores levam de 15 a 30 dias, conforme a complexidade. Todo o cronograma é alinhado no início do projeto.`,
+      q: `Quanto tempo leva para o site ficar pronto?`,
+      a: "O cronograma depende da quantidade de páginas, conteúdo, integrações e aprovações. O prazo é definido junto com o escopo antes do início do projeto.",
     },
     {
-      q: `O site será otimizado para aparecer no Google em buscas de ${cidade.nome}?`,
-      a: `Sim. Todos os sites já saem com SEO técnico aplicado: estrutura semântica, meta tags, schema, performance otimizada e responsividade mobile. Para acelerar resultados, oferecemos campanhas de Google Ads segmentadas para ${cidade.nome} e região.`,
+      q: `É possível trabalhar SEO para buscas relacionadas a ${cidade.nome}?`,
+      a: `O site pode receber estrutura técnica, títulos, descrições e conteúdo local relevante para facilitar a indexação. Posição no Google depende de concorrência, autoridade, conteúdo e outros fatores, por isso não existe garantia de ranking específico.`,
     },
     {
-      q: `Vocês oferecem manutenção do site após a entrega em ${cidade.nome}?`,
-      a: `Sim. Oferecemos planos de manutenção mensal com atualizações de conteúdo, correções, backups, monitoramento e suporte técnico — para que seu site continue performando ao longo do tempo.`,
+      q: "A Kubo Web oferece manutenção depois da publicação?",
+      a: "Sim. A manutenção é opcional e parte de R$ 70/mês. O que entra no plano é definido conforme a tecnologia e as necessidades do site.",
     },
   ];
 
@@ -99,211 +89,108 @@ const CidadeLanding = () => {
   return (
     <main className="min-h-screen bg-background">
       <SEO title={title} description={description} path={path} jsonLd={jsonLd} />
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
-      </Helmet>
+      <Helmet><script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script></Helmet>
       <Header />
-      <div className="pt-24 md:pt-32" />
 
-      {/* Hero */}
-      <section className="px-4 pb-16 md:pb-24">
-        <div className="container mx-auto max-w-4xl text-center space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/15 text-sm text-primary font-medium"
-          >
-            <MapPin className="w-4 h-4" />
-            Atendemos {cidade.nome} e toda região {cidade.regiao}
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-            className="section-title"
-          >
-            Criação de Sites Profissionais em {cidade.nome}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15, duration: 0.4 }}
-            className="section-subtitle max-w-2xl mx-auto"
-          >
-            Sua empresa em {cidade.nome}/{cidade.uf} merece um site que vende. {cidade.nome} é {cidade.contexto} — e a Kubo Web entrega sites institucionais, landing pages, lojas virtuais e campanhas de Google Ads sob medida para o seu negócio crescer na região.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-            className="pt-2"
-          >
-            <Button variant="whatsapp" size="xl" asChild>
-              <a href={`https://wa.me/5511932197334?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-5 h-5" />
-                Falar no WhatsApp
-              </a>
-            </Button>
-            <p className="text-xs text-muted-foreground mt-3">Consultoria sem custo · Retorno em até 1 hora útil</p>
-          </motion.div>
+      <section className="relative isolate overflow-hidden bg-[#07101f] px-4 pb-20 pt-36 text-white md:pb-28 md:pt-44">
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -left-44 top-0 h-[640px] w-[640px] rounded-full bg-blue-600/18 blur-[190px]" />
+          <div className="absolute -right-48 top-[-120px] h-[720px] w-[720px] rounded-full bg-cyan-400/8 blur-[220px]" />
+        </div>
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+            <div>
+              <div className="mb-6 flex items-center gap-3">
+                <MapPin className="h-4 w-4 text-[#78a9ff]" />
+                <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-white/42">Atendimento online · {cidade.nome}/{cidade.uf}</span>
+              </div>
+              <h1 className="max-w-5xl text-[3.15rem] font-heading font-semibold leading-[0.92] tracking-[-0.06em] sm:text-6xl md:text-7xl lg:text-[5.35rem]">
+                Criação de sites para negócios de
+                <span className="block text-[#78a9ff]">{cidade.nome}.</span>
+              </h1>
+            </div>
+            <div className="lg:justify-self-end lg:max-w-[440px]">
+              <p className="text-base leading-8 text-white/52 md:text-lg">Sites institucionais, landing pages, lojas virtuais e Google Ads com processo remoto e uma estrutura adaptada ao objetivo do negócio.</p>
+              <Button asChild size="lg" className="mt-7 rounded-full bg-white px-6 text-[#07101f] hover:bg-white/90">
+                <a href={`https://wa.me/5511932197334?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer"><MessageCircle className="h-5 w-5" /> Conversar sobre o projeto</a>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
-      <div className="line-glow" />
-
-      {/* Serviços */}
-      <section className="px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-12 space-y-3">
-            <h2 className="section-title">Serviços para empresas de {cidade.nome}</h2>
-            <p className="section-subtitle">Soluções digitais completas para o seu mercado local</p>
+      <section className="bg-[#f4f5f7] px-4 py-24 md:py-36">
+        <div className="container mx-auto max-w-7xl">
+          <div className="mb-14 grid gap-8 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-primary">Capabilities</p>
+              <h2 className="mt-5 max-w-4xl text-4xl font-heading font-semibold leading-[0.98] tracking-[-0.05em] text-foreground md:text-6xl">O que podemos construir para o seu negócio.</h2>
+            </div>
+            <p className="max-w-[430px] text-base leading-8 text-muted-foreground lg:justify-self-end">O formato certo depende do que precisa ser comunicado, vendido ou medido. Cada serviço tem uma função diferente na presença digital.</p>
           </div>
-          <div className="grid sm:grid-cols-2 gap-5">
-            {servicos.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="card-premium p-6 flex items-start gap-4">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center shrink-0">
-                  <Icon className="w-5 h-5 text-primary" />
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {servicos.map(({ icon: Icon, title: serviceTitle, desc, href }) => (
+              <Link key={serviceTitle} to={href} className="group rounded-[28px] border border-border/70 bg-white p-7 transition-all hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_25px_70px_rgba(15,23,42,.06)] md:p-8">
+                <div className="flex items-start justify-between">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/8 text-primary"><Icon className="h-5 w-5" /></span>
+                  <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
                 </div>
-                <div className="space-y-1">
-                  <h3 className="font-heading font-semibold text-foreground">{title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
-                </div>
-              </div>
+                <h3 className="mt-12 text-2xl font-heading font-semibold tracking-[-0.035em] text-foreground">{serviceTitle}</h3>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground">{desc}</p>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <div className="line-glow" />
-
-      {/* Por que Kubo */}
-      <section className="px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12 space-y-3">
-            <h2 className="section-title">Por que escolher a Kubo Web em {cidade.nome}</h2>
-            <p className="section-subtitle">Atendimento 100% online — onde você estiver no Brasil, entregamos</p>
+      <section className="px-4 py-24 md:py-36">
+        <div className="container mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-primary">Contexto local</p>
+            <h2 className="mt-5 text-4xl font-heading font-semibold leading-[0.98] tracking-[-0.05em] text-foreground md:text-6xl">Presença digital em {cidade.nome}.</h2>
           </div>
-          <div className="card-premium p-7 md:p-10">
-            <div className="grid sm:grid-cols-2 gap-3">
-              {beneficios.map((b) => (
-                <div key={b} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-success shrink-0 mt-0.5" />
-                  <span className="text-sm text-muted-foreground leading-relaxed">{b}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="line-glow" />
-
-      {/* Mercado Local */}
-      <section className="px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/15 text-xs text-primary font-medium">
-              <TrendingUp className="w-3.5 h-3.5" />
-              Mercado de {cidade.nome}
-            </div>
-            <h2 className="section-title">Por que ter um site profissional em {cidade.nome}</h2>
-          </div>
-          <div className="card-premium p-7 md:p-10 space-y-6">
-            <p className="text-base text-muted-foreground leading-relaxed">
-              {cidade.diferencial}
-            </p>
-            <div>
-              <h3 className="font-heading font-semibold text-foreground mb-3">Setores que mais demandam sites em {cidade.nome}</h3>
-              <div className="flex flex-wrap gap-2">
-                {cidade.setores.map((s) => (
-                  <span key={s} className="px-3 py-1.5 rounded-full bg-secondary/40 border border-border/40 text-sm text-foreground/80 capitalize">
-                    {s}
-                  </span>
-                ))}
+          <div className="rounded-[34px] border border-border/70 bg-white p-7 md:p-10">
+            <p className="text-base leading-8 text-muted-foreground">{cidade.diferencial}</p>
+            <div className="mt-8 border-t border-border/70 pt-7">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-muted-foreground">Setores presentes no contexto da cidade</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {cidade.setores.map((setor) => <span key={setor} className="rounded-full border border-border/70 bg-[#f4f5f7] px-3 py-1.5 text-xs font-medium text-foreground/70">{setor}</span>)}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="line-glow" />
-
-      {/* Bairros Atendidos */}
-      <section className="px-4 py-16 md:py-24">
+      <section className="bg-[#f4f5f7] px-4 py-24 md:py-32">
         <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/15 text-xs text-primary font-medium">
-              <Building2 className="w-3.5 h-3.5" />
-              Cobertura local
-            </div>
-            <h2 className="section-title">Atendemos empresas em todos os bairros de {cidade.nome}</h2>
-            <p className="section-subtitle max-w-2xl mx-auto">
-              Criação de sites para negócios de {cidade.nome}/{cidade.uf}, incluindo bairros como:
-            </p>
+          <div className="mb-12 text-center">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-primary">FAQ local</p>
+            <h2 className="mt-5 text-4xl font-heading font-semibold tracking-[-0.045em] text-foreground md:text-5xl">Dúvidas sobre projetos em {cidade.nome}.</h2>
           </div>
-          <div className="card-premium p-7 md:p-10">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {cidade.bairros.map((b) => (
-                <div key={b} className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
-                  <span className="text-sm text-foreground/80">{b}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-xs text-muted-foreground mt-6 leading-relaxed">
-              Atendimento 100% online — entregamos sites profissionais para empresas de qualquer bairro de {cidade.nome} e cidades vizinhas da região {cidade.regiao}, sem necessidade de reuniões presenciais.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <div className="line-glow" />
-
-      {/* FAQ */}
-      <section className="px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-3xl">
-          <div className="text-center mb-10 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/15 text-xs text-primary font-medium">
-              <HelpCircle className="w-3.5 h-3.5" />
-              Perguntas frequentes
-            </div>
-            <h2 className="section-title">Dúvidas sobre criação de sites em {cidade.nome}</h2>
-          </div>
-          <Accordion type="single" collapsible className="card-premium px-5 md:px-7">
-            {faqs.map((f, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border-border/40 last:border-0">
-                <AccordionTrigger className="text-left text-base font-heading font-medium hover:no-underline">
-                  {f.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
-                  {f.a}
-                </AccordionContent>
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={faq.q} value={`item-${index}`} className="rounded-2xl border border-border/70 bg-white px-5 md:px-6">
+                <AccordionTrigger className="py-5 text-left font-heading font-semibold text-foreground hover:no-underline">{faq.q}</AccordionTrigger>
+                <AccordionContent className="pb-5 leading-7 text-muted-foreground">{faq.a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </div>
       </section>
 
-      <div className="line-glow" />
-
-      {/* CTA Final */}
-      <section className="px-4 py-16 md:py-24">
-        <div className="container mx-auto max-w-3xl text-center space-y-6">
-          <h2 className="section-title">Pronto para crescer em {cidade.nome}?</h2>
-          <p className="section-subtitle max-w-xl mx-auto">
-            Fale com um especialista da Kubo Web e descubra como um site profissional pode transformar o seu negócio em {cidade.nome}/{cidade.uf}.
-          </p>
-          <Button variant="whatsapp" size="xl" asChild>
-            <a href={`https://wa.me/5511932197334?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-5 h-5" />
-              Falar no WhatsApp
-            </a>
-          </Button>
-          <div className="pt-6">
-            <Link to="/atendimento" className="text-sm text-muted-foreground hover:text-primary inline-flex items-center gap-1.5">
-              Ver outras cidades atendidas <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+      <section className="px-4 py-24 md:py-32">
+        <div className="container mx-auto max-w-7xl">
+          <div className="rounded-[38px] bg-[#2458d8] p-8 text-white md:p-12 lg:p-14">
+            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-white/55">Projeto em {cidade.nome}</p>
+                <h2 className="mt-5 max-w-4xl text-4xl font-heading font-semibold leading-[0.98] tracking-[-0.05em] md:text-6xl">Conte o que sua empresa precisa melhorar no digital.</h2>
+              </div>
+              <Button asChild size="xl" className="rounded-full bg-white px-7 text-[#2458d8] hover:bg-white/90">
+                <a href={`https://wa.me/5511932197334?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer"><MessageCircle className="h-5 w-5" /> Falar no WhatsApp</a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

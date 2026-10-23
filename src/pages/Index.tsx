@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import RealWorkSection from "@/components/RealWorkSection";
 import { faqs } from "@/data/faqs";
 
+const StudioShowcaseSection = lazy(() => import("@/components/StudioShowcaseSection"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
 const BenefitsSection = lazy(() => import("@/components/BenefitsSection"));
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
@@ -42,6 +43,10 @@ const Index = () => {
       <Header />
       <HeroSection />
       <RealWorkSection />
+
+      <Suspense fallback={<SectionFallback />}>
+        <StudioShowcaseSection />
+      </Suspense>
 
       <Suspense fallback={<SectionFallback />}>
         <ServicesSection />

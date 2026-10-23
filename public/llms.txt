@@ -1,35 +1,31 @@
 # Kubo Web
 
-> Agência digital premium especializada em criação de sites profissionais, landing pages de alta conversão, lojas virtuais e campanhas de Google Ads em todo o Brasil. Atendimento 100% online via WhatsApp.
+> Estúdio digital especializado em criação de sites profissionais, landing pages, lojas virtuais e Google Ads para negócios no Brasil. Atendimento online e contato direto pelo WhatsApp.
 
-Kubo Web entrega soluções digitais sob medida com estética clean e foco em conversão. Trabalhamos com sites institucionais, landing pages, e-commerce e tráfego pago no Google Ads. Orçamento via consultoria — sem pacotes engessados.
+A Kubo Web desenvolve projetos sob medida com foco em posicionamento, clareza, experiência responsiva e conversão. O portfólio público prioriza trabalhos reais que podem ser abertos e conferidos.
 
-## Páginas
+## Páginas principais
 
-- [Início](/): Apresentação da agência, serviços e diferenciais.
-- [Sobre](/sobre): Quem somos, posicionamento e processo de trabalho.
+- [Início](/): Apresentação do estúdio, trabalhos selecionados, serviços, processo e investimento.
+- [Sobre](/sobre): Posicionamento e forma de trabalho.
 - [Serviços](/servicos): Visão geral dos serviços oferecidos.
-- [Portfólio](/portfolio): Cases reais de projetos entregues.
-- [Diagnóstico](/diagnostico): Diagnóstico gratuito da presença digital do seu negócio.
-- [FAQ](/faq): Perguntas frequentes sobre prazos, escopo e atendimento.
-- [Contato](/contato): Canais de atendimento e formulário de orçamento.
-- [Atendimento](/atendimento): Como funciona o atendimento online via WhatsApp.
+- [Portfólio](/portfolio): Projetos publicados e verificáveis.
+- [Diagnóstico](/diagnostico): Diagnóstico da presença digital do negócio.
+- [FAQ](/faq): Perguntas frequentes sobre escopo e atendimento.
+- [Contato](/contato): Canais de atendimento e orçamento.
+- [Atendimento](/atendimento): Como funciona o atendimento online.
+- [Manutenção](/manutencao): Manutenção de sites em produção.
 
 ## Serviços
 
-- [Sites Institucionais](/servicos/sites-institucionais): Sites profissionais para empresas, com design clean e SEO.
-- [Landing Pages](/servicos/landing-pages): Landing pages otimizadas para conversão e campanhas pagas.
-- [Loja Virtual](/servicos/loja-virtual): E-commerce sob medida com integração de pagamentos e gestão.
-- [Google Ads](/servicos/anuncios): Gestão de campanhas no Google Ads com foco em ROI.
-- [Manutenção](/manutencao): Plano de manutenção mensal para sites em produção.
+- [Sites Institucionais](/servicos/sites-institucionais): Sites profissionais para empresas e profissionais.
+- [Landing Pages](/servicos/landing-pages): Páginas para campanhas, ofertas e geração de contatos.
+- [Loja Virtual](/servicos/loja-virtual): Projetos de e-commerce conforme o escopo do negócio.
+- [Google Ads](/servicos/anuncios): Estruturação e acompanhamento de campanhas.
 
-## Cases do portfólio
+## Trabalhos publicados
 
-- [Escritório de Advocacia](/portfolio/escritorio-advocacia): Site institucional para escritório jurídico.
-- [Clínica Odontológica](/portfolio/clinica-odontologica): Site de captação de pacientes para clínica.
-- [Loja de Moda Feminina](/portfolio/loja-moda-feminina): E-commerce de moda com checkout otimizado.
-- [Restaurante](/portfolio/restaurante-gastronomia): Site gastronômico com cardápio digital.
+- Helena Ávila Psicoterapeuta: https://www.helenaavilapsi.com.br/
+- Cristiano Ávila: https://cristiano-avila-site.vercel.app/
 
-## Opcional
-
-- [Criação de Sites em São Paulo](/criacao-de-sites-sao-paulo): Páginas regionais cobrem 40 capitais e grandes cidades brasileiras (mesmo padrão em /criacao-de-sites-[cidade]).
+A Kubo Web não publica métricas de clientes, faturamento, avaliações ou resultados sem uma fonte verificável associada ao projeto.

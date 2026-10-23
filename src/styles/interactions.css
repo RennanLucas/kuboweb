@@ -13,6 +13,11 @@
   50% { transform: translate3d(0, -8px, 0); }
 }
 
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid rgba(121, 169, 255, .95);
+  outline-offset: 4px;
+}
+
 .kubo-marquee {
   overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
@@ -27,7 +32,8 @@
   will-change: transform;
 }
 
-.kubo-marquee:hover .kubo-marquee-track {
+.kubo-marquee:hover .kubo-marquee-track,
+.kubo-marquee:focus-within .kubo-marquee-track {
   animation-play-state: paused;
 }
 
@@ -75,6 +81,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
   .kubo-marquee-track,
   .kubo-pulse-soft,
   .kubo-float {

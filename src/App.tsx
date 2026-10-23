@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { MotionConfig } from "framer-motion";
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import { useEffect, lazy, Suspense } from "react";
 import Index from "./pages/Index";
 
@@ -27,15 +27,18 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const queryClient = new QueryClient();
 
 const PageLoader = () => (
-  <div className="min-h-screen bg-background flex items-center justify-center" aria-label="Carregando página">
-    <div className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse" />
+  <div className="flex min-h-screen items-center justify-center bg-[#07101f]" aria-label="Carregando página">
+    <div className="relative h-10 w-10">
+      <div className="absolute inset-0 rounded-[14px] border border-white/12" />
+      <div className="absolute inset-[9px] rounded-full bg-[#79a9ff] animate-pulse" />
+    </div>
   </div>
 );
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [pathname]);
   return null;
 };
@@ -90,6 +93,45 @@ const TrackingListener = () => {
   return null;
 };
 
+const AnimatedRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -6 }}
+        transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <Suspense fallback={<PageLoader />}>
+          <Routes location={location}>
+            <Route path="/" element={<Index />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route path="/servicos" element={<Servicos />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/portfolio/:slug" element={<Navigate to="/portfolio" replace />} />
+            <Route path="/diagnostico" element={<Diagnostico />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/contato" element={<Contato />} />
+            <Route path="/servicos/sites-institucionais" element={<SitesInstitucionais />} />
+            <Route path="/servicos/landing-pages" element={<LandingPages />} />
+            <Route path="/servicos/loja-virtual" element={<LojaVirtual />} />
+            <Route path="/servicos/anuncios" element={<Anuncios />} />
+            <Route path="/manutencao" element={<Manutencao />} />
+            <Route path="/atendimento" element={<Atendimento />} />
+            <Route path="/criacao-de-sites-:slug/*" element={<CidadeLanding />} />
+            <Route path="/criacao-de-sites-*" element={<CidadeLanding />} />
+            <Route path="/guia/investimento-site-profissional" element={<GuiaInvestimentoSite />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
 const App = () => {
   return (
     <HelmetProvider>
@@ -101,28 +143,7 @@ const App = () => {
             <TrackingListener />
             <BrowserRouter>
               <ScrollToTop />
-              <Suspense fallback={<PageLoader />}>
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/sobre" element={<Sobre />} />
-                  <Route path="/servicos" element={<Servicos />} />
-                  <Route path="/portfolio" element={<Portfolio />} />
-                  <Route path="/portfolio/:slug" element={<Navigate to="/portfolio" replace />} />
-                  <Route path="/diagnostico" element={<Diagnostico />} />
-                  <Route path="/faq" element={<Faq />} />
-                  <Route path="/contato" element={<Contato />} />
-                  <Route path="/servicos/sites-institucionais" element={<SitesInstitucionais />} />
-                  <Route path="/servicos/landing-pages" element={<LandingPages />} />
-                  <Route path="/servicos/loja-virtual" element={<LojaVirtual />} />
-                  <Route path="/servicos/anuncios" element={<Anuncios />} />
-                  <Route path="/manutencao" element={<Manutencao />} />
-                  <Route path="/atendimento" element={<Atendimento />} />
-                  <Route path="/criacao-de-sites-:slug/*" element={<CidadeLanding />} />
-                  <Route path="/criacao-de-sites-*" element={<CidadeLanding />} />
-                  <Route path="/guia/investimento-site-profissional" element={<GuiaInvestimentoSite />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
+              <AnimatedRoutes />
             </BrowserRouter>
           </TooltipProvider>
         </MotionConfig>

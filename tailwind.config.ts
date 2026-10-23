@@ -31,10 +31,12 @@ export default {
   			heading: [
   				'Space Grotesk',
   				'Manrope',
+  				'ui-sans-serif',
+  				'system-ui',
   				'sans-serif'
   			],
   			serif: [
-  				'Lora',
+  				'Playfair Display',
   				'ui-serif',
   				'Georgia',
   				'Cambria',
@@ -43,7 +45,6 @@ export default {
   				'serif'
   			],
   			mono: [
-  				'Space Mono',
   				'ui-monospace',
   				'SFMono-Regular',
   				'Menlo',

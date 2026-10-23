@@ -46,7 +46,7 @@ const SEO = ({ title, description, path = "/", noindex = false, jsonLd }: SEOPro
       <link rel="canonical" href={url} />
       <meta
         name="robots"
-        content={noindex ? "noindex,nofollow" : "index,follow,max-image-preview:large,max-snippet:-1"}
+        content={noindex ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1"}
       />
       <html lang="pt-BR" />
 

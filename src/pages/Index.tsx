@@ -7,6 +7,7 @@ import { faqs } from "@/data/faqs";
 
 const StudioShowcaseSection = lazy(() => import("@/components/StudioShowcaseSection"));
 const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const ComparisonSection = lazy(() => import("@/components/ComparisonSection"));
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
 const PricingSection = lazy(() => import("@/components/PricingSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
@@ -49,6 +50,10 @@ const Index = () => {
 
       <Suspense fallback={<SectionFallback />}>
         <ServicesSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
+        <ComparisonSection />
       </Suspense>
 
       <Suspense fallback={<SectionFallback />}>

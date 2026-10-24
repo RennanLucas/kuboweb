@@ -23,6 +23,7 @@ const Manutencao = lazy(() => import("./pages/Manutencao"));
 const Atendimento = lazy(() => import("./pages/Atendimento"));
 const CidadeLanding = lazy(() => import("./pages/CidadeLanding"));
 const GuiaInvestimentoSite = lazy(() => import("./pages/GuiaInvestimentoSite"));
+const Privacidade = lazy(() => import("./pages/Privacidade"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -48,7 +49,7 @@ const TrackingListener = () => {
 const AnimatedRoutes = () => {
   const location = useLocation();
   return <AnimatePresence mode="wait" initial={false}><motion.div key={location.pathname} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}><Suspense fallback={<PageLoader />}><Routes location={location}>
-    <Route path="/" element={<Index />} /><Route path="/sobre" element={<Sobre />} /><Route path="/servicos" element={<Servicos />} /><Route path="/portfolio" element={<Portfolio />} /><Route path="/portfolio/:slug" element={<CaseStudy />} /><Route path="/diagnostico" element={<Diagnostico />} /><Route path="/faq" element={<Faq />} /><Route path="/contato" element={<Contato />} /><Route path="/servicos/sites-institucionais" element={<SitesInstitucionais />} /><Route path="/servicos/landing-pages" element={<LandingPages />} /><Route path="/servicos/loja-virtual" element={<LojaVirtual />} /><Route path="/servicos/anuncios" element={<Anuncios />} /><Route path="/manutencao" element={<Manutencao />} /><Route path="/atendimento" element={<Atendimento />} /><Route path="/criacao-de-sites-:slug/*" element={<CidadeLanding />} /><Route path="/criacao-de-sites-*" element={<CidadeLanding />} /><Route path="/guia/investimento-site-profissional" element={<GuiaInvestimentoSite />} /><Route path="*" element={<NotFound />} />
+    <Route path="/" element={<Index />} /><Route path="/sobre" element={<Sobre />} /><Route path="/servicos" element={<Servicos />} /><Route path="/portfolio" element={<Portfolio />} /><Route path="/portfolio/:slug" element={<CaseStudy />} /><Route path="/diagnostico" element={<Diagnostico />} /><Route path="/faq" element={<Faq />} /><Route path="/contato" element={<Contato />} /><Route path="/servicos/sites-institucionais" element={<SitesInstitucionais />} /><Route path="/servicos/landing-pages" element={<LandingPages />} /><Route path="/servicos/loja-virtual" element={<LojaVirtual />} /><Route path="/servicos/anuncios" element={<Anuncios />} /><Route path="/manutencao" element={<Manutencao />} /><Route path="/atendimento" element={<Atendimento />} /><Route path="/criacao-de-sites-:slug/*" element={<CidadeLanding />} /><Route path="/criacao-de-sites-*" element={<CidadeLanding />} /><Route path="/guia/investimento-site-profissional" element={<GuiaInvestimentoSite />} /><Route path="/privacidade" element={<Privacidade />} /><Route path="*" element={<NotFound />} />
   </Routes></Suspense></motion.div></AnimatePresence>;
 };
 

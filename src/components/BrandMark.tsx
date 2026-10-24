@@ -12,8 +12,8 @@ const BrandMark = ({ inverse = false, compact = false }: BrandMarkProps) => {
   const glyphStroke = inverse ? "#07101f" : "#ffffff";
 
   return (
-    <span className="inline-flex items-center gap-3" aria-label="Kubo Web">
-      <span className="relative flex h-10 w-10 shrink-0 items-center justify-center" aria-hidden="true">
+    <span className="inline-flex items-center gap-2.5 md:gap-3" aria-label="Kubo Web">
+      <span className="relative flex h-8 w-8 shrink-0 items-center justify-center md:h-10 md:w-10" aria-hidden="true">
         <svg viewBox="0 0 48 48" className="h-full w-full overflow-visible" fill="none" role="presentation">
           <path d="M24 4.75 43 14.8 24 24.8 5 14.8 24 4.75Z" fill={faceC} />
           <path d="M5 16.1 23 25.55V45L5 35.15V16.1Z" fill={faceA} />
@@ -24,9 +24,9 @@ const BrandMark = ({ inverse = false, compact = false }: BrandMarkProps) => {
       </span>
 
       <span className="flex items-end gap-2 leading-none">
-        <span className={`font-heading text-[17px] font-semibold uppercase tracking-[-0.06em] ${ink}`}>KUBO</span>
+        <span className={`font-heading text-[15px] font-semibold uppercase tracking-[-0.06em] md:text-[17px] ${ink}`}>KUBO</span>
         {!compact && (
-          <span className={`pb-[1px] text-[8px] font-semibold uppercase tracking-[0.28em] ${muted}`}>WEB</span>
+          <span className={`hidden pb-[1px] text-[8px] font-semibold uppercase tracking-[0.28em] sm:inline ${muted}`}>WEB</span>
         )}
       </span>
     </span>

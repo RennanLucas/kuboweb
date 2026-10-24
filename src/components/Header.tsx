@@ -48,7 +48,7 @@ const Header = () => {
           Solicitar orçamento <ArrowUpRight className="h-3.5 w-3.5" />
         </a>
 
-        <button onClick={() => setOpen(true)} aria-label="Abrir menu" className="flex h-8.5 w-8.5 items-center justify-center rounded-full border border-white/[.12] text-white lg:hidden">
+        <button onClick={() => setOpen(true)} aria-label="Abrir menu" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[.12] text-white lg:hidden">
           <Menu className="h-4 w-4" />
         </button>
       </div>
@@ -64,9 +64,9 @@ const Header = () => {
               </div>
               <nav className="mt-12 flex-1">
                 {links.map((link, index) => (
-                  <motion.a key={link.label} href={link.href} initial={reduceMotion ? false : { opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: reduceMotion ? 0 : index * .035 }} className="group flex items-center justify-between border-b border-white/[.09] py-4.5 text-[1.65rem] font-heading font-semibold tracking-[-.045em] text-white/88">
+                  <motion.a key={link.label} href={link.href} initial={reduceMotion ? false : { opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: reduceMotion ? 0 : index * .035 }} className="group flex items-center justify-between border-b border-white/[.09] py-4 text-[1.65rem] font-heading font-semibold tracking-[-.045em] text-white/88">
                     <span className="flex items-center gap-4"><span className="font-mono text-[8px] font-semibold text-[#7ea8ff]">0{index + 1}</span>{link.label}</span>
-                    <ArrowUpRight className="h-4.5 w-4.5 text-white/20 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <ArrowUpRight className="h-4 w-4 text-white/20 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </motion.a>
                 ))}
               </nav>
